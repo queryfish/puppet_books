@@ -1,5 +1,5 @@
 {
-  "name": "thal",
+  "name": "pupe",
   "version": "1.0.0",
   "description": "Web Scrapper with Chrome Headless & Puppeteer",
   "main": "index.js",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/emadehsan/thal#readme",
   "dependencies": {
     "mongoose": "^5.3.1",
-    "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git"
-  }
+    "puppeteer": "v1.14.0"
+  },
+  "devDependencies": {}
 }
