@@ -199,5 +199,5 @@ async function retry(maxRetries, fn) {
  main
 */
 (async () => {
-    retry(3, automate)
+    retry(10, automate)
 })();
