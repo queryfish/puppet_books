@@ -11,9 +11,9 @@ async function test() {
     headless: true
     // , defaultViewport: null
   });
-
+  const url = 'https://sobooks.cc/books/12732.html';
   const page = await browser.newPage();
-  await page.goto('https://www.baidu.com/', {waitUntil: 'networkidle2'});
+  await page.goto(url, {waitUntil: 'networkidle2'});
 
   browser.close();
 
