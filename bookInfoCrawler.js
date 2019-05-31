@@ -69,7 +69,7 @@ async function getTextContent(page, selector) {
   await page.keyboard.type(CREDS.checkcode);
   // await page.click(BUTTON_SELECTOR);
   // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
-  await page.clickLink(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
+  await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
   // await page.waitFor(5*1000);
 
   let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
