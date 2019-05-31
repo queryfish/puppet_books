@@ -52,6 +52,7 @@ async function getTextContent(page, selector) {
 
   const page = await browser.newPage();
   await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+  var bookObj = {"bookUrl": detailUrl};
   console.log("extracting "+detailUrl);
   // bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
   let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
@@ -63,7 +64,6 @@ async function getTextContent(page, selector) {
   console.log(bookObj);
   // await page.waitFor(5 * 1000);
 
-  var bookObj = {"bookUrl": detailUrl};
 
   await page.click(CHECKCODE_SELECTOR);
   await page.keyboard.type(CREDS.checkcode);
