@@ -162,8 +162,8 @@ async function automate() {
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
   const browser = await puppeteer.launch({
-    headless: true
-    // , defaultViewport: null
+    headless: false
+    , defaultViewport: null
   });
   var tick = 0;
   var r = await assertBook();
