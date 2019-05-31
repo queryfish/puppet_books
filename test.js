@@ -55,23 +55,6 @@ async function getTextContent(page, selector) {
   console.log("going to "+detailUrl);
   await page.waitFor(5 * 1000);
 
-  /*
-      bookId: String,
-      bookName: String,
-      bookUrl: String,
-      bookMeta: String,
-      author: String,
-      bookSerial: String,
-      bookBrief: String,
-      doubanUrl: String,
-      baiduUrl: String,
-      baiduCode: String,
-      savedBaidu: Boolean,
-      dateCrawled: Date
-
-  });
-  */
-
   var bookObj = {"bookUrl": detailUrl};
 
   //DEMO shows how to extract the tag list from top page
@@ -90,10 +73,10 @@ async function getTextContent(page, selector) {
   }
   */
 
-  await page.click(CHECKCODE_SELECTOR);
-  await page.keyboard.type(CREDS.checkcode);
-  await page.click(BUTTON_SELECTOR);
-  await page.waitFor(5*1000);
+  // await page.click(CHECKCODE_SELECTOR);
+  // await page.keyboard.type(CREDS.checkcode);
+  // await page.click(BUTTON_SELECTOR);
+  // await page.waitFor(5*1000);
 
   console.log("extracting "+detailUrl);
   bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
@@ -103,26 +86,27 @@ async function getTextContent(page, selector) {
   bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
   bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
   bookObj["tags"] = await getTextContent(page, TAGS_SEL);
-  let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
-  var l = baiduPickup.length;
-  bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
 
-
-  // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
-  const url_selector = 'table.dltable > tbody * a:first-of-type';
-  let dl_url = await page.evaluate((sel) => {
-    let baidu_url = document.querySelector(sel).getAttribute("href");
-    console.log(baidu_url);
-    return baidu_url;
-  }, url_selector);
-
-  const temp_url = new URL(dl_url);
-  bookObj["baiduUrl"]= temp_url.searchParams.get('url');
+  // let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
+  // var l = baiduPickup.length;
+  // bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
+  //
+  //
+  // // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
+  // const url_selector = 'table.dltable > tbody * a:first-of-type';
+  // let dl_url = await page.evaluate((sel) => {
+  //   let baidu_url = document.querySelector(sel).getAttribute("href");
+  //   console.log(baidu_url);
+  //   return baidu_url;
+  // }, url_selector);
+  //
+  // const temp_url = new URL(dl_url);
+  // bookObj["baiduUrl"]= temp_url.searchParams.get('url');
 
   console.log("book detailed ");
   console.log(bookObj.bookName+"@"+bookObj.author);
 
-  upsertBook(bookObj);
+  // upsertBook(bookObj);
 
   // upsertBook({
   //   bookUrl: detailUrl
@@ -178,7 +162,7 @@ async function() {
 }
 
 
-async function automate() {
+async function test() {
   /*
   1- query from mongodb for impartial entry to be further crawl for detail
   2- use the crawl func and save it to db
@@ -188,39 +172,30 @@ async function automate() {
     headless: true
     // , defaultViewport: null
   });
-  var tick = 0;
-  var r = await assertBook();
-  while(r.length > 0 && tick < MAX_CRAWL_NUM){
-    console.log(r.length+" books to go !!!");
-    // console.log(r);
-    for (var i = 0; i < r.length; i++) {
-      book = r[i];
-      console.log("crawling "+i+"th book detail "+book.bookName);
-      await crawl(browser, book.bookUrl);
-      tick ++;
-    }
-    r = await assertBook();
-  }
+  // var tick = 0;
+  // var r = await assertBook();
+
+  // while(r.length > 0 && tick < MAX_CRAWL_NUM){
+  //   console.log(r.length+" books to go !!!");
+  //   // console.log(r);
+  //   for (var i = 0; i < r.length; i++) {
+  //     book = r[i];
+  //     console.log("crawling "+i+"th book detail "+book.bookName);
+  //     await crawl(browser, book.bookUrl);
+  //     tick ++;
+  //   }
+  //   r = await assertBook();
+  // }
+  await  crawl(browser, 'https://sobooks.cc/books/12732.html');
 
   browser.close();
 
 }
 
+
 /*
  main
 */
-async function retry(maxRetries, fn) {
-  console.log("retry time "+maxRetries);
-  return await fn().catch(function(err) {
-    if (maxRetries <= 0) {
-      throw err;
-    }
-    return retry(maxRetries - 1, fn);
-  });
-}
-/*
- main
-*/
-// (async () => {
-//     retry(10, automate)
-// })();
+(async () => {
+    await test();
+})();
