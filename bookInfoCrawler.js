@@ -51,50 +51,7 @@ async function getTextContent(page, selector) {
   const CATEGORY_SEL   = '#mute-category > a';
 
   const page = await browser.newPage();
-  await page.goto(detailUrl);
-  console.log("going to "+detailUrl);
-  await page.waitFor(5 * 1000);
-
-  /*
-      bookId: String,
-      bookName: String,
-      bookUrl: String,
-      bookMeta: String,
-      author: String,
-      bookSerial: String,
-      bookBrief: String,
-      doubanUrl: String,
-      baiduUrl: String,
-      baiduCode: String,
-      savedBaidu: Boolean,
-      dateCrawled: Date
-
-  });
-  */
-
-  var bookObj = {"bookUrl": detailUrl};
-
-  //DEMO shows how to extract the tag list from top page
-  /*
-  var tag_sels = 'body > section > aside > div.widget.git_tag > div.git_tags > a';
-  var tag_index_sel = 'body > section > aside > div.widget.git_tag > div.git_tags > a:nth-child(INDEX)';
-  let numOfTags = await page.evaluate((sel) => {
-    let children = document.querySelectorAll(sel);
-    return children.length;
-  }, tag_sels);
-  for (var i=0;i<numOfTags;i++)
-  {
-    let tagSel = tag_index_sel.replace("INDEX", i);
-    var t = await getTextContent(page, tagSel);
-    console.log("tag "+t);
-  }
-  */
-
-  await page.click(CHECKCODE_SELECTOR);
-  await page.keyboard.type(CREDS.checkcode);
-  await page.click(BUTTON_SELECTOR);
-  await page.waitFor(5*1000);
-
+  await page.goto(detailUrl, {waitUntil: 'networkidle2'});
   console.log("extracting "+detailUrl);
   bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
   let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
@@ -103,6 +60,16 @@ async function getTextContent(page, selector) {
   bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
   bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
   bookObj["tags"] = await getTextContent(page, TAGS_SEL);
+  console.log(bookObj);
+  // await page.waitFor(5 * 1000);
+
+  var bookObj = {"bookUrl": detailUrl};
+
+  await page.click(CHECKCODE_SELECTOR);
+  await page.keyboard.type(CREDS.checkcode);
+  await page.click(BUTTON_SELECTOR, {waitUntil:'networkidle2'});
+  // await page.waitFor(5*1000);
+  
   let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
   var l = baiduPickup.length;
   bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);

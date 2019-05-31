@@ -30,6 +30,7 @@ async function test() {
   });
   const url = 'https://sobooks.cc/books/12732.html';
   const page = await browser.newPage();
+  console.log('going to ' + url);
   await page.goto(url, {waitUntil: 'networkidle2'});
 
   var bookObj = {};
@@ -42,7 +43,7 @@ async function test() {
   bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
   bookObj["tags"] = await getTextContent(page, TAGS_SEL);
   console.log(bookObj);
-  
+
   browser.close();
 
 }
