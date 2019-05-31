@@ -53,7 +53,7 @@ async function getTextContent(page, selector) {
   const page = await browser.newPage();
   await page.goto(detailUrl, {waitUntil: 'networkidle2'});
   console.log("extracting "+detailUrl);
-  bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
+  // bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
   let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
   bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
   bookObj["bookSerial"]= await getTextContent(page, ISBN_SEL);
