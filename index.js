@@ -3,7 +3,8 @@ const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const fs = require('fs');
-const detailCrawler = require('./detailCrawler')
+const detailCrawler = require('./detailCrawler');
+const cookieFile = './cookieFile';
 
 async function saveCookieTest() {
   const usernameSel = '#TANGRAM__PSP_4__userName';
