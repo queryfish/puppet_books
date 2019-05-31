@@ -69,7 +69,7 @@ async function getTextContent(page, selector) {
   await page.keyboard.type(CREDS.checkcode);
   await page.click(BUTTON_SELECTOR, {waitUntil:'networkidle2'});
   // await page.waitFor(5*1000);
-  
+
   let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
   var l = baiduPickup.length;
   bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
@@ -166,5 +166,6 @@ async function retry(maxRetries, fn) {
  main
 */
 (async () => {
-    retry(10, automate)
+    // retry(10, automate)
+    await automate();
 })();
