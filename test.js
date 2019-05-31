@@ -103,8 +103,7 @@ async function getTextContent(page, selector) {
   // const temp_url = new URL(dl_url);
   // bookObj["baiduUrl"]= temp_url.searchParams.get('url');
 
-  console.log("book detailed ");
-  console.log(bookObj.bookName+"@"+bookObj.author);
+  console.log(bookObj);
 
   // upsertBook(bookObj);
 
