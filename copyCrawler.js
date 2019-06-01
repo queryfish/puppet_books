@@ -6,7 +6,7 @@ const fs = require('fs');
 // const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 1000;
 const DB_BATCH = 5;
-const cookieFile = './cookieFile';
+const cookieFile = './cookieJar';
 
 function assertMongoDB() {
   const DB_URL = 'mongodb://localhost/sobooks';
@@ -99,8 +99,8 @@ async function grabABook_BDY(page, bookObj) {
     var tree_dir_sel = '#fileTreeDialog > div.dialog-body > div > ul > li > ul > li:nth-child(2) > div > span > span';
     let  dir_name_text = await getTextContent(page, tree_dir_sel);
     if(dir_name_text == "A_bookstore"){
-      // await page.click(tree_dir_sel);
-      // await page.waitFor(1*1000);
+      await page.click(tree_dir_sel);
+      await page.waitFor(1*1000);
     }
 
     const okButtonSel ='#fileTreeDialog > div.dialog-footer.g-clearfix > a.g-button.g-button-blue-large';
@@ -177,7 +177,7 @@ async function automate() {
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     defaultViewport: null
   });
 
