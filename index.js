@@ -25,10 +25,10 @@ async function saveCookieTest() {
   await page.click(loginTypeSel);
   // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
   await page.click(usernameSel);
-  await page.keyboard.type('marrowsky@126.com');
+  await page.keyboard.type('goodman@126.com');
 
   await page.click(passwordSel);
-  await page.keyboard.type('baiduyun143');
+  await page.keyboard.type('baiduyun_secret');
 
   await page.click(loginButtonSel);
   // await page.waitForNavigation();
@@ -390,10 +390,10 @@ async function saveTest() {
 
 
   await page.click(usernameSel);
-  await page.keyboard.type('marrowsky@126.com');
+  await page.keyboard.type('goodman@126.com');
 
   await page.click(passwordSel);
-  await page.keyboard.type('baiduyun143');
+  await page.keyboard.type('baiduyun_secret');
 
   await page.click(loginButtonSel);
   await page.waitForNavigation();
