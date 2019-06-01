@@ -175,7 +175,7 @@ async function automate() {
     for(var retry=0;retry<3&&r.length==0;retry++)
     {
       console.log("need to get some detail time "+ retry);
-      await detailCrawler.run(DB_BATCH);
+      await detailCrawler.run(page, DB_BATCH);
       r = await assertBook();
     }
 

@@ -117,18 +117,19 @@ async function assertBook() {
 }
 
 exports.run =
-async function(max_crawled_items) {
+async function(page, max_crawled_items) {
   /*
   1- query from mongodb for impartial entry to be further crawl for detail
   2- use the crawl func and save it to db
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
-  const browser = await puppeteer.launch({
-    headless: true,
-    ignoreHTTPSErrors: true
-    // , defaultViewport: null
-  });
-  const page = await browser.newPage();
+  // const browser = await puppeteer.launch({
+  //   headless: true,
+  //   ignoreHTTPSErrors: true
+  //   // , defaultViewport: null
+  // });
+  // const page = await browser.newPage();
+
   var tick = 0;
   var r = await assertBook();
   // while(r.length > 0 && tick < max_crawled_items){
