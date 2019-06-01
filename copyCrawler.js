@@ -59,7 +59,7 @@ async function grabABook_BDY(page, bookObj) {
 
     const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
     const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
-    await page.goto(baidu_url);
+    await page.goto(baidu_url, , {waitUntil: 'networkidle2'});
     await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(CHECKCODE_SELECTOR2);
     await page.keyboard.type(pickcode);
@@ -77,7 +77,6 @@ async function grabABook_BDY(page, bookObj) {
     // const CHECK_ALL = '#shareqr > div.KPDwCE > div.QxJxtg > div > ul.QAfdwP.tvPMvPb > li.fufHyA.yfHIsP.JFaAINb > div > span.zbyDdwb'
     // const SAVE_BUTTON_SEL = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     // const DOWNLOAD_BUTTON_SEL = 'a.g-button.last-button';
-
     /*
       这里需要判断是文件夹还是单个文件，两种布局不一样，操作方式也不一样
     */
@@ -133,8 +132,6 @@ async function grabABook_BDY(page, bookObj) {
     /*
       这里需要判断是否操作成功，用于入库保存
     */
-
-
     // const FILE_CHECK_SEL = 'div.file-name';
     // const SAVE_BUTTON_SEL = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     // const DOWNLOAD_BUTTON_SEL = 'a.g-button.last-button';
@@ -156,22 +153,17 @@ function isInvalidValue(v) {
  * @param {string} file
  */
 
- async function injectCookiesFromFile(page, file) {
-
-  let cb = async function (page, cookie) {
-      // console.log("Injecting cookies from file: %s", JSON.stringify(cookie) );
-      //await page.setCookie(..._cookies); // method 1
+async function injectCookiesFromFile(page, file)
+{
+  let cb = async function (page, cookie)
+  {
       await page.setCookie(cookie); // method 2
   };
 
   fs.readFile(file, async function(err, data) {
-
       if(err)
           throw err;
-
       let cookies = JSON.parse(data);
-      //await cb(cookies); // method 1
-
       for (var i = 0, len = cookies.length; i < len; i++)
           await cb(page, cookies[i]); // method 2
   });
@@ -194,16 +186,18 @@ async function automate() {
 
   var tick = 0;
   var r = await assertBook();
+  console.log(r);
   console.log(r.length+" books to crawl ...");
-
-  while(tick < MAX_CRAWL_NUM){
-    // console.log(r);
-    while(r.length == 0 && tick < MAX_CRAWL_NUM)
+  while(r.length>0 )
+    // && tick < MAX_CRAWL_NUM)
     {
-      await detailCrawler.crawl();
-      r = await assertBook();
-      tick++;
-    }
+    // console.log(r);
+    // while(r.length == 0 && tick < MAX_CRAWL_NUM)
+    // {
+    //   await detailCrawler.crawl();
+    //   r = await assertBook();
+    //   tick++;
+    // }
     for (var i = 0; i < r.length; i++) {
       book = r[i];
       console.log("crawling book detail "+book.bookName+"@"+book.bookUrl);
@@ -211,7 +205,7 @@ async function automate() {
       tick ++;
       console.log(tick + "th book has been crawled");
     }
-    r = await assertBook();
+    // r = await assertBook();
   }
   await browser.close();
 
@@ -234,7 +228,6 @@ async function retry(maxRetries, fn) {
       await automate();
     } catch (e) {
       throw(e);
-      // Deal with the fact the chain failed
     }
     // return;
     // retry(10, automate)
