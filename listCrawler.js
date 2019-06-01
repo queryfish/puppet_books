@@ -176,7 +176,8 @@ function isInvalidValue(v) {
     try {
       // var v = process.argv.slice(2);
       // await crawlBookListScanner();
-      await crawlBookListByTag("小说")
+      // await crawlBookListByTag("小说")
+      await crawlBookList()
       // process.exit(0);
     } catch (e) {
         throw(e)
