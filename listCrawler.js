@@ -128,11 +128,10 @@ async function crawlBookList(uri_formatter)
   //数据库中保存的是最大的BookID: crawlerCursor
   let crawlerCursorObj = await getCursor();
   var crawlerCursor = crawlerCursorObj[0]["cursor"];
-  crawlerCursor = 12706;
   //由于爬虫是按照BookId的降序爬取的，所以要保存一个爬到的最大值 : maxCursor
   var maxCursor = 0;
   //用于保存当前爬取的书目的BookId: currentBookId
-  var currentBookId = 100000;
+  var currentBookId = crawlerCursor+5;
   //接下来要考虑洞的问题
 
   console.log("start crawling ");
@@ -157,7 +156,8 @@ async function crawlBookList(uri_formatter)
     console.log('starting '+p+'th PAGE of '+max_pages+' pages');
     console.log('crawling '+pageUrl);
 
-    for (let i = 1; i <= listLength && currentBookId >= crawlerCursor; i++) {
+    for (let i = 1; i <= listLength && currentBookId >= crawlerCursor; i++)
+    {
       // change the index to the next child
       let booknameSelector = LIST_BOOKNAME_SELECTOR.replace("INDEX", i);
       let metaSelector = LIST_META_SELECTOR.replace("INDEX", i);
@@ -187,6 +187,7 @@ async function crawlBookList(uri_formatter)
       upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
+        cursorId: currentBookId,
         dateCrawled: new Date()
       });
     }
@@ -196,7 +197,7 @@ async function crawlBookList(uri_formatter)
   console.log("crawlerCursor = "+crawlerCursor);
   console.log("currentBookId = "+currentBookId);
 
-  upsertCursor(12706);
+  upsertCursor(maxCursor);
   await browser.close();
 }
 
@@ -218,6 +219,7 @@ async function greedyDiggerWithFormatter(uri_formatter)
   console.log('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   var ticks = 0;
+  var currentBookId = 0;
 
   for (let p = 1; p <= max_pages ; p++)
   {
@@ -252,14 +254,20 @@ async function greedyDiggerWithFormatter(uri_formatter)
         return burl;
       }, bookurlSelector);
 
+      if(bookurl != null && typeof(bookurl)!="undefined"&&bookurl!="")
+      {
+          var bookId = bookurl.split("/").pop().split(".").shift();
+          currentBookId = Number(bookId);
+      }
       upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
+        cursorId: currentBookId,
         dateCrawled: new Date()
       });
 
       ticks++;
-      console.log('NO.',ticks ,bookname, ' -> ', bookurl);
+      console.log('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
 
     }
     // await page.waitFor(5*1000);
@@ -312,8 +320,8 @@ function isInvalidValue(v) {
       // var v = process.argv.slice(2);
       // await crawlBookListScanner();
       // await crawlBookListByTag("小说")
-      // await crawlBookListPlain()
-      await greedyDigger();
+      await crawlBookListPlain()
+      // await greedyDigger();
       // process.exit(0);
     } catch (e) {
         throw(e)
