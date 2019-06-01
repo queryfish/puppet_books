@@ -5,7 +5,7 @@ const Book = require('./models/book');
 const fs = require('fs');
 // const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 1000;
-const DB_BATCH = 500;
+const DB_BATCH = 5;
 const cookieFile = './cookieFile';
 
 function assertMongoDB() {
@@ -35,7 +35,7 @@ async function assertBook() {
                           {"baiduCode":{"$exists":true}},
                           {"lastCrawlCopyTime":{"$exists":false}}
                         ] };
-  const options = { limit: DB_BATCH };
+  const options = { limit: 5 };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
@@ -186,7 +186,7 @@ async function automate() {
 
   var tick = 0;
   var r = await assertBook();
-  console.log(r);
+  // console.log(r);
   console.log(r.length+" books to crawl ...");
   // while(r.length>0 )
     // && tick < MAX_CRAWL_NUM)
