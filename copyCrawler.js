@@ -224,11 +224,11 @@ async function retry(maxRetries, fn) {
  main
 */
 (async () => {
-    try {
+    // try {
       await automate();
-    } catch (e) {
-      throw(e);
-    }
+    // } catch (e) {
+    //   throw(e);
+    // }
     // return;
     // retry(10, automate)
 })();

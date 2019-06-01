@@ -155,18 +155,6 @@ async function saveTest() {
    });
 }
 
- /**
- * Inject cookies from previously saved cookies file
- * @param {string} file
- */
-
- /**** main ***/
-// run();
-// test();
-// saveCookieTest();
-// loadCookieTest();
-
-
 // process.argv.slice(2).forEach(function (val, index, array) {
 //   console.log(index + ': ' + val);
 //   fetchBookByUrl(val);
@@ -181,7 +169,3 @@ async function saveTest() {
 })();
 
 // process.exit(0);
-
-// autoSaveBooks('https://sobooks.cc/books/12251.html');
-// crawlBookList('https://sobooks.cc');
-// saveTest();
