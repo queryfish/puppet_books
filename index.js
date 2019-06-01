@@ -13,7 +13,7 @@ async function saveCookieTest() {
   const loginTypeSel = 'p#TANGRAM__PSP_4__footerULoginBtn';
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
 
@@ -47,7 +47,7 @@ async function saveCookieTest() {
 
 async function loadCookieTest() {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
 
@@ -82,7 +82,7 @@ async function crawlBookList(booklistUrl)
   // const LIST_THUMBNAIL_SELECTOR = '';
 
   const browser = await puppeteer.launch({
-    headless: false
+    headless: true
   });
   const page = await browser.newPage();
 
@@ -169,7 +169,7 @@ async function assertBook(bookInfoUrl) {
 async function crawlAndSaveBooKInfo(bookInfoUrl) {
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
 
@@ -242,7 +242,7 @@ async function crawlAndSaveBooKInfo(bookInfoUrl) {
 async function grabABook_BDY(bookObj) {
 
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       defaultViewport: null
     });
 
@@ -376,7 +376,7 @@ async function saveTest() {
   const loginTypeSel = 'p#TANGRAM__PSP_4__footerULoginBtn';
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
 
@@ -423,7 +423,7 @@ async function saveTest() {
 
 async function test() {
   const browser = await puppeteer.launch({
-    headless: false
+    headless: true
   });
 
   const page = await browser.newPage();
@@ -441,7 +441,7 @@ async function test() {
 
 async function run(bookurl) {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
   const page = await browser.newPage();

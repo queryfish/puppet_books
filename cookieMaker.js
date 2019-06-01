@@ -44,7 +44,7 @@ async function saveCookieTest() {
 
 async function loadCookieTest() {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
 
@@ -67,7 +67,7 @@ async function saveTest() {
   const loginTypeSel = 'p#TANGRAM__PSP_4__footerULoginBtn';
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null
   });
 
