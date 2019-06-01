@@ -6,64 +6,7 @@ const fs = require('fs');
 const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 1000;
 const DB_BATCH = 500;
-
-async function saveCookieTest() {
-  const usernameSel = '#TANGRAM__PSP_4__userName';
-  const passwordSel = '#TANGRAM__PSP_4__password';
-  const loginButtonSel = '#TANGRAM__PSP_4__submit';
-  const loginTypeSel = 'p#TANGRAM__PSP_4__footerULoginBtn';
-
-  const browser = await puppeteer.launch({
-    headless: true,
-    defaultViewport: null
-  });
-
-  const page = await browser.newPage();
-  await page.goto('https://pan.baidu.com');
-  // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
-  await page.waitFor(5 * 1000);
-
-  await page.click(loginTypeSel);
-  // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
-  await page.click(usernameSel);
-  await page.keyboard.type('marrowsky@126.com');
-
-  await page.click(passwordSel);
-  await page.keyboard.type('baiduyun143');
-
-  await page.click(loginButtonSel);
-  // await page.waitForNavigation();
-  await page.waitFor(10*1000);
-
-  // let cookie = page.cookies();
-  const cookie = await page.cookies()
-  console.log(JSON.stringify(cookie));
-  await saveToJSONFile(cookie, '~/Downloads/temp/tmp');
-  // await browser.close();
-  // const newp = await browser.newPage();
-  // await newp.setCookie(cookie);
-  // await newp.goto('https://yun.baidu.com');
-
-}
-
-async function loadCookieTest() {
-  const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: null
-  });
-
-  const page = await browser.newPage();
-  await injectCookiesFromFile(page, './tmpcook');
-  await page.waitFor(10 * 1000);
-  const cookie = await page.cookies();
-  console.log("feedback cookie");
-  console.log(JSON.stringify(cookie));
-  // await page.goto('https://pan.baidu.com');
-  await page.goto('https://pan.baidu.com/s/1PY14ZC9YufwPaJoxNMsFww');
-  // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
-
-}
-
+const cookieFile = './cookieFile';
 
 function assertMongoDB() {
   const DB_URL = 'mongodb://localhost/sobooks';
@@ -208,49 +151,6 @@ function isInvalidValue(v) {
   return false;
 }
 
- // /**
- //  * Write Cookies object to target JSON file
- //  * @param {String} targetFile
- //  */
- // async saveCookies(targetFile, cookies) {
- //   // let cookies = await this._page.cookies();
- //   return this.saveToJSONFile(cookies, this._cookiessPath + targetFile);
- // }
-
- // /**
- //  * Write JSON object to specified target file
- //  * @param {String} jsonObj
- //  * @param {String} targetFile
- //  */
- async function saveToJSONFile (jsonObj, targetFile) {
-   // if( !/^\//.test(targetFile) )
-      // return ;
-     // targetFile = this._jsonsPath + targetFile;
-   return new Promise((resolve, reject) => {
-
-     try {
-        var data = JSON.stringify(jsonObj);
-        console.log("Saving object '%s' to JSON file: %s", data, targetFile);
-     }
-     catch (err) {
-       console.log("Could not convert object to JSON string ! " + err);
-       reject(err);
-     }
-
-     // Try saving the file.
-     fs.writeFile('./tmpcook', data, (err, text) => {
-       if(err){
-         console.log(err);
-         reject(err);
-       }
-       else {
-         resolve(targetFile);
-       }
-     });
-
-   });
-}
-
  /**
  * Inject cookies from previously saved cookies file
  * @param {string} file
@@ -276,7 +176,6 @@ function isInvalidValue(v) {
           await cb(page, cookies[i]); // method 2
   });
  }
-
 
 async function automate() {
   /*
@@ -331,12 +230,12 @@ async function retry(maxRetries, fn) {
  main
 */
 (async () => {
-    // try {
-    //   await automate();
-    // } catch (e) {
-    //   throw(e);
-    //   // Deal with the fact the chain failed
-    // }
+    try {
+      await automate();
+    } catch (e) {
+      throw(e);
+      // Deal with the fact the chain failed
+    }
     // return;
-    retry(10, automate)
+    // retry(10, automate)
 })();
