@@ -202,7 +202,7 @@ async function automate() {
       book = r[i];
       console.log("crawling book detail "+book.bookName)
       console.log("fetching from -> "+book.bookUrl);
-      if(book.baiduUrl.startWith("https://pan.baidu.com"))
+      if(book.baiduUrl.startsWith("https://pan.baidu.com"))
         await grabABook_BDY(page, book);
       tick ++;
       console.log(tick + "th book has been crawled");
