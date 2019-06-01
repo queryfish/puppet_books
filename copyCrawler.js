@@ -200,8 +200,10 @@ async function automate() {
     // }
     for (var i = 0; i < r.length; i++) {
       book = r[i];
-      console.log("crawling book detail "+book.bookName+"@"+book.bookUrl);
-      await grabABook_BDY(page, book);
+      console.log("crawling book detail "+book.bookName)
+      console.log("fetching from -> "+book.bookUrl);
+      if(book.baiduUrl.startWith("https://pan.baidu.com"))
+        await grabABook_BDY(page, book);
       tick ++;
       console.log(tick + "th book has been crawled");
     }
