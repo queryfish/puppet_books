@@ -189,7 +189,7 @@ async function automate() {
   });
 
   const page = await browser.newPage();
-  await injectCookiesFromFile(page, './tmpcook');
+  await injectCookiesFromFile(page, cookieFile);
   await page.waitFor(5 * 1000);
 
   var tick = 0;
