@@ -23,6 +23,18 @@ function assertMongoDB() {
   }
 }
 
+async function getMaxCursor() {
+  assertMongoDB();
+  var query = Book.find({}).sort({"cursorId" : -1}).limit(1);
+  const result = await query.exec();
+  console.log("aggregate...result");
+  console.log(result);
+  if (result.length >0)
+    return result[0].cursorId;
+  else
+      return 0;
+}
+
 async function getCursor() {
   assertMongoDB();
   const conditions = { "index": {"$eq":1 } };
@@ -126,10 +138,11 @@ async function crawlBookList(uri_formatter)
   console.log('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   //数据库中保存的是最大的BookID: crawlerCursor
-  let crawlerCursorObj = await getCursor();
-  var crawlerCursor = 0;
-  if(crawlerCursorObj.length >0)
-      crawlerCursor = crawlerCursorObj[0]["cursor"];
+  // let crawlerCursorObj = await getCursor();
+  let crawlerCursor = await getMaxCursor();
+  // var crawlerCursor = 0;
+  // if(crawlerCursorObj.length >0)
+  //     crawlerCursor = crawlerCursorObj[0]["cursor"];
   //由于爬虫是按照BookId的降序爬取的，所以要保存一个爬到的最大值 : maxCursor
   var maxCursor = 0;
   //用于保存当前爬取的书目的BookId: currentBookId
@@ -323,6 +336,7 @@ function isInvalidValue(v) {
       // await crawlBookListScanner();
       // await crawlBookListByTag("小说")
       await crawlBookListPlain()
+      // await updateMaxCursor();
       // await greedyDigger();
       // process.exit(0);
     } catch (e) {
