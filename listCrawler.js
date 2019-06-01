@@ -127,7 +127,9 @@ async function crawlBookList(uri_formatter)
   var max_pages = MAX_PAGE_NUM;
   //数据库中保存的是最大的BookID: crawlerCursor
   let crawlerCursorObj = await getCursor();
-  var crawlerCursor = crawlerCursorObj[0]["cursor"];
+  var crawlerCursor = 0;
+  if(crawlerCursorObj.length >0)
+      crawlerCursor = crawlerCursorObj[0]["cursor"];
   //由于爬虫是按照BookId的降序爬取的，所以要保存一个爬到的最大值 : maxCursor
   var maxCursor = 0;
   //用于保存当前爬取的书目的BookId: currentBookId
