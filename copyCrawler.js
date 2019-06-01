@@ -94,14 +94,14 @@ async function grabABook_BDY(page, bookObj) {
 
     // await page.click(FILE_CHECK_SEL);
     await page.click(saveButtonSel);
-    await page.waitFor(5*1000);
+    await page.waitFor(7*1000);
 
     // If the target named dir exist , save to it, else save to top dir.
     var tree_dir_sel = '#fileTreeDialog > div.dialog-body > div > ul > li > ul > li:nth-child(2) > div > span > span';
     let  dir_name_text = await getTextContent(page, tree_dir_sel);
     if(dir_name_text == "A_bookstore"){
-      await page.click(tree_dir_sel);
-      await page.waitFor(1*1000);
+      // await page.click(tree_dir_sel);
+      // await page.waitFor(1*1000);
     }
 
     await page.click(okButtonSel);
@@ -164,6 +164,7 @@ async function injectCookiesFromFile(page, file)
       if(err)
           throw err;
       let cookies = JSON.parse(data);
+      console.log(cookie);
       for (var i = 0, len = cookies.length; i < len; i++)
           await cb(page, cookies[i]); // method 2
   });
