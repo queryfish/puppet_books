@@ -35,7 +35,7 @@ async function getTextContent(page, selector) {
 }
 
 // exports.crawl =
- async function crawl(browser, detailUrl)
+ async function crawl(page, detailUrl)
 {
   // dom element selectors
   const CHECKCODE_SELECTOR = 'input.euc-y-i';
@@ -50,7 +50,6 @@ async function getTextContent(page, selector) {
   const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
   const CATEGORY_SEL   = '#mute-category > a';
 
-  const page = await browser.newPage();
   await page.goto(detailUrl, {waitUntil: 'networkidle2'});
   var bookObj = {"bookUrl": detailUrl};
   console.log("extracting "+detailUrl);
@@ -134,6 +133,8 @@ async function automate() {
     headless: true
     // , defaultViewport: null
   });
+  const page = await browser.newPage();
+
   var tick = 0;
   var r = await assertBook();
   while(r.length > 0 && tick < MAX_CRAWL_NUM){
@@ -142,7 +143,7 @@ async function automate() {
     for (var i = 0; i < r.length; i++) {
       book = r[i];
       console.log("crawling "+i+"th book detail "+book.bookName);
-      await crawl(browser, book.bookUrl);
+      await crawl(page, book.bookUrl);
       tick ++;
     }
     r = await assertBook();
