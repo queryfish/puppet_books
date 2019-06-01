@@ -17,7 +17,8 @@ let bookSchema = new mongoose.Schema({
     lastCrawlCopyTime : Date,
     lastCrawlCopyResultMessage : String,
     category : String,
-    tags :String
+    tags :String,
+    badApple: Boolean
 });
 
 let Book = mongoose.model('Book', bookSchema);

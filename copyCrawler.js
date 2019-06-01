@@ -3,8 +3,8 @@ const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const fs = require('fs');
-// const detailCrawler = require('./detailCrawler');
-const MAX_CRAWL_NUM = 1000;
+const detailCrawler = require('./detailCrawler');
+const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 5;
 const cookieFile = './cookieJar';
 
@@ -33,7 +33,8 @@ async function assertBook() {
   const conditions = { "$and":[
                           {"baiduUrl": {"$exists": true}},
                           {"baiduCode":{"$exists":true}},
-                          {"lastCrawlCopyTime":{"$exists":false}}
+                          {"lastCrawlCopyTime":{"$exists":false}},
+                          {"badApple":{"$exists":false}}
                         ] };
   const options = { limit: 5 };
   var query = Book.find(conditions ,null ,options);
@@ -120,7 +121,6 @@ async function grabABook_BDY(page, bookObj) {
         lastCrawlCopyTime: new Date(),
         lastCrawlCopyResultMessage : rsp_msg,
       })
-
 }
 
 function isInvalidValue(v) {
@@ -146,7 +146,6 @@ async function injectCookiesFromFile(page, file)
       if(err)
           throw err;
       let cookies = JSON.parse(data);
-      console.log(cookies);
       for (var i = 0, len = cookies.length; i < len; i++)
           await cb(page, cookies[i]); // method 2
   });
@@ -171,26 +170,34 @@ async function automate() {
   var r = await assertBook();
   // console.log(r);
   console.log(r.length+" books to crawl ...");
-  while(r.length>0 && tick < MAX_CRAWL_NUM)
+  while(tick < MAX_CRAWL_NUM)
   {
-    // console.log(r);
-    // while(r.length == 0 && tick < MAX_CRAWL_NUM)
-    // {
-    //   await detailCrawler.crawl();
-    //   r = await assertBook();
-    //   tick++;
-    // }
+    for(var retry=0;retry<3&&r.length==0;retry++)
+    {
+      console.log("need to get some detail ...");
+      console.log(r);
+      await detailCrawler.run(DB_BATCH);
+      r = await assertBook();
+    }
+
     for (var i = 0; i < r.length; i++) {
       book = r[i];
-      console.log("crawling book detail "+book.bookName)
       console.log("go fetching from -> "+book.baiduUrl);
-      if(book.baiduUrl.startsWith("https://pan.baidu.com"))
+      if(book.baiduUrl.startsWith("https://pan.baidu.com")){
         await grabABook_BDY(page, book);
+      }
+      else{
+        //we do the check here and we save it backup to mongodb for further filter
+        book["badApple"] = true;
+        r.splice(i,1);
+        upsertBook(book);
+      }
       tick ++;
       console.log(tick + "th book has been crawled");
     }
     r = await assertBook();
   }
+  console.log("Job's been done.");
   await browser.close();
 
 }

@@ -34,101 +34,62 @@ async function getTextContent(page, selector) {
   return tc;
 }
 
-// exports.crawl =
- async function crawl(browser, detailUrl)
+async function crawl(page, detailUrl)
 {
-  // dom element selectors
-  const CHECKCODE_SELECTOR = 'input.euc-y-i';
-  const PASSWORD_SELECTOR = '#password';
-  // const BUTTON_SELECTOR = '#login > form > div.auth-form-body.mt-3 > input.btn.btn-primary.btn-block';
-  const BUTTON_SELECTOR = 'input.euc-y-s';
-  const AUTHOR_SEL      = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(2)';
-  const TAGS_SEL = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(5)';
-  const UPLOAD_DATE_SEL = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(6)';
-  const ISBN_SEL        = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(8)';
-  const BOOK_BRIEF_SEL  = 'body > section > div.content-wrap > div > article > p:nth-child(5)';
-  const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
-  const CATEGORY_SEL   = '#mute-category > a';
+ // dom element selectors
+ const CHECKCODE_SELECTOR = 'input.euc-y-i';
+ const PASSWORD_SELECTOR = '#password';
+ const BUTTON_SELECTOR = 'input.euc-y-s';
+ const AUTHOR_SEL      = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(2)';
+ const TAGS_SEL = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(5)';
+ const UPLOAD_DATE_SEL = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(6)';
+ const ISBN_SEL        = 'body > section > div.content-wrap > div > article > div.book-info > div.book-left > div > div.bookinfo > ul > li:nth-child(8)';
+ const BOOK_BRIEF_SEL  = 'body > section > div.content-wrap > div > article > p:nth-child(5)';
+ const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
+ const CATEGORY_SEL   = '#mute-category > a';
 
-  const page = await browser.newPage();
-  await page.goto(detailUrl);
-  console.log("going to "+detailUrl);
-  await page.waitFor(5 * 1000);
+ await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+ var bookObj = {"bookUrl": detailUrl};
+ console.log("extracting "+detailUrl);
+ bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
+ let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
+ bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
+ bookObj["bookSerial"]= await getTextContent(page, ISBN_SEL);
+ bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
+ bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
+ bookObj["tags"] = await getTextContent(page, TAGS_SEL);
+ console.log(bookObj);
+ // await page.waitFor(5 * 1000);
 
-  /*
-      bookId: String,
-      bookName: String,
-      bookUrl: String,
-      bookMeta: String,
-      author: String,
-      bookSerial: String,
-      bookBrief: String,
-      doubanUrl: String,
-      baiduUrl: String,
-      baiduCode: String,
-      savedBaidu: Boolean,
-      dateCrawled: Date
+ await page.click(CHECKCODE_SELECTOR);
+ await page.keyboard.type(CREDS.checkcode);
+ await page.click(BUTTON_SELECTOR);
+ // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
+ // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
+ await page.waitFor(5*1000);
 
-  });
-  */
+ let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
+ var l = baiduPickup.length;
+ bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
 
-  var bookObj = {"bookUrl": detailUrl};
+ // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
+ const url_selector = 'table.dltable > tbody * a:first-of-type';
+ let dl_url = await page.evaluate((sel) => {
+   let baidu_url = document.querySelector(sel).getAttribute("href");
+   console.log(baidu_url);
+   return baidu_url;
+ }, url_selector);
 
-  //DEMO shows how to extract the tag list from top page
-  /*
-  var tag_sels = 'body > section > aside > div.widget.git_tag > div.git_tags > a';
-  var tag_index_sel = 'body > section > aside > div.widget.git_tag > div.git_tags > a:nth-child(INDEX)';
-  let numOfTags = await page.evaluate((sel) => {
-    let children = document.querySelectorAll(sel);
-    return children.length;
-  }, tag_sels);
-  for (var i=0;i<numOfTags;i++)
-  {
-    let tagSel = tag_index_sel.replace("INDEX", i);
-    var t = await getTextContent(page, tagSel);
-    console.log("tag "+t);
-  }
-  */
+ const temp_url = new URL(dl_url);
+ bookObj["baiduUrl"]= temp_url.searchParams.get('url');
 
-  await page.click(CHECKCODE_SELECTOR);
-  await page.keyboard.type(CREDS.checkcode);
-  await page.click(BUTTON_SELECTOR);
-  await page.waitFor(5*1000);
+ console.log("book detailed ");
+ console.log(bookObj.bookName+"@"+bookObj.author);
 
-  console.log("extracting "+detailUrl);
-  bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
-  let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
-  bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
-  bookObj["bookSerial"]= await getTextContent(page, ISBN_SEL);
-  bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
-  bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
-  bookObj["tags"] = await getTextContent(page, TAGS_SEL);
-  let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
-  var l = baiduPickup.length;
-  bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
-
-
-  // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
-  const url_selector = 'table.dltable > tbody * a:first-of-type';
-  let dl_url = await page.evaluate((sel) => {
-    let baidu_url = document.querySelector(sel).getAttribute("href");
-    console.log(baidu_url);
-    return baidu_url;
-  }, url_selector);
-
-  const temp_url = new URL(dl_url);
-  bookObj["baiduUrl"]= temp_url.searchParams.get('url');
-
-  console.log("book detailed ");
-  console.log(bookObj.bookName+"@"+bookObj.author);
-
-  upsertBook(bookObj);
-
-  // upsertBook({
-  //   bookUrl: detailUrl
-  // });
+ upsertBook(bookObj);
 
 }
+
 
 function assertMongoDB() {
   const DB_URL = 'mongodb://localhost/sobooks';
@@ -155,52 +116,33 @@ async function assertBook() {
   return result;
 }
 
-exports.crawl =
-async function() {
+exports.run =
+async function(max_crawled_items) {
   /*
   1- query from mongodb for impartial entry to be further crawl for detail
   2- use the crawl func and save it to db
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
   const browser = await puppeteer.launch({
-    headless: true
-  });
-  var tick = 0;
-  var r = await assertBook();
-  console.log(r.length+" books to go !!!");
-  for (var i = 0; i < r.length; i++) {
-      book = r[i];
-      console.log("crawling "+i+"th book detail "+book.bookName);
-      await crawl(browser, book.bookUrl);
-  }
-  browser.close();
-
-}
-
-
-async function automate() {
-  /*
-  1- query from mongodb for impartial entry to be further crawl for detail
-  2- use the crawl func and save it to db
-  3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
-  */
-  const browser = await puppeteer.launch({
-    headless: true
+    headless: true,
+    ignoreHTTPSErrors: true
     // , defaultViewport: null
   });
+  const page = await browser.newPage();
   var tick = 0;
   var r = await assertBook();
-  while(r.length > 0 && tick < MAX_CRAWL_NUM){
+  // while(r.length > 0 && tick < max_crawled_items){
     console.log(r.length+" books to go !!!");
     // console.log(r);
-    for (var i = 0; i < r.length; i++) {
+    for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
+    {
       book = r[i];
       console.log("crawling "+i+"th book detail "+book.bookName);
-      await crawl(browser, book.bookUrl);
+      await crawl(page, book.bookUrl);
       tick ++;
     }
-    r = await assertBook();
-  }
+    // r = await assertBook();
+  // }
 
   browser.close();
 
