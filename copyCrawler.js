@@ -190,7 +190,7 @@ async function automate() {
   console.log(r.length+" books to crawl ...");
   // while(r.length>0 )
     // && tick < MAX_CRAWL_NUM)
-    {
+    // {
     // console.log(r);
     // while(r.length == 0 && tick < MAX_CRAWL_NUM)
     // {
