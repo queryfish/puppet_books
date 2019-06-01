@@ -3,7 +3,7 @@ const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const fs = require('fs');
-const detailCrawler = require('./detailCrawler');
+// const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 1000;
 const DB_BATCH = 500;
 const cookieFile = './cookieFile';
@@ -59,7 +59,7 @@ async function grabABook_BDY(page, bookObj) {
 
     const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
     const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
-    await page.goto(baidu_url, , {waitUntil: 'networkidle2'});
+    await page.goto(baidu_url, {waitUntil: 'networkidle2'});
     await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(CHECKCODE_SELECTOR2);
     await page.keyboard.type(pickcode);
@@ -188,7 +188,7 @@ async function automate() {
   var r = await assertBook();
   console.log(r);
   console.log(r.length+" books to crawl ...");
-  while(r.length>0 )
+  // while(r.length>0 )
     // && tick < MAX_CRAWL_NUM)
     {
     // console.log(r);
@@ -206,7 +206,7 @@ async function automate() {
       console.log(tick + "th book has been crawled");
     }
     // r = await assertBook();
-  }
+  // }
   await browser.close();
 
 }
