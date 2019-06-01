@@ -18,7 +18,8 @@ let bookSchema = new mongoose.Schema({
     lastCrawlCopyResultMessage : String,
     category : String,
     tags :String,
-    badApple: Boolean
+    badApple: Boolean,
+    cursorId: Number
 });
 
 let Book = mongoose.model('Book', bookSchema);
