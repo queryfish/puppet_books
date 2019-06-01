@@ -107,7 +107,6 @@ async function grabABook_BDY(page, bookObj) {
     await page.click(okButtonSel);
     // await page.waitForNavigation();
     const MSG_SEL = 'body > div.module-yun-tip > div > span.tip-msg'
-    // try {
       await page.waitFor(10*1000);
       await page.waitForSelector(MSG_SEL, {timeout: 10000});
       let rsp_msg = await page.evaluate((sel) => {
@@ -121,23 +120,6 @@ async function grabABook_BDY(page, bookObj) {
         lastCrawlCopyTime: new Date(),
         lastCrawlCopyResultMessage : rsp_msg,
       })
-
-    // }
-    // catch(err){
-    //   throw err;
-    // }
-
-    // body > div.module-yun-tip > div > span.tip-msg  已为您成功保存文件
-
-    /*
-      这里需要判断是否操作成功，用于入库保存
-    */
-    // const FILE_CHECK_SEL = 'div.file-name';
-    // const SAVE_BUTTON_SEL = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
-    // const DOWNLOAD_BUTTON_SEL = 'a.g-button.last-button';
-    // await page.click(FILE_CHECK_SEL);
-    // await page.click(DOWNLOAD_BUTTON_SEL);
-    // await page.waitForNavigation();
 
 }
 
@@ -189,9 +171,8 @@ async function automate() {
   var r = await assertBook();
   // console.log(r);
   console.log(r.length+" books to crawl ...");
-  // while(r.length>0 )
-    // && tick < MAX_CRAWL_NUM)
-    // {
+  while(r.length>0 && tick < MAX_CRAWL_NUM)
+  {
     // console.log(r);
     // while(r.length == 0 && tick < MAX_CRAWL_NUM)
     // {
@@ -202,14 +183,14 @@ async function automate() {
     for (var i = 0; i < r.length; i++) {
       book = r[i];
       console.log("crawling book detail "+book.bookName)
-      console.log("fetching from -> "+book.bookUrl);
+      console.log("go fetching from -> "+book.baiduUrl);
       if(book.baiduUrl.startsWith("https://pan.baidu.com"))
         await grabABook_BDY(page, book);
       tick ++;
       console.log(tick + "th book has been crawled");
     }
-    // r = await assertBook();
-  // }
+    r = await assertBook();
+  }
   await browser.close();
 
 }
