@@ -68,7 +68,6 @@ async function grabABook_BDY(page, bookObj) {
 
     // const saveButtonSel = '#layoutMain > div.frame-content > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     // const okButtonSel ='#fileTreeDialog > div.dialog-footer.g-clearfix > a:nth-child(2)';
-    const okButtonSel ='#fileTreeDialog > div.dialog-footer.g-clearfix > a.g-button.g-button-blue-large';
     // check the file or folder
     // const FILE_CHECK_SEL = 'div.file-name';
     const FILE_CHECK_SEL = 'div.file-size';
@@ -104,6 +103,7 @@ async function grabABook_BDY(page, bookObj) {
       // await page.waitFor(1*1000);
     }
 
+    const okButtonSel ='#fileTreeDialog > div.dialog-footer.g-clearfix > a.g-button.g-button-blue-large';
     await page.click(okButtonSel);
     // await page.waitForNavigation();
     const MSG_SEL = 'body > div.module-yun-tip > div > span.tip-msg'
@@ -164,7 +164,7 @@ async function injectCookiesFromFile(page, file)
       if(err)
           throw err;
       let cookies = JSON.parse(data);
-      console.log(cookie);
+      console.log(cookies);
       for (var i = 0, len = cookies.length; i < len; i++)
           await cb(page, cookies[i]); // method 2
   });
