@@ -3,7 +3,7 @@ const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const fs = require('fs');
-const detailCrawler = require('./detailCrawler');
+// const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 1000;
 const DB_BATCH = 500;
 const cookieFile = './cookieFile';
@@ -188,7 +188,7 @@ async function automate() {
   var r = await assertBook();
   console.log(r);
   console.log(r.length+" books to crawl ...");
-  while(r.length>0 )
+  // while(r.length>0 )
     // && tick < MAX_CRAWL_NUM)
     {
     // console.log(r);
@@ -206,7 +206,7 @@ async function automate() {
       console.log(tick + "th book has been crawled");
     }
     // r = await assertBook();
-  }
+  // }
   await browser.close();
 
 }
