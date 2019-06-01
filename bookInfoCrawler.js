@@ -53,7 +53,7 @@ async function getTextContent(page, selector) {
   await page.goto(detailUrl, {waitUntil: 'networkidle2'});
   var bookObj = {"bookUrl": detailUrl};
   console.log("extracting "+detailUrl);
-  // bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
+  bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
   let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
   bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
   bookObj["bookSerial"]= await getTextContent(page, ISBN_SEL);
@@ -63,18 +63,16 @@ async function getTextContent(page, selector) {
   console.log(bookObj);
   // await page.waitFor(5 * 1000);
 
-
   await page.click(CHECKCODE_SELECTOR);
   await page.keyboard.type(CREDS.checkcode);
   await page.click(BUTTON_SELECTOR);
   // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
   // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
-  await page.waitFor(7*1000);
+  await page.waitFor(5*1000);
 
   let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
   var l = baiduPickup.length;
   bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
-
 
   // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
   const url_selector = 'table.dltable > tbody * a:first-of-type';
@@ -92,10 +90,6 @@ async function getTextContent(page, selector) {
 
   upsertBook(bookObj);
 
-  // upsertBook({
-  //   bookUrl: detailUrl
-  // });
-
 }
 
 function assertMongoDB() {
@@ -109,14 +103,6 @@ async function assertBook() {
   assertMongoDB();
   // if this email exists, update the entry, don't insert
   const conditions = { "baiduUrl": {"$exists": false} };
-  /*
-  find(
-   {
-      "baiduUrl":{ $exists:false }
-   },
-   {}
-   ).sort( { "dateCrawled":1 } );
-  */
   const options = { limit: DB_BATCH };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();

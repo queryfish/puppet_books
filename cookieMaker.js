@@ -15,7 +15,7 @@ async function saveCookieTest() {
   });
 
   const page = await browser.newPage();
-  await page.goto('https://pan.baidu.com');
+  await page.goto('https://pan.baidu.com', {waitUntil: 'networkidle2'});
   // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
   await page.waitFor(5 * 1000);
 
@@ -54,8 +54,7 @@ async function loadCookieTest() {
   const cookie = await page.cookies();
   console.log("feedback cookie");
   console.log(JSON.stringify(cookie));
-  // await page.goto('https://pan.baidu.com');
-  await page.goto('https://pan.baidu.com/s/1PY14ZC9YufwPaJoxNMsFww');
+  await page.goto('https://pan.baidu.com/s/1PY14ZC9YufwPaJoxNMsFww', {waitUntil: 'networkidle2'});
   // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
 
 }
@@ -73,7 +72,7 @@ async function saveTest() {
   });
 
   const page = await browser.newPage();
-  await page.goto('https://yun.baidu.com');
+  await page.goto('https://yun.baidu.com', {waitUntil: 'networkidle2'});
   // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
   await page.waitFor(5 * 1000);
 
@@ -96,7 +95,7 @@ async function saveTest() {
   const pickcode = 'njdv';
   const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
   const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
-  await page.goto(baidu_url);
+  await page.goto(baidu_url, {waitUntil: 'networkidle2'});
   await page.click(CHECKCODE_SELECTOR2);
   await page.keyboard.type(pickcode);
   await page.click(BUTTON_SELECTOR2);
