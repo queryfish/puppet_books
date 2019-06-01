@@ -264,7 +264,9 @@ async function greedyDiggerWithFormatter(uri_formatter)
     }
     // await page.waitFor(5*1000);
   }
+  console.log("job finished ...");
   await browser.close();
+
 }
 
 function assertMongoDB() {
