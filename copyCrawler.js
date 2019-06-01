@@ -59,7 +59,7 @@ async function grabABook_BDY(page, bookObj) {
 
     const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
     const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
-    await page.goto(baidu_url, , {waitUntil: 'networkidle2'});
+    await page.goto(baidu_url, {waitUntil: 'networkidle2'});
     await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(CHECKCODE_SELECTOR2);
     await page.keyboard.type(pickcode);
