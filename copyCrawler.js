@@ -36,7 +36,7 @@ async function assertBook() {
                           {"lastCrawlCopyTime":{"$exists":false}},
                           {"badApple":{"$exists":false}}
                         ] };
-  const options = { limit: 5 };
+  const options = { limit: 1000 };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
@@ -151,6 +151,31 @@ async function injectCookiesFromFile(page, file)
   });
  }
 
+exports.run =
+async function (page) {
+   /*
+   1- query from mongodb for impartial entry to be further crawl for detail
+   2- use the crawl func and save it to db
+   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
+   */
+   var resultArray = await assertBook();
+   console.log(resultArray.length+" books to copy ...");
+   for (var i = 0; i < resultArray.length; i++) {
+       var book = resultArray[i];
+       console.log("go fetching "+book.bookName+"from -> "+book.baiduUrl);
+       if(book.baiduUrl.startsWith("https://pan.baidu.com"))
+       {
+         await grabABook_BDY(page, book);
+       }
+       else
+       {
+         //we do the check here and we save it backup to mongodb for further filter
+         book["badApple"] = true;
+         upsertBook(book);
+       }
+    }
+}
+
 async function automate() {
   /*
   1- query from mongodb for impartial entry to be further crawl for detail
@@ -213,14 +238,14 @@ async function retry(maxRetries, fn) {
 /*
  main
 */
-(async () => {
-    try {
-      await automate();
-    } catch (e) {
-      throw(e);
-    }
-    mongoose.connection.close();
-    console.log("gonna dance, copyCrawler");
-    // return;
-    // retry(10, automate)
-})();
+// (async () => {
+//     try {
+//       await automate();
+//     } catch (e) {
+//       throw(e);
+//     }
+//     mongoose.connection.close();
+//     console.log("gonna dance, copyCrawler");
+//     // return;
+//     // retry(10, automate)
+// })();

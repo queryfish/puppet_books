@@ -111,15 +111,23 @@ async function crawlBookListPlain()
   });
 }
 
-async function crawlBookListByTag(tag)
+exports.run =
+async function(page)
 {
-  await crawlBookList((p)=>{
+  await crawlBookList(page, (p)=>{
+    return (BOOK_INFO_SITE+'/page/'+p);
+  });
+}
+
+async function crawlBookListByTag(page, tag)
+{
+  await crawlBookList(page, (p)=>{
     // https://sobooks.net/books/tag/%E5%B0%8F%E8%AF%B4/page/1
     return (BOOK_INFO_SITE+'/books/tag/'+tag+'/page/'+p);
   });
 }
 
-async function crawlBookList(uri_formatter)
+async function crawlBookList(page, uri_formatter)
 {
   const CARDLIST_SEL = '#cardslist';
   const LENGTH_SELECTOR_CLASS   = 'card-item';
@@ -130,10 +138,6 @@ async function crawlBookList(uri_formatter)
   const LIST_PAGE_MAX_SELECTOR  = 'body > section > div.content-wrap > div > div.pagination > ul > li:nth-last-child(1) > span';
   // const LIST_THUMBNAIL_SELECTOR = '';
 
-  const browser = await puppeteer.launch({
-    headless: true
-  });
-  const page = await browser.newPage();
 
   console.log('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
@@ -213,7 +217,6 @@ async function crawlBookList(uri_formatter)
   console.log("currentBookId = "+currentBookId);
 
   upsertCursor(maxCursor);
-  await browser.close();
 }
 
 async function greedyDiggerWithFormatter(uri_formatter)
@@ -330,19 +333,19 @@ function isInvalidValue(v) {
 
 /**** main ***/
 // const process = require('process');
-(async () => {
-    try {
-      // var v = process.argv.slice(2);
-      // await crawlBookListScanner();
-      // await crawlBookListByTag("小说")
-      await crawlBookListPlain();
-      mongoose.connection.close();
-      console.log("can we exit ?");
-      // await updateMaxCursor();
-      // await greedyDigger();
-      // process.exit(0);
-    } catch (e) {
-        throw(e)
-        // Deal with the fact the chain failed
-    }
-})();
+// (async () => {
+//     try {
+//       // var v = process.argv.slice(2);
+//       // await crawlBookListScanner();
+//       // await crawlBookListByTag("小说")
+//       await crawlBookListPlain();
+//       mongoose.connection.close();
+//       console.log("can we exit ?");
+//       // await updateMaxCursor();
+//       // await greedyDigger();
+//       // process.exit(0);
+//     } catch (e) {
+//         throw(e)
+//         // Deal with the fact the chain failed
+//     }
+// })();

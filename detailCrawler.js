@@ -144,9 +144,7 @@ async function(page, max_crawled_items) {
     }
     // r = await assertBook();
   // }
-
-  browser.close();
-
+  
 }
 
 /*
