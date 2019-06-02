@@ -336,7 +336,8 @@ function isInvalidValue(v) {
       // await crawlBookListScanner();
       // await crawlBookListByTag("小说")
       await crawlBookListPlain();
-      mongoose.connection.close()
+      mongoose.connection.close();
+      console.log("can we exit ?");
       // await updateMaxCursor();
       // await greedyDigger();
       // process.exit(0);
