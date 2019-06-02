@@ -216,6 +216,8 @@ async function retry(maxRetries, fn) {
 (async () => {
     // try {
       await automate();
+      mongoose.connection.close();
+      console.log("gonna dance, copyCrawler");
     // } catch (e) {
     //   throw(e);
     // }
