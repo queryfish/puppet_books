@@ -60,7 +60,7 @@ async function crawl(page, detailUrl)
  bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
  bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
  bookObj["tags"] = await getTextContent(page, TAGS_SEL);
- Logger.info(bookObj);
+ // Logger.info(bookObj);
  // await page.waitFor(5 * 1000);
 
  await page.click(CHECKCODE_SELECTOR);
@@ -84,8 +84,8 @@ async function crawl(page, detailUrl)
  const temp_url = new URL(dl_url);
  bookObj["baiduUrl"]= temp_url.searchParams.get('url');
 
- Logger.info("book detailed ");
  Logger.info(bookObj.bookName+"@"+bookObj.author);
+ Logger.info("book detailed ");
 
  upsertBook(bookObj);
 
@@ -134,12 +134,12 @@ async function(page, max_crawled_items) {
   var tick = 0;
   var r = await assertBook();
   // while(r.length > 0 && tick < max_crawled_items){
-    Logger.info(r.length+" books to go !!!");
+    Logger.info(r.length+" books to be detailed ...");
     // Logger.info(r);
     for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
     {
       book = r[i];
-      Logger.info("crawling "+i+"th book detail "+book.bookName);
+      Logger.info("NO. "+i+" book: "+book.bookName);
       await crawl(page, book.bookUrl);
       tick ++;
     }
