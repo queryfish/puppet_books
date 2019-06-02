@@ -3,6 +3,7 @@ const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const CrawlerConfig = require('./models/crawlerConfig');
 const Book = require('./models/book');
+const Logger = require('./logger');
 const fs = require('fs');
 const MAX_PAGE_NUM = 200;
 const MAX_TICKS = 2000;

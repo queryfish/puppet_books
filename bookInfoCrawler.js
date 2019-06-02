@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
+const Logger = require('./logger');
 const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 10;
 // const fs = require('fs');

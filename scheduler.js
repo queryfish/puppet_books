@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
+const Logger = require('./logger');
 const copyCrawler = require('./copyCrawler');
 const detailCrawler = require('./detailCrawler');
 const listCrawler = require('./listCrawler');
