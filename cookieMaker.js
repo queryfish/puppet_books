@@ -33,7 +33,7 @@ async function saveCookieTest() {
 
   // let cookie = page.cookies();
   const cookie = await page.cookies()
-  console.log(JSON.stringify(cookie));
+  Logger.info(JSON.stringify(cookie));
   await saveToJSONFile(cookie, cookieFile);
   // await browser.close();
   // const newp = await browser.newPage();
@@ -52,8 +52,8 @@ async function loadCookieTest() {
   await injectCookiesFromFile(page, cookieFile);
   await page.waitFor(10 * 1000);
   const cookie = await page.cookies();
-  console.log("feedback cookie");
-  console.log(JSON.stringify(cookie));
+  Logger.info("feedback cookie");
+  Logger.info(JSON.stringify(cookie));
   await page.goto('https://pan.baidu.com/s/1PY14ZC9YufwPaJoxNMsFww', {waitUntil: 'networkidle2'});
   // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
 
@@ -134,17 +134,17 @@ async function saveTest() {
 
      try {
         var data = JSON.stringify(jsonObj);
-        console.log("Saving object '%s' to JSON file: %s", data, targetFile);
+        Logger.info("Saving object '%s' to JSON file: %s", data, targetFile);
      }
      catch (err) {
-       console.log("Could not convert object to JSON string ! " + err);
+       Logger.info("Could not convert object to JSON string ! " + err);
        reject(err);
      }
 
      // Try saving the file.
      fs.writeFile(cookieFile, data, (err, text) => {
        if(err){
-         console.log(err);
+         Logger.info(err);
          reject(err);
        }
        else {
@@ -156,7 +156,7 @@ async function saveTest() {
 }
 
 // process.argv.slice(2).forEach(function (val, index, array) {
-//   console.log(index + ': ' + val);
+//   Logger.info(index + ': ' + val);
 //   fetchBookByUrl(val);
 // });
 (async () => {

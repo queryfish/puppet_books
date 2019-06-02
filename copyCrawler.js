@@ -7,8 +7,8 @@ const fs = require('fs');
 const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 5;
+// const cookieFile = './cookieFile';
 const cookieFile = '/home/steve/puppy/cookieJar';
-
 function assertMongoDB() {
   const DB_URL = 'mongodb://localhost/sobooks';
   if (mongoose.connection.readyState == 0) {
@@ -57,7 +57,7 @@ async function grabABook_BDY(page, bookObj) {
 
     const baidu_url = bookObj.baiduUrl;
     const pickcode = bookObj.baiduCode;
-    console.log("going to cloud ..."+baidu_url);
+    Logger.info("going to cloud ..."+baidu_url);
 
     const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
     const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
@@ -84,12 +84,12 @@ async function grabABook_BDY(page, bookObj) {
     var saveButtonSel = '';
 
     if (await page.$(FILE_CHECK_SEL) !== null) {
-        console.log('folder found');
+        Logger.info('folder found');
         await page.click(FILE_CHECK_SEL);
         saveButtonSel = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     }
     else{
-        console.log('folder no found');
+        Logger.info('folder no found');
         saveButtonSel = '#layoutMain > div.frame-content > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue'
     }
 
@@ -115,7 +115,7 @@ async function grabABook_BDY(page, bookObj) {
         let msg = document.querySelector(sel).textContent;
         return msg;
       }, MSG_SEL);
-      console.log(rsp_msg);
+      Logger.info(rsp_msg);
       await page.waitFor(5*1000);
       upsertBook({
         bookUrl:bookObj.bookUrl,
@@ -160,10 +160,10 @@ async function (page) {
    3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
    */
    var resultArray = await assertBook();
-   console.log(resultArray.length+" books to copy ...");
+   Logger.info(resultArray.length+" books to copy ...");
    for (var i = 0; i < resultArray.length; i++) {
        var book = resultArray[i];
-       console.log("go fetching "+book.bookName+"from -> "+book.baiduUrl);
+       Logger.info("go fetching "+book.bookName+"from -> "+book.baiduUrl);
        if(book.baiduUrl.startsWith("https://pan.baidu.com"))
        {
          await grabABook_BDY(page, book);
@@ -194,20 +194,20 @@ async function automate() {
 
   var tick = 0;
   var r = await assertBook();
-  // console.log(r);
-  console.log(r.length+" books to crawl ...");
+  // Logger.info(r);
+  Logger.info(r.length+" books to crawl ...");
   while(tick < MAX_CRAWL_NUM)
   {
     for(var retry=0;retry<3&&r.length==0;retry++)
     {
-      console.log("need to get some detail time "+ retry);
+      Logger.info("need to get some detail time "+ retry);
       await detailCrawler.run(page, DB_BATCH);
       r = await assertBook();
     }
 
     for (var i = 0; i < r.length; i++) {
       book = r[i];
-      console.log("go fetching from -> "+book.baiduUrl);
+      Logger.info("go fetching from -> "+book.baiduUrl);
       if(book.baiduUrl.startsWith("https://pan.baidu.com")){
         await grabABook_BDY(page, book);
       }
@@ -218,17 +218,17 @@ async function automate() {
         upsertBook(book);
       }
       tick ++;
-      console.log(tick + "th book has been crawled");
+      Logger.info(tick + "th book has been crawled");
     }
     r = await assertBook();
   }
-  console.log("Job's been done.");
+  Logger.info("Job's been done.");
   await browser.close();
 
 }
 
 async function retry(maxRetries, fn) {
-  console.log("retry time "+maxRetries);
+  Logger.info("retry time "+maxRetries);
   return await fn().catch(function(err) {
     if (maxRetries <= 0) {
       throw err;
@@ -246,7 +246,7 @@ async function retry(maxRetries, fn) {
 //       throw(e);
 //     }
 //     mongoose.connection.close();
-//     console.log("gonna dance, copyCrawler");
+//     Logger.info("gonna dance, copyCrawler");
 //     // return;
 //     // retry(10, automate)
 // })();

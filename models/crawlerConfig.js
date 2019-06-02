@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 let crawlerConfigSchema = new mongoose.Schema({
     cursor: Number,
     index: Number,
-    minCursor: Number
+    minCursor: Number,
+    workerState: Number
 });
 
 let crawlerConfig = mongoose.model('crawlerConfig', crawlerConfigSchema);

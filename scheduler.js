@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
+const crawlerConfig = require('./models/crawlerConfig')
 const Logger = require('./logger');
 const copyCrawler = require('./copyCrawler');
 const detailCrawler = require('./detailCrawler');
@@ -11,6 +12,7 @@ const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 50;
 const DB_URL = 'mongodb://localhost/sobooks';
 const cookieFile = '/home/steve/puppy/cookieJar';
+// const cookieFile = './cookieFile';
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
@@ -33,6 +35,39 @@ async function booksToCopy() {
   return resultArray.length;
 }
 
+async function isWorkerIdle() {
+  assertMongoDB();
+  // if this email exists, update the entry, don't insert
+  const conditions = { "$and":[
+                          {"index":{"$eq":1}},
+                          {"workerState": {"$exists": true}}
+                        ] };
+  const options = { limit: 5 };
+  var query = crawlerConfig.find(conditions ,null ,options);
+  let resultArray = await query.exec();
+  if(resultArray.length ==0 || resultArray[0]["workerState"]==1) //zero means idle
+  {
+      // try to grab the lock
+      return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function setWorkerState(state) {
+  assertMongoDB();
+  // if this email exists, update the entry, don't insert
+  const conditions = { index:1}
+  const options = { upsert: true, new: true, setDefaultsOnInsert: true };
+
+  crawlerConfig.findOneAndUpdate(conditions, {"workerState":state}, options, (err, result) => {
+    if (err) {
+      throw err;
+    }
+  });
+}
+
 async function booksToDetail() {
   assertMongoDB();
   // if this email exists, update the entry, don't insert
@@ -48,6 +83,14 @@ async function booksToDetail() {
 
 async function schedule() {
   //TODO: check the state if running just quit and carry on for idle
+    let isIdle = await isWorkerIdle();
+    if(isIdle)
+    {
+        setWorkerState(1);// 1 for busy
+    }
+    else{
+      return;
+    }
   //TODO: mark the single state of this scheduler to running
     const browser = await puppeteer.launch({
       headless: true
@@ -73,11 +116,12 @@ async function schedule() {
       }
     }
     await browser.close();
+    setWorkerState(0); //0 for idle
     // mark the single state of this scheduler to idle
 }
 
 async function retry(maxRetries, fn) {
-  console.log("retry time "+maxRetries);
+  Logger.info("retry time "+maxRetries);
   return await fn().catch(function(err) {
     if (maxRetries <= 0) {
       throw err;
@@ -85,15 +129,37 @@ async function retry(maxRetries, fn) {
     return retry(maxRetries - 1, fn);
   });
 }
+
+const process = require('process');
+// process.on('uncaughtException', (err, origin) => {
+//   // fs.writeSync(
+//   console.log(
+//     process.stderr.fd,
+//     `Caught exception: ${err}\n` +
+//     `Exception origin: ${origin}`
+//   );
+//   process.exit(0);
+// });
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+  setWorkerState(0); //0 for idle
+  mongoose.connection.close();
+  process.exit(0);
+
+  // Application specific logging, throwing an error, or other logic here
+});
 /*
  main
 */
 (async () => {
     try {
-      await retry(3, schedule)
+      // await retry(3, schedule)
+      await schedule();
     } catch (e) {
       throw(e);
     }
+    setWorkerState(0); //0 for idle
     mongoose.connection.close();
-    console.log("gonna dance, scheduler");
+    Logger.info("gonna dance, scheduler");
 })();

@@ -4,26 +4,28 @@ log4js.configure({
               ,console: { type: 'console' }
             },
   categories: { default: { appenders: ['cheese'], level: 'trace' }
-                ,another: { appenders: ['console'], level: 'trace' }
+                ,console: { appenders: ['console'], level: 'trace' }
               }
 });
-const talker = log4js.getLogger('another');
-const noter = log4js.getLogger('cheese');
 
-function log(message) {
-  // talker.trace(message);
+const talker = log4js.getLogger('console');
+// const noter = log4js.getLogger('cheese');
+exports.info =
+function(message) {
+  talker.trace(message);
   // noter.trace(message);
-  console.log(message);
+  // Logger.info(message);
 }
+
 //example
 // logger.trace('Entering cheese testing');
-// console.log('Got cheese.');
-// console.log('Cheese is Comté.');
+// Logger.info('Got cheese.');
+// Logger.info('Cheese is Comté.');
 // logger.warn('Cheese is quite smelly.');
 // logger.error('Cheese is too ripe!');
 // logger.fatal('Cheese was breeding ground for listeria.');
 
-module.exports = {
-  Logger: noter,
-  info:log
-};
+// module.exports = {
+//   Logger: noter,
+//   info:log
+// };
