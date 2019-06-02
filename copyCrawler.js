@@ -66,8 +66,8 @@ async function grabABook_BDY(page, bookObj) {
     if (await page.$(CHECKCODE_SELECTOR2) == null)
     {
         Logger.info('checkcode input invalid');
-        book["badApple"] = true;
-        upsertBook(book);
+        bookObj["badApple"] = true;
+        upsertBook(bookObj);
         return;
     }
 
