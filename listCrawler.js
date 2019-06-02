@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
+const Config = require('./configs');
 const mongoose = require('mongoose');
 const CrawlerConfig = require('./models/crawlerConfig');
 const Book = require('./models/book');
@@ -18,9 +19,9 @@ async function crawlBookListByPage(pageNum)
 }
 
 function assertMongoDB() {
-  const DB_URL = 'mongodb://localhost/sobooks';
+
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 }
 
@@ -46,9 +47,9 @@ async function getCursor() {
 }
 
 function upsertCursor(cursorUpdate) {
-  const DB_URL = 'mongodb://localhost/sobooks';
+
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
   // if this email exists, update the entry, don't insert
   var config = {cursor:cursorUpdate};
@@ -297,9 +298,9 @@ async function greedyDiggerWithFormatter(uri_formatter)
 }
 
 function assertMongoDB() {
-  const DB_URL = 'mongodb://localhost/sobooks';
+
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 }
 

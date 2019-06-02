@@ -1,11 +1,12 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
+const Config = require('./configs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const fs = require('fs');
 const detailCrawler = require('./detailCrawler');
-const cookieFile = './cookieFile';
+// const cookieFile = './cookieFile';
 
 async function saveCookieTest() {
   const usernameSel = '#TANGRAM__PSP_4__userName';
@@ -139,9 +140,9 @@ async function crawlBookList(booklistUrl)
 }
 
 function assertMongoDB() {
-  const DB_URL = 'mongodb://localhost/sobooks';
+
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 }
 

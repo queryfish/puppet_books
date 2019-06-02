@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
+const Config = require('./configs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const crawlerConfig = require('./models/crawlerConfig')
@@ -11,14 +12,12 @@ const detailCrawler = require('./detailCrawler');
 const listCrawler = require('./listCrawler');
 const util = require('./utils');
 const MAX_CRAWL_NUM = 200;
-const DB_BATCH = 50;
-const DB_URL = 'mongodb://localhost/sobooks';
-const cookieFile = '/home/steve/puppy/cookieJar';
-// const cookieFile = './cookieJar';
+
+// const cookieFile = '/home/steve/puppy/cookieJar';
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 }
 
@@ -31,7 +30,7 @@ async function booksToCopy() {
                           {"lastCrawlCopyTime":{"$exists":false}},
                           {"badApple":{"$exists":false}}
                         ] };
-  const options = { limit: DB_BATCH };
+  const options = { limit: Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const resultArray = await query.exec();
   return resultArray.length;
@@ -83,7 +82,7 @@ async function booksToDetail() {
                           {"baiduUrl": {"$exists": false}},
                           {"baiduCode":{"$exists":false}}
                         ] };
-  const options = { limit: DB_BATCH };
+  const options = { limit: Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const resultArray = await query.exec();
   return resultArray.length;
@@ -104,7 +103,7 @@ async function schedule() {
       headless: true
     });
     const page = await browser.newPage();
-    await util.injectCookiesFromFile(page, cookieFile);
+    await util.injectCookiesFromFile(page, Config.cookieFile);
     await page.waitFor(5 * 1000);
 
     let copy = await booksToCopy();

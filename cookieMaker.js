@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
+const Config = require('./configs');
 const fs = require('fs');
-const cookieFile = './cookieFile';
+// const cookieFile = './cookieFile';
 
 async function saveCookieTest() {
   const usernameSel = '#TANGRAM__PSP_4__userName';
@@ -34,7 +35,7 @@ async function saveCookieTest() {
   // let cookie = page.cookies();
   const cookie = await page.cookies()
   Logger.info(JSON.stringify(cookie));
-  await saveToJSONFile(cookie, cookieFile);
+  await saveToJSONFile(cookie, Config.cookieFile);
   // await browser.close();
   // const newp = await browser.newPage();
   // await newp.setCookie(cookie);
@@ -49,7 +50,7 @@ async function loadCookieTest() {
   });
 
   const page = await browser.newPage();
-  await injectCookiesFromFile(page, cookieFile);
+  await injectCookiesFromFile(page, Config.cookieFile);
   await page.waitFor(10 * 1000);
   const cookie = await page.cookies();
   Logger.info("feedback cookie");

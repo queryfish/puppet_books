@@ -1,17 +1,18 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
+const Config = require('./configs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const MAX_CRAWL_NUM = 200;
-const DB_BATCH = 10;
+
 // const fs = require('fs');
 
 function upsertBook(bookObj) {
-  const DB_URL = 'mongodb://localhost/sobooks';
+
 
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 
   // if this email exists, update the entry, don't insert
@@ -92,9 +93,9 @@ async function crawl(page, detailUrl)
 
 
 function assertMongoDB() {
-  const DB_URL = 'mongodb://localhost/sobooks';
+
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 }
 
@@ -110,7 +111,7 @@ async function assertBook() {
    {}
    ).sort( { "dateCrawled":1 } );
   */
-  const options = { limit: DB_BATCH };
+  const options = { limit: Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;

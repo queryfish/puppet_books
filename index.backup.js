@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
+const Config = require('./configs');
 const mongoose = require('mongoose');
 const User = require('./models/user');
 
@@ -106,10 +107,10 @@ async function getNumPages(page) {
 }
 
 function upsertUser(userObj) {
-  const DB_URL = 'mongodb://localhost/thal';
+  const  Config.dbUrl = 'mongodb://localhost/thal';
 
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect( Config.dbUrl);
   }
 
   // if this email exists, update the entry, don't insert

@@ -1,18 +1,18 @@
 const puppeteer = require('puppeteer');
-const CREDS = require('./creds');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const Logger = require('./logger');
-const fs = require('fs');
+const CREDS = require('./creds');
+const Config = require('./configs');
 const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 200;
-const DB_BATCH = 5;
-// const cookieFile = './cookieFile';
-const cookieFile = '/home/steve/puppy/cookieJar';
+
+// // const cookieFile = './cookieFile';
+// const cookieFile = ;
 function assertMongoDB() {
-  const DB_URL = 'mongodb://localhost/sobooks';
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect(DB_URL);
+    mongoose.connect(Config.dbUrl);
   }
 }
 
@@ -37,7 +37,7 @@ async function assertBook() {
                           {"lastCrawlCopyTime":{"$exists":false}},
                           {"badApple":{"$exists":false}}
                         ] };
-  const options = { limit: 1000 };
+  const options = { limit: Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
@@ -163,7 +163,7 @@ async function (page) {
    Logger.info(resultArray.length+" books to copy ...");
    for (var i = 0; i < resultArray.length; i++) {
        var book = resultArray[i];
-       Logger.info("go fetching "+book.bookName+"from -> "+book.baiduUrl);
+       Logger.info("NO."+i+": "+book.bookName);
        if(book.baiduUrl.startsWith("https://pan.baidu.com"))
        {
          await grabABook_BDY(page, book);
@@ -189,7 +189,7 @@ async function automate() {
   });
 
   const page = await browser.newPage();
-  await injectCookiesFromFile(page, cookieFile);
+  await injectCookiesFromFile(page, Config.cookieFile);
   await page.waitFor(5 * 1000);
 
   var tick = 0;
@@ -201,7 +201,7 @@ async function automate() {
     for(var retry=0;retry<3&&r.length==0;retry++)
     {
       Logger.info("need to get some detail time "+ retry);
-      await detailCrawler.run(page, DB_BATCH);
+      await detailCrawler.run(page, Config.crawlStep);
       r = await assertBook();
     }
 
