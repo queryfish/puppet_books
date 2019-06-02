@@ -3,7 +3,7 @@ const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const CrawlerConfig = require('./models/crawlerConfig');
 const Book = require('./models/book');
-const Logger = require('./logger').Logger;
+const Logger = require('./logger');
 const fs = require('fs');
 const MAX_PAGE_NUM = 200;
 const MAX_TICKS = 2000;
@@ -28,8 +28,8 @@ async function getMaxCursor() {
   assertMongoDB();
   var query = Book.find({}).sort({"cursorId" : -1}).limit(1);
   const result = await query.exec();
-  Logger.info("aggregate...result");
-  Logger.info(result);
+  console.log("aggregate...result");
+  console.log(result);
   if (result.length >0)
     return result[0].cursorId;
   else
@@ -80,15 +80,15 @@ async function crawlBookListScanner()
       if(exist == null || exist.length == 0){
           let res = await page.goto(pageUrl);
           if (res && res.status() == 404) {
-            Logger.info("!!!! invalid url "+ pageUrl);
+            console.log("!!!! invalid url "+ pageUrl);
           }
           else {
-            Logger.info("valid url "+ pageUrl);
+            console.log("valid url "+ pageUrl);
             upsertBook({bookUrl:pageUrl});
           }
       }
       else{
-        Logger.info("exist book url "+pageUrl);
+        console.log("exist book url "+pageUrl);
       }
       bookId --;
       tick ++;
@@ -140,7 +140,7 @@ async function crawlBookList(page, uri_formatter)
   // const LIST_THUMBNAIL_SELECTOR = '';
 
 
-  Logger.info('Numpages: ', MAX_PAGE_NUM);
+  console.log('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   //数据库中保存的是最大的BookID: crawlerCursor
   // let crawlerCursorObj = await getCursor();
@@ -154,9 +154,9 @@ async function crawlBookList(page, uri_formatter)
   var currentBookId = crawlerCursor+5;
   //接下来要考虑洞的问题
 
-  Logger.info("start crawling ");
-  Logger.info("crawlerCursor = "+crawlerCursor);
-  Logger.info("currentBookId = "+currentBookId);
+  console.log("start crawling ");
+  console.log("crawlerCursor = "+crawlerCursor);
+  console.log("currentBookId = "+currentBookId);
 
   for (let p = 1; p <= max_pages && currentBookId >= crawlerCursor; p++)
   {
@@ -173,8 +173,8 @@ async function crawlBookList(page, uri_formatter)
       return numb.join("");
     }, LIST_PAGE_MAX_SELECTOR);
 
-    Logger.info('starting '+p+'th PAGE of '+max_pages+' pages');
-    Logger.info('crawling '+pageUrl);
+    console.log('starting '+p+'th PAGE of '+max_pages+' pages');
+    console.log('crawling '+pageUrl);
 
     for (let i = 1; i <= listLength && currentBookId >= crawlerCursor; i++)
     {
@@ -199,11 +199,11 @@ async function crawlBookList(page, uri_formatter)
           var bookId = bookurl.split("/").pop().split(".").shift();
           currentBookId = Number(bookId);
           if(currentBookId > maxCursor) maxCursor = currentBookId;
-          Logger.info("get book Id "+currentBookId);
+          console.log("get book Id "+currentBookId);
           // 12725 the default page
       }
 
-      Logger.info('NO.',p,i,bookname, ' -> ', bookurl);
+      console.log('NO.',p,i,bookname, ' -> ', bookurl);
       upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
@@ -213,9 +213,9 @@ async function crawlBookList(page, uri_formatter)
     }
     // await page.waitFor(5*1000);
   }
-  Logger.info("end crawling ");
-  Logger.info("crawlerCursor = "+crawlerCursor);
-  Logger.info("currentBookId = "+currentBookId);
+  console.log("end crawling ");
+  console.log("crawlerCursor = "+crawlerCursor);
+  console.log("currentBookId = "+currentBookId);
 
   upsertCursor(maxCursor);
 }
@@ -235,7 +235,7 @@ async function greedyDiggerWithFormatter(uri_formatter)
   });
   const page = await browser.newPage();
 
-  Logger.info('Numpages: ', MAX_PAGE_NUM);
+  console.log('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   var ticks = 0;
   var currentBookId = 0;
@@ -286,12 +286,12 @@ async function greedyDiggerWithFormatter(uri_formatter)
       });
 
       ticks++;
-      Logger.info('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
+      console.log('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
 
     }
     // await page.waitFor(5*1000);
   }
-  Logger.info("job finished ...");
+  console.log("job finished ...");
   await browser.close();
 
 }
@@ -341,7 +341,7 @@ function isInvalidValue(v) {
 //       // await crawlBookListByTag("小说")
 //       await crawlBookListPlain();
 //       mongoose.connection.close();
-//       Logger.info("can we exit ?");
+//       console.log("can we exit ?");
 //       // await updateMaxCursor();
 //       // await greedyDigger();
 //       // process.exit(0);

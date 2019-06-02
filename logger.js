@@ -7,16 +7,23 @@ log4js.configure({
                 ,another: { appenders: ['console'], level: 'trace' }
               }
 });
-const logger = log4js.getLogger('cheese');
+const talker = log4js.getLogger('another');
+const noter = log4js.getLogger('cheese');
 
+function log(message) {
+  // talker.trace(message);
+  // noter.trace(message);
+  console.log(message);
+}
 //example
 // logger.trace('Entering cheese testing');
-// logger.info('Got cheese.');
-// Logger.info('Cheese is Comté.');
+// console.log('Got cheese.');
+// console.log('Cheese is Comté.');
 // logger.warn('Cheese is quite smelly.');
 // logger.error('Cheese is too ripe!');
 // logger.fatal('Cheese was breeding ground for listeria.');
 
 module.exports = {
-  Logger: logger
+  Logger: noter,
+  info:log
 };

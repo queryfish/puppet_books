@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
-const Logger = require('./logger').Logger;
+const Logger = require('./logger');
 const copyCrawler = require('./copyCrawler');
 const detailCrawler = require('./detailCrawler');
 const listCrawler = require('./listCrawler');
@@ -77,7 +77,7 @@ async function schedule() {
 }
 
 async function retry(maxRetries, fn) {
-  Logger.info("retry time "+maxRetries);
+  console.log("retry time "+maxRetries);
   return await fn().catch(function(err) {
     if (maxRetries <= 0) {
       throw err;
@@ -95,5 +95,5 @@ async function retry(maxRetries, fn) {
       throw(e);
     }
     mongoose.connection.close();
-    Logger.info("gonna dance, scheduler");
+    console.log("gonna dance, scheduler");
 })();
