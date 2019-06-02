@@ -141,12 +141,15 @@ const process = require('process');
 //   process.exit(0);
 // });
 
-process.on('unhandledRejection', (reason, promise) => {
-  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+process.on('exit', (code) => {
   setWorkerState(0); //0 for idle
   mongoose.connection.close();
-  process.exit(0);
+  console.log(`About to exit with code: ${code}`);
+});
 
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(0);
   // Application specific logging, throwing an error, or other logic here
 });
 /*
