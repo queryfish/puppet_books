@@ -77,7 +77,6 @@ async function crawl(page, detailUrl)
  const url_selector = 'table.dltable > tbody * a:first-of-type';
  let dl_url = await page.evaluate((sel) => {
    let baidu_url = document.querySelector(sel).getAttribute("href");
-   Logger.info(baidu_url);
    return baidu_url;
  }, url_selector);
 
