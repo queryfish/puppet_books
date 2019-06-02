@@ -10,7 +10,7 @@ const util = require('./utils');
 const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 50;
 const DB_URL = 'mongodb://localhost/sobooks';
-const cookieFile = './cookieJar';
+const cookieFile = '~/puppy/cookieJar';
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
