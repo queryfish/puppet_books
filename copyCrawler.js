@@ -7,7 +7,7 @@ const fs = require('fs');
 const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 5;
-const cookieFile = '~/puppy/cookieJar';
+const cookieFile = '/home/steve/puppy/cookieJar';
 
 function assertMongoDB() {
   const DB_URL = 'mongodb://localhost/sobooks';
