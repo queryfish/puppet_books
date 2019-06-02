@@ -36,7 +36,7 @@ async function saveCookieTest() {
 
   // let cookie = page.cookies();
   const cookie = await page.cookies()
-  console.log(JSON.stringify(cookie));
+  Logger.info(JSON.stringify(cookie));
   await saveToJSONFile(cookie, '~/Downloads/temp/tmp');
   // await browser.close();
   // const newp = await browser.newPage();
@@ -55,8 +55,8 @@ async function loadCookieTest() {
   await injectCookiesFromFile(page, './tmpcook');
   await page.waitFor(10 * 1000);
   const cookie = await page.cookies();
-  console.log("feedback cookie");
-  console.log(JSON.stringify(cookie));
+  Logger.info("feedback cookie");
+  Logger.info(JSON.stringify(cookie));
   // await page.goto('https://pan.baidu.com');
   await page.goto('https://pan.baidu.com/s/1PY14ZC9YufwPaJoxNMsFww');
   // await page.waitForNavigation({'waitUntil' : 'networkidle0'});
@@ -87,7 +87,7 @@ async function crawlBookList(booklistUrl)
   const page = await browser.newPage();
 
   const numPages = 10
-  console.log('Numpages: ', numPages);
+  Logger.info('Numpages: ', numPages);
 
   for (let h = 1; h <= numPages; h++)
   {
@@ -96,7 +96,7 @@ async function crawlBookList(booklistUrl)
     let listLength = await page.evaluate((sel) => {
       return document.getElementsByClassName(sel).length;
     }, LENGTH_SELECTOR_CLASS);
-    console.log('staring Page NO.'+h);
+    Logger.info('staring Page NO.'+h);
 
     for (let i = 1; i <= listLength; i++) {
       // change the index to the next child
@@ -125,7 +125,7 @@ async function crawlBookList(booklistUrl)
       // if (!email)
         // continue;
 
-      console.log('NO.',h,i,bookname, ' -> ', bookurl);
+      Logger.info('NO.',h,i,bookname, ' -> ', bookurl);
       upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
@@ -183,15 +183,15 @@ async function crawlAndSaveBooKInfo(bookInfoUrl) {
   // const BUTTON_SELECTOR = '#login > form > div.auth-form-body.mt-3 > input.btn.btn-primary.btn-block';
   const BUTTON_SELECTOR = 'input.euc-y-s';
 
-  console.log("getting book pickcode ...");
-  // console.log(page.$('h1.article-title'));
+  Logger.info("getting book pickcode ...");
+  // Logger.info(page.$('h1.article-title'));
   // var msg = document.querySelector('h1.article-title');
   let emial = await page.evaluate((sel) => {
     // let element = document.querySelector(sel).getAttribute("href");
     let element = document.querySelector(sel).textContent;
     return element;
   }, 'h1.article-title > a');
-  console.log(emial);
+  Logger.info(emial);
 
   await page.click(CHECKCODE_SELECTOR);
   await page.keyboard.type(CREDS.checkcode);
@@ -206,23 +206,23 @@ async function crawlAndSaveBooKInfo(bookInfoUrl) {
     return element;
   }, 'div.e-secret > strong');
 
-  console.log("wait for secret");
-  console.log(secret);
+  Logger.info("wait for secret");
+  Logger.info(secret);
 
   var l = secret.length
   const pickcode  = secret.substring(l-4, l);
-  console.log(pickcode);
+  Logger.info(pickcode);
 
   // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
   const url_selector = 'table.dltable > tbody * a:first-of-type';
   let dl_url = await page.evaluate((sel) => {
     let baidu_url = document.querySelector(sel).getAttribute("href");
-    console.log(baidu_url);
+    Logger.info(baidu_url);
     return baidu_url;
   }, url_selector);
 
-  console.log("wait for url");
-  console.log(dl_url);
+  Logger.info("wait for url");
+  Logger.info(dl_url);
 
   /*parse the download url*/
   const temp_url = new URL(dl_url);
@@ -252,7 +252,7 @@ async function grabABook_BDY(bookObj) {
 
     const baidu_url = bookObj.baiduUrl;
     const pickcode = bookObj.baiduCode;
-    console.log("going to cloud ..."+baidu_url);
+    Logger.info("going to cloud ..."+baidu_url);
 
     const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
     const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
@@ -284,12 +284,12 @@ async function grabABook_BDY(bookObj) {
     var saveButtonSel = '';
 
     if (await page.$(FILE_CHECK_SEL) !== null) {
-        console.log('folder found');
+        Logger.info('folder found');
         await page.click(FILE_CHECK_SEL);
         saveButtonSel = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     }
     else{
-        console.log('folder no found');
+        Logger.info('folder no found');
         saveButtonSel = '#layoutMain > div.frame-content > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue'
     }
 
@@ -310,7 +310,7 @@ async function grabABook_BDY(bookObj) {
         let msg = document.querySelector(sel).textContent;
         return msg;
       }, MSG_SEL);
-      console.log(rsp_msg);
+      Logger.info(rsp_msg);
       await page.waitFor(5*1000);
       upsertBook({
         bookUrl:bookUrl,
@@ -352,8 +352,8 @@ function isInvalidValue(v) {
 async function fetchBookByUrl(bookUrl){
 
   var result = await assertBook(bookUrl);
-  console.log("query result ...main ")
-  console.log(result);
+  Logger.info("query result ...main ")
+  Logger.info(result);
 
   if( result == null || isInvalidValue(result["baiduUrl"]) || isInvalidValue(result["baiduCode"]))
   {
@@ -454,15 +454,15 @@ async function run(bookurl) {
   // const BUTTON_SELECTOR = '#login > form > div.auth-form-body.mt-3 > input.btn.btn-primary.btn-block';
   const BUTTON_SELECTOR = 'input.euc-y-s';
 
-  console.log("get something");
-  // console.log(page.$('h1.article-title'));
+  Logger.info("get something");
+  // Logger.info(page.$('h1.article-title'));
   // var msg = document.querySelector('h1.article-title');
   let email = await page.evaluate((sel) => {
     // let element = document.querySelector(sel).getAttribute("href");
     let element = document.querySelector(sel).textContent;
     return element;
   }, 'h1.article-title > a');
-  console.log(email);
+  Logger.info(email);
 
   await page.click(CHECKCODE_SELECTOR);
   await page.keyboard.type(CREDS.checkcode);
@@ -475,23 +475,23 @@ async function run(bookurl) {
     return element;
   }, 'div.e-secret > strong');
 
-  console.log("wait for secret");
-  console.log(secret);
+  Logger.info("wait for secret");
+  Logger.info(secret);
 
   var l = secret.length
   const pickcode  = secret.substring(l-4, l);
-  console.log(pickcode);
+  Logger.info(pickcode);
 
   // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
   const url_selector = 'table.dltable > tbody * a:first-of-type';
   let dl_url = await page.evaluate((sel) => {
     let baidu_url = document.querySelector(sel).getAttribute("href");
-    console.log(baidu_url);
+    Logger.info(baidu_url);
     return baidu_url;
   }, url_selector);
 
-  console.log("wait for url");
-  console.log(dl_url);
+  Logger.info("wait for url");
+  Logger.info(dl_url);
 
   /*parse the download url*/
   const temp_url = new URL(dl_url);
@@ -536,17 +536,17 @@ async function run(bookurl) {
 
      try {
         var data = JSON.stringify(jsonObj);
-        console.log("Saving object '%s' to JSON file: %s", data, targetFile);
+        Logger.info("Saving object '%s' to JSON file: %s", data, targetFile);
      }
      catch (err) {
-       console.log("Could not convert object to JSON string ! " + err);
+       Logger.info("Could not convert object to JSON string ! " + err);
        reject(err);
      }
 
      // Try saving the file.
      fs.writeFile('./tmpcook', data, (err, text) => {
        if(err){
-         console.log(err);
+         Logger.info(err);
          reject(err);
        }
        else {
@@ -565,7 +565,7 @@ async function run(bookurl) {
  async function injectCookiesFromFile(page, file) {
 
   let cb = async function (page, cookie) {
-      console.log("Injecting cookies from file: %s", JSON.stringify(cookie) );
+      Logger.info("Injecting cookies from file: %s", JSON.stringify(cookie) );
       //await page.setCookie(..._cookies); // method 1
       await page.setCookie(cookie); // method 2
   };
@@ -593,7 +593,7 @@ async function run(bookurl) {
 const process = require('process');
 
 // process.argv.slice(2).forEach(function (val, index, array) {
-//   console.log(index + ': ' + val);
+//   Logger.info(index + ': ' + val);
 //   fetchBookByUrl(val);
 // });
 (async () => {

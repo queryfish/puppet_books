@@ -76,7 +76,7 @@ async function schedule() {
 }
 
 async function retry(maxRetries, fn) {
-  console.log("retry time "+maxRetries);
+  Logger.info("retry time "+maxRetries);
   return await fn().catch(function(err) {
     if (maxRetries <= 0) {
       throw err;
@@ -94,5 +94,5 @@ async function retry(maxRetries, fn) {
       throw(e);
     }
     mongoose.connection.close();
-    console.log("gonna dance, scheduler");
+    Logger.info("gonna dance, scheduler");
 })();

@@ -27,8 +27,8 @@ async function getMaxCursor() {
   assertMongoDB();
   var query = Book.find({}).sort({"cursorId" : -1}).limit(1);
   const result = await query.exec();
-  console.log("aggregate...result");
-  console.log(result);
+  Logger.info("aggregate...result");
+  Logger.info(result);
   if (result.length >0)
     return result[0].cursorId;
   else
@@ -79,15 +79,15 @@ async function crawlBookListScanner()
       if(exist == null || exist.length == 0){
           let res = await page.goto(pageUrl);
           if (res && res.status() == 404) {
-            console.log("!!!! invalid url "+ pageUrl);
+            Logger.info("!!!! invalid url "+ pageUrl);
           }
           else {
-            console.log("valid url "+ pageUrl);
+            Logger.info("valid url "+ pageUrl);
             upsertBook({bookUrl:pageUrl});
           }
       }
       else{
-        console.log("exist book url "+pageUrl);
+        Logger.info("exist book url "+pageUrl);
       }
       bookId --;
       tick ++;
@@ -139,7 +139,7 @@ async function crawlBookList(page, uri_formatter)
   // const LIST_THUMBNAIL_SELECTOR = '';
 
 
-  console.log('Numpages: ', MAX_PAGE_NUM);
+  Logger.info('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   //数据库中保存的是最大的BookID: crawlerCursor
   // let crawlerCursorObj = await getCursor();
@@ -153,9 +153,9 @@ async function crawlBookList(page, uri_formatter)
   var currentBookId = crawlerCursor+5;
   //接下来要考虑洞的问题
 
-  console.log("start crawling ");
-  console.log("crawlerCursor = "+crawlerCursor);
-  console.log("currentBookId = "+currentBookId);
+  Logger.info("start crawling ");
+  Logger.info("crawlerCursor = "+crawlerCursor);
+  Logger.info("currentBookId = "+currentBookId);
 
   for (let p = 1; p <= max_pages && currentBookId >= crawlerCursor; p++)
   {
@@ -172,8 +172,8 @@ async function crawlBookList(page, uri_formatter)
       return numb.join("");
     }, LIST_PAGE_MAX_SELECTOR);
 
-    console.log('starting '+p+'th PAGE of '+max_pages+' pages');
-    console.log('crawling '+pageUrl);
+    Logger.info('starting '+p+'th PAGE of '+max_pages+' pages');
+    Logger.info('crawling '+pageUrl);
 
     for (let i = 1; i <= listLength && currentBookId >= crawlerCursor; i++)
     {
@@ -198,11 +198,11 @@ async function crawlBookList(page, uri_formatter)
           var bookId = bookurl.split("/").pop().split(".").shift();
           currentBookId = Number(bookId);
           if(currentBookId > maxCursor) maxCursor = currentBookId;
-          console.log("get book Id "+currentBookId);
+          Logger.info("get book Id "+currentBookId);
           // 12725 the default page
       }
 
-      console.log('NO.',p,i,bookname, ' -> ', bookurl);
+      Logger.info('NO.',p,i,bookname, ' -> ', bookurl);
       upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
@@ -212,9 +212,9 @@ async function crawlBookList(page, uri_formatter)
     }
     // await page.waitFor(5*1000);
   }
-  console.log("end crawling ");
-  console.log("crawlerCursor = "+crawlerCursor);
-  console.log("currentBookId = "+currentBookId);
+  Logger.info("end crawling ");
+  Logger.info("crawlerCursor = "+crawlerCursor);
+  Logger.info("currentBookId = "+currentBookId);
 
   upsertCursor(maxCursor);
 }
@@ -234,7 +234,7 @@ async function greedyDiggerWithFormatter(uri_formatter)
   });
   const page = await browser.newPage();
 
-  console.log('Numpages: ', MAX_PAGE_NUM);
+  Logger.info('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   var ticks = 0;
   var currentBookId = 0;
@@ -285,12 +285,12 @@ async function greedyDiggerWithFormatter(uri_formatter)
       });
 
       ticks++;
-      console.log('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
+      Logger.info('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
 
     }
     // await page.waitFor(5*1000);
   }
-  console.log("job finished ...");
+  Logger.info("job finished ...");
   await browser.close();
 
 }
@@ -340,7 +340,7 @@ function isInvalidValue(v) {
 //       // await crawlBookListByTag("小说")
 //       await crawlBookListPlain();
 //       mongoose.connection.close();
-//       console.log("can we exit ?");
+//       Logger.info("can we exit ?");
 //       // await updateMaxCursor();
 //       // await greedyDigger();
 //       // process.exit(0);

@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
+const Logger = require('./logger.js');
 const MAX_CRAWL_NUM = 200;
 const DB_BATCH = 10;
 // const fs = require('fs');
@@ -50,7 +51,7 @@ async function crawl(page, detailUrl)
 
  await page.goto(detailUrl, {waitUntil: 'networkidle2'});
  var bookObj = {"bookUrl": detailUrl};
- console.log("extracting "+detailUrl);
+ Logger.info("extracting "+detailUrl);
  bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
  let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
  bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
@@ -58,7 +59,7 @@ async function crawl(page, detailUrl)
  bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
  bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
  bookObj["tags"] = await getTextContent(page, TAGS_SEL);
- console.log(bookObj);
+ Logger.info(bookObj);
  // await page.waitFor(5 * 1000);
 
  await page.click(CHECKCODE_SELECTOR);
@@ -76,15 +77,15 @@ async function crawl(page, detailUrl)
  const url_selector = 'table.dltable > tbody * a:first-of-type';
  let dl_url = await page.evaluate((sel) => {
    let baidu_url = document.querySelector(sel).getAttribute("href");
-   console.log(baidu_url);
+   Logger.info(baidu_url);
    return baidu_url;
  }, url_selector);
 
  const temp_url = new URL(dl_url);
  bookObj["baiduUrl"]= temp_url.searchParams.get('url');
 
- console.log("book detailed ");
- console.log(bookObj.bookName+"@"+bookObj.author);
+ Logger.info("book detailed ");
+ Logger.info(bookObj.bookName+"@"+bookObj.author);
 
  upsertBook(bookObj);
 
@@ -133,25 +134,25 @@ async function(page, max_crawled_items) {
   var tick = 0;
   var r = await assertBook();
   // while(r.length > 0 && tick < max_crawled_items){
-    console.log(r.length+" books to go !!!");
-    // console.log(r);
+    Logger.info(r.length+" books to go !!!");
+    // Logger.info(r);
     for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
     {
       book = r[i];
-      console.log("crawling "+i+"th book detail "+book.bookName);
+      Logger.info("crawling "+i+"th book detail "+book.bookName);
       await crawl(page, book.bookUrl);
       tick ++;
     }
     // r = await assertBook();
   // }
-  
+
 }
 
 /*
  main
 */
 async function retry(maxRetries, fn) {
-  console.log("retry time "+maxRetries);
+  Logger.info("retry time "+maxRetries);
   return await fn().catch(function(err) {
     if (maxRetries <= 0) {
       throw err;

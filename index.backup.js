@@ -43,7 +43,7 @@ async function run() {
   const LENGTH_SELECTOR_CLASS = 'user-list-item';
   // const numPages = await getNumPages(page);
   const numPages = 20
-  console.log('Numpages: ', numPages);
+  Logger.info('Numpages: ', numPages);
 
   for (let h = 11; h <= numPages; h++) {
     let pageUrl = searchUrl + '&p=' + h;
@@ -71,7 +71,7 @@ async function run() {
       if (!email)
         continue;
 
-      console.log(username, ' -> ', email);
+      Logger.info(username, ' -> ', email);
 
       upsertUser({
         username: username,
@@ -97,7 +97,7 @@ async function getNumPages(page) {
 
   const numUsers = parseInt(inner);
 
-  console.log('numUsers: ', numUsers);
+  Logger.info('numUsers: ', numUsers);
 
   /**
    * GitHub shows 10 resuls per page, so
