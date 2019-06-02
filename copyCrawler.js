@@ -214,13 +214,13 @@ async function retry(maxRetries, fn) {
  main
 */
 (async () => {
-    // try {
+    try {
       await automate();
-      mongoose.connection.close();
-      console.log("gonna dance, copyCrawler");
-    // } catch (e) {
-    //   throw(e);
-    // }
+    } catch (e) {
+      throw(e);
+    }
+    mongoose.connection.close();
+    console.log("gonna dance, copyCrawler");
     // return;
     // retry(10, automate)
 })();
