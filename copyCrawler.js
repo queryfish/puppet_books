@@ -74,7 +74,8 @@ async function grabABook_BDY(page, bookObj) {
     await page.click(CHECKCODE_SELECTOR2);
     await page.keyboard.type(pickcode);
     await page.click(BUTTON_SELECTOR2);
-    await page.waitForNavigation();
+    await page.waitFor(10*1000);//
+    // await page.waitForNavigation();
 
     // const saveButtonSel = '#layoutMain > div.frame-content > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     // const okButtonSel ='#fileTreeDialog > div.dialog-footer.g-clearfix > a:nth-child(2)';
@@ -103,14 +104,14 @@ async function grabABook_BDY(page, bookObj) {
 
     // await page.click(FILE_CHECK_SEL);
     await page.click(saveButtonSel);
-    await page.waitFor(7*1000);
+    await page.waitFor(10*1000);
 
     // If the target named dir exist , save to it, else save to top dir.
     var tree_dir_sel = '#fileTreeDialog > div.dialog-body > div > ul > li > ul > li:nth-child(2) > div > span > span';
     let  dir_name_text = await getTextContent(page, tree_dir_sel);
     if(dir_name_text == "A_bookstore"){
       await page.click(tree_dir_sel);
-      await page.waitFor(1*1000);
+      await page.waitFor(5*1000);
     }
 
     const okButtonSel ='#fileTreeDialog > div.dialog-footer.g-clearfix > a.g-button.g-button-blue-large';
