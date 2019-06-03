@@ -31,12 +31,14 @@ function upsertBook(bookObj) {
 async function assertBook() {
   assertMongoDB();
   // if this email exists, update the entry, don't insert
-  const conditions = { "$and":[
+  const conditions = {"$query":
+                        {"$and":[
                           {"baiduUrl": {"$exists": true}},
                           {"baiduCode":{"$exists":true}},
                           {"lastCrawlCopyTime":{"$exists":false}},
                           {"badApple":{"$exists":false}}
-                        ] };
+                        ] } ,
+                        "$orderby":{"bookUrl":-1}};
   const options = { limit: Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
