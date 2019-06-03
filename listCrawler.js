@@ -204,7 +204,7 @@ async function crawlBookList(page, uri_formatter)
           // 12725 the default page
       }
 
-      Logger.info('NO.',p,i,bookname, ' -> ', bookurl);
+      Logger.info('NO.'+i+" "+bookname+ ' -> '+ bookurl);
       upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
