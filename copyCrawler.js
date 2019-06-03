@@ -46,7 +46,7 @@ async function assertBook() {
                           {"badApple":{"$exists":false}}
                         ] };
 
-  const options = { limit: Config.crawlStep };
+  const options = { limit: Config.crawlStep , sort:{bookUrl: -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
