@@ -106,6 +106,9 @@ async function schedule() {
     await util.injectCookiesFromFile(page, Config.cookieFile);
     await page.waitFor(5 * 1000);
 
+    //Should we run this unconditionally?
+    await listCrawler.run(page);
+
     let copy = await booksToCopy();
     if(copy > 0){
       //start copy crawler
@@ -119,7 +122,7 @@ async function schedule() {
       }
       else {
         // start list crawler
-        await listCrawler.run(page);
+        // await listCrawler.run(page);
       }
     }
     await browser.close();
