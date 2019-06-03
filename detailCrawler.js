@@ -102,9 +102,10 @@ function assertMongoDB() {
 async function assertBook() {
   assertMongoDB();
   // if this email exists, update the entry, don't insert
-  const conditions = {"$query": { "baiduUrl": {"$exists": false} },
-                      "$orderby":{"bookUrl":-1}
-                      };
+  // const conditions = {"$query": { "baiduUrl": {"$exists": false} },
+  //                     "$orderby":{"bookUrl":-1}
+  //                     };
+  const conditions = { "baiduUrl": {"$exists": false}} ;
   /*
   find(
    {
