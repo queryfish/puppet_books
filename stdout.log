@@ -4978,3 +4978,1025 @@ scheduler start dancing PID@ 29264
 [34m[2019-06-04T14:02:44.545] [TRACE] console - [39mbook detailed 
 [34m[2019-06-04T14:02:44.716] [TRACE] console - [39mscheduler finish dancing PID@
 About to exit with code: 0
+scheduler start dancing PID@ 29618
+(node:29618) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:29618) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+Unhandled Rejection at: Promise {
+  <rejected> { Error: ENOENT: no such file or directory, open './cookieJar'
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: './cookieJar' } } reason: { [Error: ENOENT: no such file or directory, open './cookieJar']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: './cookieJar' }
+About to exit with code: 0
+scheduler start dancing PID@ 29800
+(node:29800) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:29800) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T15:00:08.506] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T15:00:08.573] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T15:00:08.573] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T15:00:08.575] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T15:00:08.575] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T15:00:08.575] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T15:00:11.868] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T15:00:11.875] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T15:00:11.880] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T15:00:11.880] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T15:00:11.881] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T15:00:11.881] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T15:00:11.881] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T15:00:12.086] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T15:00:12.091] [TRACE] console - [39mNO. 0 book: 谁统治美国？公司富豪的胜利
+Unhandled Rejection at: Promise {
+  <rejected> { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+      at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+    -- ASYNC --
+      at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+      at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+      at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+      at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+      at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+      at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' } } reason: { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 29991
+(node:29991) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:29991) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T15:30:08.759] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T15:30:08.809] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T15:30:08.809] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T15:30:08.814] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T15:30:08.815] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T15:30:08.815] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T15:30:11.910] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T15:30:11.910] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T15:30:11.920] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T15:30:11.920] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T15:30:11.922] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T15:30:11.922] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T15:30:11.923] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T15:30:12.144] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T15:30:12.160] [TRACE] console - [39mNO. 0 book: 谁统治美国？公司富豪的胜利
+[34m[2019-06-04T15:30:14.213] [TRACE] console - [39mextracting https://sobooks.cc/books/12767.html
+[34m[2019-06-04T15:30:19.701] [TRACE] console - [39mundefined@作者：威廉・多姆霍夫
+[34m[2019-06-04T15:30:19.701] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T15:30:19.704] [TRACE] console - [39mNO. 1 book: 高阶运营
+Unhandled Rejection at: Promise {
+  <rejected> { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+      at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+    -- ASYNC --
+      at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+      at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+      at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+      at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+      at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+      at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' } } reason: { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 30165
+(node:30165) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:30165) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T16:00:08.594] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T16:00:08.642] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T16:00:08.643] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T16:00:08.645] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T16:00:08.645] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T16:00:08.645] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T16:00:11.666] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T16:00:11.667] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T16:00:11.674] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T16:00:11.674] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T16:00:11.674] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T16:00:11.675] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T16:00:11.675] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T16:00:11.836] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T16:00:11.843] [TRACE] console - [39mNO. 0 book: 高阶运营
+[34m[2019-06-04T16:00:19.687] [TRACE] console - [39mextracting https://sobooks.cc/books/12769.html
+[34m[2019-06-04T16:00:25.124] [TRACE] console - [39mundefined@作者：龙共火火
+[34m[2019-06-04T16:00:25.125] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:00:25.126] [TRACE] console - [39mNO. 1 book: （新华书店十年畅销书系列）世界名著39本合集（上册）
+[34m[2019-06-04T16:00:31.521] [TRACE] console - [39mextracting https://sobooks.cc/books/12746.html
+[34m[2019-06-04T16:00:36.862] [TRACE] console - [39mundefined@作者：新华文轩出版集团
+[34m[2019-06-04T16:00:36.862] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:00:36.863] [TRACE] console - [39mNO. 2 book: （新华书店十年畅销书系列）世界名著39本合集（下册）
+[34m[2019-06-04T16:00:38.815] [TRACE] console - [39mextracting https://sobooks.cc/books/12747.html
+[34m[2019-06-04T16:00:44.178] [TRACE] console - [39mundefined@作者：新华文轩出版集团
+[34m[2019-06-04T16:00:44.179] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:00:44.179] [TRACE] console - [39mNO. 3 book: 说文解字十二讲
+[34m[2019-06-04T16:00:46.657] [TRACE] console - [39mextracting https://sobooks.cc/books/12749.html
+[34m[2019-06-04T16:00:51.862] [TRACE] console - [39mundefined@作者：万献初/刘会龙
+[34m[2019-06-04T16:00:51.862] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:00:51.863] [TRACE] console - [39mNO. 4 book: 半小时漫画唐诗
+[34m[2019-06-04T16:00:53.819] [TRACE] console - [39mextracting https://sobooks.cc/books/12750.html
+[34m[2019-06-04T16:00:59.001] [TRACE] console - [39mundefined@作者：陈磊
+[34m[2019-06-04T16:00:59.002] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:00:59.002] [TRACE] console - [39mNO. 5 book: 滴血的大朝代
+[34m[2019-06-04T16:01:00.902] [TRACE] console - [39mextracting https://sobooks.cc/books/12751.html
+[34m[2019-06-04T16:01:06.098] [TRACE] console - [39mundefined@作者：宗承灏
+[34m[2019-06-04T16:01:06.098] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:06.098] [TRACE] console - [39mNO. 6 book: 高情商管理者的6个习惯
+[34m[2019-06-04T16:01:08.557] [TRACE] console - [39mextracting https://sobooks.cc/books/12753.html
+[34m[2019-06-04T16:01:13.778] [TRACE] console - [39mundefined@作者：斯蒂芬E.科恩/文森特D.奥康奈尔
+[34m[2019-06-04T16:01:13.779] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:13.779] [TRACE] console - [39mNO. 7 book: 甲午战争
+[34m[2019-06-04T16:01:16.304] [TRACE] console - [39mextracting https://sobooks.cc/books/12755.html
+[34m[2019-06-04T16:01:21.528] [TRACE] console - [39mundefined@作者：陈舜臣
+[34m[2019-06-04T16:01:21.528] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:21.529] [TRACE] console - [39mNO. 8 book: 时震
+[34m[2019-06-04T16:01:24.004] [TRACE] console - [39mextracting https://sobooks.cc/books/12756.html
+[34m[2019-06-04T16:01:29.233] [TRACE] console - [39mundefined@作者：库尔特・冯内古特
+[34m[2019-06-04T16:01:29.233] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:29.233] [TRACE] console - [39mNO. 9 book: 在新疆
+[34m[2019-06-04T16:01:31.081] [TRACE] console - [39mextracting https://sobooks.cc/books/12757.html
+[34m[2019-06-04T16:01:36.278] [TRACE] console - [39mundefined@作者：刘亮程
+[34m[2019-06-04T16:01:36.280] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:36.283] [TRACE] console - [39mNO. 10 book: 三千年来谁铸币
+[34m[2019-06-04T16:01:38.720] [TRACE] console - [39mextracting https://sobooks.cc/books/12758.html
+[34m[2019-06-04T16:01:44.177] [TRACE] console - [39mundefined@作者：王永生
+[34m[2019-06-04T16:01:44.180] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:44.186] [TRACE] console - [39mNO. 11 book: 数据的真相
+[34m[2019-06-04T16:01:46.737] [TRACE] console - [39mextracting https://sobooks.cc/books/12726.html
+[34m[2019-06-04T16:01:52.078] [TRACE] console - [39mundefined@作者：约翰・H. 约翰逊/迈克・格鲁克
+[34m[2019-06-04T16:01:52.080] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:52.082] [TRACE] console - [39mNO. 12 book: 学会创新
+[34m[2019-06-04T16:01:54.319] [TRACE] console - [39mextracting https://sobooks.cc/books/12727.html
+[34m[2019-06-04T16:01:59.610] [TRACE] console - [39mundefined@作者：罗德・贾金斯
+[34m[2019-06-04T16:01:59.610] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:01:59.610] [TRACE] console - [39mNO. 13 book: 天人之际：薛仁明读《史记》
+[34m[2019-06-04T16:02:01.886] [TRACE] console - [39mextracting https://sobooks.cc/books/12728.html
+[34m[2019-06-04T16:02:07.083] [TRACE] console - [39mundefined@作者：薛仁明
+[34m[2019-06-04T16:02:07.083] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:07.084] [TRACE] console - [39mNO. 14 book: 思维精进
+[34m[2019-06-04T16:02:09.501] [TRACE] console - [39mextracting https://sobooks.cc/books/12730.html
+[34m[2019-06-04T16:02:14.775] [TRACE] console - [39mundefined@作者：赵帅/王姗姗 
+[34m[2019-06-04T16:02:14.775] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:14.776] [TRACE] console - [39mNO. 15 book: 瞩望新轴心时代
+[34m[2019-06-04T16:02:17.368] [TRACE] console - [39mextracting https://sobooks.cc/books/12731.html
+[34m[2019-06-04T16:02:22.858] [TRACE] console - [39mundefined@作者：汤一介
+[34m[2019-06-04T16:02:22.860] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:22.865] [TRACE] console - [39mNO. 16 book: 自信表达
+[34m[2019-06-04T16:02:24.813] [TRACE] console - [39mextracting https://sobooks.cc/books/12732.html
+[34m[2019-06-04T16:02:30.308] [TRACE] console - [39mundefined@作者：兰迪・帕特森
+[34m[2019-06-04T16:02:30.309] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:30.311] [TRACE] console - [39mNO. 17 book: 凿空
+[34m[2019-06-04T16:02:32.882] [TRACE] console - [39mextracting https://sobooks.cc/books/12733.html
+[34m[2019-06-04T16:02:38.141] [TRACE] console - [39mundefined@作者：刘亮程
+[34m[2019-06-04T16:02:38.141] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:38.141] [TRACE] console - [39mNO. 18 book: 中国与中国人影像（增订版）
+[34m[2019-06-04T16:02:40.584] [TRACE] console - [39mextracting https://sobooks.cc/books/12734.html
+[34m[2019-06-04T16:02:45.807] [TRACE] console - [39mundefined@作者：约翰・汤姆逊
+[34m[2019-06-04T16:02:45.808] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:45.809] [TRACE] console - [39mNO. 19 book: 一代巨人：明末耶稣会士在中国的故事
+[34m[2019-06-04T16:02:47.551] [TRACE] console - [39mextracting https://sobooks.cc/books/12736.html
+[34m[2019-06-04T16:02:52.741] [TRACE] console - [39mundefined@作者：邓恩
+[34m[2019-06-04T16:02:52.741] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:02:52.889] [TRACE] console - [39m20 books to copy ...
+[34m[2019-06-04T16:02:52.889] [TRACE] console - [39mNO.0: 谁统治美国？公司富豪的胜利 -> https://sobooks.cc/books/12767.html
+[34m[2019-06-04T16:02:52.892] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1xTyHzWaRTaSFyXZww1fnkg
+[34m[2019-06-04T16:03:04.159] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:03:04.178] [TRACE] console - [39mNO.1: 高阶运营 -> https://sobooks.cc/books/12769.html
+[34m[2019-06-04T16:03:04.179] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1JYq4PMNgE1jstXP_6A24WQ
+[34m[2019-06-04T16:03:21.809] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:03:47.070] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:03:52.079] [TRACE] console - [39mNO.2: （新华书店十年畅销书系列）世界名著39本合集（上册） -> https://sobooks.cc/books/12746.html
+[34m[2019-06-04T16:03:52.080] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1kbuvkepODhCXiYTq_UFvKA
+[34m[2019-06-04T16:04:00.026] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:04:00.028] [TRACE] console - [39mNO.3: （新华书店十年畅销书系列）世界名著39本合集（下册） -> https://sobooks.cc/books/12747.html
+[34m[2019-06-04T16:04:00.028] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1YKF1L9a-2GYEGL0-5NwcCA
+[34m[2019-06-04T16:04:17.464] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:04:42.681] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:04:47.686] [TRACE] console - [39mNO.4: 说文解字十二讲 -> https://sobooks.cc/books/12749.html
+[34m[2019-06-04T16:04:47.686] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1SXTyMNOkUbRrbkQOtJuiPg
+[34m[2019-06-04T16:05:06.230] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:05:31.438] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:05:36.445] [TRACE] console - [39mNO.5: 半小时漫画唐诗 -> https://sobooks.cc/books/12750.html
+[34m[2019-06-04T16:05:36.445] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1CXaIsErliSxEqjm-3HiD5w
+[34m[2019-06-04T16:05:44.372] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:05:44.373] [TRACE] console - [39mNO.6: 滴血的大朝代 -> https://sobooks.cc/books/12751.html
+[34m[2019-06-04T16:05:44.373] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/17OaCF1WGe2nudUe9VoOmLA
+[34m[2019-06-04T16:06:02.297] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:06:27.483] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:06:32.488] [TRACE] console - [39mNO.7: 高情商管理者的6个习惯 -> https://sobooks.cc/books/12753.html
+[34m[2019-06-04T16:06:32.489] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1RoYUXIMdE04dtrp9Il861Q
+[34m[2019-06-04T16:06:40.711] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:06:40.712] [TRACE] console - [39mNO.8: 甲午战争 -> https://sobooks.cc/books/12755.html
+[34m[2019-06-04T16:06:40.712] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/11Mrey94zUus0Q9DeIhzv4g
+[34m[2019-06-04T16:06:58.273] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:07:23.427] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:07:28.428] [TRACE] console - [39mNO.9: 时震 -> https://sobooks.cc/books/12756.html
+[34m[2019-06-04T16:07:28.428] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1_vjDPtdSypOcxCVJh_nwaw
+[34m[2019-06-04T16:07:35.981] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:07:35.982] [TRACE] console - [39mNO.10: 在新疆 -> https://sobooks.cc/books/12757.html
+[34m[2019-06-04T16:07:35.982] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1e-wbA4j1xntby794y6Bp2A
+[34m[2019-06-04T16:07:43.227] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:07:43.228] [TRACE] console - [39mNO.11: 三千年来谁铸币 -> https://sobooks.cc/books/12758.html
+[34m[2019-06-04T16:07:43.228] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/17F-3OQcONRgYM7gecKrmHw
+[34m[2019-06-04T16:07:51.120] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:07:51.121] [TRACE] console - [39mNO.12: 数据的真相 -> https://sobooks.cc/books/12726.html
+[34m[2019-06-04T16:07:51.121] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1M5HpdJnYHcbv0gKbx4xEhA
+[34m[2019-06-04T16:08:08.453] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:08:33.617] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:08:38.618] [TRACE] console - [39mNO.13: 学会创新 -> https://sobooks.cc/books/12727.html
+[34m[2019-06-04T16:08:38.618] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1LvzObelNdLz_Mb9W5F2z7g
+[34m[2019-06-04T16:08:56.220] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:09:21.386] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:09:26.390] [TRACE] console - [39mNO.14: 天人之际：薛仁明读《史记》 -> https://sobooks.cc/books/12728.html
+[34m[2019-06-04T16:09:26.390] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1QTlJcAW0FKcq0P8V9PgbHA
+[34m[2019-06-04T16:09:34.228] [TRACE] console - [39mcheckcode input invalid
+[34m[2019-06-04T16:09:34.229] [TRACE] console - [39mNO.15: 思维精进 -> https://sobooks.cc/books/12730.html
+[34m[2019-06-04T16:09:34.229] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1ycrw0ue6BYh-xBfjXkspDA
+[34m[2019-06-04T16:09:51.867] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:10:17.054] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:10:22.058] [TRACE] console - [39mNO.16: 瞩望新轴心时代 -> https://sobooks.cc/books/12731.html
+[34m[2019-06-04T16:10:22.058] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/12oPUVJ0b8ByWl_sI-hWUsQ
+[34m[2019-06-04T16:10:43.081] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:11:08.241] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:11:13.242] [TRACE] console - [39mNO.17: 自信表达 -> https://sobooks.cc/books/12732.html
+[34m[2019-06-04T16:11:13.242] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/12TIb2SFWGMXn86OinTDjPQ
+[34m[2019-06-04T16:11:31.014] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:11:56.217] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:12:01.222] [TRACE] console - [39mNO.18: 凿空 -> https://sobooks.cc/books/12733.html
+[34m[2019-06-04T16:12:01.222] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1jl0YPHBClXmdkH0_JDLrXQ
+[34m[2019-06-04T16:12:19.799] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:12:44.957] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:12:49.959] [TRACE] console - [39mNO.19: 中国与中国人影像（增订版） -> https://sobooks.cc/books/12734.html
+[34m[2019-06-04T16:12:49.959] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1hiSZmQPVjdLVyRkw1LWW3w
+[34m[2019-06-04T16:13:07.745] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:13:32.908] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:13:38.236] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 30403
+(node:30403) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:30403) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T16:30:08.938] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T16:30:08.964] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T16:30:08.965] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T16:30:08.966] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T16:30:08.966] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T16:30:08.967] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T16:30:11.832] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T16:30:11.833] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T16:30:11.847] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T16:30:11.847] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T16:30:11.848] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T16:30:11.848] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T16:30:11.848] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T16:30:12.052] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T16:30:12.065] [TRACE] console - [39mNO. 0 book: 中国人的历史：诸神的踪迹
+[34m[2019-06-04T16:30:16.899] [TRACE] console - [39mextracting https://sobooks.cc/books/12735.html
+[34m[2019-06-04T16:30:22.317] [TRACE] console - [39mundefined@作者：申赋渔
+[34m[2019-06-04T16:30:22.338] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:30:22.341] [TRACE] console - [39mNO. 1 book: 哲学的故事
+[34m[2019-06-04T16:30:24.650] [TRACE] console - [39mextracting https://sobooks.cc/books/12737.html
+[34m[2019-06-04T16:30:30.158] [TRACE] console - [39mundefined@作者：威尔・杜兰特
+[34m[2019-06-04T16:30:30.173] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:30:30.176] [TRACE] console - [39mNO. 2 book: 天真的幽默家
+[34m[2019-06-04T16:30:33.648] [TRACE] console - [39mextracting https://sobooks.cc/books/12739.html
+[34m[2019-06-04T16:30:39.108] [TRACE] console - [39mundefined@作者：老舍
+[34m[2019-06-04T16:30:39.123] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:30:39.126] [TRACE] console - [39mNO. 3 book: 增强人类
+[34m[2019-06-04T16:30:43.219] [TRACE] console - [39mextracting https://sobooks.cc/books/12740.html
+[34m[2019-06-04T16:30:48.753] [TRACE] console - [39mundefined@作者：海伦・帕帕扬尼斯
+[34m[2019-06-04T16:30:48.771] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:30:48.774] [TRACE] console - [39mNO. 4 book: 匈奴史稿（增补版）
+[34m[2019-06-04T16:30:51.284] [TRACE] console - [39mextracting https://sobooks.cc/books/12741.html
+[34m[2019-06-04T16:30:56.668] [TRACE] console - [39mundefined@作者：陈序经
+[34m[2019-06-04T16:30:56.668] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:30:56.672] [TRACE] console - [39mNO. 5 book: 制造汉武帝
+[34m[2019-06-04T16:30:58.951] [TRACE] console - [39mextracting https://sobooks.cc/books/12742.html
+[34m[2019-06-04T16:31:04.196] [TRACE] console - [39mundefined@作者：辛德勇
+[34m[2019-06-04T16:31:04.197] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:04.197] [TRACE] console - [39mNO. 6 book: 温柔的正义
+[34m[2019-06-04T16:31:06.847] [TRACE] console - [39mextracting https://sobooks.cc/books/12743.html
+[34m[2019-06-04T16:31:12.088] [TRACE] console - [39mundefined@作者：琳达・赫什曼
+[34m[2019-06-04T16:31:12.089] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:12.089] [TRACE] console - [39mNO. 7 book: 夜空总有最大密度的蓝色
+[34m[2019-06-04T16:31:13.942] [TRACE] console - [39mextracting https://sobooks.cc/books/12744.html
+[34m[2019-06-04T16:31:19.155] [TRACE] console - [39mundefined@作者：最果夕日
+[34m[2019-06-04T16:31:19.155] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:19.156] [TRACE] console - [39mNO. 8 book: 思维的艺术
+[34m[2019-06-04T16:31:20.816] [TRACE] console - [39mextracting https://sobooks.cc/books/12745.html
+[34m[2019-06-04T16:31:26.004] [TRACE] console - [39mundefined@作者：延斯・森特根
+[34m[2019-06-04T16:31:26.005] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:26.005] [TRACE] console - [39mNO. 9 book: 古代的希腊和罗马
+[34m[2019-06-04T16:31:28.446] [TRACE] console - [39mextracting https://sobooks.cc/books/7727.html
+[34m[2019-06-04T16:31:33.611] [TRACE] console - [39mundefined@作者：吴于廑
+[34m[2019-06-04T16:31:33.611] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:33.611] [TRACE] console - [39mNO. 10 book: 小学问
+[34m[2019-06-04T16:31:35.900] [TRACE] console - [39mextracting https://sobooks.cc/books/7732.html
+[34m[2019-06-04T16:31:41.105] [TRACE] console - [39mundefined@作者：黄执中/周玄毅等
+[34m[2019-06-04T16:31:41.105] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:41.106] [TRACE] console - [39mNO. 11 book: “雅众·影事”之日本导演系列（套装共4册）
+[34m[2019-06-04T16:31:43.365] [TRACE] console - [39mextracting https://sobooks.cc/books/7734.html
+[34m[2019-06-04T16:31:48.574] [TRACE] console - [39mundefined@作者：今敏/大岛渚等
+[34m[2019-06-04T16:31:48.575] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:48.576] [TRACE] console - [39mNO. 12 book: 奇迹男孩
+[34m[2019-06-04T16:31:51.364] [TRACE] console - [39mextracting https://sobooks.cc/books/7746.html
+[34m[2019-06-04T16:31:56.570] [TRACE] console - [39mundefined@作者：帕拉西奥
+[34m[2019-06-04T16:31:56.570] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:31:56.570] [TRACE] console - [39mNO. 13 book: 白金数据
+[34m[2019-06-04T16:31:59.030] [TRACE] console - [39mextracting https://sobooks.cc/books/7749.html
+[34m[2019-06-04T16:32:04.237] [TRACE] console - [39mundefined@作者：东野圭吾
+[34m[2019-06-04T16:32:04.237] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:04.237] [TRACE] console - [39mNO. 14 book: 战争魔术师
+[34m[2019-06-04T16:32:06.886] [TRACE] console - [39mextracting https://sobooks.cc/books/7751.html
+[34m[2019-06-04T16:32:12.169] [TRACE] console - [39mundefined@作者：大卫・费希尔
+[34m[2019-06-04T16:32:12.172] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:12.177] [TRACE] console - [39mNO. 15 book: 欧洲中世纪史
+[34m[2019-06-04T16:32:16.151] [TRACE] console - [39mextracting https://sobooks.cc/books/7753.html
+[34m[2019-06-04T16:32:21.777] [TRACE] console - [39mundefined@作者：朱迪斯・M・本内特等
+[34m[2019-06-04T16:32:21.834] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:21.892] [TRACE] console - [39mNO. 16 book: 秘书工作手记
+[34m[2019-06-04T16:32:25.713] [TRACE] console - [39mextracting https://sobooks.cc/books/7758.html
+[34m[2019-06-04T16:32:31.349] [TRACE] console - [39mundefined@作者：像玉的石头 
+[34m[2019-06-04T16:32:31.360] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:31.364] [TRACE] console - [39mNO. 17 book: 隐形冠军：未来全球化的先锋
+[34m[2019-06-04T16:32:34.697] [TRACE] console - [39mextracting https://sobooks.cc/books/7761.html
+[34m[2019-06-04T16:32:40.179] [TRACE] console - [39mundefined@作者：赫尔曼・西蒙
+[34m[2019-06-04T16:32:40.189] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:40.194] [TRACE] console - [39mNO. 18 book: 慢慢来，反正也来不及
+[34m[2019-06-04T16:32:43.911] [TRACE] console - [39mextracting https://sobooks.cc/books/7763.html
+[34m[2019-06-04T16:32:49.501] [TRACE] console - [39mundefined@作者：囧叔
+[34m[2019-06-04T16:32:49.512] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:49.515] [TRACE] console - [39mNO. 19 book: 2小时品牌素养
+[34m[2019-06-04T16:32:52.517] [TRACE] console - [39mextracting https://sobooks.cc/books/7765.html
+[34m[2019-06-04T16:32:58.283] [TRACE] console - [39mundefined@作者：邓德隆
+[34m[2019-06-04T16:32:58.297] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T16:32:58.434] [TRACE] console - [39m20 books to copy ...
+[34m[2019-06-04T16:32:58.459] [TRACE] console - [39mNO.0: 一代巨人：明末耶稣会士在中国的故事 -> https://sobooks.cc/books/12736.html
+[34m[2019-06-04T16:32:58.460] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1pSu5ba-NoyxTj_jBnI1k_g
+[34m[2019-06-04T16:33:21.114] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:33:46.336] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:33:51.343] [TRACE] console - [39mNO.1: 中国人的历史：诸神的踪迹 -> https://sobooks.cc/books/12735.html
+[34m[2019-06-04T16:33:51.343] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/13E2_luDBS9edYLsFzFkjrw
+[34m[2019-06-04T16:34:09.181] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:34:34.401] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:34:39.405] [TRACE] console - [39mNO.2: 哲学的故事 -> https://sobooks.cc/books/12737.html
+[34m[2019-06-04T16:34:39.405] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1waUNteldLRlN-InzUcwrVA
+[34m[2019-06-04T16:34:57.362] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:35:22.544] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:35:27.550] [TRACE] console - [39mNO.3: 天真的幽默家 -> https://sobooks.cc/books/12739.html
+[34m[2019-06-04T16:35:27.551] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/10rF5RMw3prGruL4Y1ShsOQ
+[34m[2019-06-04T16:35:45.572] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:36:10.733] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:36:15.735] [TRACE] console - [39mNO.4: 增强人类 -> https://sobooks.cc/books/12740.html
+[34m[2019-06-04T16:36:15.735] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1DDWgEmN6BNSgaVg5bnRB1g
+[34m[2019-06-04T16:36:33.403] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:36:58.620] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:37:03.626] [TRACE] console - [39mNO.5: 匈奴史稿（增补版） -> https://sobooks.cc/books/12741.html
+[34m[2019-06-04T16:37:03.626] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1JOsbaHRHoNiTdymURg8v8w
+[34m[2019-06-04T16:37:22.073] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:37:47.235] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:37:52.239] [TRACE] console - [39mNO.6: 制造汉武帝 -> https://sobooks.cc/books/12742.html
+[34m[2019-06-04T16:37:52.241] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1pBRS8vs7B4DCirVp4auIzQ
+[34m[2019-06-04T16:38:09.788] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:38:34.940] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:38:39.942] [TRACE] console - [39mNO.7: 温柔的正义 -> https://sobooks.cc/books/12743.html
+[34m[2019-06-04T16:38:39.942] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1VjNekPf5kkA7dHjeC0iQnw
+[34m[2019-06-04T16:38:57.747] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:39:22.925] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:39:27.930] [TRACE] console - [39mNO.8: 夜空总有最大密度的蓝色 -> https://sobooks.cc/books/12744.html
+[34m[2019-06-04T16:39:27.930] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1sQl0QePCBiYrqyjnwi5YHg
+[34m[2019-06-04T16:39:45.778] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:40:10.975] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:40:15.975] [TRACE] console - [39mNO.9: 思维的艺术 -> https://sobooks.cc/books/12745.html
+[34m[2019-06-04T16:40:15.976] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1JLZ-V7CCCQfGo7VANofPSw
+[34m[2019-06-04T16:40:33.577] [TRACE] console - [39mfolder found
+[34m[2019-06-04T16:40:58.748] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:41:03.752] [TRACE] console - [39mNO.10: 古代的希腊和罗马 -> https://sobooks.cc/books/7727.html
+[34m[2019-06-04T16:41:03.752] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1i5Znyfz
+[34m[2019-06-04T16:41:21.539] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:41:46.633] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:41:51.636] [TRACE] console - [39mNO.11: 小学问 -> https://sobooks.cc/books/7732.html
+[34m[2019-06-04T16:41:51.636] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1huhDotm
+[34m[2019-06-04T16:42:09.470] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:42:34.590] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:42:39.592] [TRACE] console - [39mNO.12: “雅众·影事”之日本导演系列（套装共4册） -> https://sobooks.cc/books/7734.html
+[34m[2019-06-04T16:42:39.592] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1bpRslkj
+[34m[2019-06-04T16:42:57.321] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:43:22.403] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:43:27.408] [TRACE] console - [39mNO.13: 奇迹男孩 -> https://sobooks.cc/books/7746.html
+[34m[2019-06-04T16:43:27.408] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1o9k8LoI
+[34m[2019-06-04T16:43:45.320] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:44:10.409] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:44:15.411] [TRACE] console - [39mNO.14: 白金数据 -> https://sobooks.cc/books/7749.html
+[34m[2019-06-04T16:44:15.411] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1jIW3LnK
+[34m[2019-06-04T16:44:33.151] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:44:58.244] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:45:03.249] [TRACE] console - [39mNO.15: 战争魔术师 -> https://sobooks.cc/books/7751.html
+[34m[2019-06-04T16:45:03.249] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dGssCXN
+[34m[2019-06-04T16:45:20.899] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:45:45.989] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:45:50.993] [TRACE] console - [39mNO.16: 欧洲中世纪史 -> https://sobooks.cc/books/7753.html
+[34m[2019-06-04T16:45:50.993] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1ggT2tGJ
+[34m[2019-06-04T16:46:09.010] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:46:34.093] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:46:39.093] [TRACE] console - [39mNO.17: 秘书工作手记 -> https://sobooks.cc/books/7758.html
+[34m[2019-06-04T16:46:39.093] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1ggaDKif
+[34m[2019-06-04T16:46:57.061] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:47:22.146] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:47:27.150] [TRACE] console - [39mNO.18: 隐形冠军：未来全球化的先锋 -> https://sobooks.cc/books/7761.html
+[34m[2019-06-04T16:47:27.150] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1sm4L6Ex
+[34m[2019-06-04T16:47:44.890] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:48:10.000] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:48:15.001] [TRACE] console - [39mNO.19: 慢慢来，反正也来不及 -> https://sobooks.cc/books/7763.html
+[34m[2019-06-04T16:48:15.003] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1i6dX3ST
+[34m[2019-06-04T16:48:33.176] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T16:48:58.270] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T16:49:03.615] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 30681
+(node:30681) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:30681) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T17:00:09.242] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T17:00:09.265] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T17:00:09.266] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T17:00:09.268] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T17:00:09.268] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T17:00:09.268] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T17:00:12.137] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T17:00:12.141] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T17:00:12.143] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T17:00:12.144] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T17:00:12.145] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T17:00:12.145] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T17:00:12.145] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T17:00:12.327] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T17:00:12.335] [TRACE] console - [39mNO. 0 book: 道林·格雷的画像
+[34m[2019-06-04T17:00:15.385] [TRACE] console - [39mextracting https://sobooks.cc/books/7767.html
+[34m[2019-06-04T17:00:20.754] [TRACE] console - [39mundefined@作者：奥斯卡・王尔德
+[34m[2019-06-04T17:00:20.757] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:00:20.758] [TRACE] console - [39mNO. 1 book: 尼克·亚当斯故事集
+Unhandled Rejection at: Promise {
+  <rejected> { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+      at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+    -- ASYNC --
+      at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+      at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+      at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+      at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+      at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+      at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' } } reason: { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 30853
+(node:30853) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:30853) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T17:30:08.416] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T17:30:08.455] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T17:30:08.455] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T17:30:08.457] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T17:30:08.457] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T17:30:08.457] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T17:30:12.787] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T17:30:12.787] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T17:30:12.799] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T17:30:12.799] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T17:30:12.800] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T17:30:12.801] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T17:30:12.801] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T17:30:13.001] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T17:30:13.005] [TRACE] console - [39mNO. 0 book: 尼克·亚当斯故事集
+[34m[2019-06-04T17:30:16.321] [TRACE] console - [39mextracting https://sobooks.cc/books/7772.html
+[34m[2019-06-04T17:30:21.679] [TRACE] console - [39mundefined@作者：海明威
+[34m[2019-06-04T17:30:21.679] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:30:21.681] [TRACE] console - [39mNO. 1 book: 无敌舰队
+[34m[2019-06-04T17:30:24.073] [TRACE] console - [39mextracting https://sobooks.cc/books/7774.html
+[34m[2019-06-04T17:30:29.271] [TRACE] console - [39mundefined@作者：加勒特・马丁利
+[34m[2019-06-04T17:30:29.271] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:30:29.271] [TRACE] console - [39mNO. 2 book: 七十二堂写作课
+[34m[2019-06-04T17:30:31.523] [TRACE] console - [39mextracting https://sobooks.cc/books/7776.html
+[34m[2019-06-04T17:30:36.646] [TRACE] console - [39mundefined@作者：夏丏尊/叶圣陶 
+[34m[2019-06-04T17:30:36.647] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:30:36.647] [TRACE] console - [39mNO. 3 book: 奇点临近
+[34m[2019-06-04T17:30:42.503] [TRACE] console - [39mextracting https://sobooks.cc/books/7778.html
+[34m[2019-06-04T17:30:47.653] [TRACE] console - [39mundefined@作者：雷・库兹韦尔
+[34m[2019-06-04T17:30:47.657] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:30:47.657] [TRACE] console - [39mNO. 4 book: 亲密关系：通往灵魂的桥梁
+[34m[2019-06-04T17:30:50.306] [TRACE] console - [39mextracting https://sobooks.cc/books/7780.html
+[34m[2019-06-04T17:30:55.497] [TRACE] console - [39mundefined@作者：克里斯多福・孟
+[34m[2019-06-04T17:30:55.497] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:30:55.497] [TRACE] console - [39mNO. 5 book: 商业的本质
+[34m[2019-06-04T17:30:57.286] [TRACE] console - [39mextracting https://sobooks.cc/books/7782.html
+[34m[2019-06-04T17:31:02.447] [TRACE] console - [39mundefined@作者：杰克・韦尔奇/苏西・韦尔奇
+[34m[2019-06-04T17:31:02.447] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:02.447] [TRACE] console - [39mNO. 6 book: 商业模式全史
+[34m[2019-06-04T17:31:04.755] [TRACE] console - [39mextracting https://sobooks.cc/books/7784.html
+[34m[2019-06-04T17:31:09.987] [TRACE] console - [39mundefined@作者：三谷宏治
+[34m[2019-06-04T17:31:09.989] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:09.989] [TRACE] console - [39mNO. 7 book: 投资中不简单的事
+[34m[2019-06-04T17:31:12.405] [TRACE] console - [39mextracting https://sobooks.cc/books/7789.html
+[34m[2019-06-04T17:31:17.618] [TRACE] console - [39mundefined@作者：邱国鹭等
+[34m[2019-06-04T17:31:17.619] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:17.619] [TRACE] console - [39mNO. 8 book: 孩子们的诗
+[34m[2019-06-04T17:31:19.971] [TRACE] console - [39mextracting https://sobooks.cc/books/7792.html
+[34m[2019-06-04T17:31:25.215] [TRACE] console - [39mundefined@作者：果麦
+[34m[2019-06-04T17:31:25.216] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:25.216] [TRACE] console - [39mNO. 9 book: 淡定的智慧
+[34m[2019-06-04T17:31:27.496] [TRACE] console - [39mextracting https://sobooks.cc/books/7795.html
+[34m[2019-06-04T17:31:32.682] [TRACE] console - [39mundefined@作者：弘一法师
+[34m[2019-06-04T17:31:32.682] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:32.682] [TRACE] console - [39mNO. 10 book: 读书是一辈子的事
+[34m[2019-06-04T17:31:34.759] [TRACE] console - [39mextracting https://sobooks.cc/books/7797.html
+[34m[2019-06-04T17:31:39.945] [TRACE] console - [39mundefined@作者：樊登
+[34m[2019-06-04T17:31:39.945] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:39.945] [TRACE] console - [39mNO. 11 book: 投资中最简单的事
+[34m[2019-06-04T17:31:41.723] [TRACE] console - [39mextracting https://sobooks.cc/books/7799.html
+[34m[2019-06-04T17:31:47.029] [TRACE] console - [39mundefined@作者：邱国鹭
+[34m[2019-06-04T17:31:47.029] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:47.030] [TRACE] console - [39mNO. 12 book: 假面山庄
+[34m[2019-06-04T17:31:48.819] [TRACE] console - [39mextracting https://sobooks.cc/books/7802.html
+[34m[2019-06-04T17:31:54.063] [TRACE] console - [39mundefined@作者：东野圭吾
+[34m[2019-06-04T17:31:54.064] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:31:54.065] [TRACE] console - [39mNO. 13 book: 远见：如何规划职业生涯3大阶段
+[34m[2019-06-04T17:31:56.733] [TRACE] console - [39mextracting https://sobooks.cc/books/7804.html
+[34m[2019-06-04T17:32:01.911] [TRACE] console - [39mundefined@作者：布赖恩・费瑟斯通豪
+[34m[2019-06-04T17:32:01.911] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:01.911] [TRACE] console - [39mNO. 14 book: Auggie&Me
+[34m[2019-06-04T17:32:04.504] [TRACE] console - [39mextracting https://sobooks.cc/books/7806.html
+[34m[2019-06-04T17:32:09.726] [TRACE] console - [39mundefined@作者：R. J. Palacio 
+[34m[2019-06-04T17:32:09.726] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:09.726] [TRACE] console - [39mNO. 15 book: 你是人间四月天
+[34m[2019-06-04T17:32:11.850] [TRACE] console - [39mextracting https://sobooks.cc/books/7808.html
+[34m[2019-06-04T17:32:17.047] [TRACE] console - [39mundefined@作者：林徽因
+[34m[2019-06-04T17:32:17.048] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:17.048] [TRACE] console - [39mNO. 16 book: 刷新：重新发现商业与未来
+[34m[2019-06-04T17:32:18.966] [TRACE] console - [39mextracting https://sobooks.cc/books/7821.html
+[34m[2019-06-04T17:32:24.124] [TRACE] console - [39mundefined@作者：萨提亚・纳德拉
+[34m[2019-06-04T17:32:24.124] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:24.125] [TRACE] console - [39mNO. 17 book: 左宗棠传
+[34m[2019-06-04T17:32:26.274] [TRACE] console - [39mextracting https://sobooks.cc/books/7824.html
+[34m[2019-06-04T17:32:31.448] [TRACE] console - [39mundefined@作者：贝尔斯
+[34m[2019-06-04T17:32:31.448] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:31.448] [TRACE] console - [39mNO. 18 book: 魔鬼在你身后（套装全3册）
+[34m[2019-06-04T17:32:33.201] [TRACE] console - [39mextracting https://sobooks.cc/books/7826.html
+[34m[2019-06-04T17:32:38.430] [TRACE] console - [39mundefined@作者：丹・西蒙斯
+[34m[2019-06-04T17:32:38.430] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:38.431] [TRACE] console - [39mNO. 19 book: 那些难忘的声音
+[34m[2019-06-04T17:32:41.497] [TRACE] console - [39mextracting https://sobooks.cc/books/7828.html
+[34m[2019-06-04T17:32:46.661] [TRACE] console - [39mundefined@作者：张稼峰
+[34m[2019-06-04T17:32:46.661] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T17:32:46.780] [TRACE] console - [39m20 books to copy ...
+[34m[2019-06-04T17:32:46.781] [TRACE] console - [39mNO.0: 2小时品牌素养 -> https://sobooks.cc/books/7765.html
+[34m[2019-06-04T17:32:46.781] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dHasgql
+[34m[2019-06-04T17:33:05.184] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:33:30.288] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:33:35.296] [TRACE] console - [39mNO.1: 道林·格雷的画像 -> https://sobooks.cc/books/7767.html
+[34m[2019-06-04T17:33:35.297] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dGR4CEl
+[34m[2019-06-04T17:33:53.235] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:34:18.317] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:34:23.318] [TRACE] console - [39mNO.2: 尼克·亚当斯故事集 -> https://sobooks.cc/books/7772.html
+[34m[2019-06-04T17:34:23.318] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1eUaqd9K
+[34m[2019-06-04T17:34:40.942] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:35:06.028] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:35:11.029] [TRACE] console - [39mNO.3: 无敌舰队 -> https://sobooks.cc/books/7774.html
+[34m[2019-06-04T17:35:11.029] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1htDl3hE
+[34m[2019-06-04T17:35:38.413] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:36:03.501] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:36:08.502] [TRACE] console - [39mNO.4: 七十二堂写作课 -> https://sobooks.cc/books/7776.html
+[34m[2019-06-04T17:36:08.502] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1qZLICkk
+[34m[2019-06-04T17:36:27.407] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:36:52.501] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:36:57.506] [TRACE] console - [39mNO.5: 奇点临近 -> https://sobooks.cc/books/7778.html
+[34m[2019-06-04T17:36:57.506] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1bqEH91d
+[34m[2019-06-04T17:37:15.408] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:37:40.490] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:37:45.494] [TRACE] console - [39mNO.6: 亲密关系：通往灵魂的桥梁 -> https://sobooks.cc/books/7780.html
+[34m[2019-06-04T17:37:45.496] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1o99B1GY
+[34m[2019-06-04T17:38:03.353] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:38:28.437] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:38:33.438] [TRACE] console - [39mNO.7: 商业的本质 -> https://sobooks.cc/books/7782.html
+[34m[2019-06-04T17:38:33.438] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1i6kdmjN
+[34m[2019-06-04T17:38:51.117] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:39:16.213] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:39:21.217] [TRACE] console - [39mNO.8: 商业模式全史 -> https://sobooks.cc/books/7784.html
+[34m[2019-06-04T17:39:21.217] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1i6Sc6mL
+[34m[2019-06-04T17:39:38.835] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:40:03.927] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:40:08.929] [TRACE] console - [39mNO.9: 投资中不简单的事 -> https://sobooks.cc/books/7789.html
+[34m[2019-06-04T17:40:08.929] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1ee2g1K
+[34m[2019-06-04T17:40:26.936] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:40:52.021] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:40:57.023] [TRACE] console - [39mNO.10: 孩子们的诗 -> https://sobooks.cc/books/7792.html
+[34m[2019-06-04T17:40:57.023] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1c3kTywC
+[34m[2019-06-04T17:41:14.878] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:41:39.974] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:41:44.975] [TRACE] console - [39mNO.11: 淡定的智慧 -> https://sobooks.cc/books/7795.html
+[34m[2019-06-04T17:41:44.975] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1qYWrNe0
+[34m[2019-06-04T17:42:03.012] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:42:28.093] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:42:33.094] [TRACE] console - [39mNO.12: 读书是一辈子的事 -> https://sobooks.cc/books/7797.html
+[34m[2019-06-04T17:42:33.094] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1pMpqHHT
+[34m[2019-06-04T17:42:50.729] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:43:15.811] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:43:20.815] [TRACE] console - [39mNO.13: 投资中最简单的事 -> https://sobooks.cc/books/7799.html
+[34m[2019-06-04T17:43:20.815] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1mjpwMUG
+[34m[2019-06-04T17:43:44.273] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:44:09.352] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:44:14.353] [TRACE] console - [39mNO.14: 假面山庄 -> https://sobooks.cc/books/7802.html
+[34m[2019-06-04T17:44:14.354] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1eUgvSki
+[34m[2019-06-04T17:44:32.240] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:44:57.324] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:45:02.326] [TRACE] console - [39mNO.15: 远见：如何规划职业生涯3大阶段 -> https://sobooks.cc/books/7804.html
+[34m[2019-06-04T17:45:02.326] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1racDHTE
+[34m[2019-06-04T17:45:19.952] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:45:45.033] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:45:50.035] [TRACE] console - [39mNO.16: Auggie&Me -> https://sobooks.cc/books/7806.html
+[34m[2019-06-04T17:45:50.035] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1kWFNs4f
+[34m[2019-06-04T17:46:07.886] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:46:32.966] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:46:37.966] [TRACE] console - [39mNO.17: 你是人间四月天 -> https://sobooks.cc/books/7808.html
+[34m[2019-06-04T17:46:37.967] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1ggsUP9p
+[34m[2019-06-04T17:46:55.735] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:47:20.822] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:47:25.825] [TRACE] console - [39mNO.18: 刷新：重新发现商业与未来 -> https://sobooks.cc/books/7821.html
+[34m[2019-06-04T17:47:25.825] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dGSQRuD
+[34m[2019-06-04T17:47:43.630] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:48:08.713] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:48:13.715] [TRACE] console - [39mNO.19: 左宗棠传 -> https://sobooks.cc/books/7824.html
+[34m[2019-06-04T17:48:13.715] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dckjX8
+[34m[2019-06-04T17:48:31.296] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T17:48:56.388] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T17:49:01.724] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 31078
+(node:31078) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:31078) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T18:00:09.235] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T18:00:09.255] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T18:00:09.255] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T18:00:09.257] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T18:00:09.257] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T18:00:09.257] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T18:00:12.012] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T18:00:12.016] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T18:00:12.026] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T18:00:12.026] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T18:00:12.028] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T18:00:12.028] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T18:00:12.028] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T18:00:12.187] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T18:00:12.194] [TRACE] console - [39mNO. 0 book: 年轻的心在哭泣
+[34m[2019-06-04T18:00:14.901] [TRACE] console - [39mextracting https://sobooks.cc/books/7830.html
+[34m[2019-06-04T18:00:20.471] [TRACE] console - [39mundefined@作者：理查德・耶茨
+[34m[2019-06-04T18:00:20.472] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:00:20.475] [TRACE] console - [39mNO. 1 book: 图说区块链
+[34m[2019-06-04T18:00:22.785] [TRACE] console - [39mextracting https://sobooks.cc/books/7833.html
+[34m[2019-06-04T18:00:27.978] [TRACE] console - [39mundefined@作者：徐明星/田颖/李霁月
+[34m[2019-06-04T18:00:27.978] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:00:27.979] [TRACE] console - [39mNO. 2 book: 蹉跎坡旧事
+[34m[2019-06-04T18:00:29.965] [TRACE] console - [39mextracting https://sobooks.cc/books/7835.html
+[34m[2019-06-04T18:00:35.147] [TRACE] console - [39mundefined@作者：沈博爱
+[34m[2019-06-04T18:00:35.147] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:00:35.147] [TRACE] console - [39mNO. 3 book: 逆光而行
+[34m[2019-06-04T18:00:37.450] [TRACE] console - [39mextracting https://sobooks.cc/books/7837.html
+[34m[2019-06-04T18:00:42.631] [TRACE] console - [39mundefined@作者：沈南乔
+[34m[2019-06-04T18:00:42.631] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:00:42.632] [TRACE] console - [39mNO. 4 book: 增长黑客：如何低成本实现爆发式成长
+[34m[2019-06-04T18:00:44.348] [TRACE] console - [39mextracting https://sobooks.cc/books/7839.html
+[34m[2019-06-04T18:00:49.524] [TRACE] console - [39mundefined@作者：Sean Ellis
+[34m[2019-06-04T18:00:49.524] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:00:49.526] [TRACE] console - [39mNO. 5 book: 世界电影史（套装共3册）
+[34m[2019-06-04T18:00:51.900] [TRACE] console - [39mextracting https://sobooks.cc/books/7843.html
+[34m[2019-06-04T18:00:57.090] [TRACE] console - [39mundefined@作者：杰弗里・诺维尔・史密斯
+[34m[2019-06-04T18:00:57.090] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:00:57.090] [TRACE] console - [39mNO. 6 book: 呐喊彷徨故事新编
+[34m[2019-06-04T18:00:59.381] [TRACE] console - [39mextracting https://sobooks.cc/books/7845.html
+[34m[2019-06-04T18:01:04.541] [TRACE] console - [39mundefined@作者：鲁迅
+[34m[2019-06-04T18:01:04.541] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:04.541] [TRACE] console - [39mNO. 7 book: 康熙盛世与帝王心术
+[34m[2019-06-04T18:01:06.233] [TRACE] console - [39mextracting https://sobooks.cc/books/7847.html
+[34m[2019-06-04T18:01:11.440] [TRACE] console - [39mundefined@作者：姚念慈
+[34m[2019-06-04T18:01:11.440] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:11.441] [TRACE] console - [39mNO. 8 book: 全球通史：1500年以前的世界
+[34m[2019-06-04T18:01:13.164] [TRACE] console - [39mextracting https://sobooks.cc/books/7849.html
+[34m[2019-06-04T18:01:18.335] [TRACE] console - [39mundefined@作者：斯塔夫里阿诺斯 
+[34m[2019-06-04T18:01:18.335] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:18.335] [TRACE] console - [39mNO. 9 book: 全球通史：1500年以后的世界
+[34m[2019-06-04T18:01:20.032] [TRACE] console - [39mextracting https://sobooks.cc/books/7851.html
+[34m[2019-06-04T18:01:25.205] [TRACE] console - [39mundefined@作者：斯塔夫里阿诺斯 
+[34m[2019-06-04T18:01:25.205] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:25.205] [TRACE] console - [39mNO. 10 book: 社交的本质
+[34m[2019-06-04T18:01:26.782] [TRACE] console - [39mextracting https://sobooks.cc/books/7853.html
+[34m[2019-06-04T18:01:31.957] [TRACE] console - [39mundefined@作者：兰迪・扎克伯格
+[34m[2019-06-04T18:01:31.957] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:31.958] [TRACE] console - [39mNO. 11 book: 精灵血脉01：血脉
+[34m[2019-06-04T18:01:33.896] [TRACE] console - [39mextracting https://sobooks.cc/books/7855.html
+[34m[2019-06-04T18:01:39.092] [TRACE] console - [39mundefined@作者：萨尔瓦多
+[34m[2019-06-04T18:01:39.092] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:39.092] [TRACE] console - [39mNO. 12 book: 精灵血脉02：无星之夜
+[34m[2019-06-04T18:01:41.407] [TRACE] console - [39mextracting https://sobooks.cc/books/7857.html
+[34m[2019-06-04T18:01:46.590] [TRACE] console - [39mundefined@作者：萨尔瓦多
+[34m[2019-06-04T18:01:46.590] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:46.590] [TRACE] console - [39mNO. 13 book: 精灵血脉03：暗军突袭
+[34m[2019-06-04T18:01:48.748] [TRACE] console - [39mextracting https://sobooks.cc/books/7859.html
+[34m[2019-06-04T18:01:53.922] [TRACE] console - [39mundefined@作者：萨尔瓦多 
+[34m[2019-06-04T18:01:53.922] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:01:53.922] [TRACE] console - [39mNO. 14 book: 精灵血脉04：破晓之路
+[34m[2019-06-04T18:01:56.048] [TRACE] console - [39mextracting https://sobooks.cc/books/7861.html
+[34m[2019-06-04T18:02:01.259] [TRACE] console - [39mundefined@作者：萨尔瓦多
+[34m[2019-06-04T18:02:01.259] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:02:01.260] [TRACE] console - [39mNO. 15 book: Principles
+[34m[2019-06-04T18:02:03.036] [TRACE] console - [39mextracting https://sobooks.cc/books/7865.html
+[34m[2019-06-04T18:02:08.270] [TRACE] console - [39mundefined@作者：Ray Dalio
+[34m[2019-06-04T18:02:08.270] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:02:08.270] [TRACE] console - [39mNO. 16 book: 影响力大师（原书第2版）
+[34m[2019-06-04T18:02:10.620] [TRACE] console - [39mextracting https://sobooks.cc/books/7867.html
+[34m[2019-06-04T18:02:15.856] [TRACE] console - [39mundefined@作者：约瑟夫・格雷尼等
+[34m[2019-06-04T18:02:15.858] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:02:15.858] [TRACE] console - [39mNO. 17 book: 左宗棠：帝国最后的“鹰派”
+[34m[2019-06-04T18:02:18.449] [TRACE] console - [39mextracting https://sobooks.cc/books/7869.html
+[34m[2019-06-04T18:02:23.743] [TRACE] console - [39mundefined@作者：徐志频
+[34m[2019-06-04T18:02:23.760] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:02:23.764] [TRACE] console - [39mNO. 18 book: 自卑与超越
+[34m[2019-06-04T18:02:27.004] [TRACE] console - [39mextracting https://sobooks.cc/books/7871.html
+[34m[2019-06-04T18:02:32.533] [TRACE] console - [39mundefined@作者：阿弗雷德・阿德勒
+[34m[2019-06-04T18:02:32.545] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:02:32.548] [TRACE] console - [39mNO. 19 book: 中国缺什么，日本缺什么
+[34m[2019-06-04T18:02:35.817] [TRACE] console - [39mextracting https://sobooks.cc/books/7873.html
+[34m[2019-06-04T18:02:41.344] [TRACE] console - [39mundefined@作者：近藤大介
+[34m[2019-06-04T18:02:41.354] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:02:41.469] [TRACE] console - [39m20 books to copy ...
+[34m[2019-06-04T18:02:41.470] [TRACE] console - [39mNO.0: 魔鬼在你身后（套装全3册） -> https://sobooks.cc/books/7826.html
+[34m[2019-06-04T18:02:41.479] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1qZVmqsc
+[34m[2019-06-04T18:03:00.363] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:03:25.488] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:03:30.494] [TRACE] console - [39mNO.1: 那些难忘的声音 -> https://sobooks.cc/books/7828.html
+[34m[2019-06-04T18:03:30.496] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1qZway1A
+[34m[2019-06-04T18:03:48.246] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:04:13.339] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:04:18.343] [TRACE] console - [39mNO.2: 年轻的心在哭泣 -> https://sobooks.cc/books/7830.html
+[34m[2019-06-04T18:04:18.343] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dGKJuW5
+[34m[2019-06-04T18:04:35.875] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:05:00.978] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:05:05.979] [TRACE] console - [39mNO.3: 图说区块链 -> https://sobooks.cc/books/7833.html
+[34m[2019-06-04T18:05:05.979] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1bqkVEof
+[34m[2019-06-04T18:05:24.038] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:05:49.116] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:05:54.118] [TRACE] console - [39mNO.4: 蹉跎坡旧事 -> https://sobooks.cc/books/7835.html
+[34m[2019-06-04T18:05:54.118] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1ec013K
+[34m[2019-06-04T18:06:11.867] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:06:36.955] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:06:41.959] [TRACE] console - [39mNO.5: 逆光而行 -> https://sobooks.cc/books/7837.html
+[34m[2019-06-04T18:06:41.960] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1dKj8p4
+[34m[2019-06-04T18:06:59.514] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:07:24.593] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:07:29.596] [TRACE] console - [39mNO.6: 增长黑客：如何低成本实现爆发式成长 -> https://sobooks.cc/books/7839.html
+[34m[2019-06-04T18:07:29.597] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1i60Y0iL
+[34m[2019-06-04T18:07:47.416] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:08:12.568] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:08:17.571] [TRACE] console - [39mNO.7: 世界电影史（套装共3册） -> https://sobooks.cc/books/7843.html
+[34m[2019-06-04T18:08:17.571] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1qZavPEk
+[34m[2019-06-04T18:08:35.181] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:09:00.259] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:09:05.262] [TRACE] console - [39mNO.8: 呐喊彷徨故事新编 -> https://sobooks.cc/books/7845.html
+[34m[2019-06-04T18:09:05.262] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1o98VMZ4
+[34m[2019-06-04T18:09:22.929] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:09:48.032] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:09:53.035] [TRACE] console - [39mNO.9: 康熙盛世与帝王心术 -> https://sobooks.cc/books/7847.html
+[34m[2019-06-04T18:09:53.037] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1nwFd3Jj
+[34m[2019-06-04T18:10:10.526] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:10:35.611] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:10:40.614] [TRACE] console - [39mNO.10: 全球通史：1500年以前的世界 -> https://sobooks.cc/books/7849.html
+[34m[2019-06-04T18:10:40.614] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1nwLPfk9
+[34m[2019-06-04T18:11:00.240] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:11:25.317] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:11:30.319] [TRACE] console - [39mNO.11: 全球通史：1500年以后的世界 -> https://sobooks.cc/books/7851.html
+[34m[2019-06-04T18:11:30.320] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1eUjdVQ6
+[34m[2019-06-04T18:11:47.842] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:12:12.927] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:12:17.933] [TRACE] console - [39mNO.12: 社交的本质 -> https://sobooks.cc/books/7853.html
+[34m[2019-06-04T18:12:17.933] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1htdZWMg
+[34m[2019-06-04T18:12:35.560] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:13:00.641] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:13:05.644] [TRACE] console - [39mNO.13: 精灵血脉01：血脉 -> https://sobooks.cc/books/7855.html
+[34m[2019-06-04T18:13:05.644] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1qZCp7Qk
+[34m[2019-06-04T18:13:23.306] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:13:48.390] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:13:53.393] [TRACE] console - [39mNO.14: 精灵血脉02：无星之夜 -> https://sobooks.cc/books/7857.html
+[34m[2019-06-04T18:13:53.394] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1nxd0ar3
+[34m[2019-06-04T18:14:10.918] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:14:36.001] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:14:41.005] [TRACE] console - [39mNO.15: 精灵血脉03：暗军突袭 -> https://sobooks.cc/books/7859.html
+[34m[2019-06-04T18:14:41.005] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1i6A1VXb
+[34m[2019-06-04T18:14:58.718] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:15:23.804] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:15:28.805] [TRACE] console - [39mNO.16: 精灵血脉04：破晓之路 -> https://sobooks.cc/books/7861.html
+[34m[2019-06-04T18:15:28.806] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1kWuOMAN
+[34m[2019-06-04T18:15:48.181] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:16:13.273] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:16:18.277] [TRACE] console - [39mNO.17: Principles -> https://sobooks.cc/books/7865.html
+[34m[2019-06-04T18:16:18.278] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1c3R7pYC
+[34m[2019-06-04T18:16:36.144] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:17:01.229] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:17:06.232] [TRACE] console - [39mNO.18: 影响力大师（原书第2版） -> https://sobooks.cc/books/7867.html
+[34m[2019-06-04T18:17:06.232] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1bqHzSZl
+[34m[2019-06-04T18:17:23.824] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:17:48.895] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:17:53.896] [TRACE] console - [39mNO.19: 左宗棠：帝国最后的“鹰派” -> https://sobooks.cc/books/7869.html
+[34m[2019-06-04T18:17:53.896] [TRACE] console - [39mgoing to cloud ...https://pan.baidu.com/s/1QDFKWt3kJGbO-m828qDd1g
+[34m[2019-06-04T18:18:11.659] [TRACE] console - [39mfolder no found
+[34m[2019-06-04T18:18:36.745] [TRACE] console - [39m已为您成功保存文件点击查看
+[34m[2019-06-04T18:18:42.107] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 31326
+(node:31326) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:31326) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-04T18:30:08.653] [TRACE] console - [39mNumpages: 
+[34m[2019-06-04T18:30:08.678] [TRACE] console - [39maggregate...result
+[34m[2019-06-04T18:30:08.679] [TRACE] console - [39m[ { _id: 5cf5a67c51347365856e8299,
+    bookUrl: 'https://sobooks.cc/books/12781.html',
+    __v: 0,
+    dateCrawled: 2019-06-03T23:00:12.342Z,
+    cursorId: 12781,
+    bookName: '第五项修炼（套装共5册）',
+    baiduUrl: 'https://pan.baidu.com/s/1HVvqWNs0fgvJQxUXMj_oGQ',
+    baiduCode: 'vxcu',
+    tags: '标签：管理 经验',
+    category: ' 经济管理',
+    bookBrief:
+     '彼得・圣吉（Peter M.Senge）美国麻省理工学院(MIT)斯隆管理学院教授，国际组织学习协会(SoL)和索奥中国的创始人。被《商业周刊》评为十大有影响力的管理学人物，被称为“学习型组织之父”，于1990年提出“终身学习”、“学习型组织”的概念。',
+    bookSerial: null,
+    uploadDate: 2019-06-03T00:00:00.000Z,
+    author: '作者：彼得・圣吉',
+    badApple: true } ]
+[34m[2019-06-04T18:30:08.681] [TRACE] console - [39mstart crawling 
+[34m[2019-06-04T18:30:08.681] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T18:30:08.682] [TRACE] console - [39mcurrentBookId = 12786
+[34m[2019-06-04T18:30:11.743] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-04T18:30:11.744] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-04T18:30:11.750] [TRACE] console - [39mget book Id 12774
+[34m[2019-06-04T18:30:11.750] [TRACE] console - [39mNO.1 你有多强大，就有多温柔 -> https://sobooks.cc/books/12774.html
+[34m[2019-06-04T18:30:11.751] [TRACE] console - [39mend crawling 
+[34m[2019-06-04T18:30:11.751] [TRACE] console - [39mcrawlerCursor = 12781
+[34m[2019-06-04T18:30:11.751] [TRACE] console - [39mcurrentBookId = 12774
+[34m[2019-06-04T18:30:12.049] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-04T18:30:12.066] [TRACE] console - [39mNO. 0 book: 可复制的领导力
+[34m[2019-06-04T18:30:14.764] [TRACE] console - [39mextracting https://sobooks.cc/books/7876.html
+[34m[2019-06-04T18:30:20.165] [TRACE] console - [39mundefined@作者：樊登
+[34m[2019-06-04T18:30:20.165] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:30:20.166] [TRACE] console - [39mNO. 1 book: The Book Thief
+[34m[2019-06-04T18:30:22.380] [TRACE] console - [39mextracting https://sobooks.cc/books/7878.html
+[34m[2019-06-04T18:30:27.571] [TRACE] console - [39mundefined@作者：Markus Zusak
+[34m[2019-06-04T18:30:27.571] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:30:27.571] [TRACE] console - [39mNO. 2 book: 手把手教你玩脱口秀
+[34m[2019-06-04T18:30:29.952] [TRACE] console - [39mextracting https://sobooks.cc/books/7880.html
+[34m[2019-06-04T18:30:35.127] [TRACE] console - [39mundefined@作者：格雷格・迪安
+[34m[2019-06-04T18:30:35.127] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:30:35.127] [TRACE] console - [39mNO. 3 book: 为你，耶路撒冷
+[34m[2019-06-04T18:30:36.979] [TRACE] console - [39mextracting https://sobooks.cc/books/7882.html
+[34m[2019-06-04T18:30:42.154] [TRACE] console - [39mundefined@作者：拉莱・科林斯等
+[34m[2019-06-04T18:30:42.154] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:30:42.154] [TRACE] console - [39mNO. 4 book: 这世界啊，随他去吧
+[34m[2019-06-04T18:30:44.479] [TRACE] console - [39mextracting https://sobooks.cc/books/7884.html
+[34m[2019-06-04T18:30:49.707] [TRACE] console - [39mundefined@作者：李沐泽
+[34m[2019-06-04T18:30:49.707] [TRACE] console - [39mbook detailed 
+[34m[2019-06-04T18:30:49.707] [TRACE] console - [39mNO. 5 book: 我们人类的进化
+Unhandled Rejection at: Promise {
+  <rejected> { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+      at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+    -- ASYNC --
+      at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+      at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+      at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+      at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+      at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+      at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' } } reason: { TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
