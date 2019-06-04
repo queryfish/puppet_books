@@ -46,7 +46,7 @@ async function assertBook() {
                           {"badApple":{"$exists":false}}
                         ] };
 
-  const options = { limit: Config.crawlStep , sort:{bookUrl: -1} };
+  const options = { limit: Config.crawlStep , sort:{"dateCrawled": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
@@ -181,7 +181,7 @@ async function (page) {
    Logger.info(resultArray.length+" books to copy ...");
    for (var i = 0; i < resultArray.length; i++) {
        var book = resultArray[i];
-       Logger.info("NO."+i+": "+book.bookName);
+       Logger.info("NO."+i+": "+book.bookName+" -> "+book.bookUrl);
        if(book.baiduUrl.startsWith("https://pan.baidu.com"))
        {
          await grabABook_BDY(page, book);
