@@ -3,3 +3,4 @@ node_modules/
 creds.js
 cheese.log
 configs.js
+package-lock.json

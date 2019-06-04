@@ -152,6 +152,8 @@ async function retry(maxRetries, fn) {
 process.on('exit', (code) => {
   mongoose.connection.close();
   console.log(`About to exit with code: ${code}`);
+  // var child = require('child_process').fork('emailer.js');
+
 });
 
 process.on('unhandledRejection', (reason, promise) => {
