@@ -31,14 +31,6 @@ async function assertBook() {
   const conditions = { "$and":[ {"bookUrl": {"$exists": true}},
                               {"cursorId":{"$exists":false}}
                       ]} ;
-  /*
-  find(
-   {
-      "baiduUrl":{ $exists:false }
-   },
-   {}
-   ).sort( { "dateCrawled":1 } );
-  */
   const options = { sort:{"dateCrawled": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
