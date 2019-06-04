@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const CREDS = require('./creds');
-const Config = require('./configs');
+const Configs = require('./configs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
 const crawlerConfig = require('./models/crawlerConfig')
@@ -17,7 +17,7 @@ const MAX_CRAWL_NUM = 200;
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
 }
 
@@ -30,7 +30,7 @@ async function booksToCopy() {
                           {"lastCrawlCopyTime":{"$exists":false}},
                           {"badApple":{"$exists":false}}
                         ] };
-  const options = { limit: Config.crawlStep };
+  const options = { limit: Configs.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const resultArray = await query.exec();
   return resultArray.length;
@@ -82,7 +82,7 @@ async function booksToDetail() {
                           {"baiduUrl": {"$exists": false}},
                           {"baiduCode":{"$exists":false}}
                         ] };
-  const options = { limit: Config.crawlStep };
+  const options = { limit: Configs.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const resultArray = await query.exec();
   return resultArray.length;
@@ -103,28 +103,24 @@ async function schedule() {
       headless: true
     });
     const page = await browser.newPage();
-    await util.injectCookiesFromFile(page, Config.cookieFile);
+    await util.injectCookiesFromFile(page, Configs.cookieFile);
     await page.waitFor(5 * 1000);
 
     //Should we run this unconditionally?
-    await listCrawler.run(page);
+    // await listCrawler.run(page);
     let detail = await booksToDetail();
     let copy = await booksToCopy();
 
     if(detail >0){
       // start detail crawler
       await detailCrawler.run(page, 100000);
-    }
-    if(copy > 0){
+    }else if(copy > 0){
       //start copy crawler
       await copyCrawler.run(page);
     }
-    // else{
-      // else {
-        // start list crawler
-        // await listCrawler.run(page);
-      // }
-    // }
+    else{
+        await listCrawler.run(page);
+    }
     await browser.close();
 
 }
@@ -149,15 +145,20 @@ async function retry(maxRetries, fn) {
 //   process.exit(0);
 // });
 
+var datetime = require('node-datetime');
+var formatted = datetime.create().format('Ymd_HMS');
+const logfile = Configs.workingPath+formatted+'.log';
+
 process.on('exit', (code) => {
   mongoose.connection.close();
   console.log(`About to exit with code: ${code}`);
-  // var child = require('child_process').fork('emailer.js');
+  var child = require('child_process').fork('emailer.js',[logfile] );
 
 });
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+  var message = ('Unhandled Rejection at:', promise, 'reason:', reason);
+  console.log(message);
   process.exit(0);
   // Application specific logging, throwing an error, or other logic here
 });
@@ -166,7 +167,11 @@ process.on('unhandledRejection', (reason, promise) => {
 */
 (async () => {
     try {
+
       // await retry(3, schedule)
+      const fs = require('fs');
+      var access = fs.createWriteStream(logfile);
+      process.stdout.write = process.stderr.write = access.write.bind(access);
       console.log("scheduler start dancing PID@", process.pid);
       await schedule();
     } catch (e) {
