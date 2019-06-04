@@ -101,20 +101,8 @@ function assertMongoDB() {
 
 async function assertBook() {
   assertMongoDB();
-  // if this email exists, update the entry, don't insert
-  // const conditions = {"$query": { "baiduUrl": {"$exists": false} },
-  //                     "$orderby":{"bookUrl":-1}
-  //                     };
   const conditions = { "baiduUrl": {"$exists": false}} ;
-  /*
-  find(
-   {
-      "baiduUrl":{ $exists:false }
-   },
-   {}
-   ).sort( { "dateCrawled":1 } );
-  */
-  const options = { limit: Config.crawlStep , sort:{"dateCrawled": -1} };
+  const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
