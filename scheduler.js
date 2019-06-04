@@ -147,7 +147,7 @@ async function retry(maxRetries, fn) {
 
 var datetime = require('node-datetime');
 var formatted = datetime.create().format('Ymd_HMS');
-const logfile = Configs.workingPath+formatted+'.log';
+const logfile = Configs.workingPath+'logs/'formatted+'.log';
 
 process.on('exit', (code) => {
   mongoose.connection.close();

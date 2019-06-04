@@ -1,10 +1,7 @@
 var nodemailer = require('nodemailer');
 var fs = require('fs');
 var creds = require('./creds');
-var Configs = require('./configs');
 const process = require('process');
-
-
 
 var mailOptions = {
   from: 'marrowsky@126.com',
@@ -32,16 +29,16 @@ var mailTransport = nodemailer.createTransport({
 //   }
 // });
 
-const logname = process.argv[2];
-const logfile = Configs.workingPath+process.argv[2];
+const logfile = process.argv[2];
 
 fs.readFile(logfile, function (err, data) {
+  var logname = logfile.split("/").pop();
     mailTransport.sendMail({
         sender: creds.mailuser,
         to: 'mcpoet@126.com',
         subject: 'crawler.log',
         body: data+"?",
-        attachments: [{'filename': logname+'.txt', 'content': data}]
+        attachments: [{'filename': logname, 'content': data}]
 
     }, function(err, success) {
         if (err) {
