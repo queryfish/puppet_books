@@ -142,6 +142,7 @@ async function(page, max_crawled_items) {
     {
       book = r[i];
       Logger.info("NO. "+i+" book: "+book.bookName);
+      Logger.info(book.bookUrl);
       await crawl(page, book.bookUrl);
       tick ++;
     }
