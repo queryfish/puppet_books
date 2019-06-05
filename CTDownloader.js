@@ -89,7 +89,7 @@ async function automate() {
       await downloadBook(book);
       // decodeBookName(book.ctdownloadUrl);
     }
-    // mongoose.connection.close();
+    mongoose.connection.close();
     // r = await assertBook();
   // }
 
