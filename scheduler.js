@@ -107,7 +107,7 @@ async function schedule() {
     //Should we run this unconditionally?
     await listCrawler.run(page);
     page.close();
-    let page = await browser.newPage();
+    page = await browser.newPage();
 
     // let detail = await booksToDetail();
     // let copy = await booksToCopy();
