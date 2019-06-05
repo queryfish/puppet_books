@@ -19,7 +19,9 @@ let bookSchema = new mongoose.Schema({
     category : String,
     tags :String,
     badApple: Boolean,
-    cursorId: Number
+    cursorId: Number,
+    ctdiskUrl:String,
+    ctdownloadUrl:String
 });
 
 let Book = mongoose.model('Book', bookSchema);
