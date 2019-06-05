@@ -217,8 +217,8 @@ async function crawlBookList(page, uri_formatter)
   Logger.info("end crawling ");
   Logger.info("crawlerCursor = "+crawlerCursor);
   Logger.info("currentBookId = "+currentBookId);
-
   upsertCursor(maxCursor);
+
 }
 
 async function greedyDiggerWithFormatter(uri_formatter)
