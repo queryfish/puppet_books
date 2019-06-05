@@ -1,7 +1,0 @@
-scheduler start dancing PID@ 2357
-(node:2357) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
-(node:2357) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
-[34m[2019-06-05T00:21:12.929] [TRACE] console - [39m20 books to be detailed ...
-[34m[2019-06-05T00:21:12.930] [TRACE] console - [39mNO. 0 book: 诗经楚辞鉴赏辞典
-[34m[2019-06-05T00:21:16.824] [TRACE] console - [39mextracting https://sobooks.cc/books/11006.html
-About to exit with code: 130
