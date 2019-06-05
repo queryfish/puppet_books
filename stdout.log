@@ -6000,3 +6000,1485 @@ Unhandled Rejection at: Promise {
     at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
     at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
 About to exit with code: 0
+scheduler start dancing PID@ 1917
+(node:1917) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:1917) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T00:00:07.867] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T00:00:07.870] [TRACE] console - [39mNO. 0 book: 今夜宜有彩虹
+[34m[2019-06-05T00:00:11.276] [TRACE] console - [39mextracting https://sobooks.cc/books/11030.html
+[34m[2019-06-05T00:00:16.714] [TRACE] console - [39mundefined@作者：陆烨华
+[34m[2019-06-05T00:00:16.716] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:00:16.721] [TRACE] console - [39mNO. 1 book: 贞观幽明谭
+[34m[2019-06-05T00:00:27.220] [TRACE] console - [39mextracting https://sobooks.cc/books/11028.html
+[34m[2019-06-05T00:00:32.708] [TRACE] console - [39mundefined@作者：燕垒生
+[34m[2019-06-05T00:00:32.709] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:00:32.712] [TRACE] console - [39mNO. 2 book: 春琴抄（果麦经典）
+[34m[2019-06-05T00:00:35.353] [TRACE] console - [39mextracting https://sobooks.cc/books/11026.html
+[34m[2019-06-05T00:00:40.585] [TRACE] console - [39mundefined@作者：谷崎润一郎
+[34m[2019-06-05T00:00:40.585] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:00:40.585] [TRACE] console - [39mNO. 3 book: 枪与玫瑰的使用方法
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 2470
+(node:2470) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:2470) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T00:30:09.209] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T00:30:09.211] [TRACE] console - [39mNO. 0 book: 诗经楚辞鉴赏辞典
+[34m[2019-06-05T00:30:12.387] [TRACE] console - [39mextracting https://sobooks.cc/books/11006.html
+[34m[2019-06-05T00:30:17.900] [TRACE] console - [39mundefined@作者：周啸天
+[34m[2019-06-05T00:30:17.901] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:30:17.905] [TRACE] console - [39mNO. 1 book: 无比美妙的痛苦
+[34m[2019-06-05T00:30:20.314] [TRACE] console - [39mextracting https://sobooks.cc/books/11004.html
+[34m[2019-06-05T00:30:25.799] [TRACE] console - [39mundefined@作者：约翰・格林
+[34m[2019-06-05T00:30:25.803] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:30:25.808] [TRACE] console - [39mNO. 2 book: 别笑，我是正经哲学书
+[34m[2019-06-05T00:30:28.288] [TRACE] console - [39mextracting https://sobooks.cc/books/11002.html
+[34m[2019-06-05T00:30:33.751] [TRACE] console - [39mundefined@作者：富增章成
+[34m[2019-06-05T00:30:33.751] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:30:33.756] [TRACE] console - [39mNO. 3 book: 钓鱼城
+[34m[2019-06-05T00:30:36.398] [TRACE] console - [39mextracting https://sobooks.cc/books/11000.html
+[34m[2019-06-05T00:30:41.705] [TRACE] console - [39mundefined@作者：吴蔚
+[34m[2019-06-05T00:30:41.705] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:30:41.705] [TRACE] console - [39mNO. 4 book: 救命之方
+[34m[2019-06-05T00:30:43.648] [TRACE] console - [39mextracting https://sobooks.cc/books/10998.html
+[34m[2019-06-05T00:30:48.820] [TRACE] console - [39mundefined@作者：罗大伦
+[34m[2019-06-05T00:30:48.821] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:30:48.821] [TRACE] console - [39mNO. 5 book: 极简
+[34m[2019-06-05T00:30:50.914] [TRACE] console - [39mextracting https://sobooks.cc/books/10996.html
+[34m[2019-06-05T00:30:56.458] [TRACE] console - [39mundefined@作者：乔舒亚・贝克尔
+[34m[2019-06-05T00:30:56.459] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:30:56.462] [TRACE] console - [39mNO. 6 book: 皇帝腓特烈二世的故事（全2册）
+[34m[2019-06-05T00:30:58.647] [TRACE] console - [39mextracting https://sobooks.cc/books/10994.html
+[34m[2019-06-05T00:31:03.843] [TRACE] console - [39mundefined@作者：盐野七生
+[34m[2019-06-05T00:31:03.843] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:31:03.843] [TRACE] console - [39mNO. 7 book: 刷脸背后
+[34m[2019-06-05T00:31:05.681] [TRACE] console - [39mextracting https://sobooks.cc/books/10992.html
+[34m[2019-06-05T00:31:10.920] [TRACE] console - [39mundefined@作者：张重生
+[34m[2019-06-05T00:31:10.920] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:31:10.920] [TRACE] console - [39mNO. 8 book: 深度思考：不断逼近问题的本质
+[34m[2019-06-05T00:31:12.972] [TRACE] console - [39mextracting https://sobooks.cc/books/10989.html
+[34m[2019-06-05T00:31:18.152] [TRACE] console - [39mundefined@作者：莫琳・希凯
+[34m[2019-06-05T00:31:18.152] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:31:18.152] [TRACE] console - [39mNO. 9 book: 深度思维
+[34m[2019-06-05T00:31:19.911] [TRACE] console - [39mextracting https://sobooks.cc/books/10987.html
+[34m[2019-06-05T00:31:25.120] [TRACE] console - [39mundefined@作者：叶修
+[34m[2019-06-05T00:31:25.120] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T00:31:25.120] [TRACE] console - [39mNO. 10 book: 明天我要去冰岛
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 2650
+(node:2650) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:2650) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T01:00:08.918] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T01:00:08.919] [TRACE] console - [39mNO. 0 book: 明天我要去冰岛
+[34m[2019-06-05T01:00:11.765] [TRACE] console - [39mextracting https://sobooks.cc/books/10982.html
+[34m[2019-06-05T01:00:17.187] [TRACE] console - [39mundefined@作者：嘉倩
+[34m[2019-06-05T01:00:17.197] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:00:17.202] [TRACE] console - [39mNO. 1 book: 迷人的技术
+[34m[2019-06-05T01:00:19.291] [TRACE] console - [39mextracting https://sobooks.cc/books/10980.html
+[34m[2019-06-05T01:00:24.641] [TRACE] console - [39mundefined@作者：凯莉・魏纳史密斯/扎克・魏纳史密斯
+[34m[2019-06-05T01:00:24.641] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:00:24.642] [TRACE] console - [39mNO. 2 book: 与自己对话：曼德拉自传
+[34m[2019-06-05T01:00:26.926] [TRACE] console - [39mextracting https://sobooks.cc/books/10978.html
+[34m[2019-06-05T01:00:32.155] [TRACE] console - [39mundefined@作者：纳尔逊・曼德拉
+[34m[2019-06-05T01:00:32.156] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:00:32.156] [TRACE] console - [39mNO. 3 book: 虚拟现实：万象的新开端
+[34m[2019-06-05T01:00:34.260] [TRACE] console - [39mextracting https://sobooks.cc/books/10976.html
+[34m[2019-06-05T01:00:39.466] [TRACE] console - [39mundefined@作者：杰伦・拉尼尔
+[34m[2019-06-05T01:00:39.466] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:00:39.466] [TRACE] console - [39mNO. 4 book: 用Python写网络爬虫（第2版）
+[34m[2019-06-05T01:00:42.340] [TRACE] console - [39mextracting https://sobooks.cc/books/10974.html
+[34m[2019-06-05T01:00:47.863] [TRACE] console - [39mundefined@作者：Katharine Jarmul
+[34m[2019-06-05T01:00:47.874] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:00:47.876] [TRACE] console - [39mNO. 5 book: 算法的乐趣
+[34m[2019-06-05T01:00:50.213] [TRACE] console - [39mextracting https://sobooks.cc/books/10972.html
+[34m[2019-06-05T01:00:55.579] [TRACE] console - [39mundefined@作者：王晓华
+[34m[2019-06-05T01:00:55.593] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:00:55.597] [TRACE] console - [39mNO. 6 book: 江湖外史
+[34m[2019-06-05T01:01:00.677] [TRACE] console - [39mextracting https://sobooks.cc/books/10970.html
+[34m[2019-06-05T01:01:06.166] [TRACE] console - [39mundefined@作者：王怜花
+[34m[2019-06-05T01:01:06.177] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:06.180] [TRACE] console - [39mNO. 7 book: 红色
+[34m[2019-06-05T01:01:08.875] [TRACE] console - [39mextracting https://sobooks.cc/books/10968.html
+[34m[2019-06-05T01:01:14.343] [TRACE] console - [39mundefined@作者：徐兵
+[34m[2019-06-05T01:01:14.354] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:14.357] [TRACE] console - [39mNO. 8 book: 狂骨之梦
+[34m[2019-06-05T01:01:16.994] [TRACE] console - [39mextracting https://sobooks.cc/books/10966.html
+[34m[2019-06-05T01:01:22.534] [TRACE] console - [39mundefined@作者：京极夏彦
+[34m[2019-06-05T01:01:22.535] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:22.541] [TRACE] console - [39mNO. 9 book: 超级激励者
+[34m[2019-06-05T01:01:24.507] [TRACE] console - [39mextracting https://sobooks.cc/books/10964.html
+[34m[2019-06-05T01:01:29.798] [TRACE] console - [39mundefined@作者：西蒙・斯涅克
+[34m[2019-06-05T01:01:29.799] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:29.800] [TRACE] console - [39mNO. 10 book: 打工女孩
+[34m[2019-06-05T01:01:32.355] [TRACE] console - [39mextracting https://sobooks.cc/books/10962.html
+[34m[2019-06-05T01:01:37.811] [TRACE] console - [39mundefined@作者：张彤禾
+[34m[2019-06-05T01:01:37.826] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:37.830] [TRACE] console - [39mNO. 11 book: 新零售进化论
+[34m[2019-06-05T01:01:40.417] [TRACE] console - [39mextracting https://sobooks.cc/books/10960.html
+[34m[2019-06-05T01:01:45.863] [TRACE] console - [39mundefined@作者：陈欢/陈澄波
+[34m[2019-06-05T01:01:45.872] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:45.876] [TRACE] console - [39mNO. 12 book: 记忆迷踪
+[34m[2019-06-05T01:01:48.757] [TRACE] console - [39mextracting https://sobooks.cc/books/10958.html
+[34m[2019-06-05T01:01:54.417] [TRACE] console - [39mundefined@作者：启山
+[34m[2019-06-05T01:01:54.430] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:01:54.433] [TRACE] console - [39mNO. 13 book: 霍比特人
+[34m[2019-06-05T01:01:57.661] [TRACE] console - [39mextracting https://sobooks.cc/books/10956.html
+[34m[2019-06-05T01:02:03.530] [TRACE] console - [39mundefined@作者：J.R.R. 托尔金
+[34m[2019-06-05T01:02:03.542] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:03.545] [TRACE] console - [39mNO. 14 book: 大而不倒
+[34m[2019-06-05T01:02:06.413] [TRACE] console - [39mextracting https://sobooks.cc/books/10954.html
+[34m[2019-06-05T01:02:11.880] [TRACE] console - [39mundefined@作者：安德鲁・罗斯・索尔金
+[34m[2019-06-05T01:02:11.889] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:11.894] [TRACE] console - [39mNO. 15 book: 牛史·晚清篇
+[34m[2019-06-05T01:02:14.789] [TRACE] console - [39mextracting https://sobooks.cc/books/10952.html
+[34m[2019-06-05T01:02:20.889] [TRACE] console - [39mundefined@作者：谭伯牛
+[34m[2019-06-05T01:02:20.910] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:20.912] [TRACE] console - [39mNO. 16 book: 独抒己见
+[34m[2019-06-05T01:02:27.442] [TRACE] console - [39mextracting https://sobooks.cc/books/10950.html
+[34m[2019-06-05T01:02:32.928] [TRACE] console - [39mundefined@作者：弗拉基米尔・纳博科夫
+[34m[2019-06-05T01:02:32.942] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:32.947] [TRACE] console - [39mNO. 17 book: 黑洞不是黑的
+[34m[2019-06-05T01:02:35.994] [TRACE] console - [39mextracting https://sobooks.cc/books/10948.html
+[34m[2019-06-05T01:02:41.497] [TRACE] console - [39mundefined@作者：大卫・舒克曼
+[34m[2019-06-05T01:02:41.506] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:41.509] [TRACE] console - [39mNO. 18 book: 很奇怪的他
+[34m[2019-06-05T01:02:44.571] [TRACE] console - [39mextracting https://sobooks.cc/books/10945.html
+[34m[2019-06-05T01:02:50.063] [TRACE] console - [39mundefined@作者：孙智
+[34m[2019-06-05T01:02:50.076] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:50.079] [TRACE] console - [39mNO. 19 book: 孤独的进化者
+[34m[2019-06-05T01:02:52.979] [TRACE] console - [39mextracting https://sobooks.cc/books/10943.html
+[34m[2019-06-05T01:02:58.657] [TRACE] console - [39mundefined@作者：刘慈欣
+[34m[2019-06-05T01:02:58.669] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:02:58.782] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 2825
+(node:2825) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:2825) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T01:30:08.442] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T01:30:08.443] [TRACE] console - [39mNO. 0 book: 国学大纲
+[34m[2019-06-05T01:30:11.859] [TRACE] console - [39mextracting https://sobooks.cc/books/10941.html
+[34m[2019-06-05T01:30:17.201] [TRACE] console - [39mundefined@作者：汪震/王正己
+[34m[2019-06-05T01:30:17.202] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:30:17.205] [TRACE] console - [39mNO. 1 book: 感召力
+[34m[2019-06-05T01:30:22.669] [TRACE] console - [39mextracting https://sobooks.cc/books/10939.html
+[34m[2019-06-05T01:30:27.961] [TRACE] console - [39mundefined@作者：西蒙・兰卡斯特
+[34m[2019-06-05T01:30:27.961] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:30:27.962] [TRACE] console - [39mNO. 2 book: 顶级金融家
+[34m[2019-06-05T01:30:30.085] [TRACE] console - [39mextracting https://sobooks.cc/books/10937.html
+[34m[2019-06-05T01:30:35.300] [TRACE] console - [39mundefined@作者：尼尔・弗格森
+[34m[2019-06-05T01:30:35.300] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:30:35.300] [TRACE] console - [39mNO. 3 book: 酷酷的代课老师
+[34m[2019-06-05T01:30:38.268] [TRACE] console - [39mextracting https://sobooks.cc/books/10935.html
+[34m[2019-06-05T01:30:43.480] [TRACE] console - [39mundefined@作者：东野圭吾
+[34m[2019-06-05T01:30:43.481] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T01:30:43.481] [TRACE] console - [39mNO. 4 book: 想象思维
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 3046
+(node:3046) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3046) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T02:00:09.199] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T02:00:09.201] [TRACE] console - [39mNO. 0 book: 想象思维
+[34m[2019-06-05T02:00:12.077] [TRACE] console - [39mextracting https://sobooks.cc/books/10933.html
+[34m[2019-06-05T02:00:17.474] [TRACE] console - [39mundefined@作者：帕甘・肯尼迪
+[34m[2019-06-05T02:00:17.476] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:00:17.480] [TRACE] console - [39mNO. 1 book: 风流南宋
+[34m[2019-06-05T02:00:25.264] [TRACE] console - [39mextracting https://sobooks.cc/books/10929.html
+[34m[2019-06-05T02:00:30.706] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T02:00:30.706] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:00:30.707] [TRACE] console - [39mNO. 2 book: 王安石变法
+[34m[2019-06-05T02:00:32.883] [TRACE] console - [39mextracting https://sobooks.cc/books/10927.html
+[34m[2019-06-05T02:00:38.121] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T02:00:38.122] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:00:38.122] [TRACE] console - [39mNO. 3 book: 大宋革新
+[34m[2019-06-05T02:00:40.680] [TRACE] console - [39mextracting https://sobooks.cc/books/10925.html
+[34m[2019-06-05T02:00:45.873] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T02:00:45.873] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:00:45.873] [TRACE] console - [39mNO. 4 book: 铁血蒙元
+[34m[2019-06-05T02:00:48.269] [TRACE] console - [39mextracting https://sobooks.cc/books/10921.html
+[34m[2019-06-05T02:00:53.441] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T02:00:53.441] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:00:53.442] [TRACE] console - [39mNO. 5 book: 天才的编辑
+[34m[2019-06-05T02:00:55.812] [TRACE] console - [39mextracting https://sobooks.cc/books/10919.html
+[34m[2019-06-05T02:01:00.981] [TRACE] console - [39mundefined@作者：司各特・伯格
+[34m[2019-06-05T02:01:00.981] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:01:00.982] [TRACE] console - [39mNO. 6 book: 使节
+[34m[2019-06-05T02:01:03.562] [TRACE] console - [39mextracting https://sobooks.cc/books/10915.html
+[34m[2019-06-05T02:01:08.739] [TRACE] console - [39mundefined@作者：亨利・詹姆斯
+[34m[2019-06-05T02:01:08.739] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:01:08.740] [TRACE] console - [39mNO. 7 book: IBM帝国缔造者：小沃森自传
+[34m[2019-06-05T02:01:10.545] [TRACE] console - [39mextracting https://sobooks.cc/books/10913.html
+[34m[2019-06-05T02:01:15.739] [TRACE] console - [39mundefined@作者：小托马斯・约翰・沃森/彼得・彼得
+[34m[2019-06-05T02:01:15.739] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:01:15.739] [TRACE] console - [39mNO. 8 book: 为生命而阅读
+[34m[2019-06-05T02:01:19.324] [TRACE] console - [39mextracting https://sobooks.cc/books/10911.html
+[34m[2019-06-05T02:01:24.561] [TRACE] console - [39mundefined@作者：威尔・施瓦尔贝
+[34m[2019-06-05T02:01:24.561] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:01:24.562] [TRACE] console - [39mNO. 9 book: 暗黑医疗史
+[34m[2019-06-05T02:01:27.566] [TRACE] console - [39mextracting https://sobooks.cc/books/10909.html
+[34m[2019-06-05T02:01:32.773] [TRACE] console - [39mundefined@作者：苏上豪
+[34m[2019-06-05T02:01:32.773] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:01:32.774] [TRACE] console - [39mNO. 10 book: 荒诞医学史
+[34m[2019-06-05T02:01:34.696] [TRACE] console - [39mextracting https://sobooks.cc/books/10907.html
+[34m[2019-06-05T02:01:39.935] [TRACE] console - [39mundefined@作者：莉迪亚・康/内特・彼得森
+[34m[2019-06-05T02:01:39.936] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:01:39.936] [TRACE] console - [39mNO. 11 book: Brief Answers to the Big Questions
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 3219
+(node:3219) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3219) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T02:30:08.811] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T02:30:08.811] [TRACE] console - [39mNO. 0 book: Brief Answers to the Big Questions
+[34m[2019-06-05T02:30:11.665] [TRACE] console - [39mextracting https://sobooks.cc/books/10905.html
+[34m[2019-06-05T02:30:16.947] [TRACE] console - [39mundefined@作者：Stephen Hawking
+[34m[2019-06-05T02:30:16.947] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:30:16.949] [TRACE] console - [39mNO. 1 book: Pretty Little Liars
+[34m[2019-06-05T02:30:19.127] [TRACE] console - [39mextracting https://sobooks.cc/books/10903.html
+[34m[2019-06-05T02:30:24.358] [TRACE] console - [39mundefined@作者：Shepard, Sara
+[34m[2019-06-05T02:30:24.358] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:30:24.358] [TRACE] console - [39mNO. 2 book: Then She Was Gone
+[34m[2019-06-05T02:30:26.261] [TRACE] console - [39mextracting https://sobooks.cc/books/10901.html
+[34m[2019-06-05T02:30:31.451] [TRACE] console - [39mundefined@作者：Lisa Jewell
+[34m[2019-06-05T02:30:31.451] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:30:31.451] [TRACE] console - [39mNO. 3 book: 一个刑警的日子
+[34m[2019-06-05T02:30:33.310] [TRACE] console - [39mextracting https://sobooks.cc/books/10897.html
+[34m[2019-06-05T02:30:38.551] [TRACE] console - [39mundefined@作者：蓝衣
+[34m[2019-06-05T02:30:38.551] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:30:38.551] [TRACE] console - [39mNO. 4 book: 朝话
+[34m[2019-06-05T02:30:40.824] [TRACE] console - [39mextracting https://sobooks.cc/books/10895.html
+[34m[2019-06-05T02:30:46.000] [TRACE] console - [39mundefined@作者：梁漱溟
+[34m[2019-06-05T02:30:46.000] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:30:46.001] [TRACE] console - [39mNO. 5 book: 再见，健身房
+[34m[2019-06-05T02:30:47.843] [TRACE] console - [39mextracting https://sobooks.cc/books/10893.html
+[34m[2019-06-05T02:30:53.073] [TRACE] console - [39mundefined@作者：高宇
+[34m[2019-06-05T02:30:53.074] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:30:53.074] [TRACE] console - [39mNO. 6 book: 永远不要找别人要安全感2
+[34m[2019-06-05T02:30:55.526] [TRACE] console - [39mextracting https://sobooks.cc/books/10891.html
+[34m[2019-06-05T02:31:00.783] [TRACE] console - [39mundefined@作者：韩梅梅
+[34m[2019-06-05T02:31:00.783] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:00.783] [TRACE] console - [39mNO. 7 book: 永远不要找别人要安全感
+[34m[2019-06-05T02:31:02.989] [TRACE] console - [39mextracting https://sobooks.cc/books/10887.html
+[34m[2019-06-05T02:31:08.225] [TRACE] console - [39mundefined@作者：韩梅梅
+[34m[2019-06-05T02:31:08.225] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:08.225] [TRACE] console - [39mNO. 8 book: 医见钟情
+[34m[2019-06-05T02:31:10.927] [TRACE] console - [39mextracting https://sobooks.cc/books/10885.html
+[34m[2019-06-05T02:31:16.649] [TRACE] console - [39mundefined@作者：叶紫
+[34m[2019-06-05T02:31:16.663] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:16.667] [TRACE] console - [39mNO. 9 book: 咏远有李
+[34m[2019-06-05T02:31:19.561] [TRACE] console - [39mextracting https://sobooks.cc/books/10883.html
+[34m[2019-06-05T02:31:24.964] [TRACE] console - [39mundefined@作者：李咏
+[34m[2019-06-05T02:31:24.978] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:24.982] [TRACE] console - [39mNO. 10 book: 超级连接者
+[34m[2019-06-05T02:31:28.277] [TRACE] console - [39mextracting https://sobooks.cc/books/10881.html
+[34m[2019-06-05T02:31:33.778] [TRACE] console - [39mundefined@作者：伊桑・祖克曼
+[34m[2019-06-05T02:31:33.787] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:33.790] [TRACE] console - [39mNO. 11 book: 发条女孩
+[34m[2019-06-05T02:31:36.686] [TRACE] console - [39mextracting https://sobooks.cc/books/10879.html
+[34m[2019-06-05T02:31:42.148] [TRACE] console - [39mundefined@作者：保罗・巴奇加卢皮
+[34m[2019-06-05T02:31:42.163] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:42.167] [TRACE] console - [39mNO. 12 book: 极简二战史
+[34m[2019-06-05T02:31:44.911] [TRACE] console - [39mextracting https://sobooks.cc/books/10877.html
+[34m[2019-06-05T02:31:50.544] [TRACE] console - [39mundefined@作者：奈杰尔・考索恩
+[34m[2019-06-05T02:31:50.557] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:50.563] [TRACE] console - [39mNO. 13 book: 强人治国：普京传
+[34m[2019-06-05T02:31:53.174] [TRACE] console - [39mextracting https://sobooks.cc/books/10875.html
+[34m[2019-06-05T02:31:58.756] [TRACE] console - [39mundefined@作者：安格斯・罗克斯伯勒
+[34m[2019-06-05T02:31:58.767] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:31:58.770] [TRACE] console - [39mNO. 14 book: 钟爱华传：洋医生的中国心
+[34m[2019-06-05T02:32:01.560] [TRACE] console - [39mextracting https://sobooks.cc/books/10873.html
+[34m[2019-06-05T02:32:07.110] [TRACE] console - [39mundefined@作者：约翰・波洛克
+[34m[2019-06-05T02:32:07.125] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:32:07.131] [TRACE] console - [39mNO. 15 book: 沃兹传：与苹果一起疯狂
+[34m[2019-06-05T02:32:10.662] [TRACE] console - [39mextracting https://sobooks.cc/books/10871.html
+[34m[2019-06-05T02:32:16.161] [TRACE] console - [39mundefined@作者：吉娜・史密斯
+[34m[2019-06-05T02:32:16.173] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:32:16.177] [TRACE] console - [39mNO. 16 book: 苹果首席设计师：乔纳森传
+[34m[2019-06-05T02:32:19.357] [TRACE] console - [39mextracting https://sobooks.cc/books/10869.html
+[34m[2019-06-05T02:32:24.896] [TRACE] console - [39mundefined@作者：利恩德・卡尼
+[34m[2019-06-05T02:32:24.907] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:32:24.910] [TRACE] console - [39mNO. 17 book: 沙海无澜
+[34m[2019-06-05T02:32:29.870] [TRACE] console - [39mextracting https://sobooks.cc/books/10867.html
+[34m[2019-06-05T02:32:35.756] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T02:32:35.766] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:32:35.770] [TRACE] console - [39mNO. 18 book: 故事开始了
+[34m[2019-06-05T02:32:41.457] [TRACE] console - [39mextracting https://sobooks.cc/books/10865.html
+[34m[2019-06-05T02:32:47.575] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T02:32:47.587] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:32:47.590] [TRACE] console - [39mNO. 19 book: 一样的海
+[34m[2019-06-05T02:32:52.012] [TRACE] console - [39mextracting https://sobooks.cc/books/10863.html
+[34m[2019-06-05T02:32:57.794] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T02:32:57.842] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T02:32:58.041] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 3410
+(node:3410) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3410) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T03:00:08.691] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T03:00:08.691] [TRACE] console - [39mNO. 0 book: 费玛
+[34m[2019-06-05T03:00:12.458] [TRACE] console - [39mextracting https://sobooks.cc/books/10861.html
+[34m[2019-06-05T03:00:17.877] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T03:00:17.878] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:00:17.879] [TRACE] console - [39mNO. 1 book: 我的米海尔
+[34m[2019-06-05T03:00:20.920] [TRACE] console - [39mextracting https://sobooks.cc/books/10859.html
+[34m[2019-06-05T03:00:26.130] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T03:00:26.130] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:00:26.132] [TRACE] console - [39mNO. 2 book: 乡村生活图景
+[34m[2019-06-05T03:00:28.589] [TRACE] console - [39mextracting https://sobooks.cc/books/10857.html
+[34m[2019-06-05T03:00:33.747] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T03:00:33.747] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:00:33.747] [TRACE] console - [39mNO. 3 book: 不得贪胜
+[34m[2019-06-05T03:00:35.819] [TRACE] console - [39mextracting https://sobooks.cc/books/10855.html
+[34m[2019-06-05T03:00:41.019] [TRACE] console - [39mundefined@作者：李昌镐
+[34m[2019-06-05T03:00:41.020] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:00:41.020] [TRACE] console - [39mNO. 4 book: 写作这门手艺
+[34m[2019-06-05T03:00:42.922] [TRACE] console - [39mextracting https://sobooks.cc/books/10853.html
+[34m[2019-06-05T03:00:48.116] [TRACE] console - [39mundefined@作者：约翰・麦克菲
+[34m[2019-06-05T03:00:48.116] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:00:48.116] [TRACE] console - [39mNO. 5 book: 盲眼钟表匠
+[34m[2019-06-05T03:00:50.921] [TRACE] console - [39mextracting https://sobooks.cc/books/10851.html
+[34m[2019-06-05T03:00:56.144] [TRACE] console - [39mundefined@作者：理查德・道金斯
+[34m[2019-06-05T03:00:56.144] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:00:56.145] [TRACE] console - [39mNO. 6 book: 魔鬼的牧师
+[34m[2019-06-05T03:00:58.504] [TRACE] console - [39mextracting https://sobooks.cc/books/10849.html
+[34m[2019-06-05T03:01:03.818] [TRACE] console - [39mundefined@作者：理查德・道金斯
+[34m[2019-06-05T03:01:03.818] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:03.818] [TRACE] console - [39mNO. 7 book: 算法霸权
+[34m[2019-06-05T03:01:06.354] [TRACE] console - [39mextracting https://sobooks.cc/books/10847.html
+[34m[2019-06-05T03:01:11.546] [TRACE] console - [39mundefined@作者：凯西・奥尼尔
+[34m[2019-06-05T03:01:11.547] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:11.547] [TRACE] console - [39mNO. 8 book: 自由之魂
+[34m[2019-06-05T03:01:13.751] [TRACE] console - [39mextracting https://sobooks.cc/books/10844.html
+[34m[2019-06-05T03:01:18.925] [TRACE] console - [39mundefined@作者：刘台平
+[34m[2019-06-05T03:01:18.926] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:18.926] [TRACE] console - [39mNO. 9 book: 英国推理女王P.D.詹姆斯经典推理集
+[34m[2019-06-05T03:01:20.967] [TRACE] console - [39mextracting https://sobooks.cc/books/10842.html
+[34m[2019-06-05T03:01:26.176] [TRACE] console - [39mundefined@作者：P.D. 詹姆斯
+[34m[2019-06-05T03:01:26.176] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:26.176] [TRACE] console - [39mNO. 10 book: 不过，一场生活
+[34m[2019-06-05T03:01:28.600] [TRACE] console - [39mextracting https://sobooks.cc/books/10840.html
+[34m[2019-06-05T03:01:33.784] [TRACE] console - [39mundefined@作者：阿Sam
+[34m[2019-06-05T03:01:33.784] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:33.784] [TRACE] console - [39mNO. 11 book: 地狱变
+[34m[2019-06-05T03:01:35.520] [TRACE] console - [39mextracting https://sobooks.cc/books/10838.html
+[34m[2019-06-05T03:01:40.760] [TRACE] console - [39mundefined@作者：芥川龙之介
+[34m[2019-06-05T03:01:40.760] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:40.760] [TRACE] console - [39mNO. 12 book: 爱与黑暗的故事
+[34m[2019-06-05T03:01:42.659] [TRACE] console - [39mextracting https://sobooks.cc/books/10836.html
+[34m[2019-06-05T03:01:47.866] [TRACE] console - [39mundefined@作者：阿摩司・奥兹
+[34m[2019-06-05T03:01:47.866] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:47.866] [TRACE] console - [39mNO. 13 book: A Hero Born
+[34m[2019-06-05T03:01:50.133] [TRACE] console - [39mextracting https://sobooks.cc/books/10834.html
+[34m[2019-06-05T03:01:55.283] [TRACE] console - [39mundefined@作者：金庸
+[34m[2019-06-05T03:01:55.283] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:01:55.283] [TRACE] console - [39mNO. 14 book: 漫长的告别（果麦经典）
+[34m[2019-06-05T03:01:57.449] [TRACE] console - [39mextracting https://sobooks.cc/books/10830.html
+[34m[2019-06-05T03:02:02.632] [TRACE] console - [39mundefined@作者：雷蒙德・钱德勒
+[34m[2019-06-05T03:02:02.632] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:02:02.633] [TRACE] console - [39mNO. 15 book: 理解增长
+[34m[2019-06-05T03:02:04.351] [TRACE] console - [39mextracting https://sobooks.cc/books/10828.html
+[34m[2019-06-05T03:02:09.558] [TRACE] console - [39mundefined@作者：道格拉斯・洛西科夫
+[34m[2019-06-05T03:02:09.558] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:02:09.558] [TRACE] console - [39mNO. 16 book: 赢（纪念版）
+[34m[2019-06-05T03:02:11.357] [TRACE] console - [39mextracting https://sobooks.cc/books/10826.html
+[34m[2019-06-05T03:02:16.548] [TRACE] console - [39mundefined@作者：杰克・韦尔奇/苏茜・韦尔奇
+[34m[2019-06-05T03:02:16.548] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:02:16.549] [TRACE] console - [39mNO. 17 book: 数文明
+[34m[2019-06-05T03:02:18.367] [TRACE] console - [39mextracting https://sobooks.cc/books/10824.html
+[34m[2019-06-05T03:02:23.582] [TRACE] console - [39mundefined@作者：涂子沛
+[34m[2019-06-05T03:02:23.582] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:02:23.582] [TRACE] console - [39mNO. 18 book: 认同感
+[34m[2019-06-05T03:02:25.935] [TRACE] console - [39mextracting https://sobooks.cc/books/10822.html
+[34m[2019-06-05T03:02:31.174] [TRACE] console - [39mundefined@作者：吉姆・西诺雷利
+[34m[2019-06-05T03:02:31.174] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:02:31.174] [TRACE] console - [39mNO. 19 book: 忽然七日
+[34m[2019-06-05T03:02:33.650] [TRACE] console - [39mextracting https://sobooks.cc/books/10820.html
+[34m[2019-06-05T03:02:38.858] [TRACE] console - [39mundefined@作者：劳伦・奥利弗
+[34m[2019-06-05T03:02:38.858] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:02:39.046] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 3579
+(node:3579) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3579) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T03:30:08.632] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T03:30:08.633] [TRACE] console - [39mNO. 0 book: 四世同堂（完整版）
+[34m[2019-06-05T03:30:11.621] [TRACE] console - [39mextracting https://sobooks.cc/books/10818.html
+[34m[2019-06-05T03:30:16.939] [TRACE] console - [39mundefined@作者：老舍
+[34m[2019-06-05T03:30:16.939] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:30:16.941] [TRACE] console - [39mNO. 1 book: 内在革命：一本关于成长的书
+[34m[2019-06-05T03:30:19.318] [TRACE] console - [39mextracting https://sobooks.cc/books/10816.html
+[34m[2019-06-05T03:30:24.531] [TRACE] console - [39mundefined@作者：芭芭拉・安吉丽思
+[34m[2019-06-05T03:30:24.531] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:30:24.532] [TRACE] console - [39mNO. 2 book: 澳门往事之孤注一掷
+[34m[2019-06-05T03:30:27.047] [TRACE] console - [39mextracting https://sobooks.cc/books/10814.html
+[34m[2019-06-05T03:30:32.242] [TRACE] console - [39mundefined@作者：左四右五
+[34m[2019-06-05T03:30:32.242] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:30:32.242] [TRACE] console - [39mNO. 3 book: 中国通史
+[34m[2019-06-05T03:30:34.667] [TRACE] console - [39mextracting https://sobooks.cc/books/10811.html
+[34m[2019-06-05T03:30:39.842] [TRACE] console - [39mundefined@作者：吕思勉
+[34m[2019-06-05T03:30:39.842] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:30:39.842] [TRACE] console - [39mNO. 4 book: 致命冒险
+[34m[2019-06-05T03:30:42.355] [TRACE] console - [39mextracting https://sobooks.cc/books/10807.html
+[34m[2019-06-05T03:30:47.581] [TRACE] console - [39mundefined@作者：闪米特
+[34m[2019-06-05T03:30:47.581] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:30:47.581] [TRACE] console - [39mNO. 5 book: 未完成的进化
+[34m[2019-06-05T03:30:51.746] [TRACE] console - [39mextracting https://sobooks.cc/books/10805.html
+[34m[2019-06-05T03:30:56.905] [TRACE] console - [39mundefined@作者：凯文・拉兰德
+[34m[2019-06-05T03:30:56.905] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:30:56.905] [TRACE] console - [39mNO. 6 book: 一切与创造有关
+[34m[2019-06-05T03:30:58.701] [TRACE] console - [39mextracting https://sobooks.cc/books/10803.html
+[34m[2019-06-05T03:31:03.923] [TRACE] console - [39mundefined@作者：奥古斯汀・富恩特斯
+[34m[2019-06-05T03:31:03.923] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:03.923] [TRACE] console - [39mNO. 7 book: 自媒体写作
+[34m[2019-06-05T03:31:05.832] [TRACE] console - [39mextracting https://sobooks.cc/books/10801.html
+[34m[2019-06-05T03:31:11.062] [TRACE] console - [39mundefined@作者：余老诗
+[34m[2019-06-05T03:31:11.062] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:11.062] [TRACE] console - [39mNO. 8 book: 完全写作指南
+[34m[2019-06-05T03:31:13.049] [TRACE] console - [39mextracting https://sobooks.cc/books/10799.html
+[34m[2019-06-05T03:31:18.296] [TRACE] console - [39mundefined@作者：劳拉・布朗
+[34m[2019-06-05T03:31:18.296] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:18.296] [TRACE] console - [39mNO. 9 book: Jerusalem
+[34m[2019-06-05T03:31:21.112] [TRACE] console - [39mextracting https://sobooks.cc/books/10797.html
+[34m[2019-06-05T03:31:26.288] [TRACE] console - [39mundefined@作者：Simon Sebag Montefiore
+[34m[2019-06-05T03:31:26.288] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:26.289] [TRACE] console - [39mNO. 10 book: Paris in the Present Tense
+[34m[2019-06-05T03:31:27.965] [TRACE] console - [39mextracting https://sobooks.cc/books/10795.html
+[34m[2019-06-05T03:31:33.178] [TRACE] console - [39mundefined@作者：Mark Helprin
+[34m[2019-06-05T03:31:33.178] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:33.178] [TRACE] console - [39mNO. 11 book: 态度
+[34m[2019-06-05T03:31:35.311] [TRACE] console - [39mextracting https://sobooks.cc/books/10793.html
+[34m[2019-06-05T03:31:40.470] [TRACE] console - [39mundefined@作者：吴军
+[34m[2019-06-05T03:31:40.471] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:40.471] [TRACE] console - [39mNO. 12 book: 人间喜剧（读客经典）
+[34m[2019-06-05T03:31:42.248] [TRACE] console - [39mextracting https://sobooks.cc/books/10791.html
+[34m[2019-06-05T03:31:47.477] [TRACE] console - [39mundefined@作者：奥诺雷・德・巴尔扎克
+[34m[2019-06-05T03:31:47.477] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:47.478] [TRACE] console - [39mNO. 13 book: 漫长的告别（读客经典）
+[34m[2019-06-05T03:31:49.464] [TRACE] console - [39mextracting https://sobooks.cc/books/10788.html
+[34m[2019-06-05T03:31:54.654] [TRACE] console - [39mundefined@作者：雷蒙德・钱德勒
+[34m[2019-06-05T03:31:54.655] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:31:54.655] [TRACE] console - [39mNO. 14 book: 超级智能
+[34m[2019-06-05T03:31:56.929] [TRACE] console - [39mextracting https://sobooks.cc/books/10783.html
+[34m[2019-06-05T03:32:02.169] [TRACE] console - [39mundefined@作者：尼克・波斯特洛姆
+[34m[2019-06-05T03:32:02.171] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:32:02.177] [TRACE] console - [39mNO. 15 book: 谷歌创业帮
+[34m[2019-06-05T03:32:04.213] [TRACE] console - [39mextracting https://sobooks.cc/books/10781.html
+[34m[2019-06-05T03:32:09.487] [TRACE] console - [39mundefined@作者：王丹
+[34m[2019-06-05T03:32:09.487] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:32:09.487] [TRACE] console - [39mNO. 16 book: 只过必要生活
+[34m[2019-06-05T03:32:11.693] [TRACE] console - [39mextracting https://sobooks.cc/books/10778.html
+[34m[2019-06-05T03:32:16.887] [TRACE] console - [39mundefined@作者：匠久
+[34m[2019-06-05T03:32:16.887] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:32:16.887] [TRACE] console - [39mNO. 17 book: 我的早年岁月
+[34m[2019-06-05T03:32:19.243] [TRACE] console - [39mextracting https://sobooks.cc/books/10776.html
+[34m[2019-06-05T03:32:24.408] [TRACE] console - [39mundefined@作者：苏尔坦・本・穆罕默德・卡西米
+[34m[2019-06-05T03:32:24.409] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:32:24.409] [TRACE] console - [39mNO. 18 book: 哲学之美
+[34m[2019-06-05T03:32:26.978] [TRACE] console - [39mextracting https://sobooks.cc/books/10773.html
+[34m[2019-06-05T03:32:32.179] [TRACE] console - [39mundefined@作者：艾克哈特・玛腾斯
+[34m[2019-06-05T03:32:32.179] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:32:32.180] [TRACE] console - [39mNO. 19 book: 街头巷尾
+[34m[2019-06-05T03:32:34.328] [TRACE] console - [39mextracting https://sobooks.cc/books/10771.html
+[34m[2019-06-05T03:32:39.509] [TRACE] console - [39mundefined@作者：领读文化
+[34m[2019-06-05T03:32:39.509] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T03:32:39.705] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 3775
+(node:3775) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3775) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T04:00:09.206] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T04:00:09.206] [TRACE] console - [39mNO. 0 book: 金庸传（修订版）
+[34m[2019-06-05T04:00:12.000] [TRACE] console - [39mextracting https://sobooks.cc/books/10769.html
+[34m[2019-06-05T04:00:17.355] [TRACE] console - [39mundefined@作者：傅国涌
+[34m[2019-06-05T04:00:17.356] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:00:17.361] [TRACE] console - [39mNO. 1 book: 为了你，我愿意热爱整个世界
+[34m[2019-06-05T04:00:19.711] [TRACE] console - [39mextracting https://sobooks.cc/books/10767.html
+[34m[2019-06-05T04:00:24.859] [TRACE] console - [39mundefined@作者：唐家三少 
+[34m[2019-06-05T04:00:24.859] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:00:24.860] [TRACE] console - [39mNO. 2 book: 我们一无所有
+[34m[2019-06-05T04:00:27.211] [TRACE] console - [39mextracting https://sobooks.cc/books/10765.html
+[34m[2019-06-05T04:00:32.402] [TRACE] console - [39mundefined@作者：安东尼・马拉
+[34m[2019-06-05T04:00:32.402] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:00:32.402] [TRACE] console - [39mNO. 3 book: 我的房东叫别扭
+[34m[2019-06-05T04:00:34.762] [TRACE] console - [39mextracting https://sobooks.cc/books/10763.html
+[34m[2019-06-05T04:00:40.038] [TRACE] console - [39mundefined@作者：宝卿
+[34m[2019-06-05T04:00:40.038] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:00:40.038] [TRACE] console - [39mNO. 4 book: 笑林广记
+[34m[2019-06-05T04:00:41.875] [TRACE] console - [39mextracting https://sobooks.cc/books/10759.html
+[34m[2019-06-05T04:00:47.107] [TRACE] console - [39mundefined@作者：游戏主人
+[34m[2019-06-05T04:00:47.107] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:00:47.108] [TRACE] console - [39mNO. 5 book: 少爷
+[34m[2019-06-05T04:00:49.091] [TRACE] console - [39mextracting https://sobooks.cc/books/10757.html
+[34m[2019-06-05T04:00:54.283] [TRACE] console - [39mundefined@作者：夏目漱石
+[34m[2019-06-05T04:00:54.283] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:00:54.284] [TRACE] console - [39mNO. 6 book: 彷徨之刃
+[34m[2019-06-05T04:00:56.028] [TRACE] console - [39mextracting https://sobooks.cc/books/10755.html
+[34m[2019-06-05T04:01:01.287] [TRACE] console - [39mundefined@作者：东野圭吾
+[34m[2019-06-05T04:01:01.287] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:01.288] [TRACE] console - [39mNO. 7 book: 美国情报界
+[34m[2019-06-05T04:01:05.924] [TRACE] console - [39mextracting https://sobooks.cc/books/10753.html
+[34m[2019-06-05T04:01:11.107] [TRACE] console - [39mundefined@作者：杰弗瑞・理查尔森
+[34m[2019-06-05T04:01:11.107] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:11.108] [TRACE] console - [39mNO. 8 book: 不会被机器替代的人
+[34m[2019-06-05T04:01:13.193] [TRACE] console - [39mextracting https://sobooks.cc/books/10751.html
+[34m[2019-06-05T04:01:18.390] [TRACE] console - [39mundefined@作者：杰夫・科尔文
+[34m[2019-06-05T04:01:18.391] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:18.391] [TRACE] console - [39mNO. 9 book: 管理美元
+[34m[2019-06-05T04:01:20.909] [TRACE] console - [39mextracting https://sobooks.cc/books/10749.html
+[34m[2019-06-05T04:01:26.148] [TRACE] console - [39mundefined@作者：船桥洋一
+[34m[2019-06-05T04:01:26.148] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:26.148] [TRACE] console - [39mNO. 10 book: 九个人
+[34m[2019-06-05T04:01:28.476] [TRACE] console - [39mextracting https://sobooks.cc/books/10747.html
+[34m[2019-06-05T04:01:33.699] [TRACE] console - [39mundefined@作者：张新颖
+[34m[2019-06-05T04:01:33.699] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:33.700] [TRACE] console - [39mNO. 11 book: 奥斯丁全集（英文版）
+[34m[2019-06-05T04:01:35.889] [TRACE] console - [39mextracting https://sobooks.cc/books/10745.html
+[34m[2019-06-05T04:01:41.033] [TRACE] console - [39mundefined@作者：简・奥斯汀
+[34m[2019-06-05T04:01:41.034] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:41.034] [TRACE] console - [39mNO. 12 book: 神经的逻辑
+[34m[2019-06-05T04:01:43.026] [TRACE] console - [39mextracting https://sobooks.cc/books/10743.html
+[34m[2019-06-05T04:01:48.315] [TRACE] console - [39mundefined@作者：埃利泽・斯滕伯格
+[34m[2019-06-05T04:01:48.315] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:48.315] [TRACE] console - [39mNO. 13 book: 公平之怒
+[34m[2019-06-05T04:01:50.092] [TRACE] console - [39mextracting https://sobooks.cc/books/10741.html
+[34m[2019-06-05T04:01:55.331] [TRACE] console - [39mundefined@作者：理查德・威尔金森/凯特・皮克特
+[34m[2019-06-05T04:01:55.331] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:01:55.331] [TRACE] console - [39mNO. 14 book: 经济学关我什么事
+[34m[2019-06-05T04:01:57.082] [TRACE] console - [39mextracting https://sobooks.cc/books/10733.html
+[34m[2019-06-05T04:02:02.281] [TRACE] console - [39mundefined@作者：文安德・冯・彼特尔斯多夫
+[34m[2019-06-05T04:02:02.282] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:02:02.282] [TRACE] console - [39mNO. 15 book: 统计学关我什么事
+[34m[2019-06-05T04:02:04.246] [TRACE] console - [39mextracting https://sobooks.cc/books/10731.html
+[34m[2019-06-05T04:02:09.447] [TRACE] console - [39mundefined@作者：小岛宽之
+[34m[2019-06-05T04:02:09.447] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:02:09.447] [TRACE] console - [39mNO. 16 book: 我不知道该说什么，关于死亡还是爱情
+[34m[2019-06-05T04:02:11.740] [TRACE] console - [39mextracting https://sobooks.cc/books/10729.html
+[34m[2019-06-05T04:02:16.930] [TRACE] console - [39mundefined@作者：S.A.阿列克谢耶维奇 
+[34m[2019-06-05T04:02:16.931] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:02:16.931] [TRACE] console - [39mNO. 17 book: 天长地久：给美君的信
+[34m[2019-06-05T04:02:19.007] [TRACE] console - [39mextracting https://sobooks.cc/books/10726.html
+[34m[2019-06-05T04:02:24.184] [TRACE] console - [39mundefined@作者：龙应台
+[34m[2019-06-05T04:02:24.185] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:02:24.185] [TRACE] console - [39mNO. 18 book: 流浪地球
+[34m[2019-06-05T04:02:25.928] [TRACE] console - [39mextracting https://sobooks.cc/books/10724.html
+[34m[2019-06-05T04:02:31.163] [TRACE] console - [39mundefined@作者：刘慈欣
+[34m[2019-06-05T04:02:31.163] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:02:31.164] [TRACE] console - [39mNO. 19 book: 解放战争（套装共6册）
+[34m[2019-06-05T04:02:33.007] [TRACE] console - [39mextracting https://sobooks.cc/books/10722.html
+[34m[2019-06-05T04:02:38.236] [TRACE] console - [39mundefined@作者：刘统等
+[34m[2019-06-05T04:02:38.236] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:02:38.359] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 3941
+(node:3941) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3941) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T04:30:08.915] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T04:30:08.916] [TRACE] console - [39mNO. 0 book: 魔戒
+[34m[2019-06-05T04:30:11.845] [TRACE] console - [39mextracting https://sobooks.cc/books/10720.html
+[34m[2019-06-05T04:30:17.274] [TRACE] console - [39mundefined@作者：J.R.R. 托尔金
+[34m[2019-06-05T04:30:17.274] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:17.275] [TRACE] console - [39mNO. 1 book: The Coddling of the American Mind
+[34m[2019-06-05T04:30:19.056] [TRACE] console - [39mextracting https://sobooks.cc/books/10718.html
+[34m[2019-06-05T04:30:24.229] [TRACE] console - [39mundefined@作者：Greg Lukianoff/Jonathan Haidt
+[34m[2019-06-05T04:30:24.230] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:24.231] [TRACE] console - [39mNO. 2 book: D之复合
+[34m[2019-06-05T04:30:26.587] [TRACE] console - [39mextracting https://sobooks.cc/books/10716.html
+[34m[2019-06-05T04:30:31.796] [TRACE] console - [39mundefined@作者：松本清张
+[34m[2019-06-05T04:30:31.796] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:31.797] [TRACE] console - [39mNO. 3 book: AI迷航
+[34m[2019-06-05T04:30:33.461] [TRACE] console - [39mextracting https://sobooks.cc/books/10714.html
+[34m[2019-06-05T04:30:38.651] [TRACE] console - [39mundefined@作者：肖遥
+[34m[2019-06-05T04:30:38.652] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:38.652] [TRACE] console - [39mNO. 4 book: 故事：材质、结构、风格和银幕剧作的原理
+[34m[2019-06-05T04:30:40.672] [TRACE] console - [39mextracting https://sobooks.cc/books/10712.html
+[34m[2019-06-05T04:30:45.879] [TRACE] console - [39mundefined@作者：罗伯特・麦基
+[34m[2019-06-05T04:30:45.879] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:45.879] [TRACE] console - [39mNO. 5 book: 守夜
+[34m[2019-06-05T04:30:47.621] [TRACE] console - [39mextracting https://sobooks.cc/books/10710.html
+[34m[2019-06-05T04:30:52.829] [TRACE] console - [39mundefined@作者：斯蒂芬・金
+[34m[2019-06-05T04:30:52.829] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:52.830] [TRACE] console - [39mNO. 6 book: 领袖：一项心理史学研究
+[34m[2019-06-05T04:30:54.373] [TRACE] console - [39mextracting https://sobooks.cc/books/10708.html
+[34m[2019-06-05T04:30:59.583] [TRACE] console - [39mundefined@作者：查尔斯・B．斯特罗齐尔/丹尼尔・奥弗
+[34m[2019-06-05T04:30:59.584] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:30:59.584] [TRACE] console - [39mNO. 7 book: 麻省理工深度思考法
+[34m[2019-06-05T04:31:01.572] [TRACE] console - [39mextracting https://sobooks.cc/books/10706.html
+[34m[2019-06-05T04:31:06.778] [TRACE] console - [39mundefined@作者：平井孝志
+[34m[2019-06-05T04:31:06.779] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:06.779] [TRACE] console - [39mNO. 8 book: 深阅读
+[34m[2019-06-05T04:31:09.168] [TRACE] console - [39mextracting https://sobooks.cc/books/10704.html
+[34m[2019-06-05T04:31:14.327] [TRACE] console - [39mundefined@作者：斋藤孝
+[34m[2019-06-05T04:31:14.328] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:14.328] [TRACE] console - [39mNO. 9 book: 中国社会各阶层分析
+[34m[2019-06-05T04:31:16.404] [TRACE] console - [39mextracting https://sobooks.cc/books/10702.html
+[34m[2019-06-05T04:31:21.576] [TRACE] console - [39mundefined@作者：梁晓声
+[34m[2019-06-05T04:31:21.576] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:21.576] [TRACE] console - [39mNO. 10 book: 魔兽世界官方小说（套装共8册）
+[34m[2019-06-05T04:31:24.018] [TRACE] console - [39mextracting https://sobooks.cc/books/10699.html
+[34m[2019-06-05T04:31:29.194] [TRACE] console - [39mundefined@作者：克里斯・梅森
+[34m[2019-06-05T04:31:29.194] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:29.194] [TRACE] console - [39mNO. 11 book: 如何给狮子剥皮
+[34m[2019-06-05T04:31:32.467] [TRACE] console - [39mextracting https://sobooks.cc/books/10697.html
+[34m[2019-06-05T04:31:37.661] [TRACE] console - [39mundefined@作者：克莱尔・科克-斯塔基
+[34m[2019-06-05T04:31:37.661] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:37.661] [TRACE] console - [39mNO. 12 book: 亚当夏娃在拂晓
+[34m[2019-06-05T04:31:40.284] [TRACE] console - [39mextracting https://sobooks.cc/books/10695.html
+[34m[2019-06-05T04:31:45.476] [TRACE] console - [39mundefined@作者：克里斯托弗・莱恩/卡西尔达・杰萨
+[34m[2019-06-05T04:31:45.476] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:45.476] [TRACE] console - [39mNO. 13 book: 极简法则
+[34m[2019-06-05T04:31:47.700] [TRACE] console - [39mextracting https://sobooks.cc/books/10692.html
+[34m[2019-06-05T04:31:52.850] [TRACE] console - [39mundefined@作者：理查德・科克
+[34m[2019-06-05T04:31:52.851] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:52.851] [TRACE] console - [39mNO. 14 book: 生活与命运
+[34m[2019-06-05T04:31:54.770] [TRACE] console - [39mextracting https://sobooks.cc/books/10690.html
+[34m[2019-06-05T04:31:59.928] [TRACE] console - [39mundefined@作者：瓦西里・格罗斯曼
+[34m[2019-06-05T04:31:59.928] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:31:59.928] [TRACE] console - [39mNO. 15 book: 四十九日祭
+[34m[2019-06-05T04:32:02.319] [TRACE] console - [39mextracting https://sobooks.cc/books/10688.html
+[34m[2019-06-05T04:32:07.507] [TRACE] console - [39mundefined@作者：严歌苓
+[34m[2019-06-05T04:32:07.508] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T04:32:07.508] [TRACE] console - [39mNO. 16 book: 恶的科学
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 4123
+(node:4123) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:4123) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T05:00:09.328] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T05:00:09.329] [TRACE] console - [39mNO. 0 book: 恶的科学
+[34m[2019-06-05T05:00:12.272] [TRACE] console - [39mextracting https://sobooks.cc/books/10679.html
+[34m[2019-06-05T05:00:17.559] [TRACE] console - [39mundefined@作者：西蒙・巴伦-科恩
+[34m[2019-06-05T05:00:17.559] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:00:17.563] [TRACE] console - [39mNO. 1 book: 编写可维护的JavaScript
+[34m[2019-06-05T05:00:20.632] [TRACE] console - [39mextracting https://sobooks.cc/books/10677.html
+[34m[2019-06-05T05:00:25.910] [TRACE] console - [39mundefined@作者：扎卡斯
+[34m[2019-06-05T05:00:25.910] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:00:25.910] [TRACE] console - [39mNO. 2 book: 抢占心智
+[34m[2019-06-05T05:00:27.968] [TRACE] console - [39mextracting https://sobooks.cc/books/10675.html
+[34m[2019-06-05T05:00:33.174] [TRACE] console - [39mundefined@作者：江南春
+[34m[2019-06-05T05:00:33.175] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:00:33.175] [TRACE] console - [39mNO. 3 book: 悲剧人偶
+[34m[2019-06-05T05:00:35.548] [TRACE] console - [39mextracting https://sobooks.cc/books/10673.html
+[34m[2019-06-05T05:00:40.781] [TRACE] console - [39mundefined@作者：东野圭吾
+[34m[2019-06-05T05:00:40.782] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:00:40.782] [TRACE] console - [39mNO. 4 book: 飞跃5000年
+[34m[2019-06-05T05:00:43.381] [TRACE] console - [39mextracting https://sobooks.cc/books/10671.html
+[34m[2019-06-05T05:00:48.853] [TRACE] console - [39mundefined@作者：克里昂・斯考森
+[34m[2019-06-05T05:00:48.854] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:00:48.859] [TRACE] console - [39mNO. 5 book: 绿野仙踪
+[34m[2019-06-05T05:00:51.050] [TRACE] console - [39mextracting https://sobooks.cc/books/10652.html
+[34m[2019-06-05T05:00:56.311] [TRACE] console - [39mundefined@作者：莱曼・弗兰克・鲍姆 
+[34m[2019-06-05T05:00:56.311] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:00:56.311] [TRACE] console - [39mNO. 6 book: 好奇心：保持对未知世界永不停息的热情
+[34m[2019-06-05T05:00:58.349] [TRACE] console - [39mextracting https://sobooks.cc/books/10648.html
+[34m[2019-06-05T05:01:03.523] [TRACE] console - [39mundefined@作者：伊恩・莱斯利
+[34m[2019-06-05T05:01:03.523] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:03.523] [TRACE] console - [39mNO. 7 book: 人人都是数据分析师
+[34m[2019-06-05T05:01:05.816] [TRACE] console - [39mextracting https://sobooks.cc/books/10644.html
+[34m[2019-06-05T05:01:11.055] [TRACE] console - [39mundefined@作者：刘红阁/王淑娟/温融冰 
+[34m[2019-06-05T05:01:11.057] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:11.058] [TRACE] console - [39mNO. 8 book: 箱男
+[34m[2019-06-05T05:01:13.751] [TRACE] console - [39mextracting https://sobooks.cc/books/10641.html
+[34m[2019-06-05T05:01:19.180] [TRACE] console - [39mundefined@作者：安部公房
+[34m[2019-06-05T05:01:19.181] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:19.186] [TRACE] console - [39mNO. 9 book: 终有一天你会懂
+[34m[2019-06-05T05:01:21.110] [TRACE] console - [39mextracting https://sobooks.cc/books/10637.html
+[34m[2019-06-05T05:01:26.402] [TRACE] console - [39mundefined@作者：琢磨先生
+[34m[2019-06-05T05:01:26.408] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:26.415] [TRACE] console - [39mNO. 10 book: 白轮船
+[34m[2019-06-05T05:01:28.598] [TRACE] console - [39mextracting https://sobooks.cc/books/10616.html
+[34m[2019-06-05T05:01:33.987] [TRACE] console - [39mundefined@作者：钦吉斯・·艾特玛托夫
+[34m[2019-06-05T05:01:33.988] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:33.996] [TRACE] console - [39mNO. 11 book: 司法的细节
+[34m[2019-06-05T05:01:36.299] [TRACE] console - [39mextracting https://sobooks.cc/books/10614.html
+[34m[2019-06-05T05:01:41.589] [TRACE] console - [39mundefined@作者：刘仁文
+[34m[2019-06-05T05:01:41.589] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:41.590] [TRACE] console - [39mNO. 12 book: 银河铁道之夜（读客经典）
+[34m[2019-06-05T05:01:43.895] [TRACE] console - [39mextracting https://sobooks.cc/books/10612.html
+[34m[2019-06-05T05:01:49.104] [TRACE] console - [39mundefined@作者：宫泽贤治
+[34m[2019-06-05T05:01:49.104] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:49.105] [TRACE] console - [39mNO. 13 book: 太极跑：不费力、无伤害的革命性跑步法
+[34m[2019-06-05T05:01:51.010] [TRACE] console - [39mextracting https://sobooks.cc/books/10610.html
+[34m[2019-06-05T05:01:56.270] [TRACE] console - [39mundefined@作者：丹尼・德雷尔
+[34m[2019-06-05T05:01:56.270] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:01:56.271] [TRACE] console - [39mNO. 14 book: 越狱者
+[34m[2019-06-05T05:01:58.415] [TRACE] console - [39mextracting https://sobooks.cc/books/10608.html
+[34m[2019-06-05T05:02:03.653] [TRACE] console - [39mundefined@作者：迈克尔・罗伯森
+[34m[2019-06-05T05:02:03.654] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:02:03.654] [TRACE] console - [39mNO. 15 book: 天使安魂三部曲
+[34m[2019-06-05T05:02:05.597] [TRACE] console - [39mextracting https://sobooks.cc/books/10606.html
+[34m[2019-06-05T05:02:10.802] [TRACE] console - [39mundefined@作者：安德鲁・泰勒
+[34m[2019-06-05T05:02:10.802] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:02:10.811] [TRACE] console - [39mNO. 16 book: 弯曲的旅行
+[34m[2019-06-05T05:02:12.900] [TRACE] console - [39mextracting https://sobooks.cc/books/10604.html
+[34m[2019-06-05T05:02:18.289] [TRACE] console - [39mundefined@作者：丽莎・兰道尔
+[34m[2019-06-05T05:02:18.300] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:02:18.304] [TRACE] console - [39mNO. 17 book: 叩响天堂之门
+[34m[2019-06-05T05:02:20.181] [TRACE] console - [39mextracting https://sobooks.cc/books/10601.html
+[34m[2019-06-05T05:02:25.581] [TRACE] console - [39mundefined@作者：丽莎・兰道尔
+[34m[2019-06-05T05:02:25.582] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:02:25.589] [TRACE] console - [39mNO. 18 book: 她不是我妈妈
+[34m[2019-06-05T05:02:28.214] [TRACE] console - [39mextracting https://sobooks.cc/books/10599.html
+[34m[2019-06-05T05:02:33.508] [TRACE] console - [39mundefined@作者：米歇尔・普西
+[34m[2019-06-05T05:02:33.508] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:02:33.509] [TRACE] console - [39mNO. 19 book: 你坏
+[34m[2019-06-05T05:02:35.795] [TRACE] console - [39mextracting https://sobooks.cc/books/10597.html
+[34m[2019-06-05T05:02:41.180] [TRACE] console - [39mundefined@作者：大冰
+[34m[2019-06-05T05:02:41.181] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:02:41.315] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 4301
+(node:4301) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:4301) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T05:30:08.934] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T05:30:08.934] [TRACE] console - [39mNO. 0 book: 一个海难幸存者的故事
+[34m[2019-06-05T05:30:12.125] [TRACE] console - [39mextracting https://sobooks.cc/books/10592.html
+[34m[2019-06-05T05:30:17.703] [TRACE] console - [39mundefined@作者：加西亚・马尔克斯
+[34m[2019-06-05T05:30:17.703] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:30:17.704] [TRACE] console - [39mNO. 1 book: 掌故（第二集）
+[34m[2019-06-05T05:30:20.076] [TRACE] console - [39mextracting https://sobooks.cc/books/10590.html
+[34m[2019-06-05T05:30:25.305] [TRACE] console - [39mundefined@作者：徐俊
+[34m[2019-06-05T05:30:25.305] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:30:25.305] [TRACE] console - [39mNO. 2 book: 掌故（第一集）
+[34m[2019-06-05T05:30:27.379] [TRACE] console - [39mextracting https://sobooks.cc/books/10588.html
+[34m[2019-06-05T05:30:32.618] [TRACE] console - [39mundefined@作者：徐俊
+[34m[2019-06-05T05:30:32.618] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:30:32.618] [TRACE] console - [39mNO. 3 book: 辛亥：计划外革命
+[34m[2019-06-05T05:30:34.411] [TRACE] console - [39mextracting https://sobooks.cc/books/10586.html
+[34m[2019-06-05T05:30:39.592] [TRACE] console - [39mundefined@作者：雪珥
+[34m[2019-06-05T05:30:39.592] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:30:39.592] [TRACE] console - [39mNO. 4 book: 笑场
+[34m[2019-06-05T05:30:41.229] [TRACE] console - [39mextracting https://sobooks.cc/books/10582.html
+[34m[2019-06-05T05:30:46.452] [TRACE] console - [39mundefined@作者：李诞
+[34m[2019-06-05T05:30:46.452] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:30:46.452] [TRACE] console - [39mNO. 5 book: 苏格兰女王的悲剧
+[34m[2019-06-05T05:30:48.692] [TRACE] console - [39mextracting https://sobooks.cc/books/10579.html
+[34m[2019-06-05T05:30:53.842] [TRACE] console - [39mundefined@作者：斯蒂芬・茨威格
+[34m[2019-06-05T05:30:53.842] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:30:53.842] [TRACE] console - [39mNO. 6 book: 少年的你，如此美丽
+[34m[2019-06-05T05:30:55.461] [TRACE] console - [39mextracting https://sobooks.cc/books/10577.html
+[34m[2019-06-05T05:31:00.667] [TRACE] console - [39mundefined@作者：玖月晞
+[34m[2019-06-05T05:31:00.667] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:00.667] [TRACE] console - [39mNO. 7 book: 我为你洒下月光
+[34m[2019-06-05T05:31:02.894] [TRACE] console - [39mextracting https://sobooks.cc/books/10575.html
+[34m[2019-06-05T05:31:08.123] [TRACE] console - [39mundefined@作者：简媜
+[34m[2019-06-05T05:31:08.123] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:08.123] [TRACE] console - [39mNO. 8 book: 我的浏阳兄弟
+[34m[2019-06-05T05:31:10.363] [TRACE] console - [39mextracting https://sobooks.cc/books/10573.html
+[34m[2019-06-05T05:31:15.550] [TRACE] console - [39mundefined@作者：索文
+[34m[2019-06-05T05:31:15.550] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:15.551] [TRACE] console - [39mNO. 9 book: 我们都发狂了
+[34m[2019-06-05T05:31:18.074] [TRACE] console - [39mextracting https://sobooks.cc/books/10571.html
+[34m[2019-06-05T05:31:23.250] [TRACE] console - [39mundefined@作者：凯伦・乔伊・富勒
+[34m[2019-06-05T05:31:23.250] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:23.251] [TRACE] console - [39mNO. 10 book: 真相推理师：复仇
+[34m[2019-06-05T05:31:25.607] [TRACE] console - [39mextracting https://sobooks.cc/books/10569.html
+[34m[2019-06-05T05:31:30.782] [TRACE] console - [39mundefined@作者：呼延云
+[34m[2019-06-05T05:31:30.783] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:30.783] [TRACE] console - [39mNO. 11 book: 真相推理师：幸存
+[34m[2019-06-05T05:31:32.427] [TRACE] console - [39mextracting https://sobooks.cc/books/10567.html
+[34m[2019-06-05T05:31:37.656] [TRACE] console - [39mundefined@作者：呼延云
+[34m[2019-06-05T05:31:37.656] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:37.657] [TRACE] console - [39mNO. 12 book: 真相推理师：嬗变
+[34m[2019-06-05T05:31:40.173] [TRACE] console - [39mextracting https://sobooks.cc/books/10565.html
+[34m[2019-06-05T05:31:45.332] [TRACE] console - [39mundefined@作者：呼延云
+[34m[2019-06-05T05:31:45.332] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:45.333] [TRACE] console - [39mNO. 13 book: 小说的骨架
+[34m[2019-06-05T05:31:47.106] [TRACE] console - [39mextracting https://sobooks.cc/books/10563.html
+[34m[2019-06-05T05:31:52.251] [TRACE] console - [39mundefined@作者：凯蒂・维兰德
+[34m[2019-06-05T05:31:52.251] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:52.251] [TRACE] console - [39mNO. 14 book: 小说灯笼
+[34m[2019-06-05T05:31:54.039] [TRACE] console - [39mextracting https://sobooks.cc/books/10561.html
+[34m[2019-06-05T05:31:59.198] [TRACE] console - [39mundefined@作者：太宰治
+[34m[2019-06-05T05:31:59.198] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:31:59.198] [TRACE] console - [39mNO. 15 book: 黎曼猜想漫谈
+[34m[2019-06-05T05:32:00.847] [TRACE] console - [39mextracting https://sobooks.cc/books/10557.html
+[34m[2019-06-05T05:32:06.082] [TRACE] console - [39mundefined@作者：卢昌海
+[34m[2019-06-05T05:32:06.082] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:32:06.083] [TRACE] console - [39mNO. 16 book: 美好人生运营指南
+[34m[2019-06-05T05:32:07.686] [TRACE] console - [39mextracting https://sobooks.cc/books/10555.html
+[34m[2019-06-05T05:32:12.865] [TRACE] console - [39mundefined@作者：一稼
+[34m[2019-06-05T05:32:12.865] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:32:12.865] [TRACE] console - [39mNO. 17 book: 金牌投资人3
+[34m[2019-06-05T05:32:14.642] [TRACE] console - [39mextracting https://sobooks.cc/books/10553.html
+[34m[2019-06-05T05:32:19.821] [TRACE] console - [39mundefined@作者：龙在宇
+[34m[2019-06-05T05:32:19.821] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:32:19.821] [TRACE] console - [39mNO. 18 book: 金牌投资人2
+[34m[2019-06-05T05:32:22.257] [TRACE] console - [39mextracting https://sobooks.cc/books/10551.html
+[34m[2019-06-05T05:32:27.469] [TRACE] console - [39mundefined@作者：龙在宇
+[34m[2019-06-05T05:32:27.469] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:32:27.470] [TRACE] console - [39mNO. 19 book: 峰会：影响20世纪的六场元首会谈
+[34m[2019-06-05T05:32:29.640] [TRACE] console - [39mextracting https://sobooks.cc/books/10549.html
+[34m[2019-06-05T05:32:34.835] [TRACE] console - [39mundefined@作者：戴维・雷诺兹
+[34m[2019-06-05T05:32:34.836] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T05:32:34.944] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 4477
+(node:4477) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:4477) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T06:00:08.674] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T06:00:08.675] [TRACE] console - [39mNO. 0 book: 缔造和平：1919巴黎和会及其开启的战后世界
+[34m[2019-06-05T06:00:11.667] [TRACE] console - [39mextracting https://sobooks.cc/books/10547.html
+[34m[2019-06-05T06:00:16.991] [TRACE] console - [39mundefined@作者：玛格丽特・麦克米伦
+[34m[2019-06-05T06:00:16.991] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:00:16.992] [TRACE] console - [39mNO. 1 book: 雅尔塔：改变世界格局的八天
+[34m[2019-06-05T06:00:18.975] [TRACE] console - [39mextracting https://sobooks.cc/books/10545.html
+[34m[2019-06-05T06:00:24.205] [TRACE] console - [39mundefined@作者：沙希利・浦洛基
+[34m[2019-06-05T06:00:24.205] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:00:24.206] [TRACE] console - [39mNO. 2 book: 万能管家吉夫斯（共5册）
+[34m[2019-06-05T06:00:26.240] [TRACE] console - [39mextracting https://sobooks.cc/books/10543.html
+[34m[2019-06-05T06:00:31.429] [TRACE] console - [39mundefined@作者：伍德豪斯
+[34m[2019-06-05T06:00:31.429] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:00:31.430] [TRACE] console - [39mNO. 3 book: 飞乐鸟的手绘旅行笔记：苏州·杭州
+[34m[2019-06-05T06:00:33.373] [TRACE] console - [39mextracting https://sobooks.cc/books/10541.html
+[34m[2019-06-05T06:00:38.561] [TRACE] console - [39mundefined@作者：飞乐鸟
+[34m[2019-06-05T06:00:38.561] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:00:38.562] [TRACE] console - [39mNO. 4 book: The Fifth Risk
+[34m[2019-06-05T06:00:41.123] [TRACE] console - [39mextracting https://sobooks.cc/books/10538.html
+[34m[2019-06-05T06:00:46.348] [TRACE] console - [39mundefined@作者：Michael Lewis
+[34m[2019-06-05T06:00:46.348] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:00:46.348] [TRACE] console - [39mNO. 5 book: 岛田庄司精选作品合集（共14册）
+[34m[2019-06-05T06:00:48.356] [TRACE] console - [39mextracting https://sobooks.cc/books/10536.html
+[34m[2019-06-05T06:00:53.564] [TRACE] console - [39mundefined@作者：岛田庄司
+[34m[2019-06-05T06:00:53.564] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:00:53.565] [TRACE] console - [39mNO. 6 book: 到灯塔去
+[34m[2019-06-05T06:00:55.505] [TRACE] console - [39mextracting https://sobooks.cc/books/10534.html
+[34m[2019-06-05T06:01:00.679] [TRACE] console - [39mundefined@作者：弗吉尼亚・伍尔夫
+[34m[2019-06-05T06:01:00.679] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:00.680] [TRACE] console - [39mNO. 7 book: 野性的呼唤
+[34m[2019-06-05T06:01:02.770] [TRACE] console - [39mextracting https://sobooks.cc/books/10532.html
+[34m[2019-06-05T06:01:07.968] [TRACE] console - [39mundefined@作者：杰克・伦敦
+[34m[2019-06-05T06:01:07.968] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:07.968] [TRACE] console - [39mNO. 8 book: 你的生存本能正在杀死你（修订版）
+[34m[2019-06-05T06:01:09.822] [TRACE] console - [39mextracting https://sobooks.cc/books/10530.html
+[34m[2019-06-05T06:01:15.061] [TRACE] console - [39mundefined@作者：马克・舍恩/克里斯汀・洛贝格
+[34m[2019-06-05T06:01:15.063] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:15.063] [TRACE] console - [39mNO. 9 book: 绿山墙的安妮（全译本）
+[34m[2019-06-05T06:01:16.985] [TRACE] console - [39mextracting https://sobooks.cc/books/10527.html
+[34m[2019-06-05T06:01:22.211] [TRACE] console - [39mundefined@作者：露西・莫德・蒙格玛利
+[34m[2019-06-05T06:01:22.211] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:22.211] [TRACE] console - [39mNO. 10 book: 一个定理的诞生
+[34m[2019-06-05T06:01:24.138] [TRACE] console - [39mextracting https://sobooks.cc/books/10524.html
+[34m[2019-06-05T06:01:29.335] [TRACE] console - [39mundefined@作者：塞德里克・维拉尼
+[34m[2019-06-05T06:01:29.335] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:29.335] [TRACE] console - [39mNO. 11 book: 宪法学说（修订译本）
+[34m[2019-06-05T06:01:31.185] [TRACE] console - [39mextracting https://sobooks.cc/books/10522.html
+[34m[2019-06-05T06:01:36.412] [TRACE] console - [39mundefined@作者：卡尔・施米特
+[34m[2019-06-05T06:01:36.412] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:36.412] [TRACE] console - [39mNO. 12 book: 无政府、国家和乌托邦
+[34m[2019-06-05T06:01:39.020] [TRACE] console - [39mextracting https://sobooks.cc/books/10520.html
+[34m[2019-06-05T06:01:44.425] [TRACE] console - [39mundefined@作者：罗伯特・诺齐克
+[34m[2019-06-05T06:01:44.447] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:44.450] [TRACE] console - [39mNO. 13 book: 我们为什么总是看错人
+[34m[2019-06-05T06:01:47.291] [TRACE] console - [39mextracting https://sobooks.cc/books/10518.html
+[34m[2019-06-05T06:01:52.745] [TRACE] console - [39mundefined@作者：王烁
+[34m[2019-06-05T06:01:52.756] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:01:52.758] [TRACE] console - [39mNO. 14 book: 销售脑
+[34m[2019-06-05T06:01:55.675] [TRACE] console - [39mextracting https://sobooks.cc/books/10516.html
+[34m[2019-06-05T06:02:01.173] [TRACE] console - [39mundefined@作者：帕特里克・任瓦茨/克里斯托弗・莫林
+[34m[2019-06-05T06:02:01.182] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:02:01.186] [TRACE] console - [39mNO. 15 book: 闲话中国人
+[34m[2019-06-05T06:02:03.691] [TRACE] console - [39mextracting https://sobooks.cc/books/10514.html
+[34m[2019-06-05T06:02:09.123] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T06:02:09.134] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:02:09.138] [TRACE] console - [39mNO. 16 book: 中国的男人和女人
+[34m[2019-06-05T06:02:11.758] [TRACE] console - [39mextracting https://sobooks.cc/books/10512.html
+[34m[2019-06-05T06:02:17.297] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T06:02:17.317] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:02:17.322] [TRACE] console - [39mNO. 17 book: 读城记
+[34m[2019-06-05T06:02:20.779] [TRACE] console - [39mextracting https://sobooks.cc/books/10510.html
+[34m[2019-06-05T06:02:26.622] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T06:02:26.634] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:02:26.640] [TRACE] console - [39mNO. 18 book: 品人录
+[34m[2019-06-05T06:02:29.468] [TRACE] console - [39mextracting https://sobooks.cc/books/10508.html
+[34m[2019-06-05T06:02:35.151] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T06:02:35.170] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:02:35.172] [TRACE] console - [39mNO. 19 book: 我的名字叫红（新版）
+[34m[2019-06-05T06:02:37.856] [TRACE] console - [39mextracting https://sobooks.cc/books/10506.html
+[34m[2019-06-05T06:02:43.325] [TRACE] console - [39mundefined@作者：奥尔罕・帕慕克
+[34m[2019-06-05T06:02:43.341] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:02:43.496] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 4746
+(node:4746) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:4746) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T06:30:09.053] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T06:30:09.053] [TRACE] console - [39mNO. 0 book: 黑暗精灵三部曲
+[34m[2019-06-05T06:30:11.940] [TRACE] console - [39mextracting https://sobooks.cc/books/10504.html
+[34m[2019-06-05T06:30:17.241] [TRACE] console - [39mundefined@作者：萨尔瓦多
+[34m[2019-06-05T06:30:17.241] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:30:17.243] [TRACE] console - [39mNO. 1 book: 鸟哥的Linux私房菜：服务器架设篇（第三版）
+[34m[2019-06-05T06:30:19.369] [TRACE] console - [39mextracting https://sobooks.cc/books/10501.html
+[34m[2019-06-05T06:30:24.676] [TRACE] console - [39mundefined@作者：鸟哥
+[34m[2019-06-05T06:30:24.677] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:30:24.677] [TRACE] console - [39mNO. 2 book: 鸟哥的Linux私房菜：基础学习篇（第三版）
+[34m[2019-06-05T06:30:26.999] [TRACE] console - [39mextracting https://sobooks.cc/books/10499.html
+[34m[2019-06-05T06:30:32.199] [TRACE] console - [39mundefined@作者：鸟哥
+[34m[2019-06-05T06:30:32.199] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:30:32.199] [TRACE] console - [39mNO. 3 book: 剑桥意大利史
+[34m[2019-06-05T06:30:34.352] [TRACE] console - [39mextracting https://sobooks.cc/books/10497.html
+[34m[2019-06-05T06:30:39.592] [TRACE] console - [39mundefined@作者：克里斯托弗・达根
+[34m[2019-06-05T06:30:39.593] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:30:39.593] [TRACE] console - [39mNO. 4 book: 剑桥美国史
+[34m[2019-06-05T06:30:42.231] [TRACE] console - [39mextracting https://sobooks.cc/books/10495.html
+[34m[2019-06-05T06:30:47.449] [TRACE] console - [39mundefined@作者：苏珊・玛丽・格兰特
+[34m[2019-06-05T06:30:47.449] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:30:47.449] [TRACE] console - [39mNO. 5 book: 莎士比亚悲剧喜剧全集
+[34m[2019-06-05T06:30:49.715] [TRACE] console - [39mextracting https://sobooks.cc/books/10492.html
+[34m[2019-06-05T06:30:54.890] [TRACE] console - [39mundefined@作者：威廉・莎士比亚
+[34m[2019-06-05T06:30:54.890] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:30:54.890] [TRACE] console - [39mNO. 6 book: 一瞬一生
+[34m[2019-06-05T06:30:57.328] [TRACE] console - [39mextracting https://sobooks.cc/books/10490.html
+[34m[2019-06-05T06:31:02.546] [TRACE] console - [39mundefined@作者：周作人
+[34m[2019-06-05T06:31:02.547] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:02.548] [TRACE] console - [39mNO. 7 book: 全译罗马帝国衰亡史（全12册）
+[34m[2019-06-05T06:31:04.633] [TRACE] console - [39mextracting https://sobooks.cc/books/10488.html
+[34m[2019-06-05T06:31:09.892] [TRACE] console - [39mundefined@作者：爱德华・吉本
+[34m[2019-06-05T06:31:09.892] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:09.893] [TRACE] console - [39mNO. 8 book: 希利尔儿童世界地理
+[34m[2019-06-05T06:31:12.166] [TRACE] console - [39mextracting https://sobooks.cc/books/10486.html
+[34m[2019-06-05T06:31:17.332] [TRACE] console - [39mundefined@作者：希利尔/休伊 
+[34m[2019-06-05T06:31:17.333] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:17.333] [TRACE] console - [39mNO. 9 book: 被误诊的艺术史
+[34m[2019-06-05T06:31:20.063] [TRACE] console - [39mextracting https://sobooks.cc/books/10484.html
+[34m[2019-06-05T06:31:25.273] [TRACE] console - [39mundefined@作者：董悠悠
+[34m[2019-06-05T06:31:25.273] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:25.273] [TRACE] console - [39mNO. 10 book: 第一推动丛书·综合系列（套装共5册）
+[34m[2019-06-05T06:31:27.296] [TRACE] console - [39mextracting https://sobooks.cc/books/10481.html
+[34m[2019-06-05T06:31:32.554] [TRACE] console - [39mundefined@作者：罗杰・彭罗斯等
+[34m[2019-06-05T06:31:32.556] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:32.556] [TRACE] console - [39mNO. 11 book: 第一推动丛书·宇宙系列（套装共6册）
+[34m[2019-06-05T06:31:35.065] [TRACE] console - [39mextracting https://sobooks.cc/books/10479.html
+[34m[2019-06-05T06:31:40.294] [TRACE] console - [39mundefined@作者：史蒂芬・霍金等
+[34m[2019-06-05T06:31:40.294] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:40.294] [TRACE] console - [39mNO. 12 book: 第一推动丛书·物理系列（套装共7册）
+[34m[2019-06-05T06:31:42.437] [TRACE] console - [39mextracting https://sobooks.cc/books/10477.html
+[34m[2019-06-05T06:31:47.660] [TRACE] console - [39mundefined@作者：罗伯特・劳克林等
+[34m[2019-06-05T06:31:47.661] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:47.661] [TRACE] console - [39mNO. 13 book: 潘多拉之匣（太宰治作品精选集）
+[34m[2019-06-05T06:31:49.715] [TRACE] console - [39mextracting https://sobooks.cc/books/10475.html
+[34m[2019-06-05T06:31:54.894] [TRACE] console - [39mundefined@作者：太宰治
+[34m[2019-06-05T06:31:54.894] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:31:54.894] [TRACE] console - [39mNO. 14 book: 人间失格（太宰治作品精选集）
+[34m[2019-06-05T06:31:57.048] [TRACE] console - [39mextracting https://sobooks.cc/books/10473.html
+[34m[2019-06-05T06:32:02.228] [TRACE] console - [39mundefined@作者：太宰治
+[34m[2019-06-05T06:32:02.228] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:32:02.228] [TRACE] console - [39mNO. 15 book: 斜阳（太宰治作品精选集）
+[34m[2019-06-05T06:32:04.260] [TRACE] console - [39mextracting https://sobooks.cc/books/10471.html
+[34m[2019-06-05T06:32:09.486] [TRACE] console - [39mundefined@作者：太宰治
+[34m[2019-06-05T06:32:09.486] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:32:09.486] [TRACE] console - [39mNO. 16 book: 沙丘5：沙丘异端
+[34m[2019-06-05T06:32:11.364] [TRACE] console - [39mextracting https://sobooks.cc/books/10469.html
+[34m[2019-06-05T06:32:16.587] [TRACE] console - [39mundefined@作者：弗兰克・赫伯特
+[34m[2019-06-05T06:32:16.587] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:32:16.587] [TRACE] console - [39mNO. 17 book: 星尘
+[34m[2019-06-05T06:32:18.611] [TRACE] console - [39mextracting https://sobooks.cc/books/10467.html
+[34m[2019-06-05T06:32:23.811] [TRACE] console - [39mundefined@作者：尼尔・盖曼
+[34m[2019-06-05T06:32:23.812] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:32:23.813] [TRACE] console - [39mNO. 18 book: 无所畏
+[34m[2019-06-05T06:32:25.813] [TRACE] console - [39mextracting https://sobooks.cc/books/10465.html
+[34m[2019-06-05T06:32:31.156] [TRACE] console - [39mundefined@作者：冯唐
+[34m[2019-06-05T06:32:31.177] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:32:31.184] [TRACE] console - [39mNO. 19 book: 再会，老北京
+[34m[2019-06-05T06:32:35.853] [TRACE] console - [39mextracting https://sobooks.cc/books/10463.html
+[34m[2019-06-05T06:32:42.755] [TRACE] console - [39mundefined@作者：迈克尔・麦尔
+[34m[2019-06-05T06:32:42.768] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T06:32:42.906] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 4932
+(node:4932) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:4932) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T07:00:08.494] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T07:00:08.494] [TRACE] console - [39mNO. 0 book: 剑桥德国史
+[34m[2019-06-05T07:00:11.400] [TRACE] console - [39mextracting https://sobooks.cc/books/10461.html
+[34m[2019-06-05T07:00:16.648] [TRACE] console - [39mundefined@作者：玛丽・富布卢克
+[34m[2019-06-05T07:00:16.648] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:00:16.652] [TRACE] console - [39mNO. 1 book: 格调（修订第3版）
+[34m[2019-06-05T07:00:18.579] [TRACE] console - [39mextracting https://sobooks.cc/books/10459.html
+[34m[2019-06-05T07:00:23.736] [TRACE] console - [39mundefined@作者：保罗・福塞尔
+[34m[2019-06-05T07:00:23.737] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:00:23.737] [TRACE] console - [39mNO. 2 book: 李嘉诚全传
+[34m[2019-06-05T07:00:26.360] [TRACE] console - [39mextracting https://sobooks.cc/books/10457.html
+[34m[2019-06-05T07:00:31.538] [TRACE] console - [39mundefined@作者：陈美华/辛磊
+[34m[2019-06-05T07:00:31.538] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:00:31.538] [TRACE] console - [39mNO. 3 book: 东北游记
+[34m[2019-06-05T07:00:33.663] [TRACE] console - [39mextracting https://sobooks.cc/books/10455.html
+[34m[2019-06-05T07:00:38.853] [TRACE] console - [39mundefined@作者：迈克尔・麦尔
+[34m[2019-06-05T07:00:38.855] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:00:38.856] [TRACE] console - [39mNO. 4 book: 卡门（读客经典）
+[34m[2019-06-05T07:00:40.613] [TRACE] console - [39mextracting https://sobooks.cc/books/10453.html
+[34m[2019-06-05T07:00:45.835] [TRACE] console - [39mundefined@作者：普罗斯佩・梅里美
+[34m[2019-06-05T07:00:45.835] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:00:45.835] [TRACE] console - [39mNO. 5 book: 茶花女（读客经典）
+[34m[2019-06-05T07:00:47.511] [TRACE] console - [39mextracting https://sobooks.cc/books/10451.html
+[34m[2019-06-05T07:00:52.684] [TRACE] console - [39mundefined@作者：小仲马
+[34m[2019-06-05T07:00:52.684] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:00:52.685] [TRACE] console - [39mNO. 6 book: 英国史（全3卷）
+[34m[2019-06-05T07:00:55.112] [TRACE] console - [39mextracting https://sobooks.cc/books/10449.html
+[34m[2019-06-05T07:01:00.391] [TRACE] console - [39mundefined@作者：西蒙・沙玛
+[34m[2019-06-05T07:01:00.391] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:00.392] [TRACE] console - [39mNO. 7 book: 无尽世界（全3册）
+[34m[2019-06-05T07:01:02.245] [TRACE] console - [39mextracting https://sobooks.cc/books/10447.html
+[34m[2019-06-05T07:01:07.524] [TRACE] console - [39mundefined@作者：肯・福莱特
+[34m[2019-06-05T07:01:07.524] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:07.525] [TRACE] console - [39mNO. 8 book: 北欧众神
+[34m[2019-06-05T07:01:09.592] [TRACE] console - [39mextracting https://sobooks.cc/books/10444.html
+[34m[2019-06-05T07:01:14.783] [TRACE] console - [39mundefined@作者：尼尔・盖曼
+[34m[2019-06-05T07:01:14.784] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:14.784] [TRACE] console - [39mNO. 9 book: 破狱
+[34m[2019-06-05T07:01:21.136] [TRACE] console - [39mextracting https://sobooks.cc/books/10442.html
+[34m[2019-06-05T07:01:26.517] [TRACE] console - [39mundefined@作者：李重民
+[34m[2019-06-05T07:01:26.517] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:26.519] [TRACE] console - [39mNO. 10 book: 热泪
+[34m[2019-06-05T07:01:28.627] [TRACE] console - [39mextracting https://sobooks.cc/books/10435.html
+[34m[2019-06-05T07:01:33.816] [TRACE] console - [39mundefined@作者：戴帽子的鱼
+[34m[2019-06-05T07:01:33.816] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:33.816] [TRACE] console - [39mNO. 11 book: 中国近代史：1840-1937
+[34m[2019-06-05T07:01:35.857] [TRACE] console - [39mextracting https://sobooks.cc/books/10433.html
+[34m[2019-06-05T07:01:41.067] [TRACE] console - [39mundefined@作者：蒋廷黻
+[34m[2019-06-05T07:01:41.067] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:41.068] [TRACE] console - [39mNO. 12 book: 趋势交易
+[34m[2019-06-05T07:01:43.110] [TRACE] console - [39mextracting https://sobooks.cc/books/10431.html
+[34m[2019-06-05T07:01:48.350] [TRACE] console - [39mundefined@作者：安德烈亚斯 F. 克列诺
+[34m[2019-06-05T07:01:48.350] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:48.350] [TRACE] console - [39mNO. 13 book: 夜长梦多
+[34m[2019-06-05T07:01:50.351] [TRACE] console - [39mextracting https://sobooks.cc/books/10429.html
+[34m[2019-06-05T07:01:55.516] [TRACE] console - [39mundefined@作者：赵兰振
+[34m[2019-06-05T07:01:55.516] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:01:55.516] [TRACE] console - [39mNO. 14 book: 人类灭绝
+[34m[2019-06-05T07:01:57.559] [TRACE] console - [39mextracting https://sobooks.cc/books/10427.html
+[34m[2019-06-05T07:02:02.793] [TRACE] console - [39mundefined@作者：高野和明
+[34m[2019-06-05T07:02:02.793] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:02:02.801] [TRACE] console - [39mNO. 15 book: 荆州杀
+[34m[2019-06-05T07:02:05.220] [TRACE] console - [39mextracting https://sobooks.cc/books/10425.html
+[34m[2019-06-05T07:02:10.693] [TRACE] console - [39mundefined@作者：朱苏进/李蔷薇
+[34m[2019-06-05T07:02:10.694] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:02:10.700] [TRACE] console - [39mNO. 16 book: 我们都是孤独的行路人
+[34m[2019-06-05T07:02:12.676] [TRACE] console - [39mextracting https://sobooks.cc/books/10423.html
+[34m[2019-06-05T07:02:18.065] [TRACE] console - [39mundefined@作者：周国平
+[34m[2019-06-05T07:02:18.065] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:02:18.066] [TRACE] console - [39mNO. 17 book: 给孩子讲量子力学
+[34m[2019-06-05T07:02:20.191] [TRACE] console - [39mextracting https://sobooks.cc/books/10421.html
+[34m[2019-06-05T07:02:25.462] [TRACE] console - [39mundefined@作者：李淼
+[34m[2019-06-05T07:02:25.463] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:02:25.469] [TRACE] console - [39mNO. 18 book: 云边有个小卖部
+[34m[2019-06-05T07:02:28.173] [TRACE] console - [39mextracting https://sobooks.cc/books/10419.html
+[34m[2019-06-05T07:02:33.439] [TRACE] console - [39mundefined@作者：张嘉佳
+[34m[2019-06-05T07:02:33.440] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:02:33.440] [TRACE] console - [39mNO. 19 book: 注意力曲线
+[34m[2019-06-05T07:02:35.524] [TRACE] console - [39mextracting https://sobooks.cc/books/10417.html
+[34m[2019-06-05T07:02:40.714] [TRACE] console - [39mundefined@作者：露西・乔・帕拉迪诺
+[34m[2019-06-05T07:02:40.714] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:02:40.885] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 5109
+(node:5109) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:5109) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T07:30:08.553] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T07:30:08.553] [TRACE] console - [39mNO. 0 book: 邻人
+[34m[2019-06-05T07:30:11.877] [TRACE] console - [39mextracting https://sobooks.cc/books/10415.html
+[34m[2019-06-05T07:30:17.178] [TRACE] console - [39mundefined@作者：杨·T.格罗斯
+[34m[2019-06-05T07:30:17.178] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:30:17.183] [TRACE] console - [39mNO. 1 book: 命运：文在寅自传
+[34m[2019-06-05T07:30:19.722] [TRACE] console - [39mextracting https://sobooks.cc/books/10413.html
+[34m[2019-06-05T07:30:24.903] [TRACE] console - [39mundefined@作者：文在寅
+[34m[2019-06-05T07:30:24.903] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:30:24.903] [TRACE] console - [39mNO. 2 book: 一念桃花源
+[34m[2019-06-05T07:30:27.242] [TRACE] console - [39mextracting https://sobooks.cc/books/10411.html
+[34m[2019-06-05T07:30:32.503] [TRACE] console - [39mundefined@作者：比尔・波特
+[34m[2019-06-05T07:30:32.504] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T07:30:32.504] [TRACE] console - [39mNO. 3 book: 七堂思维成长课
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 5280
+(node:5280) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:5280) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T08:00:09.075] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T08:00:09.075] [TRACE] console - [39mNO. 0 book: 七堂思维成长课
+[34m[2019-06-05T08:00:12.372] [TRACE] console - [39mextracting https://sobooks.cc/books/10409.html
+[34m[2019-06-05T08:00:17.641] [TRACE] console - [39mundefined@作者：卡罗琳・韦布
+[34m[2019-06-05T08:00:17.641] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:00:17.645] [TRACE] console - [39mNO. 1 book: 沙之书
+[34m[2019-06-05T08:00:20.052] [TRACE] console - [39mextracting https://sobooks.cc/books/10407.html
+[34m[2019-06-05T08:00:25.315] [TRACE] console - [39mundefined@作者：豪尔赫・路易斯・博尔赫斯
+[34m[2019-06-05T08:00:25.315] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:00:25.315] [TRACE] console - [39mNO. 2 book: 1943：中国在十字路口
+[34m[2019-06-05T08:00:27.819] [TRACE] console - [39mextracting https://sobooks.cc/books/10403.html
+[34m[2019-06-05T08:00:32.992] [TRACE] console - [39mundefined@作者：周锡瑞/李皓天
+[34m[2019-06-05T08:00:32.992] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:00:32.992] [TRACE] console - [39mNO. 3 book: 下一站，西藏
+[34m[2019-06-05T08:00:35.218] [TRACE] console - [39mextracting https://sobooks.cc/books/10401.html
+[34m[2019-06-05T08:00:40.410] [TRACE] console - [39mundefined@作者：山小
+[34m[2019-06-05T08:00:40.410] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:00:40.410] [TRACE] console - [39mNO. 4 book: 机器70年
+[34m[2019-06-05T08:00:43.001] [TRACE] console - [39mextracting https://sobooks.cc/books/10399.html
+[34m[2019-06-05T08:00:48.175] [TRACE] console - [39mundefined@作者：徐曦
+[34m[2019-06-05T08:00:48.175] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:00:48.175] [TRACE] console - [39mNO. 5 book: 凉生我们可不可以不忧伤
+[34m[2019-06-05T08:00:50.417] [TRACE] console - [39mextracting https://sobooks.cc/books/10397.html
+[34m[2019-06-05T08:00:55.640] [TRACE] console - [39mundefined@作者：乐小米
+[34m[2019-06-05T08:00:55.640] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:00:55.640] [TRACE] console - [39mNO. 6 book: 林达作品集（套装共10册）
+[34m[2019-06-05T08:00:57.851] [TRACE] console - [39mextracting https://sobooks.cc/books/10395.html
+[34m[2019-06-05T08:01:03.024] [TRACE] console - [39mundefined@作者：林达
+[34m[2019-06-05T08:01:03.024] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:03.025] [TRACE] console - [39mNO. 7 book: 资本之都
+[34m[2019-06-05T08:01:05.267] [TRACE] console - [39mextracting https://sobooks.cc/books/10391.html
+[34m[2019-06-05T08:01:10.413] [TRACE] console - [39mundefined@作者：拉纳・达斯古普塔
+[34m[2019-06-05T08:01:10.413] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:10.413] [TRACE] console - [39mNO. 8 book: 哲学起步
+[34m[2019-06-05T08:01:12.667] [TRACE] console - [39mextracting https://sobooks.cc/books/10389.html
+[34m[2019-06-05T08:01:17.859] [TRACE] console - [39mundefined@作者：邓晓芒
+[34m[2019-06-05T08:01:17.859] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:17.860] [TRACE] console - [39mNO. 9 book: 直到孤独尽头
+[34m[2019-06-05T08:01:20.130] [TRACE] console - [39mextracting https://sobooks.cc/books/10387.html
+[34m[2019-06-05T08:01:25.304] [TRACE] console - [39mundefined@作者：贝内迪克特・韦尔斯
+[34m[2019-06-05T08:01:25.304] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:25.305] [TRACE] console - [39mNO. 10 book: 中国人的智慧
+[34m[2019-06-05T08:01:27.690] [TRACE] console - [39mextracting https://sobooks.cc/books/10385.html
+[34m[2019-06-05T08:01:32.905] [TRACE] console - [39mundefined@作者：易中天
+[34m[2019-06-05T08:01:32.906] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:32.906] [TRACE] console - [39mNO. 11 book: 庄子传
+[34m[2019-06-05T08:01:35.497] [TRACE] console - [39mextracting https://sobooks.cc/books/10383.html
+[34m[2019-06-05T08:01:40.708] [TRACE] console - [39mundefined@作者：张远山
+[34m[2019-06-05T08:01:40.708] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:40.709] [TRACE] console - [39mNO. 12 book: 资本全球化
+[34m[2019-06-05T08:01:43.113] [TRACE] console - [39mextracting https://sobooks.cc/books/10381.html
+[34m[2019-06-05T08:01:48.356] [TRACE] console - [39mundefined@作者：巴里・埃森格林
+[34m[2019-06-05T08:01:48.357] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:48.357] [TRACE] console - [39mNO. 13 book: 族长的秋天
+[34m[2019-06-05T08:01:50.846] [TRACE] console - [39mextracting https://sobooks.cc/books/10379.html
+[34m[2019-06-05T08:01:56.038] [TRACE] console - [39mundefined@作者：加西亚・马尔克斯
+[34m[2019-06-05T08:01:56.039] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:01:56.039] [TRACE] console - [39mNO. 14 book: 遮蔽的天空
+[34m[2019-06-05T08:01:58.298] [TRACE] console - [39mextracting https://sobooks.cc/books/10377.html
+[34m[2019-06-05T08:02:03.504] [TRACE] console - [39mundefined@作者：保罗・鲍尔斯
+[34m[2019-06-05T08:02:03.504] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:02:03.504] [TRACE] console - [39mNO. 15 book: 蝴蝶杀人事件
+[34m[2019-06-05T08:02:05.879] [TRACE] console - [39mextracting https://sobooks.cc/books/10375.html
+[34m[2019-06-05T08:02:11.055] [TRACE] console - [39mundefined@作者：横沟正史
+[34m[2019-06-05T08:02:11.055] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:02:11.055] [TRACE] console - [39mNO. 16 book: 大江大河（共4册）
+[34m[2019-06-05T08:02:13.316] [TRACE] console - [39mextracting https://sobooks.cc/books/10373.html
+[34m[2019-06-05T08:02:18.489] [TRACE] console - [39mundefined@作者：阿耐
+[34m[2019-06-05T08:02:18.489] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:02:18.489] [TRACE] console - [39mNO. 17 book: 战略：从思维到行动
+[34m[2019-06-05T08:02:20.845] [TRACE] console - [39mextracting https://sobooks.cc/books/10367.html
+[34m[2019-06-05T08:02:26.138] [TRACE] console - [39mundefined@作者：刘学
+[34m[2019-06-05T08:02:26.138] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:02:26.138] [TRACE] console - [39mNO. 18 book: 世事如刀，我来领教
+[34m[2019-06-05T08:02:28.578] [TRACE] console - [39mextracting https://sobooks.cc/books/10365.html
+[34m[2019-06-05T08:02:33.754] [TRACE] console - [39mundefined@作者：房昊
+[34m[2019-06-05T08:02:33.754] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:02:33.754] [TRACE] console - [39mNO. 19 book: 唐山大地震（纪念版）
+[34m[2019-06-05T08:02:35.896] [TRACE] console - [39mextracting https://sobooks.cc/books/10363.html
+[34m[2019-06-05T08:02:41.105] [TRACE] console - [39mundefined@作者：钱钢
+[34m[2019-06-05T08:02:41.105] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:02:41.240] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 5454
+(node:5454) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:5454) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T08:30:08.919] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T08:30:08.920] [TRACE] console - [39mNO. 0 book: 五朝宰相
+[34m[2019-06-05T08:30:12.286] [TRACE] console - [39mextracting https://sobooks.cc/books/10361.html
+[34m[2019-06-05T08:30:17.599] [TRACE] console - [39mundefined@作者：姜狼
+[34m[2019-06-05T08:30:17.599] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:30:17.602] [TRACE] console - [39mNO. 1 book: 世上最美的溺水者
+[34m[2019-06-05T08:30:20.314] [TRACE] console - [39mextracting https://sobooks.cc/books/10359.html
+[34m[2019-06-05T08:30:25.554] [TRACE] console - [39mundefined@作者：加西亚・马尔克斯
+[34m[2019-06-05T08:30:25.554] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:30:25.554] [TRACE] console - [39mNO. 2 book: 我就要你好好的
+[34m[2019-06-05T08:30:28.180] [TRACE] console - [39mextracting https://sobooks.cc/books/10357.html
+[34m[2019-06-05T08:30:33.353] [TRACE] console - [39mundefined@作者：乔乔・莫伊斯
+[34m[2019-06-05T08:30:33.353] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:30:33.353] [TRACE] console - [39mNO. 3 book: 时间之河
+[34m[2019-06-05T08:30:35.897] [TRACE] console - [39mextracting https://sobooks.cc/books/10355.html
+[34m[2019-06-05T08:30:41.103] [TRACE] console - [39mundefined@作者：晋康
+[34m[2019-06-05T08:30:41.103] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:30:41.104] [TRACE] console - [39mNO. 4 book: 无边的土地
+[34m[2019-06-05T08:30:44.097] [TRACE] console - [39mextracting https://sobooks.cc/books/10353.html
+[34m[2019-06-05T08:30:49.286] [TRACE] console - [39mundefined@作者：若热・亚马多
+[34m[2019-06-05T08:30:49.286] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:30:49.287] [TRACE] console - [39mNO. 5 book: 王国与权力
+[34m[2019-06-05T08:30:51.912] [TRACE] console - [39mextracting https://sobooks.cc/books/10351.html
+[34m[2019-06-05T08:30:57.119] [TRACE] console - [39mundefined@作者：盖伊・特立斯
+[34m[2019-06-05T08:30:57.119] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:30:57.119] [TRACE] console - [39mNO. 6 book: 青年斯大林
+[34m[2019-06-05T08:30:59.785] [TRACE] console - [39mextracting https://sobooks.cc/books/10349.html
+[34m[2019-06-05T08:31:04.968] [TRACE] console - [39mundefined@作者：西蒙・蒙蒂菲奥里
+[34m[2019-06-05T08:31:04.969] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:04.969] [TRACE] console - [39mNO. 7 book: 选择的悖论
+[34m[2019-06-05T08:31:07.212] [TRACE] console - [39mextracting https://sobooks.cc/books/10347.html
+[34m[2019-06-05T08:31:12.418] [TRACE] console - [39mundefined@作者：巴里・施瓦茨
+[34m[2019-06-05T08:31:12.419] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:12.419] [TRACE] console - [39mNO. 8 book: 同情者
+[34m[2019-06-05T08:31:14.892] [TRACE] console - [39mextracting https://sobooks.cc/books/10344.html
+[34m[2019-06-05T08:31:20.074] [TRACE] console - [39mundefined@作者：阮清越
+[34m[2019-06-05T08:31:20.075] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:20.075] [TRACE] console - [39mNO. 9 book: 十角馆杀人预告
+[34m[2019-06-05T08:31:22.277] [TRACE] console - [39mextracting https://sobooks.cc/books/10342.html
+[34m[2019-06-05T08:31:27.451] [TRACE] console - [39mundefined@作者：绫辻行人
+[34m[2019-06-05T08:31:27.451] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:27.451] [TRACE] console - [39mNO. 10 book: 经济学原理（第5版）：微观经济学分册
+[34m[2019-06-05T08:31:29.775] [TRACE] console - [39mextracting https://sobooks.cc/books/10340.html
+[34m[2019-06-05T08:31:34.933] [TRACE] console - [39mundefined@作者：N.格里高利・曼昆
+[34m[2019-06-05T08:31:34.934] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:34.934] [TRACE] console - [39mNO. 11 book: 危险的妻子
+[34m[2019-06-05T08:31:37.144] [TRACE] console - [39mextracting https://sobooks.cc/books/10338.html
+[34m[2019-06-05T08:31:42.319] [TRACE] console - [39mundefined@作者：卡洛琳・艾瑞克森
+[34m[2019-06-05T08:31:42.319] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:42.320] [TRACE] console - [39mNO. 12 book: 知日·料理之魂
+[34m[2019-06-05T08:31:44.544] [TRACE] console - [39mextracting https://sobooks.cc/books/10336.html
+[34m[2019-06-05T08:31:49.725] [TRACE] console - [39mundefined@作者：苏静
+[34m[2019-06-05T08:31:49.725] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:49.725] [TRACE] console - [39mNO. 13 book: 知日·日本禅
+[34m[2019-06-05T08:31:52.460] [TRACE] console - [39mextracting https://sobooks.cc/books/10334.html
+[34m[2019-06-05T08:31:57.620] [TRACE] console - [39mundefined@作者：苏静
+[34m[2019-06-05T08:31:57.620] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:31:57.621] [TRACE] console - [39mNO. 14 book: 人类的明天
+[34m[2019-06-05T08:31:59.843] [TRACE] console - [39mextracting https://sobooks.cc/books/10329.html
+[34m[2019-06-05T08:32:05.039] [TRACE] console - [39mundefined@作者：席里尔・迪翁
+[34m[2019-06-05T08:32:05.039] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:32:05.039] [TRACE] console - [39mNO. 15 book: 美国年度畅销悬疑小说精选集
+[34m[2019-06-05T08:32:07.643] [TRACE] console - [39mextracting https://sobooks.cc/books/10325.html
+[34m[2019-06-05T08:32:12.816] [TRACE] console - [39mundefined@作者：詹姆斯・哈金斯等
+[34m[2019-06-05T08:32:12.816] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:32:12.817] [TRACE] console - [39mNO. 16 book: 十二个明天
+[34m[2019-06-05T08:32:15.456] [TRACE] console - [39mextracting https://sobooks.cc/books/10323.html
+[34m[2019-06-05T08:32:20.650] [TRACE] console - [39mundefined@作者：刘慈欣等
+[34m[2019-06-05T08:32:20.650] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:32:20.650] [TRACE] console - [39mNO. 17 book: 如何欣赏一部电影
+[34m[2019-06-05T08:32:23.325] [TRACE] console - [39mextracting https://sobooks.cc/books/10321.html
+[34m[2019-06-05T08:32:28.452] [TRACE] console - [39mundefined@作者：托马斯・福斯特
+[34m[2019-06-05T08:32:28.452] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:32:28.453] [TRACE] console - [39mNO. 18 book: 科学的极致：漫谈人工智能
+[34m[2019-06-05T08:32:30.825] [TRACE] console - [39mextracting https://sobooks.cc/books/10317.html
+[34m[2019-06-05T08:32:36.014] [TRACE] console - [39mundefined@作者：集智俱乐部
+[34m[2019-06-05T08:32:36.014] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:32:36.014] [TRACE] console - [39mNO. 19 book: AI·未来
+[34m[2019-06-05T08:32:38.191] [TRACE] console - [39mextracting https://sobooks.cc/books/10313.html
+[34m[2019-06-05T08:32:43.365] [TRACE] console - [39mundefined@作者：李开复
+[34m[2019-06-05T08:32:43.365] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T08:32:43.535] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 5628
+(node:5628) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:5628) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T09:00:09.066] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T09:00:09.067] [TRACE] console - [39mNO. 0 book: 如何成为有效学习的高手
+[34m[2019-06-05T09:00:13.327] [TRACE] console - [39mextracting https://sobooks.cc/books/10310.html
+[34m[2019-06-05T09:00:18.635] [TRACE] console - [39mundefined@作者：卡尔・纽波特
+[34m[2019-06-05T09:00:18.635] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:00:18.639] [TRACE] console - [39mNO. 1 book: 万物既伟大又渺小
+[34m[2019-06-05T09:00:20.925] [TRACE] console - [39mextracting https://sobooks.cc/books/10308.html
+[34m[2019-06-05T09:00:26.197] [TRACE] console - [39mundefined@作者：吉米・哈利
+[34m[2019-06-05T09:00:26.197] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:00:26.198] [TRACE] console - [39mNO. 2 book: 七杀碑
+[34m[2019-06-05T09:00:28.474] [TRACE] console - [39mextracting https://sobooks.cc/books/10306.html
+[34m[2019-06-05T09:00:33.630] [TRACE] console - [39mundefined@作者：朱贞木
+[34m[2019-06-05T09:00:33.630] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:00:33.630] [TRACE] console - [39mNO. 3 book: 推荐系统实践
+[34m[2019-06-05T09:00:35.308] [TRACE] console - [39mextracting https://sobooks.cc/books/10304.html
+[34m[2019-06-05T09:00:40.488] [TRACE] console - [39mundefined@作者：项亮
+[34m[2019-06-05T09:00:40.488] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:00:40.488] [TRACE] console - [39mNO. 4 book: 楞严经
+[34m[2019-06-05T09:00:42.674] [TRACE] console - [39mextracting https://sobooks.cc/books/10301.html
+[34m[2019-06-05T09:00:47.864] [TRACE] console - [39mundefined@作者：赖永海
+[34m[2019-06-05T09:00:47.864] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:00:47.864] [TRACE] console - [39mNO. 5 book: 成功的要素
+[34m[2019-06-05T09:00:50.088] [TRACE] console - [39mextracting https://sobooks.cc/books/10299.html
+[34m[2019-06-05T09:00:55.262] [TRACE] console - [39mundefined@作者：西蒙・雷诺兹
+[34m[2019-06-05T09:00:55.262] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:00:55.262] [TRACE] console - [39mNO. 6 book: 大雪将至
+[34m[2019-06-05T09:00:57.404] [TRACE] console - [39mextracting https://sobooks.cc/books/10297.html
+[34m[2019-06-05T09:01:02.580] [TRACE] console - [39mundefined@作者：罗伯特・泽塔勒
+[34m[2019-06-05T09:01:02.580] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:02.581] [TRACE] console - [39mNO. 7 book: Short Nights of the Shadow Catcher
+[34m[2019-06-05T09:01:04.889] [TRACE] console - [39mextracting https://sobooks.cc/books/10295.html
+[34m[2019-06-05T09:01:10.064] [TRACE] console - [39mundefined@作者：Egan, Timothy
+[34m[2019-06-05T09:01:10.064] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:10.065] [TRACE] console - [39mNO. 8 book: Selected Stories of Philip K. Dick
+[34m[2019-06-05T09:01:11.789] [TRACE] console - [39mextracting https://sobooks.cc/books/10293.html
+[34m[2019-06-05T09:01:17.020] [TRACE] console - [39mundefined@作者：Dick, Philip K.; Lethem, Jonathan;
+[34m[2019-06-05T09:01:17.020] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:17.020] [TRACE] console - [39mNO. 9 book: 八月炮火
+[34m[2019-06-05T09:01:18.786] [TRACE] console - [39mextracting https://sobooks.cc/books/10291.html
+[34m[2019-06-05T09:01:23.944] [TRACE] console - [39mundefined@作者：巴巴拉・塔奇曼
+[34m[2019-06-05T09:01:23.945] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:23.945] [TRACE] console - [39mNO. 10 book: 佛系：如何成为一个快乐的人
+[34m[2019-06-05T09:01:25.965] [TRACE] console - [39mextracting https://sobooks.cc/books/10287.html
+[34m[2019-06-05T09:01:31.149] [TRACE] console - [39mundefined@作者：草薙龙瞬
+[34m[2019-06-05T09:01:31.150] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:31.150] [TRACE] console - [39mNO. 11 book: 佛教十三经
+[34m[2019-06-05T09:01:33.372] [TRACE] console - [39mextracting https://sobooks.cc/books/10285.html
+[34m[2019-06-05T09:01:38.545] [TRACE] console - [39mundefined@作者：鸠摩罗什
+[34m[2019-06-05T09:01:38.546] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:38.546] [TRACE] console - [39mNO. 12 book: 生命的法则
+[34m[2019-06-05T09:01:40.771] [TRACE] console - [39mextracting https://sobooks.cc/books/10283.html
+[34m[2019-06-05T09:01:45.945] [TRACE] console - [39mundefined@作者：肖恩·B·卡罗尔
+[34m[2019-06-05T09:01:45.945] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:45.945] [TRACE] console - [39mNO. 13 book: 无处停歇
+[34m[2019-06-05T09:01:47.869] [TRACE] console - [39mextracting https://sobooks.cc/books/10280.html
+[34m[2019-06-05T09:01:53.052] [TRACE] console - [39mundefined@作者：杰米・阿滕贝格
+[34m[2019-06-05T09:01:53.052] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:01:53.052] [TRACE] console - [39mNO. 14 book: 一出好戏
+[34m[2019-06-05T09:01:55.105] [TRACE] console - [39mextracting https://sobooks.cc/books/10278.html
+[34m[2019-06-05T09:02:00.311] [TRACE] console - [39mundefined@作者：黄渤/黄湛中
+[34m[2019-06-05T09:02:00.311] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:02:00.311] [TRACE] console - [39mNO. 15 book: 我牙齿的故事
+[34m[2019-06-05T09:02:02.651] [TRACE] console - [39mextracting https://sobooks.cc/books/10276.html
+[34m[2019-06-05T09:02:07.816] [TRACE] console - [39mundefined@作者：瓦莱里娅・路易塞利
+[34m[2019-06-05T09:02:07.816] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:02:07.816] [TRACE] console - [39mNO. 16 book: 真实的幸福
+[34m[2019-06-05T09:02:09.388] [TRACE] console - [39mextracting https://sobooks.cc/books/10274.html
+[34m[2019-06-05T09:02:14.577] [TRACE] console - [39mundefined@作者：马丁・塞利格曼
+[34m[2019-06-05T09:02:14.577] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:02:14.577] [TRACE] console - [39mNO. 17 book: 唐朝诡事录3：大结局
+[34m[2019-06-05T09:02:17.101] [TRACE] console - [39mextracting https://sobooks.cc/books/10272.html
+[34m[2019-06-05T09:02:22.310] [TRACE] console - [39mundefined@作者：魏风华
+[34m[2019-06-05T09:02:22.310] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:02:22.310] [TRACE] console - [39mNO. 18 book: 湿婆之舞
+[34m[2019-06-05T09:02:24.467] [TRACE] console - [39mextracting https://sobooks.cc/books/10270.html
+[34m[2019-06-05T09:02:29.719] [TRACE] console - [39mundefined@作者：江波
+[34m[2019-06-05T09:02:29.719] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:02:29.720] [TRACE] console - [39mNO. 19 book: 芈月传
+[34m[2019-06-05T09:02:31.836] [TRACE] console - [39mextracting https://sobooks.cc/books/10268.html
+[34m[2019-06-05T09:02:37.011] [TRACE] console - [39mundefined@作者：蒋胜男
+[34m[2019-06-05T09:02:37.011] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:02:37.140] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 5797
+(node:5797) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:5797) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T09:30:08.820] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T09:30:08.821] [TRACE] console - [39mNO. 0 book: 本书书名无法描述本书内容
+[34m[2019-06-05T09:30:12.212] [TRACE] console - [39mextracting https://sobooks.cc/books/10261.html
+[34m[2019-06-05T09:30:17.559] [TRACE] console - [39mundefined@作者：埃里克・卡普兰
+[34m[2019-06-05T09:30:17.559] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:30:17.562] [TRACE] console - [39mNO. 1 book: 时间不存在
+[34m[2019-06-05T09:30:20.867] [TRACE] console - [39mextracting https://sobooks.cc/books/10259.html
+[34m[2019-06-05T09:30:26.144] [TRACE] console - [39mundefined@作者：韩松/刘宇昆等
+[34m[2019-06-05T09:30:26.144] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:30:26.145] [TRACE] console - [39mNO. 2 book: 湖底的祭典
+[34m[2019-06-05T09:30:28.836] [TRACE] console - [39mextracting https://sobooks.cc/books/10257.html
+[34m[2019-06-05T09:30:34.045] [TRACE] console - [39mundefined@作者：泡坂妻夫
+[34m[2019-06-05T09:30:34.045] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:30:34.045] [TRACE] console - [39mNO. 3 book: 超频交易商
+[34m[2019-06-05T09:30:39.716] [TRACE] console - [39mextracting https://sobooks.cc/books/10255.html
+[34m[2019-06-05T09:30:45.009] [TRACE] console - [39mundefined@作者：谢云宁
+[34m[2019-06-05T09:30:45.009] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:30:45.010] [TRACE] console - [39mNO. 4 book: 人间失格（读客经典）
+[34m[2019-06-05T09:30:47.451] [TRACE] console - [39mextracting https://sobooks.cc/books/10253.html
+[34m[2019-06-05T09:30:52.596] [TRACE] console - [39mundefined@作者：太宰治
+[34m[2019-06-05T09:30:52.596] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:30:52.596] [TRACE] console - [39mNO. 5 book: 背影
+[34m[2019-06-05T09:30:55.518] [TRACE] console - [39mextracting https://sobooks.cc/books/10250.html
+[34m[2019-06-05T09:31:00.707] [TRACE] console - [39mundefined@作者：朱自清
+[34m[2019-06-05T09:31:00.707] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:00.708] [TRACE] console - [39mNO. 6 book: 赤裸裸的统计学
+[34m[2019-06-05T09:31:03.499] [TRACE] console - [39mextracting https://sobooks.cc/books/10248.html
+[34m[2019-06-05T09:31:08.665] [TRACE] console - [39mundefined@作者：查尔斯・惠伦
+[34m[2019-06-05T09:31:08.665] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:08.666] [TRACE] console - [39mNO. 7 book: 三国全史
+[34m[2019-06-05T09:31:12.603] [TRACE] console - [39mextracting https://sobooks.cc/books/10246.html
+[34m[2019-06-05T09:31:17.776] [TRACE] console - [39mundefined@作者：南门太守
+[34m[2019-06-05T09:31:17.776] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:17.776] [TRACE] console - [39mNO. 8 book: 极致产品
+[34m[2019-06-05T09:31:20.750] [TRACE] console - [39mextracting https://sobooks.cc/books/10244.html
+[34m[2019-06-05T09:31:25.924] [TRACE] console - [39mundefined@作者：周鸿祎
+[34m[2019-06-05T09:31:25.924] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:25.924] [TRACE] console - [39mNO. 9 book: 镖人3
+[34m[2019-06-05T09:31:28.683] [TRACE] console - [39mextracting https://sobooks.cc/books/10241.html
+[34m[2019-06-05T09:31:33.856] [TRACE] console - [39mundefined@作者：许先哲
+[34m[2019-06-05T09:31:33.857] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:33.857] [TRACE] console - [39mNO. 10 book: 韭菜的自我修养
+[34m[2019-06-05T09:31:35.867] [TRACE] console - [39mextracting https://sobooks.cc/books/10239.html
+[34m[2019-06-05T09:31:41.107] [TRACE] console - [39mundefined@作者：李笑来
+[34m[2019-06-05T09:31:41.107] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:41.107] [TRACE] console - [39mNO. 11 book: 非理性的人
+[34m[2019-06-05T09:31:44.066] [TRACE] console - [39mextracting https://sobooks.cc/books/10237.html
+[34m[2019-06-05T09:31:49.239] [TRACE] console - [39mundefined@作者：威廉・巴雷特
+[34m[2019-06-05T09:31:49.239] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:49.239] [TRACE] console - [39mNO. 12 book: 铁道之旅
+[34m[2019-06-05T09:31:51.866] [TRACE] console - [39mextracting https://sobooks.cc/books/10235.html
+[34m[2019-06-05T09:31:57.055] [TRACE] console - [39mundefined@作者：沃尔夫冈・希弗尔布施
+[34m[2019-06-05T09:31:57.055] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:31:57.056] [TRACE] console - [39mNO. 13 book: 十年轮回（第三版）
+[34m[2019-06-05T09:32:00.763] [TRACE] console - [39mextracting https://sobooks.cc/books/10233.html
+[34m[2019-06-05T09:32:05.939] [TRACE] console - [39mundefined@作者：沈联涛
+[34m[2019-06-05T09:32:05.939] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:05.939] [TRACE] console - [39mNO. 14 book: 奇迹唱片行
+[34m[2019-06-05T09:32:08.323] [TRACE] console - [39mextracting https://sobooks.cc/books/10231.html
+[34m[2019-06-05T09:32:13.504] [TRACE] console - [39mundefined@作者：蕾秋・乔伊斯
+[34m[2019-06-05T09:32:13.504] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:13.505] [TRACE] console - [39mNO. 15 book: 人间便利店
+[34m[2019-06-05T09:32:15.648] [TRACE] console - [39mextracting https://sobooks.cc/books/10229.html
+[34m[2019-06-05T09:32:20.875] [TRACE] console - [39mundefined@作者：村田沙耶香
+[34m[2019-06-05T09:32:20.875] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:20.875] [TRACE] console - [39mNO. 16 book: 特别的女生萨哈拉
+[34m[2019-06-05T09:32:23.314] [TRACE] console - [39mextracting https://sobooks.cc/books/10227.html
+[34m[2019-06-05T09:32:28.460] [TRACE] console - [39mundefined@作者：爱斯米・科德尔
+[34m[2019-06-05T09:32:28.460] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:28.460] [TRACE] console - [39mNO. 17 book: 长翅膀的女孩
+[34m[2019-06-05T09:32:31.198] [TRACE] console - [39mextracting https://sobooks.cc/books/10225.html
+[34m[2019-06-05T09:32:36.399] [TRACE] console - [39mundefined@作者：苏・蒙克・基德
+[34m[2019-06-05T09:32:36.399] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:36.404] [TRACE] console - [39mNO. 18 book: 忆往谈旧录
+[34m[2019-06-05T09:32:39.215] [TRACE] console - [39mextracting https://sobooks.cc/books/10223.html
+[34m[2019-06-05T09:32:44.668] [TRACE] console - [39mundefined@作者：梁漱溟
+[34m[2019-06-05T09:32:44.681] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:44.685] [TRACE] console - [39mNO. 19 book: 幸福的最小行动
+[34m[2019-06-05T09:32:47.270] [TRACE] console - [39mextracting https://sobooks.cc/books/10221.html
+[34m[2019-06-05T09:32:52.752] [TRACE] console - [39mundefined@作者：刘轩
+[34m[2019-06-05T09:32:52.765] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T09:32:52.887] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0

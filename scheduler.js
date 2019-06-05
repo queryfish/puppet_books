@@ -152,7 +152,7 @@ const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 process.on('exit', (code) => {
   mongoose.connection.close();
   console.log(`About to exit with code: ${code}`);
-  var child = require('child_process').fork('emailer.js',[logfile] );
+  //var child = require('child_process').fork('emailer.js',[logfile] );
 
 });
 
@@ -171,7 +171,7 @@ process.on('unhandledRejection', (reason, promise) => {
       // await retry(3, schedule)
       const fs = require('fs');
       var access = fs.createWriteStream(logfile);
-      process.stdout.write = process.stderr.write = access.write.bind(access);
+      //process.stdout.write = process.stderr.write = access.write.bind(access);
       console.log("scheduler start dancing PID@", process.pid);
       await schedule();
     } catch (e) {
