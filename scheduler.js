@@ -88,7 +88,7 @@ async function booksToDetail() {
   return resultArray.length;
 }
 
-async function schedule() {
+async function schedule(crawler_code) {
   //TODO: check the state if running just quit and carry on for idle
     let isIdle = await isWorkerIdle();
     if(isIdle)
@@ -111,18 +111,27 @@ async function schedule() {
     // await page.goto('about:blank')
     // let detail = await booksToDetail();
     // let copy = await booksToCopy();
+    if(crawler_code == 0){
+          await listCrawler.run(page);
+    }
+    else if(crawler_code == 1)
+    {
+      await detailCrawler.run(page, 100000);
 
+    }
+    else {
+      await util.injectCookiesFromFile(page, Configs.cookieFile);
+      await page.waitFor(5 * 1000);
+      await copyCrawler.run(page);
+    }
     // if(detail >0){
       // start detail crawler
-      await detailCrawler.run(page, 100000);
       // page.close();
     // }else if(copy > 0){
       //start copy crawler
       // page = await browser.newPage();
-      await page.goto('about:blank')
-      await util.injectCookiesFromFile(page, Configs.cookieFile);
-      await page.waitFor(5 * 1000);
-      await copyCrawler.run(page);
+      // await page.goto('about:blank')
+
     // }
     // else{
     //     await listCrawler.run(page);
@@ -177,9 +186,10 @@ process.on('unhandledRejection', (reason, promise) => {
       // await retry(3, schedule)
       const fs = require('fs');
       var access = fs.createWriteStream(logfile);
+      const crawler_code = Number(process.argv[2]);
       //process.stdout.write = process.stderr.write = access.write.bind(access);
       console.log("scheduler start dancing PID@", process.pid);
-      await schedule();
+      await schedule(crawler_code);
     } catch (e) {
       throw(e);
     }

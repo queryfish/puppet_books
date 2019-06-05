@@ -50,14 +50,14 @@ async function crawl(page, detailUrl)
  const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
  const CATEGORY_SEL   = '#mute-category > a';
 
- // await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+ await page.goto(detailUrl, {waitUntil: 'networkidle2'});
  // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
- await page.goto(detailUrl);
- await page.waitFor(5*1000);
+ // await page.goto(detailUrl);
+ // await page.waitFor(5*1000);
  var bookObj = {"bookUrl": detailUrl};
  Logger.info("extracting "+detailUrl);
  // bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
- // let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
+ let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
  bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
  // bookObj["bookSerial"]= await getTextContent(page, ISBN_SEL);
  // bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
