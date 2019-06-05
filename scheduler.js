@@ -107,20 +107,20 @@ async function schedule() {
     await page.waitFor(5 * 1000);
 
     //Should we run this unconditionally?
-    // await listCrawler.run(page);
-    let detail = await booksToDetail();
-    let copy = await booksToCopy();
+    await listCrawler.run(page);
+    // let detail = await booksToDetail();
+    // let copy = await booksToCopy();
 
-    if(detail >0){
+    // if(detail >0){
       // start detail crawler
       await detailCrawler.run(page, 100000);
-    }else if(copy > 0){
+    // }else if(copy > 0){
       //start copy crawler
       await copyCrawler.run(page);
-    }
-    else{
-        await listCrawler.run(page);
-    }
+    // }
+    // else{
+    //     await listCrawler.run(page);
+    // }
     await browser.close();
 
 }
