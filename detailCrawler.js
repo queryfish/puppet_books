@@ -50,11 +50,11 @@ async function crawl(page, detailUrl)
  const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
  const CATEGORY_SEL   = '#mute-category > a';
 
- // await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+ await page.goto(detailUrl, {waitUntil: 'networkidle2'});
  // await page.goto(detailUrl, {waitUntil: 'load'});
  // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
- await page.goto(detailUrl);
- await page.waitFor(5*1000);
+ // await page.goto(detailUrl);
+ // await page.waitFor(5*1000);
  var bookObj = {"bookUrl": detailUrl};
  Logger.info("extracting "+detailUrl);
  // bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
