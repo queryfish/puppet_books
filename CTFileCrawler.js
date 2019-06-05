@@ -32,6 +32,16 @@ async function getSelectorHref(page, selector) {
   return tc;
 }
 
+async function getTextContent(page, selector) {
+  let tc = await page.evaluate((sel) => {
+    if(document.querySelector(sel) != null)
+      return document.querySelector(sel).textContent;
+    else
+      return null;
+  }, selector);
+  return tc;
+}
+
 async function fetchBook( bookUrl)
 {
   const browser = await puppeteer.launch({
@@ -73,32 +83,51 @@ async function fetchBook( bookUrl)
          console.log('Download url :', response._url);
          // save url to DB for later download workers.
          await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":response._url, "bookSize":bookSize});
-         // browser.close();
+         browser.close();
       }
   });
-  const BOOK_SEL = '#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a';
-  // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
-  const DL_BUTTON = '#free_down_link';
+
   await page.goto(bookUrl, {waitUntil: 'networkidle2'});
-  await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
-  if (await page.$(BOOK_SEL) == null)
-  {
-      Logger.info('checkcode input invalid');
-      return;
+
+  const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
+
+  // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
+  var download_href = "";
+  for (var i = 1; i < 4; i++) {
+    let booknameSelector = BOOK_SEL.replace("INDEX", i);
+    console.log(booknameSelector);
+    if (await page.$(booknameSelector) != null)
+    {
+        let bookname = await getTextContent(page, booknameSelector);
+        download_href = await getSelectorHref(page, booknameSelector);
+        console.log(bookname);
+        if(bookname !=null && bookname.split(".")[1] == "mobi"){
+          console.log("found it");
+          console.log(bookname);
+          console.log(download_href);
+          break;
+        }
+    }
+
   }
-  let download_href = await getSelectorHref(page, BOOK_SEL);
-  var site = "https://sobooks.ctfile.com";
-  Logger.info(download_href);
-  download_href = site + download_href;
-  await page._client.send('Page.setDownloadBehavior', {
-        behavior: 'deny'
-    });
+
+  if(download_href.length > 0){
+    const DL_BUTTON = '#free_down_link';
+    // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
+    // let download_href = await getSelectorHref(page, BOOK_SEL);
+    var site = "https://sobooks.ctfile.com";
+    Logger.info(download_href);
+    download_href = site + download_href;
+    await page._client.send('Page.setDownloadBehavior', {
+          behavior: 'deny'
+        });
   // page.click(BOOK_SEL);
-  await page.goto(download_href, {waitUntil: 'networkidle2'});
+    await page.goto(download_href, {waitUntil: 'networkidle2'});
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
-  await page.click(DL_BUTTON);
-  await page.waitFor(10*1000);//会有找不到输入框的异常，加上一个弱等待试试
-  await browser.close();
+    await page.click(DL_BUTTON);
+    await page.waitFor(10*1000);//会有找不到输入框的异常，加上一个弱等待试试
+  }
+  // await browser.close();
   return ;
 
 }
@@ -174,6 +203,7 @@ async function automate() {
       await fetchBook(book.ctdiskUrl);
       tick ++;
     }
+    mongoose.connection.close();
     // r = await assertBook();
   // }
 
