@@ -13,7 +13,7 @@ var mailOptions = {
 var mailTransport = nodemailer.createTransport({
   host: 'smtp.126.com',
   secure: true,
-  port: 994,
+  port: 465,
   auth: {
     user: "marrowsky@126.com",
     pass: "ilove126"
@@ -37,7 +37,7 @@ fs.readFile(logfile, function (err, data) {
         sender: "marrowsky@126.com",
         to: 'mcpoet@126.com',
         subject: 'crawler.log',
-        body: data+"?",
+        text: data+"?",
         attachments: [{'filename': logname, 'content': data}]
 
     }, function(err, success) {
