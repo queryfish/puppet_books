@@ -50,7 +50,10 @@ async function crawl(page, detailUrl)
  const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
  const CATEGORY_SEL   = '#mute-category > a';
 
- await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+ // await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+ // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
+ await page.goto(detailUrl);
+ await page.waitFor(5*1000);
  var bookObj = {"bookUrl": detailUrl};
  Logger.info("extracting "+detailUrl);
  bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
@@ -60,15 +63,12 @@ async function crawl(page, detailUrl)
  bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
  bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
  bookObj["tags"] = await getTextContent(page, TAGS_SEL);
- // Logger.info(bookObj);
- // await page.waitFor(5 * 1000);
 
  await page.click(CHECKCODE_SELECTOR);
  await page.keyboard.type(CREDS.checkcode);
  await page.click(BUTTON_SELECTOR);
  // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
- // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
- await page.waitFor(5*1000);
+ await page.waitFor(10*1000);
 
  let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
  var l = baiduPickup.length;
