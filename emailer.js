@@ -33,11 +33,15 @@ const logfile = process.argv[2];
 
 fs.readFile(logfile, function (err, data) {
   var logname = logfile.split("/").pop();
+  // var template = data+"";
+  // template = '<p> template:' + template.replace(/\n{2,}/g, "</p><p>").replace(/\n/g, "<br>") + '</p>';
     mailTransport.sendMail({
         sender: "marrowsky@126.com",
         to: 'mcpoet@126.com',
         subject: 'crawler.log',
         text: data+"?",
+        contentType: 'text/plain',
+        // html: template,
         attachments: [{'filename': logname, 'content': data}]
 
     }, function(err, success) {
