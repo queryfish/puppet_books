@@ -1,6 +1,6 @@
-var nodemailer = require('nodemailer');
-var fs = require('fs');
-var creds = require('./creds');
+const nodemailer = require('nodemailer');
+const fs = require('fs');
+const creds = require('./creds');
 const process = require('process');
 
 var mailOptions = {
@@ -15,8 +15,8 @@ var mailTransport = nodemailer.createTransport({
   secure: true,
   port: 994,
   auth: {
-    user: creds.mailuser,
-    pass: creds.mailpass
+    user: "marrowsky@126.com",
+    pass: "ilove126"
   }
 });
 
@@ -34,7 +34,7 @@ const logfile = process.argv[2];
 fs.readFile(logfile, function (err, data) {
   var logname = logfile.split("/").pop();
     mailTransport.sendMail({
-        sender: creds.mailuser,
+        sender: "marrowsky@126.com",
         to: 'mcpoet@126.com',
         subject: 'crawler.log',
         body: data+"?",
