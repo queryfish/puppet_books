@@ -106,19 +106,20 @@ async function schedule() {
 
     //Should we run this unconditionally?
     await listCrawler.run(page);
-    page.close();
-    page = await browser.newPage();
-
+    // page.close();
+    // page = await browser.newPage();
+    await page.goto('about:blank')
     // let detail = await booksToDetail();
     // let copy = await booksToCopy();
 
     // if(detail >0){
       // start detail crawler
       await detailCrawler.run(page, 100000);
-      page.close();
+      // page.close();
     // }else if(copy > 0){
       //start copy crawler
-      page = await browser.newPage();
+      // page = await browser.newPage();
+      await page.goto('about:blank')
       await util.injectCookiesFromFile(page, Configs.cookieFile);
       await page.waitFor(5 * 1000);
       await copyCrawler.run(page);
