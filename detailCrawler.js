@@ -96,7 +96,6 @@ async function crawl(page, detailUrl)
  Logger.info("ct_url:"+bookObj["ctdiskUrl"]);
  Logger.info(bookObj.bookName+"@"+bookObj.author);
  Logger.info("book detailed ");
-
  upsertBook(bookObj);
 
 }

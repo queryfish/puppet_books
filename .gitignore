@@ -5,3 +5,5 @@ cheese.log
 configs.js
 package-lock.json
 logs/
+books/
+.DS_Store

@@ -1,11 +1,24 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const mongoose = require('mongoose');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const CREDS = require('./creds');
 const Config = require('./configs');
 const MAX_CRAWL_NUM = 200;
 
+async function upsertBook(bookObj) {
+  if (mongoose.connection.readyState == 0) {
+    mongoose.connect( Config.dbUrl);
+  }
+
+  // if this email exists, update the entry, don't insert
+  const conditions = { ctdiskUrl: bookObj.ctdiskUrl };
+  const options = { upsert: true, new: true, setDefaultsOnInsert: true };
+  var query = Book.findOneAndUpdate(conditions, bookObj, options);
+  const result = await query.exec();
+  return ;
+}
 
 async function getSelectorHref(page, selector) {
   let tc = await page.evaluate((sel) => {
@@ -19,54 +32,50 @@ async function getSelectorHref(page, selector) {
   return tc;
 }
 
-async function fetchBook(page, bookUrl)
+async function fetchBook( bookUrl)
 {
-
+  const browser = await puppeteer.launch({
+    headless: true,
+      ignoreHTTPSErrors: true,
+    defaultViewport: null
+  });
+  // Download and wait for download
+  const page = await browser.newPage();
+  // await injectCookiesFromFile(page, Config.cookieFile);
+  // await page.waitFor(5 * 1000);
   const client = await page.target().createCDPSession();
 
 // intercept request when response headers was received
-await client.send('Network.setRequestInterception', {
-  patterns: [{
-      urlPattern: '*',
-      resourceType: 'Document',
-      interceptionStage: 'HeadersReceived'
-  }],
-});
+  await client.send('Network.setRequestInterception', {
+    patterns: [{
+        urlPattern: '*',
+        resourceType: 'Document',
+        interceptionStage: 'HeadersReceived'
+    }],
+  });
 
-await client.on('Network.requestIntercepted', async e => {
-    let headers = e.responseHeaders || {};
-    let contentType = headers['content-type'] || headers['Content-Type'] || '';
-    let obj = {interceptionId: e.interceptionId};
-    if (contentType.indexOf('application/zip') > -1) {
-        obj['errorReason'] = 'BlockedByClient';
-    }
+  await client.on('Network.requestIntercepted', async e => {
+      let headers = e.responseHeaders || {};
+      let contentType = headers['content-type'] || headers['Content-Type'] || '';
+      let obj = {interceptionId: e.interceptionId};
+      if (contentType.indexOf('application/zip') > -1) {
+          obj['errorReason'] = 'BlockedByClient';
+      }
+      await client.send('Network.continueInterceptedRequest', obj);
+  });
 
-    await client.send('Network.continueInterceptedRequest', obj);
-});
-
-  page.on('response', response => {
+  await page.on('response', async response => {
       // If response has a file on it
       if (response._headers['content-disposition'] === 'attachment') {
          // Get the size
-         // console.log(response);
-         console.log('Size del header: ', response._headers['content-length']);
+         var bookSize = Number(response._headers['content-length']);
+         console.log('Size del header: ', bookSize);
          console.log('Download url :', response._url);
          // save url to DB for later download workers.
-
-         // call the browser to stop
-         page.close();
-
-          // Watch event on download folder or file
-          //  fs.watchFile(dir, function (curr, prev) {
-          //    // If current size eq to size from response then close
-          //     if (parseInt(curr.size) === parseInt(response._headers['content-length'])) {
-          //         browser.close();
-          //         this.close();
-          //     }
-          // });
+         await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":response._url, "bookSize":bookSize});
+         // browser.close();
       }
   });
-
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a';
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
   const DL_BUTTON = '#free_down_link';
@@ -89,6 +98,7 @@ await client.on('Network.requestIntercepted', async e => {
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
   await page.click(DL_BUTTON);
   await page.waitFor(10*1000);//会有找不到输入框的异常，加上一个弱等待试试
+  await browser.close();
   return ;
 
 }
@@ -123,29 +133,54 @@ async function automate() {
   2- use the crawl func and save it to db
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
-  const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: null
-  });
-
-  // Download and wait for download
-  const page = await browser.newPage();
-  // await injectCookiesFromFile(page, Config.cookieFile);
-  // await page.waitFor(5 * 1000);
-  await fetchBook(page, "https://sobooks.ctfile.com/dir/14804066-34361831-50081d/");
-  await browser.close();
 
 }
 
-async function retry(maxRetries, fn) {
-  Logger.info("retry time "+maxRetries);
-  return await fn().catch(function(err) {
-    if (maxRetries <= 0) {
-      throw err;
+function assertMongoDB() {
+
+  if (mongoose.connection.readyState == 0) {
+    mongoose.connect( Config.dbUrl);
+  }
+}
+
+async function assertBook() {
+  assertMongoDB();
+  // const conditions = { "baiduUrl": {"$exists": false}} ;
+  const conditions = { "$and":[
+    {"ctdiskUrl": {"$exists": true}},{"ctdownloadUrl":{"$exists":false}}]} ;
+  const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
+  var query = Book.find(conditions ,null ,options);
+  const result = await query.exec();
+  return result;
+}
+
+// exports.run =
+async function automate() {
+  /*
+  1- query from mongodb for impartial entry to be further crawl for detail
+  2- use the crawl func and save it to db
+  3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
+  */
+
+  var tick = 0;
+  var r = await assertBook();
+  // while(r.length > 0 && tick < max_crawled_items){
+    Logger.info(r.length+" books to be detailed ...");
+    // Logger.info(r);
+    for (var i = 0; i < r.length; i++, tick++)
+    {
+      book = r[i];
+      Logger.info("NO. "+i+" book: "+book.bookName);
+      await fetchBook(book.ctdiskUrl);
+      tick ++;
     }
-    return retry(maxRetries - 1, fn);
-  });
+    // r = await assertBook();
+  // }
+
+
 }
+
+
 /*
  main
 */

@@ -21,7 +21,9 @@ let bookSchema = new mongoose.Schema({
     badApple: Boolean,
     cursorId: Number,
     ctdiskUrl:String,
-    ctdownloadUrl:String
+    ctdownloadUrl:String,
+    downloaded:Boolean,
+    bookSize:Number
 });
 
 let Book = mongoose.model('Book', bookSchema);
