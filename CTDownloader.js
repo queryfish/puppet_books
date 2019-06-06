@@ -31,7 +31,7 @@ async function downloadBook(bookObj)
     if(dl_url != null && dl_url !="")
     {
       console.log("starting "+bookname+dl_url);
-      const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
+      const dl = new DownloaderHelper(dl_url, '/home/steve/puppy/books/', {fileName:bookname+".mobi"});
       dl.on('end', () => {upsertBook({"bookUrl":bookObj.bookUrl, "downloaded":true});});
       dl.on('progress', (stats)=> {console.log(stats.progress+"%");});
       dl.start();

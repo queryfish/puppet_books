@@ -31,7 +31,8 @@
     "node-downloader-helper": "^1.0.10",
     "nodemailer": "^6.2.1",
     "puppeteer": "v1.14.0",
-    "urlencode": "^1.1.0"
+    "urlencode": "^1.1.0",
+    "urlencoder": "^0.1.0"
   },
   "devDependencies": {}
 }

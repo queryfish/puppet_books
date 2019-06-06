@@ -7482,3 +7482,1677 @@ scheduler start dancing PID@ 5797
 [34m[2019-06-05T09:32:52.765] [TRACE] console - [39mbook detailed 
 [34m[2019-06-05T09:32:52.887] [TRACE] console - [39mscheduler finish dancing PID@
 About to exit with code: 0
+scheduler start dancing PID@ 8229
+(node:8229) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:8229) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T14:00:04.286] [TRACE] console - [39mNumpages: 
+[34m[2019-06-05T14:00:04.326] [TRACE] console - [39maggregate...result
+[34m[2019-06-05T14:00:04.326] [TRACE] console - [39m[ { _id: 5cf728a79ce27619699a9bde,
+    bookUrl: 'https://sobooks.cc/books/12791.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T05:47:07.868Z,
+    cursorId: 12791,
+    bookName: '网与石（套装共2册）',
+    baiduUrl: 'https://pan.baidu.com/s/138nCLopCLCxTkLcS5Zd1MA',
+    baiduCode: '7rg0',
+    tags: '标签：文学 美国',
+    category: ' 小说文学',
+    bookBrief:
+     '托马斯・沃尔夫（Thomas Clayton Wolfe，1900-1938），20世纪美国小说家。1900年生于北卡罗来纳州阿什维尔，毕业于北卡罗来纳州大学，在哈佛大学获得剧本写作硕士学位，后在纽约大学任教。他创作于大萧条时期的作品描述了美国文化的变化和多样。1938年沃尔夫去世后，威廉•福克纳将他列为他们那一代最好的作家，而将自己列在了沃尔夫的后面。“垮掉派”作家杰克•凯鲁亚克也将沃尔夫视为自己的文学偶像。',
+    bookSerial: 'ISBN：9787559403322',
+    uploadDate: 2019-06-04T00:00:00.000Z } ]
+[34m[2019-06-05T14:00:04.330] [TRACE] console - [39mstart crawling 
+[34m[2019-06-05T14:00:04.330] [TRACE] console - [39mcrawlerCursor = 12791
+[34m[2019-06-05T14:00:04.330] [TRACE] console - [39mcurrentBookId = 12796
+[34m[2019-06-05T14:00:07.695] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-05T14:00:07.698] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-05T14:00:07.702] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-05T14:00:07.702] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-05T14:00:07.732] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-05T14:00:07.732] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-05T14:00:07.823] [TRACE] console - [39mget book Id 12790
+[34m[2019-06-05T14:00:07.823] [TRACE] console - [39mNO.3 圣经与利剑 -> https://sobooks.cc/books/12790.html
+[34m[2019-06-05T14:00:07.823] [TRACE] console - [39mend crawling 
+[34m[2019-06-05T14:00:07.824] [TRACE] console - [39mcrawlerCursor = 12791
+[34m[2019-06-05T14:00:07.824] [TRACE] console - [39mcurrentBookId = 12790
+[34m[2019-06-05T14:00:07.994] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 8310
+(node:8310) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:8310) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T14:05:03.878] [TRACE] console - [39m20 books to be detailed ...
+[34m[2019-06-05T14:05:03.881] [TRACE] console - [39mNO. 0 book: 货币简史：从货币的起源到货币的未来
+[34m[2019-06-05T14:05:07.462] [TRACE] console - [39mextracting https://sobooks.cc/books/12803.html
+[34m[2019-06-05T14:05:18.015] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T14:05:18.021] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T14:05:18.028] [TRACE] console - [39mNO. 1 book: 天黑得很慢
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:134:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module '/home/steve/emailer.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+scheduler start dancing PID@ 12069
+(node:12069) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12069) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T21:00:04.092] [TRACE] console - [39mNumpages: 
+[34m[2019-06-05T21:00:04.140] [TRACE] console - [39maggregate...result
+[34m[2019-06-05T21:00:04.140] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T12:00:07.374Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z } ]
+[34m[2019-06-05T21:00:04.141] [TRACE] console - [39mstart crawling 
+[34m[2019-06-05T21:00:04.142] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-05T21:00:04.142] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-05T21:00:07.641] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-05T21:00:07.643] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-05T21:00:07.655] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-05T21:00:07.655] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-05T21:00:07.698] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-05T21:00:07.698] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-05T21:00:07.698] [TRACE] console - [39mend crawling 
+[34m[2019-06-05T21:00:07.698] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-05T21:00:07.698] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-05T21:00:07.839] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 12148
+(node:12148) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12148) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T21:05:04.407] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-05T21:05:04.408] [TRACE] console - [39mNO. 0 book: 货币简史：从货币的起源到货币的未来
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 12302
+(node:12302) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12302) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T21:30:04.297] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-05T21:30:04.298] [TRACE] console - [39mNO. 0 book: 货币简史：从货币的起源到货币的未来
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 12475
+(node:12475) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12475) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T22:00:04.231] [TRACE] console - [39mNumpages: 
+[34m[2019-06-05T22:00:04.320] [TRACE] console - [39maggregate...result
+[34m[2019-06-05T22:00:04.320] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T13:00:07.655Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z } ]
+[34m[2019-06-05T22:00:04.322] [TRACE] console - [39mstart crawling 
+[34m[2019-06-05T22:00:04.322] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-05T22:00:04.322] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-05T22:00:07.620] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-05T22:00:07.622] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-05T22:00:07.628] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-05T22:00:07.628] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-05T22:00:07.643] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-05T22:00:07.643] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-05T22:00:07.644] [TRACE] console - [39mend crawling 
+[34m[2019-06-05T22:00:07.644] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-05T22:00:07.644] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-05T22:00:07.828] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 12556
+(node:12556) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12556) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T22:05:04.395] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-05T22:05:04.396] [TRACE] console - [39mNO. 0 book: 货币简史：从货币的起源到货币的未来
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 12766
+(node:12766) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12766) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T22:30:04.340] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-05T22:30:04.342] [TRACE] console - [39mNO. 0 book: 货币简史：从货币的起源到货币的未来
+[34m[2019-06-05T22:30:12.216] [TRACE] console - [39mextracting https://sobooks.cc/books/12803.html
+[34m[2019-06-05T22:30:12.287] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/
+[34m[2019-06-05T22:30:12.287] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:12.287] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:12.290] [TRACE] console - [39mNO. 1 book: 网与石（套装共2册）
+[34m[2019-06-05T22:30:18.698] [TRACE] console - [39mextracting https://sobooks.cc/books/12791.html
+[34m[2019-06-05T22:30:18.720] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34361855-907c46/
+[34m[2019-06-05T22:30:18.720] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:18.720] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:18.720] [TRACE] console - [39mNO. 2 book: 圣经与利剑
+[34m[2019-06-05T22:30:24.587] [TRACE] console - [39mextracting https://sobooks.cc/books/12790.html
+[34m[2019-06-05T22:30:24.606] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34361831-50081d/
+[34m[2019-06-05T22:30:24.606] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:24.606] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:24.607] [TRACE] console - [39mNO. 3 book: 五四的另一面
+[34m[2019-06-05T22:30:30.552] [TRACE] console - [39mextracting https://sobooks.cc/books/12789.html
+[34m[2019-06-05T22:30:30.560] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34361828-f5e616/
+[34m[2019-06-05T22:30:30.560] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:30.560] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:30.560] [TRACE] console - [39mNO. 4 book: 没有终点的列车
+[34m[2019-06-05T22:30:36.506] [TRACE] console - [39mextracting https://sobooks.cc/books/12788.html
+[34m[2019-06-05T22:30:36.521] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34361807-630401/
+[34m[2019-06-05T22:30:36.521] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:36.521] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:36.522] [TRACE] console - [39mNO. 5 book: 用户的本质
+[34m[2019-06-05T22:30:42.790] [TRACE] console - [39mextracting https://sobooks.cc/books/12787.html
+[34m[2019-06-05T22:30:42.805] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34361798-83954e/
+[34m[2019-06-05T22:30:42.805] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:42.805] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:42.806] [TRACE] console - [39mNO. 6 book: 人间失格（果麦经典）
+[34m[2019-06-05T22:30:49.197] [TRACE] console - [39mextracting https://sobooks.cc/books/12786.html
+[34m[2019-06-05T22:30:49.206] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34355408-f4194b/
+[34m[2019-06-05T22:30:49.207] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:49.207] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:49.207] [TRACE] console - [39mNO. 7 book: 如果能重来，我想做熊孩
+[34m[2019-06-05T22:30:55.473] [TRACE] console - [39mextracting https://sobooks.cc/books/12785.html
+[34m[2019-06-05T22:30:55.487] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34355387-184976/
+[34m[2019-06-05T22:30:55.487] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:30:55.487] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:30:55.487] [TRACE] console - [39mNO. 8 book: 寻找更明亮的天空
+[34m[2019-06-05T22:31:01.984] [TRACE] console - [39mextracting https://sobooks.cc/books/12784.html
+[34m[2019-06-05T22:31:01.991] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34355381-498749/
+[34m[2019-06-05T22:31:01.991] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:31:01.991] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:31:01.991] [TRACE] console - [39mNO. 9 book: 宇宙超度指南
+[34m[2019-06-05T22:31:08.024] [TRACE] console - [39mextracting https://sobooks.cc/books/12783.html
+[34m[2019-06-05T22:31:08.038] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34355378-769dfb/
+[34m[2019-06-05T22:31:08.038] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-05T22:31:08.038] [TRACE] console - [39mbook detailed 
+[34m[2019-06-05T22:31:08.039] [TRACE] console - [39mNO. 10 book: 绿皮火车（精装增补图文版）
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 12938
+(node:12938) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:12938) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T23:00:03.802] [TRACE] console - [39mNumpages: 
+[34m[2019-06-05T23:00:03.826] [TRACE] console - [39maggregate...result
+[34m[2019-06-05T23:00:03.826] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T14:00:07.628Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-05T23:00:03.828] [TRACE] console - [39mstart crawling 
+[34m[2019-06-05T23:00:03.828] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-05T23:00:03.828] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-05T23:00:07.126] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-05T23:00:07.132] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-05T23:00:07.138] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-05T23:00:07.138] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-05T23:00:07.157] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-05T23:00:07.158] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-05T23:00:07.158] [TRACE] console - [39mend crawling 
+[34m[2019-06-05T23:00:07.158] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-05T23:00:07.158] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-05T23:00:07.327] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 13018
+(node:13018) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13018) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T23:05:03.974] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-05T23:05:03.974] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 13169
+(node:13169) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13169) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-05T23:30:03.811] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-05T23:30:03.812] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 13407
+(node:13407) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13407) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T00:00:04.176] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T00:00:04.358] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T00:00:04.358] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T15:00:07.138Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T00:00:04.363] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T00:00:04.363] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T00:00:04.363] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T00:00:07.739] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T00:00:07.751] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T00:00:07.758] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T00:00:07.758] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T00:00:07.776] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T00:00:07.776] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T00:00:07.777] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T00:00:07.777] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T00:00:07.777] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T00:00:07.955] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 13487
+(node:13487) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13487) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T00:05:04.119] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T00:05:04.119] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 13642
+(node:13642) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13642) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T00:30:04.964] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T00:30:04.965] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 13812
+(node:13812) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13812) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T01:00:03.714] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T01:00:03.769] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T01:00:03.769] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T16:00:07.758Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T01:00:03.771] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T01:00:03.771] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T01:00:03.771] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T01:00:06.780] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T01:00:06.783] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T01:00:06.794] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T01:00:06.794] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T01:00:06.801] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T01:00:06.801] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T01:00:06.801] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T01:00:06.801] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T01:00:06.801] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T01:00:06.979] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 13891
+(node:13891) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:13891) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T01:05:03.455] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T01:05:03.456] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 14046
+(node:14046) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14046) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T01:30:04.128] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T01:30:04.130] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+[34m[2019-06-06T01:30:11.211] [TRACE] console - [39mextracting https://sobooks.cc/books/12782.html
+[34m[2019-06-06T01:30:11.273] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34355303-26a036/
+[34m[2019-06-06T01:30:11.273] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:11.274] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:11.277] [TRACE] console - [39mNO. 1 book: 第五项修炼（套装共5册）
+[34m[2019-06-06T01:30:17.325] [TRACE] console - [39mextracting https://sobooks.cc/books/12781.html
+[34m[2019-06-06T01:30:17.360] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342121-6b8931/
+[34m[2019-06-06T01:30:17.360] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:17.360] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:17.360] [TRACE] console - [39mNO. 2 book: 民国大师精选典藏系列套装33册
+[34m[2019-06-06T01:30:23.325] [TRACE] console - [39mextracting https://sobooks.cc/books/12780.html
+[34m[2019-06-06T01:30:23.343] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342106-0c5c9f/
+[34m[2019-06-06T01:30:23.343] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:23.343] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:23.343] [TRACE] console - [39mNO. 3 book: 三毛典藏全集（14本套装）
+[34m[2019-06-06T01:30:29.298] [TRACE] console - [39mextracting https://sobooks.cc/books/12779.html
+[34m[2019-06-06T01:30:29.309] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342103-7b0375/
+[34m[2019-06-06T01:30:29.309] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:29.309] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:29.310] [TRACE] console - [39mNO. 4 book: 文案变现
+[34m[2019-06-06T01:30:35.086] [TRACE] console - [39mextracting https://sobooks.cc/books/12778.html
+[34m[2019-06-06T01:30:35.093] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342100-ac6043/
+[34m[2019-06-06T01:30:35.094] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:35.094] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:35.094] [TRACE] console - [39mNO. 5 book: 辛丰年音乐文集（套装共六册）
+[34m[2019-06-06T01:30:41.078] [TRACE] console - [39mextracting https://sobooks.cc/books/12777.html
+[34m[2019-06-06T01:30:41.094] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342097-b3a168/
+[34m[2019-06-06T01:30:41.094] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:41.094] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:41.094] [TRACE] console - [39mNO. 6 book: 女人不可以穷
+[34m[2019-06-06T01:30:46.864] [TRACE] console - [39mextracting https://sobooks.cc/books/12776.html
+[34m[2019-06-06T01:30:46.877] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342094-ea2d4f/
+[34m[2019-06-06T01:30:46.877] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:46.877] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:46.878] [TRACE] console - [39mNO. 7 book: 小野兽
+[34m[2019-06-06T01:30:52.775] [TRACE] console - [39mextracting https://sobooks.cc/books/12775.html
+[34m[2019-06-06T01:30:52.788] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342091-1f3b12/
+[34m[2019-06-06T01:30:52.788] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:52.788] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:52.789] [TRACE] console - [39mNO. 8 book: 你有多强大，就有多温柔
+[34m[2019-06-06T01:30:58.664] [TRACE] console - [39mextracting https://sobooks.cc/books/12774.html
+[34m[2019-06-06T01:30:58.674] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342088-fb88f1/
+[34m[2019-06-06T01:30:58.674] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:30:58.674] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:30:58.675] [TRACE] console - [39mNO. 9 book: 企业生命周期
+[34m[2019-06-06T01:31:04.580] [TRACE] console - [39mextracting https://sobooks.cc/books/12773.html
+[34m[2019-06-06T01:31:04.594] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342085-fc8400/
+[34m[2019-06-06T01:31:04.594] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:04.594] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:04.595] [TRACE] console - [39mNO. 10 book: 知识管理
+[34m[2019-06-06T01:31:10.422] [TRACE] console - [39mextracting https://sobooks.cc/books/12772.html
+[34m[2019-06-06T01:31:10.437] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34342076-1cbbb0/
+[34m[2019-06-06T01:31:10.437] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:10.437] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:10.437] [TRACE] console - [39mNO. 11 book: 义和团和八国联军真相
+[34m[2019-06-06T01:31:16.306] [TRACE] console - [39mextracting https://sobooks.cc/books/12771.html
+[34m[2019-06-06T01:31:16.322] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337754-604623/
+[34m[2019-06-06T01:31:16.322] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:16.322] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:16.322] [TRACE] console - [39mNO. 12 book: 二战风云：史上最大规模战争的伤痛（全3册）
+[34m[2019-06-06T01:31:22.166] [TRACE] console - [39mextracting https://sobooks.cc/books/12770.html
+[34m[2019-06-06T01:31:22.174] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337751-ea9fed/
+[34m[2019-06-06T01:31:22.174] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:22.174] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:22.174] [TRACE] console - [39mNO. 13 book: 高阶运营
+[34m[2019-06-06T01:31:28.146] [TRACE] console - [39mextracting https://sobooks.cc/books/12769.html
+[34m[2019-06-06T01:31:28.156] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337721-29063d/
+[34m[2019-06-06T01:31:28.157] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:28.157] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:28.157] [TRACE] console - [39mNO. 14 book: 谁统治美国？公司富豪的胜利
+[34m[2019-06-06T01:31:34.235] [TRACE] console - [39mextracting https://sobooks.cc/books/12767.html
+[34m[2019-06-06T01:31:34.241] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337706-d4a7cb/
+[34m[2019-06-06T01:31:34.241] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:34.242] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:34.242] [TRACE] console - [39mNO. 15 book: 德国极简史
+[34m[2019-06-06T01:31:40.001] [TRACE] console - [39mextracting https://sobooks.cc/books/12766.html
+[34m[2019-06-06T01:31:40.024] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337682-dfc333/
+[34m[2019-06-06T01:31:40.024] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:40.024] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:40.024] [TRACE] console - [39mNO. 16 book: 河合隼雄心理学经典
+[34m[2019-06-06T01:31:45.882] [TRACE] console - [39mextracting https://sobooks.cc/books/12765.html
+[34m[2019-06-06T01:31:45.889] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337679-4e277b/
+[34m[2019-06-06T01:31:45.889] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:45.889] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:45.889] [TRACE] console - [39mNO. 17 book: 故事与估值
+[34m[2019-06-06T01:31:51.802] [TRACE] console - [39mextracting https://sobooks.cc/books/12764.html
+[34m[2019-06-06T01:31:51.809] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337673-087df7/
+[34m[2019-06-06T01:31:51.810] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:51.810] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:51.810] [TRACE] console - [39mNO. 18 book: 川端康成至美典藏全集
+[34m[2019-06-06T01:31:57.566] [TRACE] console - [39mextracting https://sobooks.cc/books/12763.html
+[34m[2019-06-06T01:31:57.573] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337667-df762a/
+[34m[2019-06-06T01:31:57.573] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:31:57.573] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:31:57.573] [TRACE] console - [39mNO. 19 book: 人类酷刑简史
+[34m[2019-06-06T01:32:03.358] [TRACE] console - [39mextracting https://sobooks.cc/books/12762.html
+[34m[2019-06-06T01:32:03.373] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337646-7d1b3b/
+[34m[2019-06-06T01:32:03.373] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:32:03.373] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:32:03.373] [TRACE] console - [39mNO. 20 book: 动物城邦系列（共四册）
+[34m[2019-06-06T01:32:09.277] [TRACE] console - [39mextracting https://sobooks.cc/books/12761.html
+[34m[2019-06-06T01:32:09.288] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34337613-306758/
+[34m[2019-06-06T01:32:09.288] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:32:09.288] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:32:09.289] [TRACE] console - [39mNO. 21 book: Red, White & Royal Blue
+[34m[2019-06-06T01:32:15.315] [TRACE] console - [39mextracting https://sobooks.cc/books/12760.html
+[34m[2019-06-06T01:32:15.322] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34316298-1891c7/
+[34m[2019-06-06T01:32:15.322] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T01:32:15.322] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T01:32:15.322] [TRACE] console - [39mNO. 22 book: 诺贝尔经济学奖的逻辑
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 14216
+(node:14216) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14216) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T02:00:04.081] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T02:00:04.125] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T02:00:04.125] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T17:00:06.794Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T02:00:04.128] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T02:00:04.128] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T02:00:04.128] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T02:00:07.384] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T02:00:07.384] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T02:00:07.387] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T02:00:07.387] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T02:00:07.406] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T02:00:07.406] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T02:00:07.407] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T02:00:07.407] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T02:00:07.407] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T02:00:07.558] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 14297
+(node:14297) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14297) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T02:05:04.140] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T02:05:04.140] [TRACE] console - [39mNO. 0 book: 诺贝尔经济学奖的逻辑
+[34m[2019-06-06T02:05:11.167] [TRACE] console - [39mextracting https://sobooks.cc/books/12759.html
+[34m[2019-06-06T02:05:11.239] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34316292-07bcff/
+[34m[2019-06-06T02:05:11.240] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T02:05:11.240] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T02:05:11.242] [TRACE] console - [39mNO. 1 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 14462
+(node:14462) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14462) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T02:30:03.801] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T02:30:03.802] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 14632
+(node:14632) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14632) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T03:00:03.589] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T03:00:03.637] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T03:00:03.638] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T18:00:07.387Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T03:00:03.639] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T03:00:03.639] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T03:00:03.639] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T03:00:06.354] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T03:00:06.354] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T03:00:06.357] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T03:00:06.357] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T03:00:06.364] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T03:00:06.364] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T03:00:06.364] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T03:00:06.364] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T03:00:06.364] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T03:00:06.494] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 14712
+(node:14712) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14712) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T03:05:03.963] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T03:05:03.964] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 14866
+(node:14866) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:14866) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T03:30:03.812] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T03:30:03.812] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 15033
+(node:15033) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15033) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T04:00:03.382] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T04:00:03.431] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T04:00:03.431] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T19:00:06.358Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T04:00:03.432] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T04:00:03.433] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T04:00:03.433] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T04:00:06.097] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T04:00:06.098] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T04:00:06.101] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T04:00:06.101] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T04:00:06.116] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T04:00:06.116] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T04:00:06.116] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T04:00:06.116] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T04:00:06.116] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T04:00:06.230] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 15113
+(node:15113) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15113) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T04:05:03.674] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T04:05:03.675] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 15270
+(node:15270) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15270) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T04:30:04.387] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T04:30:04.388] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 15456
+(node:15456) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15456) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T05:00:04.382] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T05:00:04.422] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T05:00:04.423] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T20:00:06.101Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T05:00:04.425] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T05:00:04.425] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T05:00:04.425] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T05:00:07.418] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T05:00:07.418] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T05:00:07.453] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T05:00:07.453] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T05:00:07.489] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T05:00:07.489] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T05:00:07.490] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T05:00:07.490] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T05:00:07.490] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T05:00:07.618] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 15537
+(node:15537) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15537) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T05:05:04.069] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T05:05:04.070] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 15737
+(node:15737) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15737) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T05:30:04.029] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T05:30:04.030] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 15905
+(node:15905) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15905) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T06:00:04.014] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T06:00:04.067] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T06:00:04.067] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T21:00:07.453Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T06:00:04.068] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T06:00:04.068] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T06:00:04.068] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T06:00:06.914] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T06:00:06.914] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T06:00:06.929] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T06:00:06.930] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T06:00:06.945] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T06:00:06.945] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T06:00:06.945] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T06:00:06.945] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T06:00:06.945] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T06:00:07.112] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 15984
+(node:15984) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:15984) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T06:05:03.557] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T06:05:03.559] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 16182
+(node:16182) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:16182) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T06:30:04.524] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T06:30:04.525] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 16401
+(node:16401) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:16401) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T07:00:04.087] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T07:00:04.144] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T07:00:04.144] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T22:00:06.930Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/' } ]
+[34m[2019-06-06T07:00:04.146] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T07:00:04.146] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T07:00:04.146] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T07:00:06.859] [TRACE] console - [39mstarting 1th PAGE of 216 pages
+[34m[2019-06-06T07:00:06.859] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T07:00:06.867] [TRACE] console - [39mget book Id 12803
+[34m[2019-06-06T07:00:06.868] [TRACE] console - [39mNO.1 货币简史：从货币的起源到货币的未来 -> https://sobooks.cc/books/12803.html
+[34m[2019-06-06T07:00:06.883] [TRACE] console - [39mget book Id 12791
+[34m[2019-06-06T07:00:06.884] [TRACE] console - [39mNO.2 网与石（套装共2册） -> https://sobooks.cc/books/12791.html
+[34m[2019-06-06T07:00:06.884] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T07:00:06.884] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T07:00:06.884] [TRACE] console - [39mcurrentBookId = 12791
+[34m[2019-06-06T07:00:07.046] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 16480
+(node:16480) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:16480) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T07:05:03.563] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T07:05:03.564] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 16633
+(node:16633) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:16633) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T07:30:04.360] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T07:30:04.360] [TRACE] console - [39mNO. 0 book: 三千年来谁铸币
+[34m[2019-06-06T07:30:11.862] [TRACE] console - [39mextracting https://sobooks.cc/books/12758.html
+[34m[2019-06-06T07:30:11.916] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34316289-f0bde5/
+[34m[2019-06-06T07:30:11.916] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T07:30:11.916] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T07:30:11.919] [TRACE] console - [39mNO. 1 book: 在新疆
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:56:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:145:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 17470
+(node:17470) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T08:00:03.842] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 18060
+(node:18060) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:18060) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T08:05:15.808] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T08:05:15.845] [TRACE] console - [39mNO. 0 book: 天真汉
+[34m[2019-06-06T08:05:15.845] [TRACE] console - [39mhttps://sobooks.cc/books/12718.html
+[34m[2019-06-06T08:05:45.289] [TRACE] console - [39mextracting https://sobooks.cc/books/12718.html
+[34m[2019-06-06T08:05:45.389] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34282163-5dddf4/
+[34m[2019-06-06T08:05:45.390] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T08:05:45.390] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T08:05:45.392] [TRACE] console - [39mNO. 1 book: 一朵桔梗花
+[34m[2019-06-06T08:05:45.392] [TRACE] console - [39mhttps://sobooks.cc/books/12717.html
+[34m[2019-06-06T08:05:47.766] [TRACE] console - [39mextracting https://sobooks.cc/books/12717.html
+[34m[2019-06-06T08:05:47.779] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34282160-d649ff/
+[34m[2019-06-06T08:05:47.779] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T08:05:47.779] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T08:05:47.779] [TRACE] console - [39mNO. 2 book: 与古为徒和娟娟发屋
+[34m[2019-06-06T08:05:47.779] [TRACE] console - [39mhttps://sobooks.cc/books/12716.html
+[34m[2019-06-06T08:05:49.853] [TRACE] console - [39mextracting https://sobooks.cc/books/12716.html
+[34m[2019-06-06T08:05:49.978] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34282154-9ac6f4/
+[34m[2019-06-06T08:05:49.978] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T08:05:49.978] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T08:05:49.978] [TRACE] console - [39mNO. 3 book: 中世纪战争艺术史（第一卷）
+[34m[2019-06-06T08:05:49.979] [TRACE] console - [39mhttps://sobooks.cc/books/12715.html
+[34m[2019-06-06T08:06:10.064] [TRACE] console - [39mextracting https://sobooks.cc/books/12715.html
+[34m[2019-06-06T08:06:10.231] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34282148-217913/
+[34m[2019-06-06T08:06:10.231] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T08:06:10.231] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T08:06:10.233] [TRACE] console - [39mNO. 4 book: 致命的倔强
+[34m[2019-06-06T08:06:10.234] [TRACE] console - [39mhttps://sobooks.cc/books/12714.html
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+(node:18308) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T08:30:02.798] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T08:30:02.798] [TRACE] console - [39mNO. 0 book: 绿皮火车（精装增补图文版）
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+绿皮火车（精装增补图文版）.mobi
+found it
+绿皮火车（精装增补图文版）.mobi
+/i/1931297007/f/XWhWYAI4AzRQMltlCT9bN1EqATUPPAE2AGcHaFU3UWMDNlNg
+[34m[2019-06-06T08:30:06.226] [TRACE] console - [39m/i/1931297007/f/XWhWYAI4AzRQMltlCT9bN1EqATUPPAE2AGcHaFU3UWMDNlNg
+Size del header:  6650922
+Download url : http://14804066.236.unicom.data.tv002.com/down/70d5cca673d13bf68b68e17a2b0494fd/%E7%BB%BF%E7%9A%AE%E7%81%AB%E8%BD%A6%EF%BC%88%E7%B2%BE%E8%A3%85%E5%A2%9E%E8%A1%A5%E5%9B%BE%E6%96%87%E7%89%88%EF%BC%89.mobi?cts=ot-f-D115A29A64A239Fabfeb&ctp=115A29A64A239&ctt=1559824206&limit=1&spd=90000&ctk=70d5cca673d13bf68b68e17a2b0494fd&chk=b437863af007113330b2a5133f42e040-6650922&mtd=1
+(node:18308) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T08:30:17.520] [TRACE] console - [39mNO. 1 book: 第五项修炼（套装共5册）
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+第五项修炼（套装共5册）.mobi
+found it
+第五项修炼（套装共5册）.mobi
+/i/1931297007/f/AzZfaQA6UWZRMwE_XmgGalMoVmJSYQUyAWMDYFY7AjZWYwUx
+[34m[2019-06-06T08:30:20.573] [TRACE] console - [39m/i/1931297007/f/AzZfaQA6UWZRMwE_XmgGalMoVmJSYQUyAWMDYFY7AjZWYwUx
+Size del header:  20336831
+Download url : http://14804066.ch3.data.tv002.com/down/60fdb4a1de42ed0a54087080b784bf5b/%E7%AC%AC%E4%BA%94%E9%A1%B9%E4%BF%AE%E7%82%BC%EF%BC%88%E5%A5%97%E8%A3%85%E5%85%B15%E5%86%8C%EF%BC%89.mobi?cts=f-D115A29A64A239F70bcd&ctp=115A29A64A239&ctt=1559824220&limit=1&spd=90000&ctk=60fdb4a1de42ed0a54087080b784bf5b&chk=732c24d63271a99334ddd42adff3e4fb-20336831&mtd=1
+[34m[2019-06-06T08:30:32.047] [TRACE] console - [39mNO. 2 book: 民国大师精选典藏系列套装33册
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+民国大师精选典藏系列套装33册.mobi
+found it
+民国大师精选典藏系列套装33册.mobi
+/i/1931297007/f/U2ZQZlFrXmlWNA8xCz1bNwV-VWECMQo9VTdXNFc1V2ZSYFZn
+[34m[2019-06-06T08:30:34.890] [TRACE] console - [39m/i/1931297007/f/U2ZQZlFrXmlWNA8xCz1bNwV-VWECMQo9VTdXNFc1V2ZSYFZn
+Size del header:  49686980
+Download url : http://14804066.ch3.data.tv002.com/down/43917c4689145fdf3d83ff6edce2fc47/%E6%B0%91%E5%9B%BD%E5%A4%A7%E5%B8%88%E7%B2%BE%E9%80%89%E5%85%B8%E8%97%8F%E7%B3%BB%E5%88%97%E5%A5%97%E8%A3%8533%E5%86%8C.mobi?cts=f-D115A29A64A239F758d4&ctp=115A29A64A239&ctt=1559824234&limit=1&spd=90000&ctk=43917c4689145fdf3d83ff6edce2fc47&chk=bc4b9a5b0b04235cd12116a652e04f6c-49686980&mtd=1
+[34m[2019-06-06T08:30:45.882] [TRACE] console - [39mNO. 3 book: 三毛典藏全集（14本套装）
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+三毛典藏全集（14本套装）.mobi
+found it
+三毛典藏全集（14本套装）.mobi
+/i/1931297007/f/ATQFMwU_BzAFZ1xiDjhXOwJ5UGQAM1ZhAmBaOQBiAjAAMFBk
+[34m[2019-06-06T08:30:48.529] [TRACE] console - [39m/i/1931297007/f/ATQFMwU_BzAFZ1xiDjhXOwJ5UGQAM1ZhAmBaOQBiAjAAMFBk
+Size del header:  21450137
+Download url : http://14804066.ch3.data.tv002.com/down/6aef779cbd5d978f43b8d652c29b596e/%E4%B8%89%E6%AF%9B%E5%85%B8%E8%97%8F%E5%85%A8%E9%9B%86%EF%BC%8814%E6%9C%AC%E5%A5%97%E8%A3%85%EF%BC%89.mobi?cts=f-D115A29A64A239F8cc9d&ctp=115A29A64A239&ctt=1559824248&limit=1&spd=90000&ctk=6aef779cbd5d978f43b8d652c29b596e&chk=38ac9495c614a191460941c0d9fbb55b-21450137&mtd=1
+[34m[2019-06-06T08:30:59.520] [TRACE] console - [39mNO. 4 book: 文案变现
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+文案变现.mobi
+found it
+文案变现.mobi
+/i/1931297007/f/XWhUYldtUWYBYwg2DjgHawd8BTEOPVFmAmAEZ1Y1VmhXZF5l
+[34m[2019-06-06T08:31:02.244] [TRACE] console - [39m/i/1931297007/f/XWhUYldtUWYBYwg2DjgHawd8BTEOPVFmAmAEZ1Y1VmhXZF5l
+Size del header:  4625544
+Download url : http://14804066.236.unicom.data.tv002.com/down/ee0c7c75a2cc94665c7e1093ba8f0903/%E6%96%87%E6%A1%88%E5%8F%98%E7%8E%B0.mobi?cts=ot-f-D115A29A64A239Fea4d6&ctp=115A29A64A239&ctt=1559824262&limit=1&spd=90000&ctk=ee0c7c75a2cc94665c7e1093ba8f0903&chk=6cc4d95e2ef05ec123cb75feb84018bb-4625544&mtd=1
+[34m[2019-06-06T08:31:13.345] [TRACE] console - [39mNO. 5 book: 辛丰年音乐文集（套装共六册）
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+辛丰年音乐文集（套装共六册）.epub
+#table_files > tbody > tr:nth-child(2) > td:nth-child(2) > a
+辛丰年音乐文集（套装共六册）.mobi
+found it
+辛丰年音乐文集（套装共六册）.mobi
+/i/1931297007/f/U2YANgQ-U2RXNQA-WmxQPAN4AjZVZgE2D21bOFIxU2NUZldg
+[34m[2019-06-06T08:31:15.882] [TRACE] console - [39m/i/1931297007/f/U2YANgQ-U2RXNQA-WmxQPAN4AjZVZgE2D21bOFIxU2NUZldg
+Size del header:  2310927
+Download url : http://14804066.ch3.data.tv002.com/down/7f91d48583ff3e5088dfd456c0d19462/%E8%BE%9B%E4%B8%B0%E5%B9%B4%E9%9F%B3%E4%B9%90%E6%96%87%E9%9B%86%EF%BC%88%E5%A5%97%E8%A3%85%E5%85%B1%E5%85%AD%E5%86%8C%EF%BC%89.mobi?cts=f-D115A29A64A239F44bfb&ctp=115A29A64A239&ctt=1559824276&limit=1&spd=90000&ctk=7f91d48583ff3e5088dfd456c0d19462&chk=f421181df2857f6a9846305cfdcfdcfb-2310927&mtd=1
+[34m[2019-06-06T08:31:27.110] [TRACE] console - [39mNO. 6 book: 女人不可以穷
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+女人不可以穷.epub
+#table_files > tbody > tr:nth-child(2) > td:nth-child(2) > a
+女人不可以穷.mobi
+found it
+女人不可以穷.mobi
+/i/1931297007/f/BDEEMlBqAzRXNV1jXmhXOwd8BTEAMwo9BmRXNAJhCj5QZAA0
+[34m[2019-06-06T08:31:29.569] [TRACE] console - [39m/i/1931297007/f/BDEEMlBqAzRXNV1jXmhXOwd8BTEAMwo9BmRXNAJhCj5QZAA0
+Size del header:  426237
+Download url : http://14804066.236.unicom.data.tv002.com/down/985b9fb9a6db70c4d9d9ec18277d22ac/%E5%A5%B3%E4%BA%BA%E4%B8%8D%E5%8F%AF%E4%BB%A5%E7%A9%B7.mobi?cts=ot-f-D115A29A64A239Ff9275&ctp=115A29A64A239&ctt=1559824289&limit=1&spd=90000&ctk=985b9fb9a6db70c4d9d9ec18277d22ac&chk=b2ee15dc0e77300e3bdc6dc810bb2dad-426237&mtd=1
+[34m[2019-06-06T08:31:40.859] [TRACE] console - [39mNO. 7 book: 小野兽
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+小野兽.epub
+#table_files > tbody > tr:nth-child(2) > td:nth-child(2) > a
+小野兽.azw3
+#table_files > tbody > tr:nth-child(3) > td:nth-child(2) > a
+小野兽.mobi
+found it
+小野兽.mobi
+/i/1931297007/f/UmdVY1VvV2ACYA0zW21bN1EqVmJWZQYxB2VSMQFiAjQANgM3
+[34m[2019-06-06T08:31:43.427] [TRACE] console - [39m/i/1931297007/f/UmdVY1VvV2ACYA0zW21bN1EqVmJWZQYxB2VSMQFiAjQANgM3
+Size del header:  541021
+Download url : http://14804066.236.unicom.data.tv002.com/down/8892c65b4e522494aff79912824aac33/%E5%B0%8F%E9%87%8E%E5%85%BD.mobi?cts=ot-f-D115A29A64A239F9c794&ctp=115A29A64A239&ctt=1559824303&limit=1&spd=90000&ctk=8892c65b4e522494aff79912824aac33&chk=3c10b299138e90f810f268c2fae0cc49-541021&mtd=1
+[34m[2019-06-06T08:31:54.684] [TRACE] console - [39mNO. 8 book: 你有多强大，就有多温柔
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+你有多强大就有多温柔.azw3
+#table_files > tbody > tr:nth-child(2) > td:nth-child(2) > a
+你有多强大就有多温柔.epub
+#table_files > tbody > tr:nth-child(3) > td:nth-child(2) > a
+你有多强大就有多温柔.mobi
+found it
+你有多强大就有多温柔.mobi
+/i/1931297007/f/ATQANgsxBzAEZlhmWW9bNwN4UWUPPFFmDmwGZVU1VGoEOAAw
+[34m[2019-06-06T08:31:57.349] [TRACE] console - [39m/i/1931297007/f/ATQANgsxBzAEZlhmWW9bNwN4UWUPPFFmDmwGZVU1VGoEOAAw
+Size del header:  428357
+Download url : http://14804066.ch3.data.tv002.com/down/b0d6a888cea5ccc78aa9197ef70c7bb8/%E4%BD%A0%E6%9C%89%E5%A4%9A%E5%BC%BA%E5%A4%A7%E5%B0%B1%E6%9C%89%E5%A4%9A%E6%B8%A9%E6%9F%94.mobi?cts=f-D115A29A64A239F1de5d&ctp=115A29A64A239&ctt=1559824317&limit=1&spd=90000&ctk=b0d6a888cea5ccc78aa9197ef70c7bb8&chk=d5d52d09334aff7fa26d32a959bc0550-428357&mtd=1
+[34m[2019-06-06T08:32:08.330] [TRACE] console - [39mNO. 9 book: 企业生命周期
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+企业生命周期.mobi
+found it
+企业生命周期.mobi
+/i/1931297007/f/UWRTZQM5UmVXNQo0XWsHa1EqUmYGNQo9VTdVNgBgVGRRZAQ0
+[34m[2019-06-06T08:32:10.901] [TRACE] console - [39m/i/1931297007/f/UWRTZQM5UmVXNQo0XWsHa1EqUmYGNQo9VTdVNgBgVGRRZAQ0
+Size del header:  4796049
+Download url : http://14804066.ch3.data.tv002.com/down/f3c3ac7083504f4518fefa023cdf934d/%E4%BC%81%E4%B8%9A%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.mobi?cts=f-D115A29A64A239F99fce&ctp=115A29A64A239&ctt=1559824331&limit=1&spd=90000&ctk=f3c3ac7083504f4518fefa023cdf934d&chk=28eeee62d6fd17bba1b1484b1b7ca3d2-4796049&mtd=1
+[34m[2019-06-06T08:32:22.111] [TRACE] console - [39mNO. 10 book: 知识管理
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+知识管理.mobi
+found it
+知识管理.mobi
+/i/1931297007/f/ADVTZQU_BDMCYA8xW21XOwZ9UWUGNQM0A2FbOAVlCz9QYAI3
+[34m[2019-06-06T08:32:24.746] [TRACE] console - [39m/i/1931297007/f/ADVTZQU_BDMCYA8xW21XOwZ9UWUGNQM0A2FbOAVlCz9QYAI3
+Size del header:  1949193
+Download url : http://14804066.ch3.data.tv002.com/down/35bb8b98e11fb7f6e6e3e5473e057781/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86.mobi?cts=f-D115A29A64A239F02953&ctp=115A29A64A239&ctt=1559824344&limit=1&spd=90000&ctk=35bb8b98e11fb7f6e6e3e5473e057781&chk=549ea383ee9b1fd778d959452e63fb66-1949193&mtd=1
+[34m[2019-06-06T08:32:35.956] [TRACE] console - [39mNO. 11 book: 义和团和八国联军真相
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+义和团和八国联军真相.mobi
+found it
+义和团和八国联军真相.mobi
+/i/1931297007/f/VWBSZAsxU2QDYQ4wADZXOwZ9V2MCMQYxUjFVOQNgUWEDP19r
+[34m[2019-06-06T08:32:38.600] [TRACE] console - [39m/i/1931297007/f/VWBSZAsxU2QDYQ4wADZXOwZ9V2MCMQYxUjFVOQNgUWEDP19r
+Size del header:  6045259
+Download url : http://14804066.ch3.data.tv002.com/down/623eb2010968fd5eec95e5cb2e00c9e0/%E4%B9%89%E5%92%8C%E5%9B%A2%E5%92%8C%E5%85%AB%E5%9B%BD%E8%81%94%E5%86%9B%E7%9C%9F%E7%9B%B8.mobi?cts=f-D115A29A64A239Ff1f1b&ctp=115A29A64A239&ctt=1559824359&limit=1&spd=90000&ctk=623eb2010968fd5eec95e5cb2e00c9e0&chk=3c1f35f627b3a9c7daf7abfe4852ecd6-6045259&mtd=1
+[34m[2019-06-06T08:32:50.669] [TRACE] console - [39mNO. 12 book: 二战风云：史上最大规模战争的伤痛（全3册）
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+二战风云：史上最大规模战争的伤痛（全3册）.mobi
+found it
+二战风云：史上最大规模战争的伤痛（全3册）.mobi
+/i/1931297007/f/BjMHMQI4AzQFZ1pkCT9UOAd8AjYFNgs8BmVUOFAzVmNQYwU2
+[34m[2019-06-06T08:32:53.208] [TRACE] console - [39m/i/1931297007/f/BjMHMQI4AzQFZ1pkCT9UOAd8AjYFNgs8BmVUOFAzVmNQYwU2
+[34m[2019-06-06T08:33:04.253] [TRACE] console - [39mNO. 13 book: 高阶运营
+(node:18308) UnhandledPromiseRejectionWarning: TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at fetchBook (/home/steve/puppy/CTFileCrawler.js:90:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+(node:18308) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:18308) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:18308) UnhandledPromiseRejectionWarning: Error: Page crashed!
+    at Page._onTargetCrashed (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:185:24)
+    at CDPSession.Page.client.on.event (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:140:56)
+    at CDPSession.emit (events.js:198:13)
+    at CDPSession._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:200:12)
+    at Connection._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:112:17)
+    at WebSocketTransport._ws.addEventListener.event (/home/steve/puppy/node_modules/puppeteer/lib/WebSocketTransport.js:41:24)
+    at WebSocket.onMessage (/home/steve/puppy/node_modules/ws/lib/event-target.js:120:16)
+    at WebSocket.emit (events.js:198:13)
+    at Receiver.receiverOnMessage (/home/steve/puppy/node_modules/ws/lib/websocket.js:789:20)
+    at Receiver.emit (events.js:198:13)
+    at Receiver.dataMessage (/home/steve/puppy/node_modules/ws/lib/receiver.js:422:14)
+    at Receiver.getData (/home/steve/puppy/node_modules/ws/lib/receiver.js:352:17)
+    at Receiver.startLoop (/home/steve/puppy/node_modules/ws/lib/receiver.js:138:22)
+    at Receiver._write (/home/steve/puppy/node_modules/ws/lib/receiver.js:74:10)
+    at doWrite (_stream_writable.js:415:12)
+    at writeOrBuffer (_stream_writable.js:399:5)
+(node:18308) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
+(node:18308) UnhandledPromiseRejectionWarning: Error: Page crashed!
+    at Page._onTargetCrashed (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:185:24)
+    at CDPSession.Page.client.on.event (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:140:56)
+    at CDPSession.emit (events.js:198:13)
+    at CDPSession._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:200:12)
+    at Connection._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:112:17)
+    at WebSocketTransport._ws.addEventListener.event (/home/steve/puppy/node_modules/puppeteer/lib/WebSocketTransport.js:41:24)
+    at WebSocket.onMessage (/home/steve/puppy/node_modules/ws/lib/event-target.js:120:16)
+    at WebSocket.emit (events.js:198:13)
+    at Receiver.receiverOnMessage (/home/steve/puppy/node_modules/ws/lib/websocket.js:789:20)
+    at Receiver.emit (events.js:198:13)
+    at Receiver.dataMessage (/home/steve/puppy/node_modules/ws/lib/receiver.js:422:14)
+    at Receiver.getData (/home/steve/puppy/node_modules/ws/lib/receiver.js:352:17)
+    at Receiver.startLoop (/home/steve/puppy/node_modules/ws/lib/receiver.js:138:22)
+    at Receiver._write (/home/steve/puppy/node_modules/ws/lib/receiver.js:74:10)
+    at doWrite (_stream_writable.js:415:12)
+    at writeOrBuffer (_stream_writable.js:399:5)
+(node:18308) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
+scheduler start dancing PID@ 19165
+(node:19165) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:19165) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+{ Error: spawn ENOMEM
+    at ChildProcess.spawn (internal/child_process.js:366:11)
+    at Object.spawn (child_process.js:551:9)
+    at Launcher.launch (/home/steve/puppy/node_modules/puppeteer/lib/Launcher.js:126:40) errno: 'ENOMEM', code: 'ENOMEM', syscall: 'spawn' }
+About to exit with code: 0
+scheduler start dancing PID@ 19211
+(node:19211) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:19211) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+{ TimeoutError: Timed out after 30000 ms while trying to connect to Chrome! The only Chrome revision guaranteed to work is r641577
+    at Timeout.onTimeout (/home/steve/puppy/node_modules/puppeteer/lib/Launcher.js:353:14)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10) name: 'TimeoutError' }
+About to exit with code: 0
+(node:19377) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T09:30:03.516] [TRACE] console - [39m48 books to be detailed ...
+[34m[2019-06-06T09:30:03.523] [TRACE] console - [39mNO. 0 book: 二战风云：史上最大规模战争的伤痛（全3册）
+scheduler start dancing PID@ 19691
+(node:19691) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:19691) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+scheduler start dancing PID@ 19781
+(node:19781) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T10:06:39.186] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+(node:19942) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T10:30:03.448] [TRACE] console - [39m48 books to be detailed ...
+[34m[2019-06-06T10:30:03.469] [TRACE] console - [39mNO. 0 book: 二战风云：史上最大规模战争的伤痛（全3册）
+(node:19942) UnhandledPromiseRejectionWarning: Error: Failed to launch chrome!
+
+
+TROUBLESHOOTING: https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
+
+    at onClose (/home/steve/puppy/node_modules/puppeteer/lib/Launcher.js:342:14)
+    at ChildProcess.helper.addEventListener (/home/steve/puppy/node_modules/puppeteer/lib/Launcher.js:332:60)
+    at ChildProcess.emit (events.js:203:15)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:248:12)
+(node:19942) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:19942) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+Killed
+scheduler start dancing PID@ 20152
+(node:20152) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+scheduler start dancing PID@ 20216
+(node:20216) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+(node:20376) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:20376) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+(node:20376) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:20376) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+scheduler start dancing PID@ 20559
+(node:20559) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+scheduler start dancing PID@ 20612
+(node:20612) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+(node:20766) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:20766) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+(node:20766) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:20766) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+scheduler start dancing PID@ 20948
+(node:20948) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+scheduler start dancing PID@ 21001
+(node:21001) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+(node:21203) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:21203) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+(node:21203) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:21203) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+scheduler start dancing PID@ 21399
+(node:21399) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+scheduler start dancing PID@ 21453
+(node:21453) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+(node:21606) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:21606) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+(node:21606) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:21606) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+scheduler start dancing PID@ 21786
+(node:21786) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+scheduler start dancing PID@ 21840
+(node:21840) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+{ MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+About to exit with code: 0
+(node:22009) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:22009) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:198:13)
+    at Connection.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:286:20)
+    at Connection.emit (events.js:198:13)
+    at Socket.<anonymous> (/home/steve/puppy/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+(node:22009) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:22009) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+scheduler start dancing PID@ 22515
+(node:22516) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:22515) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T16:00:51.629] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+[34m[2019-06-06T16:00:51.960] [TRACE] console - [39m48 books to be detailed ...
+[34m[2019-06-06T16:00:51.965] [TRACE] console - [39mNO. 0 book: 二战风云：史上最大规模战争的伤痛（全3册）
+(node:22516) UnhandledPromiseRejectionWarning: TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at fetchBook (/home/steve/puppy/CTFileCrawler.js:90:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+(node:22516) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:22516) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
