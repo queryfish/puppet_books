@@ -88,11 +88,6 @@ async function downloadBook(bookObj)
     var bookname = bookObj.bookName;
     if(dl_url != null && dl_url !="")
     {
-<<<<<<< HEAD
-      console.log("starting "+bookname+dl_url);
-      const dl = new DownloaderHelper(dl_url, '/home/steve/puppy/books/', {fileName:bookname+".mobi"});
-      dl.on('end', () => {upsertBook({"bookUrl":bookObj.bookUrl, "downloaded":true});});
-=======
       console.log("start downloading -> "+bookname);
       const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
       dl.on('end', () => {
@@ -101,7 +96,6 @@ async function downloadBook(bookObj)
         console.log(bookname, "DONE.");
         updateBook(cond, option);
       });
->>>>>>> 8485b18bb4423c67e197c07a13ac9cd9828bf7fe
       dl.on('error', (err) => {console.log("Error ...");console.log(err);});
       dl.on('progress', (stats)=> {console.log(bookname, Math.floor(stats.progress)+"%");});
       try {
