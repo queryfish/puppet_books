@@ -9478,3 +9478,59 @@ Error: Evaluation failed: TypeError: Cannot read property 'getAttribute' of null
     at crawl (/home/steve/puppy/detailCrawler.js:88:35)
     at process._tickCallback (internal/process/next_tick.js:68:7)
 About to exit with code: 0
+scheduler start dancing PID@ 8199
+(node:8199) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:8199) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T20:00:04.971] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T20:00:05.107] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T20:00:05.107] [TRACE] console - [39m[ { _id: 5cf8e4269ea63c1b763d5030,
+    bookUrl: 'https://sobooks.cc/books/12804.html',
+    __v: 0,
+    dateCrawled: 2019-06-06T11:00:06.752Z,
+    cursorId: 12804,
+    bookName: '每一个认真生活的人，都值得被认真对待',
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34384651-fe3541/',
+    baiduUrl: 'https://pan.baidu.com/s/1oiIdwvNJY-fAAQaogAgDxg',
+    tags: '标签：励志 成长',
+    category: ' 励志成功',
+    bookBrief: '它并不是一碗无处下手的鸡汤，它给了你喝鸡汤的勺子。',
+    bookSerial: 'ISBN：9787541140372',
+    uploadDate: 2019-06-06T00:00:00.000Z } ]
+[34m[2019-06-06T20:00:05.120] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T20:00:05.120] [TRACE] console - [39mcrawlerCursor = 12804
+[34m[2019-06-06T20:00:05.120] [TRACE] console - [39mcurrentBookId = 12809
+[34m[2019-06-06T20:00:24.778] [TRACE] console - [39mstarting 1th PAGE of 217 pages
+[34m[2019-06-06T20:00:24.791] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T20:00:24.797] [TRACE] console - [39mget book Id 12804
+[34m[2019-06-06T20:00:24.797] [TRACE] console - [39mNO.1 每一个认真生活的人，都值得被认真对待 -> https://sobooks.cc/books/12804.html
+[34m[2019-06-06T20:00:24.811] [TRACE] console - [39mget book Id 12802
+[34m[2019-06-06T20:00:24.811] [TRACE] console - [39mNO.2 犹是深闺梦里人 -> https://sobooks.cc/books/12802.html
+[34m[2019-06-06T20:00:24.811] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T20:00:24.812] [TRACE] console - [39mcrawlerCursor = 12804
+[34m[2019-06-06T20:00:24.812] [TRACE] console - [39mcurrentBookId = 12802
+[34m[2019-06-06T20:00:24.995] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 8294
+(node:8294) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:8294) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T20:05:04.955] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T20:05:04.965] [TRACE] console - [39mNO. 0 book: 台湾风云（1368-1683）
+[34m[2019-06-06T20:05:04.965] [TRACE] console - [39mhttps://sobooks.cc/books/12609.html
+[34m[2019-06-06T20:07:17.397] [TRACE] console - [39mextracting https://sobooks.cc/books/12609.html
+Error: Evaluation failed: TypeError: Cannot read property 'getAttribute' of null
+    at __puppeteer_evaluation_script__:2:41
+    at ExecutionContext.evaluateHandle (/home/steve/puppy/node_modules/puppeteer/lib/ExecutionContext.js:121:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+  -- ASYNC --
+    at ExecutionContext.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at ExecutionContext.evaluate (/home/steve/puppy/node_modules/puppeteer/lib/ExecutionContext.js:48:31)
+    at ExecutionContext.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at DOMWorld.evaluate (/home/steve/puppy/node_modules/puppeteer/lib/DOMWorld.js:105:20)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.evaluate (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:809:43)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:88:35)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+About to exit with code: 0
