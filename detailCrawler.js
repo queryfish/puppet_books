@@ -50,7 +50,8 @@ async function crawl(page, detailUrl)
  const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
  const CATEGORY_SEL   = '#mute-category > a';
 
- await page.goto(detailUrl, {waitUntil: 'load', timeout:0,});
+ await page.goto(detailUrl, {waitUntil: 'networkidle2', timeout:0,});
+
  // await page.goto(detailUrl, {waitUntil: 'load'});
  // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
  // await page.goto(detailUrl);
@@ -78,26 +79,50 @@ async function crawl(page, detailUrl)
 */
 
  // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
- const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
- const url_selector = 'table.dltable > tbody * a:first-of-type';
- let dl_url = await page.evaluate((sel) => {
-   let baidu_url = document.querySelector(sel).getAttribute("href");
-   return baidu_url;
- }, url_selector);
+    const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
+    const url_selector = 'table.dltable > tbody * a:first-of-type';
+    let baidu_url = await extractUrl(page, url_selector);
+    let ct_url = await extractUrl(page, ct_download_url_selector);
+     // let dl_url = await page.evaluate((sel) => {
+     //    if(document.querySelector(sel) != null)
+     //      return document.querySelector(sel).getAttribute("href");
+     //    else
+     //      return null;
+     // }, url_selector);
+     //
+     // let ct_download_url = await page.evaluate((sel) => {
+     //   if(document.querySelector(sel) != null)
+     //     return document.querySelector(sel).getAttribute("href");
+     //   else
+     //     return null;
+     // }, ct_download_url_selector);
+     // const temp_url = new URL(baidu_url);
+     // const temp_url2 = new URL(ct_download_url);
+     if(baidu_url!=null)
+        bookObj["baiduUrl"]= baidu_url;
+     if(ct_url != null)
+        bookObj["ctdiskUrl"]= ct_url;
+     Logger.info("ct_url:"+ct_url);
+     Logger.info("book detailed ");
+     upsertBook(bookObj);
 
- let ct_download_url = await page.evaluate((sel) => {
-   let url = document.querySelector(sel).getAttribute("href");
-   return url;
- }, ct_download_url_selector);
- const temp_url = new URL(dl_url);
- const temp_url2 = new URL(ct_download_url);
- bookObj["baiduUrl"]= temp_url.searchParams.get('url');
- bookObj["ctdiskUrl"]= temp_url2.searchParams.get('url');
- Logger.info("ct_url:"+bookObj["ctdiskUrl"]);
- Logger.info(bookObj.bookName+"@"+bookObj.author);
- Logger.info("book detailed ");
- upsertBook(bookObj);
+}
 
+async function extractUrl(page ,selector)
+{
+    let dl_url = await page.evaluate((sel) =>
+    {
+         if(document.querySelector(sel) != null)
+         {
+           var href = document.querySelector(sel).getAttribute("href");
+           var temp_url = new URL(href);
+           return temp_url.searchParams.get('url');
+         }
+         else
+           return null;
+    }, selector);
+
+    return dl_url;
 }
 
 
