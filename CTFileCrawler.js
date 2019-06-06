@@ -91,9 +91,9 @@ async function fetchBook( bookUrl)
       }
   });
 
-  // await page.goto(bookUrl, {waitUntil: 'networkidle2'});
+  // await page.goto(bookUrl, {waitUntil: 'load'});
   // await page.goto(bookUrl);
-  await page.goto(bookUrl, {waitUntil: 'load', timeout:0,});
+  await page.goto(bookUrl, {waitUntil: 'networkidle2', timeout:0,});
   await page.waitFor(5*1000);
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
@@ -127,8 +127,8 @@ async function fetchBook( bookUrl)
           behavior: 'deny'
         });
   // page.click(BOOK_SEL);
-    // await page.goto(download_href, {waitUntil: 'networkidle2'});
-    await page.goto(download_href, {waitUntil: 'load', timeout:0,});
+    // await page.goto(download_href, {waitUntil: 'load'});
+    await page.goto(download_href, {waitUntil: 'networkidle2', timeout:0,});
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(DL_BUTTON);
     await page.waitFor(10*1000);//会有找不到输入框的异常，加上一个弱等待试试
