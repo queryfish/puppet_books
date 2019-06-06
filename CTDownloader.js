@@ -92,9 +92,9 @@ async function downloadBook(bookObj)
       const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:true});
       dl.on('end', () => {
         var cond = {"ctdownloadUrl":dl_url};
-        var option = {$set:{downloaded:true}};
+        var update = {downloaded:true, ctdownloadTime:new Date()};
         console.log(bookname, "DONE.");
-        updateBook(cond, option);
+        updateBook(cond,update);
       });
       dl.on('error', (err) => {console.log("Error ...");console.log(err);});
       dl.on('stateChanged', (state) => {console.log("Downloader State changed");console.log(state);});

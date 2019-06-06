@@ -14,7 +14,7 @@ let bookSchema = new mongoose.Schema({
     savedBaidu: Boolean,
     dateCrawled: Date,
     uploadDate: Date,
-    lastCrawlCopyTime : Date,
+    lastCrawlCopyTime : Date, //baiduyun copy time
     lastCrawlCopyResultMessage : String,
     category : String,
     tags :String,
@@ -23,6 +23,7 @@ let bookSchema = new mongoose.Schema({
     ctdiskUrl:String,
     ctdownloadUrl:String,
     downloaded:Boolean,
+    ctdownloadTime:Date, //ctdisk download time
     bookSize:Number
 });
 
