@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const CREDS = require('./creds');
-const Config = require('./configs');
+const Configs = require('./configs');
 const MAX_CRAWL_NUM = 200;
+// const CTDownloader = require('./CTDownloader');
 
 async function upsertBook(bookObj) {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
 
   // if this email exists, update the entry, don't insert
@@ -51,7 +52,7 @@ async function fetchBook( bookUrl)
   });
   // Download and wait for download
   const page = await browser.newPage();
-  // await injectCookiesFromFile(page, Config.cookieFile);
+  // await injectCookiesFromFile(page, Configs.cookieFile);
   // await page.waitFor(5 * 1000);
   const client = await page.target().createCDPSession();
 
@@ -79,18 +80,21 @@ async function fetchBook( bookUrl)
       if (response._headers['content-disposition'] === 'attachment') {
          // Get the size
          var bookSize = Number(response._headers['content-length']);
+         var download_url =response._url;
          console.log('Size del header: ', bookSize);
          console.log('Download url :', response._url);
          // save url to DB for later download workers.
-         await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":response._url, "bookSize":bookSize});
+         await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
+         // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
+         // await CTDownloader.downloadBook(download_url);
          browser.close();
       }
   });
 
-  await page.goto(bookUrl, {waitUntil: 'networkidle2'});
-
+  // await page.goto(bookUrl, {waitUntil: 'networkidle2'});
+  await page.goto(bookUrl);
+  await page.waitFor(5*1000);
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
-
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
   var download_href = "";
   for (var i = 1; i < 4; i++) {
@@ -168,7 +172,7 @@ async function automate() {
 function assertMongoDB() {
 
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
 }
 
@@ -177,7 +181,7 @@ async function assertBook() {
   // const conditions = { "baiduUrl": {"$exists": false}} ;
   const conditions = { "$and":[
     {"ctdiskUrl": {"$exists": true}},{"ctdownloadUrl":{"$exists":false}}]} ;
-  const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
+  const options = { limit: Configs.crawlStep , sort:{"cursorId": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
@@ -190,11 +194,10 @@ async function automate() {
   2- use the crawl func and save it to db
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
-
   var tick = 0;
   var r = await assertBook();
   // while(r.length > 0 && tick < max_crawled_items){
-    Logger.info(r.length+" books to be detailed ...");
+    Logger.info(r.length+" books to be CTed ...");
     // Logger.info(r);
     for (var i = 0; i < r.length; i++, tick++)
     {
@@ -206,8 +209,6 @@ async function automate() {
     mongoose.connection.close();
     // r = await assertBook();
   // }
-
-
 }
 
 

@@ -1,14 +1,14 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const mongoose = require('mongoose');
+const { DownloaderHelper } = require('node-downloader-helper');
+var urlencode = require('urlencode');
+const process = require('process');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const CREDS = require('./creds');
 const Config = require('./configs');
 const MAX_CRAWL_NUM = 200;
-const { DownloaderHelper } = require('node-downloader-helper');
-var urlencode = require('urlencode');
-
 
 function upsertBook(bookObj) {
   if (mongoose.connection.readyState == 0) {
@@ -23,6 +23,64 @@ function upsertBook(bookObj) {
   });
 }
 
+async function updateBook(conditions, options) {
+  if (mongoose.connection.readyState == 0) {
+    mongoose.connect( Config.dbUrl);
+  }
+  const query = Book.update(conditions, options);
+  let r = await query.exec();
+  return r;
+}
+
+
+async function unsetAllCTDownloadUrl() {
+  if (mongoose.connection.readyState == 0) {
+    mongoose.connect( Config.dbUrl);
+  }
+  const conditions = {};
+  const options = {$unset:{ctdownloadUrl:1}};
+  const query = Book.update(conditions, options);
+  let r = await query.exec();
+  return r;
+}
+
+async function unsetCTDownloadUrl(download_url) {
+  if (mongoose.connection.readyState == 0) {
+    mongoose.connect( Config.dbUrl);
+  }
+  const conditions = { ctdownloadUrl: download_url };
+  const options = {$unset:{ctdownloadUrl:1}};
+  const query = Book.update(conditions, options);
+  let r = await query.exec();
+  return r;
+}
+
+// exports.downloadBook =
+async function downloadBookFromUrl(dl_url)
+{
+    if(dl_url != null && dl_url !="")
+    {
+      assertMongoDB();
+      var bookname = decodeBookName(dl_url);
+      console.log("start downloading -> "+bookname);
+      const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
+      dl.on('end', () => {
+        var cond = {"ctdownloadUrl":dl_url};
+        var option = {$set:{downloaded:true}};
+        console.log(bookname, "DONE.");
+        // updateBook(cond, option);
+      });
+      dl.on('error', (err) => {console.log("Error ...");console.log(err);});
+      dl.on('progress', (stats)=> {console.log(bookname, stats.progress+"%");});
+      try {
+        await dl.start();
+      } catch (e) {
+        await unsetCTDownloadUrl(dl_url);
+        mongoose.connection.close();
+      }
+    }
+}
+
 async function downloadBook(bookObj)
 {
     var dl_url = bookObj.ctdownloadUrl;
@@ -33,8 +91,13 @@ async function downloadBook(bookObj)
       console.log("starting "+bookname+dl_url);
       const dl = new DownloaderHelper(dl_url, '/home/steve/puppy/books/', {fileName:bookname+".mobi"});
       dl.on('end', () => {upsertBook({"bookUrl":bookObj.bookUrl, "downloaded":true});});
+      dl.on('error', (err) => {console.log("Error ...");console.log(err);});
       dl.on('progress', (stats)=> {console.log(stats.progress+"%");});
-      dl.start();
+      try {
+        await dl.start();
+      } catch (e) {
+        await unsetCTDownloadUrl(dl_url);
+      }
     }
 }
 
@@ -53,7 +116,7 @@ function decodeBookName(urlstring)
   console.log(dots);
   var decoded = urlencode.decode(dots); // '苏千'
   console.log(decoded);
-  console.log(urlencode.parse(urlstring));
+  // console.log(urlencode.parse(urlstring));
   // .pop().split(".").shift();
   return decoded;
 }
@@ -63,7 +126,7 @@ async function assertBook() {
   // const conditions = { "baiduUrl": {"$exists": false}} ;
   const conditions = { "$and":[
     {"downloaded": {"$exists": false}},{"ctdownloadUrl":{"$exists":true}}]} ;
-  const options = { limit:14 , sort:{"bookSize": 1} };
+  const options = { limit:20 , sort:{"bookSize": 1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   console.log(result);
@@ -89,20 +152,32 @@ async function automate() {
       await downloadBook(book);
       // decodeBookName(book.ctdownloadUrl);
     }
-    mongoose.connection.close();
     // r = await assertBook();
   // }
 
-
 }
 
-
+// (async () => {
+//     try {
+//       // await retry(3, schedule)
+//       // const fs = require('fs');
+//       // var access = fs.createWriteStream(logfile);
+//       // process.stdout.write = process.stderr.write = access.write.bind(access);
+//       const target_url = process.argv[2];
+//       console.log("downloader start dancing PID@", process.pid);
+//       await downloadBookFromUrl(target_url);
+//     } catch (e) {
+//       throw(e);
+//     }
+//     mongoose.connection.close();
+// })();
 /*
  main
 */
 (async () => {
     try {
       await automate();
+      mongoose.connection.close();
     } catch (e) {
       throw(e);
     }

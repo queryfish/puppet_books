@@ -167,7 +167,7 @@ const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 process.on('exit', (code) => {
   mongoose.connection.close();
   console.log(`About to exit with code: ${code}`);
-  // var child = require('child_process').fork('emailer.js',[logfile] );
+  // var child = require('child_process').fork(Configs.workingPath+'emailer.js',[logfile] );
 
 });
 
