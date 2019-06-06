@@ -91,7 +91,9 @@ async function fetchBook( bookUrl)
       }
   });
 
-  await page.goto(bookUrl, {waitUntil: 'networkidle2'});
+  // await page.goto(bookUrl, {waitUntil: 'networkidle2'});
+  await page.goto(bookUrl);
+  await page.waitFor(5*1000);
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
   var download_href = "";
@@ -195,7 +197,7 @@ async function automate() {
   var tick = 0;
   var r = await assertBook();
   // while(r.length > 0 && tick < max_crawled_items){
-    Logger.info(r.length+" books to be detailed ...");
+    Logger.info(r.length+" books to be CTed ...");
     // Logger.info(r);
     for (var i = 0; i < r.length; i++, tick++)
     {
