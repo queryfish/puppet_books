@@ -7,12 +7,12 @@ const process = require('process');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const CREDS = require('./creds');
-const Config = require('./configs');
+const Configs = require('./configs');
 const MAX_CRAWL_NUM = 200;
 
 function upsertBook(bookObj) {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
   const conditions = { bookUrl: bookObj.bookUrl };
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
@@ -25,7 +25,7 @@ function upsertBook(bookObj) {
 
 async function updateBook(conditions, update) {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
   const query = Book.update(conditions, update, {});
   let r = await query.exec();
@@ -35,7 +35,7 @@ async function updateBook(conditions, update) {
 
 async function unsetAllCTDownloadUrl() {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
   const conditions = {};
   const options = {$unset:{ctdownloadUrl:1}};
@@ -46,7 +46,7 @@ async function unsetAllCTDownloadUrl() {
 
 async function unsetCTDownloadUrl(download_url) {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
   const conditions = { ctdownloadUrl: download_url };
   const options = {$unset:{ctdownloadUrl:1}};
@@ -63,7 +63,7 @@ async function downloadBookFromUrl(dl_url)
       assertMongoDB();
       var bookname = decodeBookName(dl_url);
       console.log("start downloading -> "+bookname);
-      const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
+      const dl = new DownloaderHelper(dl_url, Configs.workingPath+'/books/', {fileName:bookname+".mobi"});
       dl.on('end', () => {
         var cond = {"ctdownloadUrl":dl_url};
         var update = {downloaded:true};
@@ -89,7 +89,7 @@ async function downloadBook(bookObj)
     if(dl_url != null && dl_url !="")
     {
       console.log("start downloading -> "+bookname);
-      const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi", override:true});
+      const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:true});
       dl.on('end', () => {
         var cond = {"ctdownloadUrl":dl_url};
         var option = {$set:{downloaded:true}};
@@ -110,7 +110,7 @@ async function downloadBook(bookObj)
 function assertMongoDB() {
 
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Configs.dbUrl);
   }
 }
 

@@ -9222,3 +9222,259 @@ found it
     at doWrite (_stream_writable.js:415:12)
     at writeOrBuffer (_stream_writable.js:399:5)
 (node:1232) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
+scheduler start dancing PID@ 3977
+(node:3977) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3977) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T17:00:04.913] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T17:00:05.111] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T17:00:05.111] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T23:00:06.868Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/',
+    bookSize: 3190646,
+    ctdownloadUrl:
+     'http://14804066.ch3.data.tv002.com/down/4a4247a026f80604c58852096544cd16/%E8%B4%A7%E5%B8%81%E7%AE%80%E5%8F%B2%EF%BC%9A%E4%BB%8E%E8%B4%A7%E5%B8%81%E7%9A%84%E8%B5%B7%E6%BA%90%E5%88%B0%E8%B4%A7%E5%B8%81%E7%9A%84%E6%9C%AA%E6%9D%A5.mobi?cts=f-D115A29A64A239F17ae9&ctp=115A29A64A239&ctt=1559821384&limit=1&spd=90000&ctk=4a4247a026f80604c58852096544cd16&chk=29addc56b5e157c12565312d642a9c58-3190646&mtd=1',
+    downloaded: true } ]
+[34m[2019-06-06T17:00:05.122] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T17:00:05.122] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T17:00:05.122] [TRACE] console - [39mcurrentBookId = 12808
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawlBookList (/home/steve/puppy/listCrawler.js:166:16)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 4793
+(node:4793) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:4793) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T17:05:04.198] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T17:05:04.215] [TRACE] console - [39mNO. 0 book: 致命的倔强
+[34m[2019-06-06T17:05:04.215] [TRACE] console - [39mhttps://sobooks.cc/books/12714.html
+[34m[2019-06-06T17:05:08.487] [TRACE] console - [39mextracting https://sobooks.cc/books/12714.html
+[34m[2019-06-06T17:05:08.633] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34282145-70bb34/
+[34m[2019-06-06T17:05:08.634] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T17:05:08.634] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T17:05:08.639] [TRACE] console - [39mNO. 1 book: 周浩晖推理悬疑经典集（共10册）
+[34m[2019-06-06T17:05:08.640] [TRACE] console - [39mhttps://sobooks.cc/books/12713.html
+{ TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:53:13)
+    at Object.exports.run (/home/steve/puppy/detailCrawler.js:146:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7) name: 'TimeoutError' }
+About to exit with code: 0
+scheduler start dancing PID@ 7030
+(node:7030) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:7030) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T18:00:03.052] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T18:00:03.103] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T18:00:03.103] [TRACE] console - [39m[ { _id: 5cf75a674e6fad2025da085d,
+    bookUrl: 'https://sobooks.cc/books/12803.html',
+    __v: 0,
+    dateCrawled: 2019-06-05T23:00:06.868Z,
+    cursorId: 12803,
+    bookName: '货币简史：从货币的起源到货币的未来',
+    baiduUrl: 'https://pan.baidu.com/s/13L4M5XMARYWB8AuXXSZpWQ',
+    baiduCode: '0cjm',
+    tags: '标签：经济 货币',
+    category: ' 经济管理',
+    bookBrief:
+     '苗延波，1963月6月出生于上海市。著名商法学专家。自2001年以来先后出版过《外国民商经济法选粹》(合著)、《刑法学》、《中国商法体系研究》、《商法通则立法研究》、《中国民法体系研究；、《郭沫若的学术人生》、《苗延波法学文集》、《公司的历程》、《华夏商路》、《中国法制史》等多部学术专著。在中外学术期刊和出版物上发表学术论文100余篇。研究方向为民法学、商法学、中外法律文化。',
+    bookSerial: 'ISBN：9787511551580',
+    uploadDate: 2019-06-05T00:00:00.000Z,
+    lastCrawlCopyResultMessage: '已为您成功保存文件点击查看',
+    lastCrawlCopyTime: 2019-06-05T06:30:57.919Z,
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34378072-5714bd/',
+    bookSize: 3190646,
+    ctdownloadUrl:
+     'http://14804066.ch3.data.tv002.com/down/4a4247a026f80604c58852096544cd16/%E8%B4%A7%E5%B8%81%E7%AE%80%E5%8F%B2%EF%BC%9A%E4%BB%8E%E8%B4%A7%E5%B8%81%E7%9A%84%E8%B5%B7%E6%BA%90%E5%88%B0%E8%B4%A7%E5%B8%81%E7%9A%84%E6%9C%AA%E6%9D%A5.mobi?cts=f-D115A29A64A239F17ae9&ctp=115A29A64A239&ctt=1559821384&limit=1&spd=90000&ctk=4a4247a026f80604c58852096544cd16&chk=29addc56b5e157c12565312d642a9c58-3190646&mtd=1',
+    downloaded: true } ]
+[34m[2019-06-06T18:00:03.115] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T18:00:03.116] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T18:00:03.116] [TRACE] console - [39mcurrentBookId = 12808
+[34m[2019-06-06T18:00:06.198] [TRACE] console - [39mstarting 1th PAGE of 217 pages
+[34m[2019-06-06T18:00:06.244] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T18:00:06.250] [TRACE] console - [39mget book Id 12804
+[34m[2019-06-06T18:00:06.251] [TRACE] console - [39mNO.1 每一个认真生活的人，都值得被认真对待 -> https://sobooks.cc/books/12804.html
+[34m[2019-06-06T18:00:06.314] [TRACE] console - [39mget book Id 12802
+[34m[2019-06-06T18:00:06.315] [TRACE] console - [39mNO.2 犹是深闺梦里人 -> https://sobooks.cc/books/12802.html
+[34m[2019-06-06T18:00:06.315] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T18:00:06.315] [TRACE] console - [39mcrawlerCursor = 12803
+[34m[2019-06-06T18:00:06.315] [TRACE] console - [39mcurrentBookId = 12802
+[34m[2019-06-06T18:00:06.465] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 7180
+(node:7180) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T18:05:03.626] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 7695
+(node:7695) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:7695) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T19:00:03.667] [TRACE] console - [39mNumpages: 
+[34m[2019-06-06T19:00:03.710] [TRACE] console - [39maggregate...result
+[34m[2019-06-06T19:00:03.710] [TRACE] console - [39m[ { _id: 5cf8e4269ea63c1b763d5030,
+    bookUrl: 'https://sobooks.cc/books/12804.html',
+    __v: 0,
+    dateCrawled: 2019-06-06T10:00:06.251Z,
+    cursorId: 12804,
+    bookName: '每一个认真生活的人，都值得被认真对待',
+    ctdiskUrl: 'https://sobooks.ctfile.com/dir/14804066-34384651-fe3541/',
+    baiduUrl: 'https://pan.baidu.com/s/1oiIdwvNJY-fAAQaogAgDxg',
+    tags: '标签：励志 成长',
+    category: ' 励志成功',
+    bookBrief: '它并不是一碗无处下手的鸡汤，它给了你喝鸡汤的勺子。',
+    bookSerial: 'ISBN：9787541140372',
+    uploadDate: 2019-06-06T00:00:00.000Z } ]
+[34m[2019-06-06T19:00:03.711] [TRACE] console - [39mstart crawling 
+[34m[2019-06-06T19:00:03.711] [TRACE] console - [39mcrawlerCursor = 12804
+[34m[2019-06-06T19:00:03.712] [TRACE] console - [39mcurrentBookId = 12809
+[34m[2019-06-06T19:00:06.743] [TRACE] console - [39mstarting 1th PAGE of 217 pages
+[34m[2019-06-06T19:00:06.744] [TRACE] console - [39mcrawling http://sobooks.cc/page/1
+[34m[2019-06-06T19:00:06.751] [TRACE] console - [39mget book Id 12804
+[34m[2019-06-06T19:00:06.752] [TRACE] console - [39mNO.1 每一个认真生活的人，都值得被认真对待 -> https://sobooks.cc/books/12804.html
+[34m[2019-06-06T19:00:06.760] [TRACE] console - [39mget book Id 12802
+[34m[2019-06-06T19:00:06.760] [TRACE] console - [39mNO.2 犹是深闺梦里人 -> https://sobooks.cc/books/12802.html
+[34m[2019-06-06T19:00:06.761] [TRACE] console - [39mend crawling 
+[34m[2019-06-06T19:00:06.761] [TRACE] console - [39mcrawlerCursor = 12804
+[34m[2019-06-06T19:00:06.761] [TRACE] console - [39mcurrentBookId = 12802
+[34m[2019-06-06T19:00:06.836] [TRACE] console - [39mscheduler finish dancing PID@
+About to exit with code: 0
+scheduler start dancing PID@ 7769
+(node:7769) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:7769) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T19:05:04.171] [TRACE] console - [39m50 books to be detailed ...
+[34m[2019-06-06T19:05:04.172] [TRACE] console - [39mNO. 0 book: 做二休五
+[34m[2019-06-06T19:05:04.172] [TRACE] console - [39mhttps://sobooks.cc/books/12627.html
+[34m[2019-06-06T19:07:13.795] [TRACE] console - [39mextracting https://sobooks.cc/books/12627.html
+[34m[2019-06-06T19:07:13.923] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34227829-b88a5c/
+[34m[2019-06-06T19:07:13.923] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:07:13.923] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:07:13.926] [TRACE] console - [39mNO. 1 book: 向着光明
+[34m[2019-06-06T19:07:13.926] [TRACE] console - [39mhttps://sobooks.cc/books/12626.html
+[34m[2019-06-06T19:09:23.463] [TRACE] console - [39mextracting https://sobooks.cc/books/12626.html
+[34m[2019-06-06T19:09:23.577] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34227805-110b28/
+[34m[2019-06-06T19:09:23.578] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:09:23.578] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:09:23.578] [TRACE] console - [39mNO. 2 book: 细讲中国历史丛书（套装共12册）
+[34m[2019-06-06T19:09:23.579] [TRACE] console - [39mhttps://sobooks.cc/books/12625.html
+[34m[2019-06-06T19:11:32.609] [TRACE] console - [39mextracting https://sobooks.cc/books/12625.html
+[34m[2019-06-06T19:11:32.792] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34227802-448977/
+[34m[2019-06-06T19:11:32.792] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:11:32.792] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:11:32.792] [TRACE] console - [39mNO. 3 book: 钢铁是怎样炼成的（名著译林）
+[34m[2019-06-06T19:11:32.792] [TRACE] console - [39mhttps://sobooks.cc/books/12624.html
+[34m[2019-06-06T19:13:43.308] [TRACE] console - [39mextracting https://sobooks.cc/books/12624.html
+[34m[2019-06-06T19:13:43.470] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34227796-c87396/
+[34m[2019-06-06T19:13:43.471] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:13:43.471] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:13:43.471] [TRACE] console - [39mNO. 4 book: 格列佛游记（名著译林）
+[34m[2019-06-06T19:13:43.471] [TRACE] console - [39mhttps://sobooks.cc/books/12622.html
+[34m[2019-06-06T19:15:52.962] [TRACE] console - [39mextracting https://sobooks.cc/books/12622.html
+[34m[2019-06-06T19:15:53.146] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34226098-39d499/
+[34m[2019-06-06T19:15:53.146] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:15:53.146] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:15:53.147] [TRACE] console - [39mNO. 5 book: 海底两万里（名著译林）
+[34m[2019-06-06T19:15:53.147] [TRACE] console - [39mhttps://sobooks.cc/books/12621.html
+[34m[2019-06-06T19:18:01.732] [TRACE] console - [39mextracting https://sobooks.cc/books/12621.html
+[34m[2019-06-06T19:18:01.757] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34226095-962cfb/
+[34m[2019-06-06T19:18:01.757] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:18:01.757] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:18:01.757] [TRACE] console - [39mNO. 6 book: 简·爱（名著译林）
+[34m[2019-06-06T19:18:01.757] [TRACE] console - [39mhttps://sobooks.cc/books/12619.html
+[34m[2019-06-06T19:20:19.072] [TRACE] console - [39mextracting https://sobooks.cc/books/12619.html
+[34m[2019-06-06T19:20:19.190] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34226080-0797ff/
+[34m[2019-06-06T19:20:19.190] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:20:19.190] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:20:19.191] [TRACE] console - [39mNO. 7 book: 老人与海（名著译林）
+[34m[2019-06-06T19:20:19.191] [TRACE] console - [39mhttps://sobooks.cc/books/12618.html
+[34m[2019-06-06T19:22:27.714] [TRACE] console - [39mextracting https://sobooks.cc/books/12618.html
+[34m[2019-06-06T19:22:27.875] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34226065-4619d4/
+[34m[2019-06-06T19:22:27.875] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:22:27.875] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:22:27.875] [TRACE] console - [39mNO. 8 book: 童年（名著译林）
+[34m[2019-06-06T19:22:27.875] [TRACE] console - [39mhttps://sobooks.cc/books/12617.html
+[34m[2019-06-06T19:24:36.356] [TRACE] console - [39mextracting https://sobooks.cc/books/12617.html
+[34m[2019-06-06T19:24:36.480] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34226056-928a60/
+[34m[2019-06-06T19:24:36.481] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:24:36.481] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:24:36.481] [TRACE] console - [39mNO. 9 book: 傲慢与偏见（名著译林）
+[34m[2019-06-06T19:24:36.481] [TRACE] console - [39mhttps://sobooks.cc/books/12616.html
+[34m[2019-06-06T19:26:44.991] [TRACE] console - [39mextracting https://sobooks.cc/books/12616.html
+[34m[2019-06-06T19:26:45.108] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34226038-9fa3de/
+[34m[2019-06-06T19:26:45.108] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:26:45.108] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:26:45.108] [TRACE] console - [39mNO. 10 book: 鲤·匿名作家
+[34m[2019-06-06T19:26:45.108] [TRACE] console - [39mhttps://sobooks.cc/books/12615.html
+[34m[2019-06-06T19:28:52.599] [TRACE] console - [39mextracting https://sobooks.cc/books/12615.html
+[34m[2019-06-06T19:28:52.614] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34225135-a14052/
+[34m[2019-06-06T19:28:52.614] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:28:52.614] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:28:52.614] [TRACE] console - [39mNO. 11 book: 鲤·旅馆
+[34m[2019-06-06T19:28:52.614] [TRACE] console - [39mhttps://sobooks.cc/books/12614.html
+[34m[2019-06-06T19:31:01.142] [TRACE] console - [39mextracting https://sobooks.cc/books/12614.html
+[34m[2019-06-06T19:31:01.280] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34225120-0a7c8d/
+[34m[2019-06-06T19:31:01.280] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:31:01.280] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:31:01.280] [TRACE] console - [39mNO. 12 book: 鲤·文艺青年
+[34m[2019-06-06T19:31:01.280] [TRACE] console - [39mhttps://sobooks.cc/books/12613.html
+[34m[2019-06-06T19:33:09.780] [TRACE] console - [39mextracting https://sobooks.cc/books/12613.html
+[34m[2019-06-06T19:33:09.820] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34225117-d6d331/
+[34m[2019-06-06T19:33:09.820] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:33:09.820] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:33:09.821] [TRACE] console - [39mNO. 13 book: 鲤·与书私奔
+[34m[2019-06-06T19:33:09.821] [TRACE] console - [39mhttps://sobooks.cc/books/12612.html
+[34m[2019-06-06T19:33:12.724] [TRACE] console - [39mextracting https://sobooks.cc/books/12612.html
+[34m[2019-06-06T19:33:12.871] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34225114-70bd3d/
+[34m[2019-06-06T19:33:12.872] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:33:12.872] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:33:12.872] [TRACE] console - [39mNO. 14 book: 鲤·时间胶囊
+[34m[2019-06-06T19:33:12.872] [TRACE] console - [39mhttps://sobooks.cc/books/12611.html
+[34m[2019-06-06T19:33:14.116] [TRACE] console - [39mextracting https://sobooks.cc/books/12611.html
+[34m[2019-06-06T19:33:14.149] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34217935-a67c78/
+[34m[2019-06-06T19:33:14.149] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:33:14.149] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:33:14.150] [TRACE] console - [39mNO. 15 book: 鲤·写作课
+[34m[2019-06-06T19:33:14.150] [TRACE] console - [39mhttps://sobooks.cc/books/12610.html
+[34m[2019-06-06T19:33:15.751] [TRACE] console - [39mextracting https://sobooks.cc/books/12610.html
+[34m[2019-06-06T19:33:15.775] [TRACE] console - [39mct_url:https://sobooks.ctfile.com/dir/14804066-34217905-771661/
+[34m[2019-06-06T19:33:15.775] [TRACE] console - [39mundefined@undefined
+[34m[2019-06-06T19:33:15.775] [TRACE] console - [39mbook detailed 
+[34m[2019-06-06T19:33:15.775] [TRACE] console - [39mNO. 16 book: 台湾风云（1368-1683）
+[34m[2019-06-06T19:33:15.775] [TRACE] console - [39mhttps://sobooks.cc/books/12609.html
+[34m[2019-06-06T19:33:39.035] [TRACE] console - [39mextracting https://sobooks.cc/books/12609.html
+Error: Evaluation failed: TypeError: Cannot read property 'getAttribute' of null
+    at __puppeteer_evaluation_script__:2:41
+    at ExecutionContext.evaluateHandle (/home/steve/puppy/node_modules/puppeteer/lib/ExecutionContext.js:121:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+  -- ASYNC --
+    at ExecutionContext.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at ExecutionContext.evaluate (/home/steve/puppy/node_modules/puppeteer/lib/ExecutionContext.js:48:31)
+    at ExecutionContext.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at DOMWorld.evaluate (/home/steve/puppy/node_modules/puppeteer/lib/DOMWorld.js:105:20)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.evaluate (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:809:43)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at crawl (/home/steve/puppy/detailCrawler.js:88:35)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+About to exit with code: 0
