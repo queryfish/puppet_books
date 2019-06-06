@@ -89,7 +89,7 @@ async function downloadBook(bookObj)
     if(dl_url != null && dl_url !="")
     {
       console.log("start downloading -> "+bookname);
-      const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
+      const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi", override:true});
       dl.on('end', () => {
         var cond = {"ctdownloadUrl":dl_url};
         var option = {$set:{downloaded:true}};
@@ -97,6 +97,7 @@ async function downloadBook(bookObj)
         updateBook(cond, option);
       });
       dl.on('error', (err) => {console.log("Error ...");console.log(err);});
+      dl.on('stateChanged', (state) => {console.log("Downloader State changed");console.log(state);});
       dl.on('progress', (stats)=> {console.log(bookname, Math.floor(stats.progress)+"%");});
       try {
         await dl.start();

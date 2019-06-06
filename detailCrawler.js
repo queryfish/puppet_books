@@ -50,7 +50,7 @@ async function crawl(page, detailUrl)
  const AUTHOR_BRIEF_SEL= 'body > section > div.content-wrap > div > article > p:nth-child(8)';
  const CATEGORY_SEL   = '#mute-category > a';
 
- await page.goto(detailUrl, {waitUntil: 'networkidle2'});
+ await page.goto(detailUrl, {waitUntil: 'load', timeout:0,});
  // await page.goto(detailUrl, {waitUntil: 'load'});
  // await page.click(BUTTON_SELECTOR, {waitForNavigationUntil: 'load'})
  // await page.goto(detailUrl);

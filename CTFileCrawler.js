@@ -92,7 +92,8 @@ async function fetchBook( bookUrl)
   });
 
   // await page.goto(bookUrl, {waitUntil: 'networkidle2'});
-  await page.goto(bookUrl);
+  // await page.goto(bookUrl);
+  await page.goto(bookUrl, {waitUntil: 'load', timeout:0,});
   await page.waitFor(5*1000);
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
