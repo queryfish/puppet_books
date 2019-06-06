@@ -9156,3 +9156,69 @@ About to exit with code: 0
     at process._tickCallback (internal/process/next_tick.js:68:7)
 (node:22516) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
 (node:22516) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:1232) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[34m[2019-06-06T16:10:03.929] [TRACE] console - [39m46 books to be CTed ...
+[34m[2019-06-06T16:10:03.930] [TRACE] console - [39mNO. 0 book: 谁统治美国？公司富豪的胜利
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+谁统治美国？公司富豪的胜利.mobi
+found it
+谁统治美国？公司富豪的胜利.mobi
+/i/1931297007/f/XGlSZFFrAjUBY19hDDoGagB7DTlUZwUyB2QDb1IzCjRdaVVl
+[34m[2019-06-06T16:10:10.615] [TRACE] console - [39m/i/1931297007/f/XGlSZFFrAjUBY19hDDoGagB7DTlUZwUyB2QDb1IzCjRdaVVl
+Size del header:  2873600
+Download url : http://14804066.ch3.data.tv002.com/down/6c593f5e630c3bde42bec30df61c8d23/%E8%B0%81%E7%BB%9F%E6%B2%BB%E7%BE%8E%E5%9B%BD%EF%BC%9F%E5%85%AC%E5%8F%B8%E5%AF%8C%E8%B1%AA%E7%9A%84%E8%83%9C%E5%88%A9.mobi?cts=f-D115A29A64A239Fdb8b6&ctp=115A29A64A239&ctt=1559851809&limit=1&spd=90000&ctk=6c593f5e630c3bde42bec30df61c8d23&chk=813eaed4d977ff4665cadf0ffe1a6ebb-2873600&mtd=1
+(node:1232) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[34m[2019-06-06T16:10:21.661] [TRACE] console - [39mNO. 1 book: 德国极简史
+#table_files > tbody > tr:nth-child(1) > td:nth-child(2) > a
+德国极简史.mobi
+found it
+德国极简史.mobi
+/i/1931297007/f/BzJWYAU_VmEFZwk3CD4EaAd8VWECMQcwBWYDbwVkBjJSZVBg
+[34m[2019-06-06T16:10:28.698] [TRACE] console - [39m/i/1931297007/f/BzJWYAU_VmEFZwk3CD4EaAd8VWECMQcwBWYDbwVkBjJSZVBg
+[34m[2019-06-06T16:10:39.805] [TRACE] console - [39mNO. 2 book: 河合隼雄心理学经典
+(node:1232) UnhandledPromiseRejectionWarning: TimeoutError: Navigation Timeout Exceeded: 30000ms exceeded
+    at Promise.then (/home/steve/puppy/node_modules/puppeteer/lib/LifecycleWatcher.js:143:21)
+  -- ASYNC --
+    at Frame.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:110:27)
+    at Page.goto (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:656:49)
+    at Page.<anonymous> (/home/steve/puppy/node_modules/puppeteer/lib/helper.js:111:23)
+    at fetchBook (/home/steve/puppy/CTFileCrawler.js:95:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+(node:1232) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:1232) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:1232) UnhandledPromiseRejectionWarning: Error: Page crashed!
+    at Page._onTargetCrashed (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:185:24)
+    at CDPSession.Page.client.on.event (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:140:56)
+    at CDPSession.emit (events.js:198:13)
+    at CDPSession._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:200:12)
+    at Connection._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:112:17)
+    at WebSocketTransport._ws.addEventListener.event (/home/steve/puppy/node_modules/puppeteer/lib/WebSocketTransport.js:41:24)
+    at WebSocket.onMessage (/home/steve/puppy/node_modules/ws/lib/event-target.js:120:16)
+    at WebSocket.emit (events.js:198:13)
+    at Receiver.receiverOnMessage (/home/steve/puppy/node_modules/ws/lib/websocket.js:789:20)
+    at Receiver.emit (events.js:198:13)
+    at Receiver.dataMessage (/home/steve/puppy/node_modules/ws/lib/receiver.js:422:14)
+    at Receiver.getData (/home/steve/puppy/node_modules/ws/lib/receiver.js:352:17)
+    at Receiver.startLoop (/home/steve/puppy/node_modules/ws/lib/receiver.js:138:22)
+    at Receiver._write (/home/steve/puppy/node_modules/ws/lib/receiver.js:74:10)
+    at doWrite (_stream_writable.js:415:12)
+    at writeOrBuffer (_stream_writable.js:399:5)
+(node:1232) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
+(node:1232) UnhandledPromiseRejectionWarning: Error: Page crashed!
+    at Page._onTargetCrashed (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:185:24)
+    at CDPSession.Page.client.on.event (/home/steve/puppy/node_modules/puppeteer/lib/Page.js:140:56)
+    at CDPSession.emit (events.js:198:13)
+    at CDPSession._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:200:12)
+    at Connection._onMessage (/home/steve/puppy/node_modules/puppeteer/lib/Connection.js:112:17)
+    at WebSocketTransport._ws.addEventListener.event (/home/steve/puppy/node_modules/puppeteer/lib/WebSocketTransport.js:41:24)
+    at WebSocket.onMessage (/home/steve/puppy/node_modules/ws/lib/event-target.js:120:16)
+    at WebSocket.emit (events.js:198:13)
+    at Receiver.receiverOnMessage (/home/steve/puppy/node_modules/ws/lib/websocket.js:789:20)
+    at Receiver.emit (events.js:198:13)
+    at Receiver.dataMessage (/home/steve/puppy/node_modules/ws/lib/receiver.js:422:14)
+    at Receiver.getData (/home/steve/puppy/node_modules/ws/lib/receiver.js:352:17)
+    at Receiver.startLoop (/home/steve/puppy/node_modules/ws/lib/receiver.js:138:22)
+    at Receiver._write (/home/steve/puppy/node_modules/ws/lib/receiver.js:74:10)
+    at doWrite (_stream_writable.js:415:12)
+    at writeOrBuffer (_stream_writable.js:399:5)
+(node:1232) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
