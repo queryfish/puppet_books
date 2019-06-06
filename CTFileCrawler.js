@@ -206,7 +206,6 @@ async function automate() {
       await fetchBook(book.ctdiskUrl);
       tick ++;
     }
-    mongoose.connection.close();
     // r = await assertBook();
   // }
 }
@@ -220,7 +219,10 @@ async function automate() {
       await automate();
     } catch (e) {
       throw(e);
+      mongoose.connection.close();
     }
+    mongoose.connection.close();
+
     // return;
     // retry(10, automate)
 })();
