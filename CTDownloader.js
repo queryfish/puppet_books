@@ -23,11 +23,11 @@ function upsertBook(bookObj) {
   });
 }
 
-async function updateBook(conditions, options) {
+async function updateBook(conditions, update) {
   if (mongoose.connection.readyState == 0) {
     mongoose.connect( Config.dbUrl);
   }
-  const query = Book.update(conditions, options);
+  const query = Book.update(conditions, update, {});
   let r = await query.exec();
   return r;
 }
@@ -50,7 +50,7 @@ async function unsetCTDownloadUrl(download_url) {
   }
   const conditions = { ctdownloadUrl: download_url };
   const options = {$unset:{ctdownloadUrl:1}};
-  const query = Book.update(conditions, options);
+  const query = Book.updateOne(conditions, options);
   let r = await query.exec();
   return r;
 }
@@ -66,9 +66,9 @@ async function downloadBookFromUrl(dl_url)
       const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
       dl.on('end', () => {
         var cond = {"ctdownloadUrl":dl_url};
-        var option = {$set:{downloaded:true}};
+        var update = {downloaded:true};
         console.log(bookname, "DONE.");
-        // updateBook(cond, option);
+        updateBook(cond,update);
       });
       dl.on('error', (err) => {console.log("Error ...");console.log(err);});
       dl.on('progress', (stats)=> {console.log(bookname, stats.progress+"%");});
@@ -88,11 +88,16 @@ async function downloadBook(bookObj)
     var bookname = bookObj.bookName;
     if(dl_url != null && dl_url !="")
     {
-      console.log("starting "+bookname+dl_url);
+      console.log("start downloading -> "+bookname);
       const dl = new DownloaderHelper(dl_url, './books/', {fileName:bookname+".mobi"});
-      dl.on('end', () => {upsertBook({"bookUrl":bookObj.bookUrl, "downloaded":true});});
+      dl.on('end', () => {
+        var cond = {"ctdownloadUrl":dl_url};
+        var option = {$set:{downloaded:true}};
+        console.log(bookname, "DONE.");
+        updateBook(cond, option);
+      });
       dl.on('error', (err) => {console.log("Error ...");console.log(err);});
-      dl.on('progress', (stats)=> {console.log(stats.progress+"%");});
+      dl.on('progress', (stats)=> {console.log(bookname, Math.floor(stats.progress)+"%");});
       try {
         await dl.start();
       } catch (e) {
