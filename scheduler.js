@@ -7,33 +7,26 @@ const crawlerConfig = require('./models/crawlerConfig')
 const isRunning = require('is-running');
 const process = require('process');
 const Logger = require('./logger');
-const copyCrawler = require('./copyCrawler');
-const detailCrawler = require('./detailCrawler');
-const listCrawler = require('./listCrawler');
+// const copyCrawler = require('./copyCrawler');
+// const detailCrawler = require('./detailCrawler');
+// const listCrawler = require('./listCrawler');
 const util = require('./utils');
 const MAX_CRAWL_NUM = 200;
-
-// const cookieFile = '/home/steve/puppy/cookieJar';
+// const db = mongoose.connect( Configs.dbUrl,
+//   {
+//     // sets how many times to try reconnecting
+//     reconnectTries: Number.MAX_VALUE,
+//     // sets the delay between every retry (milliseconds)
+//     reconnectInterval: 1000
+//     }
+//   // {keepAlive: 1, connectTimeoutMS: 30000, reconnectTries: 30, reconnectInterval: 2000}
+//   // {auto_reconnect: true, poolSize: 10}
+// );
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
     mongoose.connect( Configs.dbUrl);
   }
-}
-
-async function booksToCopy() {
-  assertMongoDB();
-  // if this email exists, update the entry, don't insert
-  const conditions = { "$and":[
-                          {"baiduUrl": {"$exists": true}},
-                          {"baiduCode":{"$exists":true}},
-                          {"lastCrawlCopyTime":{"$exists":false}},
-                          {"badApple":{"$exists":false}}
-                        ] };
-  const options = { limit: Configs.crawlStep };
-  var query = Book.find(conditions ,null ,options);
-  const resultArray = await query.exec();
-  return resultArray.length;
 }
 
 async function isWorkerIdle() {
@@ -46,6 +39,8 @@ async function isWorkerIdle() {
   const options = { limit: 5 };
   var query = crawlerConfig.find(conditions ,null ,options);
   let resultArray = await query.exec();
+  await mongoose.connection.close();
+
   if(resultArray.length == 0)
     return true;
   if(resultArray[0]["workerState"] <= 1) //manus means idle
@@ -61,113 +56,56 @@ async function isWorkerIdle() {
   }
 }
 
-function setWorkerState() {
+async function setWorkerState(workerState)
+{
   assertMongoDB();
-  // if this email exists, update the entry, don't insert
   const conditions = { index:1}
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
 
-  //make this sync
-  crawlerConfig.findOneAndUpdate(conditions, {"workerState":process.pid}, options, (err, result) => {
-    if (err) {
-      throw err;
-    }
-  });
+  const query = crawlerConfig.findOneAndUpdate(conditions, {"workerState":workerState}, options);
+  let ret = await query.exec();
+  await mongoose.connection.close();
+  return ret;
+
 }
 
-async function booksToDetail() {
-  assertMongoDB();
-  // if this email exists, update the entry, don't insert
-  const conditions = { "$or":[
-                          {"baiduUrl": {"$exists": false}},
-                          {"baiduCode":{"$exists":false}}
-                        ] };
-  const options = { limit: Configs.crawlStep };
-  var query = Book.find(conditions ,null ,options);
-  const resultArray = await query.exec();
-  return resultArray.length;
-}
-
-async function schedule(crawler_code) {
-  //TODO: check the state if running just quit and carry on for idle
+async function schedule(crawler_code)
+{
     let isIdle = await isWorkerIdle();
     if(isIdle)
-    {
-        setWorkerState();// 1 for busy
-    }
-    else{
+        await setWorkerState(process.pid);
+    else
       return;
-    }
-  //TODO: mark the single state of this scheduler to running
-    const browser = await puppeteer.launch({
-      headless: true
-    });
-    var page = await browser.newPage();
 
-    //Should we run this unconditionally?
-    // await listCrawler.run(page);
-    // page.close();
-    // page = await browser.newPage();
-    // await page.goto('about:blank')
-    // let detail = await booksToDetail();
-    // let copy = await booksToCopy();
-    if(crawler_code == 0){
-          await listCrawler.run(page);
-    }
-    else if(crawler_code == 1)
-    {
-      await detailCrawler.run(page, 100000);
-
-    }
-    else {
-      await util.injectCookiesFromFile(page, Configs.cookieFile);
-      await page.waitFor(5 * 1000);
-      await copyCrawler.run(page);
-    }
-    // if(detail >0){
-      // start detail crawler
-      // page.close();
-    // }else if(copy > 0){
-      //start copy crawler
-      // page = await browser.newPage();
-      // await page.goto('about:blank')
-
-    // }
-    // else{
-    //     await listCrawler.run(page);
-    // }
-    await browser.close();
-
+    var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
+    var index = crawler_code%crawlers.length;
+    require(Configs.workingPath+crawlers[index]);
 }
 
-async function retry(maxRetries, fn) {
-  Logger.info("retry time "+maxRetries);
-  return await fn().catch(function(err) {
-    if (maxRetries <= 0) {
-      throw err;
-    }
-    return retry(maxRetries - 1, fn);
-  });
-}
-
-// process.on('uncaughtException', (err, origin) => {
-//   // fs.writeSync(
-//   console.log(
-//     process.stderr.fd,
-//     `Caught exception: ${err}\n` +
-//     `Exception origin: ${origin}`
-//   );
-//   process.exit(0);
-// });
+process.on('uncaughtException', (err, origin) => {
+  // fs.writeSync(
+  console.log(
+    process.stderr.fd,
+    `Caught exception: ${err}\n` +
+    `Exception origin: ${origin}`
+  );
+  // process.exit(0);
+});
 
 var datetime = require('node-datetime');
 var formatted = datetime.create().format('Ymd_HMS');
 const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 
 process.on('exit', (code) => {
-  mongoose.connection.close();
   console.log(`About to exit with code: ${code}`);
-  var child = require('child_process').fork(Configs.workingPath+'emailer.js',[logfile] );
+  
+  // if(Configs.greedyMode && Configs.greedyMode == true)
+  // if(code ==0)
+  if(0)
+  {
+      const crawler_code = Number(process.argv[2])+1;
+      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
+  }
 
 });
 
@@ -182,17 +120,16 @@ process.on('unhandledRejection', (reason, promise) => {
 */
 (async () => {
     try {
-
-      // await retry(3, schedule)
       const fs = require('fs');
       var access = fs.createWriteStream(logfile);
       const crawler_code = Number(process.argv[2]);
       // process.stdout.write = process.stderr.write = access.write.bind(access);
       console.log("scheduler start dancing PID@", process.pid);
       await schedule(crawler_code);
+
     } catch (e) {
+      console.log(e);
       throw(e);
     }
-    mongoose.connection.close();
-    Logger.info("scheduler finish dancing PID@", process.pid);
+    console.log("scheduler finish dancing PID@", process.pid);
 })();

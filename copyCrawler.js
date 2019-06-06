@@ -7,9 +7,8 @@ const CREDS = require('./creds');
 const Config = require('./configs');
 const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 200;
+const util = require('./utils');
 
-// // const cookieFile = './cookieFile';
-// const cookieFile = ;
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
     mongoose.connect(Config.dbUrl);
@@ -170,8 +169,8 @@ async function injectCookiesFromFile(page, file)
   });
  }
 
-exports.run =
-async function (page) {
+// exports.run =
+async function run(page) {
    /*
    1- query from mongodb for impartial entry to be further crawl for detail
    2- use the crawl func and save it to db
@@ -257,14 +256,19 @@ async function retry(maxRetries, fn) {
 /*
  main
 */
-// (async () => {
-//     try {
-//       await automate();
-//     } catch (e) {
-//       throw(e);
-//     }
-//     mongoose.connection.close();
-//     Logger.info("gonna dance, copyCrawler");
-//     // return;
-//     // retry(10, automate)
-// })();
+(async () => {
+    try {
+        const browser = await puppeteer.launch({
+          headless: true
+        });
+        const page = await browser.newPage();
+        await util.injectCookiesFromFile(page, Config.cookieFile);
+        await page.waitFor(5 * 1000);
+        // await copyCrawler.run(page);
+        await run(page);
+        await browser.close();
+        mongoose.connection.close();
+    } catch (e) {
+        throw(e);
+    }
+})();

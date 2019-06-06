@@ -144,8 +144,23 @@ async function assertBook() {
   return result;
 }
 
-exports.run =
-async function(page, max_crawled_items) {
+
+
+/*
+ main
+*/
+async function retry(maxRetries, fn) {
+  Logger.info("retry time "+maxRetries);
+  return await fn().catch(function(err) {
+    if (maxRetries <= 0) {
+      throw err;
+    }
+    return retry(maxRetries - 1, fn);
+  });
+}
+
+// exports.run =
+async function fakeMain(page, max_crawled_items) {
   /*
   1- query from mongodb for impartial entry to be further crawl for detail
   2- use the crawl func and save it to db
@@ -173,24 +188,20 @@ async function(page, max_crawled_items) {
     }
     // r = await assertBook();
   // }
-
 }
-
 /*
  main
 */
-async function retry(maxRetries, fn) {
-  Logger.info("retry time "+maxRetries);
-  return await fn().catch(function(err) {
-    if (maxRetries <= 0) {
-      throw err;
+(async () => {
+    try {
+        const browser = await puppeteer.launch({
+          headless: true
+        });
+        const page = await browser.newPage();
+        await fakeMain(page, 10000);
+        await browser.close();
+        mongoose.connection.close();
+    } catch (e) {
+        throw(e);
     }
-    return retry(maxRetries - 1, fn);
-  });
-}
-/*
- main
-*/
-// (async () => {
-//     retry(10, automate)
-// })();
+})();

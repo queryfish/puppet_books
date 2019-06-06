@@ -1,18 +1,15 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const mongoose = require('mongoose');
+const process = require('process');
 const Book = require('./models/book');
 const Logger = require('./logger');
 const CREDS = require('./creds');
 const Configs = require('./configs');
 const MAX_CRAWL_NUM = 200;
-// const CTDownloader = require('./CTDownloader');
 
 async function upsertBook(bookObj) {
-  if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Configs.dbUrl);
-  }
-
+  assertMongoDB();
   // if this email exists, update the entry, don't insert
   const conditions = { ctdiskUrl: bookObj.ctdiskUrl };
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
@@ -138,41 +135,8 @@ async function fetchBook( bookUrl)
 
 }
 
-async function crawl(page) {
-   /*
-   1- query from mongodb for impartial entry to be further crawl for detail
-   2- use the crawl func and save it to db
-   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
-   */
-   var resultArray = await assertBook();
-   Logger.info(resultArray.length+" books to copy ...");
-   for (var i = 0; i < resultArray.length; i++) {
-       var book = resultArray[i];
-       Logger.info("NO."+i+": "+book.bookName+" -> "+book.bookUrl);
-       if(book.baiduUrl.startsWith("https://pan.baidu.com"))
-       {
-         await grabABook_BDY(page, book);
-       }
-       else
-       {
-         //we do the check here and we save it backup to mongodb for further filter
-         book["badApple"] = true;
-         upsertBook(book);
-       }
-    }
-}
-
-async function automate() {
-  /*
-  1- query from mongodb for impartial entry to be further crawl for detail
-  2- use the crawl func and save it to db
-  3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
-  */
-
-}
-
-function assertMongoDB() {
-
+function assertMongoDB()
+{
   if (mongoose.connection.readyState == 0) {
     mongoose.connect( Configs.dbUrl);
   }
@@ -196,35 +160,29 @@ async function automate() {
   2- use the crawl func and save it to db
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
-  var tick = 0;
-  var r = await assertBook();
-  // while(r.length > 0 && tick < max_crawled_items){
+    console.log("in this");
+    var r = await assertBook();
     Logger.info(r.length+" books to be CTed ...");
     // Logger.info(r);
-    for (var i = 0; i < r.length; i++, tick++)
+    for (var i = 0; i < r.length; i++)
     {
       book = r[i];
       Logger.info("NO. "+i+" book: "+book.bookName);
       await fetchBook(book.ctdiskUrl);
-      tick ++;
     }
-    // r = await assertBook();
-  // }
-}
 
+}
 
 /*
  main
 */
 (async () => {
     try {
+      console.log("CTFileCrawler roll out PID: ", process.pid);
       await automate();
+      mongoose.connection.close();
     } catch (e) {
       throw(e);
-      mongoose.connection.close();
     }
-    mongoose.connection.close();
 
-    // return;
-    // retry(10, automate)
 })();

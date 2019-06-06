@@ -10,19 +10,21 @@ const MAX_PAGE_NUM = 200;
 const MAX_TICKS = 2000;
 const BOOK_INFO_SITE = 'http://sobooks.cc'
 
+// const db = mongoose.connect( Config.dbUrl,{}
+  // {
+  //   // sets how many times to try reconnecting
+  //   reconnectTries: Number.MAX_VALUE,
+  //   // sets the delay between every retry (milliseconds)
+  //   reconnectInterval: 1000
+  //   }
+// );
+
 async function crawlBookListByPage(pageNum)
 {
   pageUrl = 'https://sobooks.cc/page/'+pageNum;
   // searchUrl = 'https://sobooks.cc/search/'+qString;
   let result = await crawlBookList(pageUrl);
   return result;
-}
-
-function assertMongoDB() {
-
-  if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
-  }
 }
 
 async function getMaxCursor() {
@@ -46,21 +48,15 @@ async function getCursor() {
   return result;
 }
 
-function upsertCursor(cursorUpdate) {
-
-  if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
-  }
-  // if this email exists, update the entry, don't insert
+async function upsertCursor(cursorUpdate)
+{
+  assertMongoDB();
   var config = {cursor:cursorUpdate};
   const conditions = { index:1 };
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
 
-  CrawlerConfig.findOneAndUpdate(conditions, config, options, (err, result) => {
-    if (err) {
-      throw err;
-    }
-  });
+  const q = CrawlerConfig.findOneAndUpdate(conditions, config, options);
+  await q.exec();
 }
 
 async function crawlBookListScanner()
@@ -85,7 +81,7 @@ async function crawlBookListScanner()
           }
           else {
             Logger.info("valid url "+ pageUrl);
-            upsertBook({bookUrl:pageUrl});
+            await upsertBook({bookUrl:pageUrl});
           }
       }
       else{
@@ -110,14 +106,6 @@ async function crawlBookListPlain()
   await crawlBookList((p)=>{
     return (BOOK_INFO_SITE+'/page/'+p);
 
-  });
-}
-
-exports.run =
-async function(page)
-{
-  await crawlBookList(page, (p)=>{
-    return (BOOK_INFO_SITE+'/page/'+p);
   });
 }
 
@@ -205,7 +193,7 @@ async function crawlBookList(page, uri_formatter)
       }
 
       Logger.info('NO.'+i+" "+bookname+ ' -> '+ bookurl);
-      upsertBook({
+      await upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
         cursorId: currentBookId,
@@ -217,7 +205,7 @@ async function crawlBookList(page, uri_formatter)
   Logger.info("end crawling ");
   Logger.info("crawlerCursor = "+crawlerCursor);
   Logger.info("currentBookId = "+currentBookId);
-  upsertCursor(maxCursor);
+  await upsertCursor(maxCursor);
 
 }
 
@@ -245,7 +233,9 @@ async function greedyDiggerWithFormatter(uri_formatter)
   {
     // let pageUrl = BOOK_INFO_SITE+'/page/'+h;
     let pageUrl = uri_formatter(p);
-    await page.goto(pageUrl, {waitUntil: 'networkidle2'});
+    await page.goto(pageUrl, {waitUntil: 'networkidle2', timeout:0});
+    // await page.goto(pageUrl);
+    // await page.waitFor(5*1000);
     let listLength = await page.evaluate((sel) => {
       return document.getElementsByClassName(sel).length;
     }, LENGTH_SELECTOR_CLASS);
@@ -279,7 +269,7 @@ async function greedyDiggerWithFormatter(uri_formatter)
           var bookId = bookurl.split("/").pop().split(".").shift();
           currentBookId = Number(bookId);
       }
-      upsertBook({
+      await upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
         cursorId: currentBookId,
@@ -298,22 +288,19 @@ async function greedyDiggerWithFormatter(uri_formatter)
 }
 
 function assertMongoDB() {
-
+  //
   if (mongoose.connection.readyState == 0) {
     mongoose.connect( Config.dbUrl);
   }
 }
 
-function upsertBook(bookObj) {
+async function upsertBook(bookObj) {
   assertMongoDB();
   // if this email exists, update the entry, don't insert
   const conditions = { bookUrl: bookObj.bookUrl };
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
-  Book.findOneAndUpdate(conditions, bookObj, options, (err, result) => {
-    if (err) {
-      throw err;
-    }
-  });
+  let q = Book.findOneAndUpdate(conditions, bookObj, options);
+  await q.exec();
 }
 
 async function assertBook(bookInfoUrl) {
@@ -333,21 +320,33 @@ function isInvalidValue(v) {
   return false;
 }
 
+// exports.run =
+async function fakeMain(page)
+{
+  await crawlBookList(page, (p)=>{
+    return (BOOK_INFO_SITE+'/page/'+p);
+  });
+}
+
 /**** main ***/
 // const process = require('process');
-// (async () => {
-//     try {
-//       // var v = process.argv.slice(2);
-//       // await crawlBookListScanner();
-//       // await crawlBookListByTag("小说")
-//       await crawlBookListPlain();
-//       mongoose.connection.close();
-//       Logger.info("can we exit ?");
-//       // await updateMaxCursor();
-//       // await greedyDigger();
-//       // process.exit(0);
-//     } catch (e) {
-//         throw(e)
-//         // Deal with the fact the chain failed
-//     }
-// })();
+(async () => {
+    try {
+        const browser = await puppeteer.launch({
+          headless: true
+        });
+        const page = await browser.newPage();
+        await crawlBookList(page, function(p){
+          return (BOOK_INFO_SITE+'/page/'+p);
+        });
+        await browser.close();
+        await mongoose.connection.close();
+        // db.close();
+    } catch (e) {
+      console.log(e);
+        throw(e);
+        mongoose.connection.close();
+    }
+    await mongoose.disconnect();
+
+})();

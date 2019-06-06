@@ -108,9 +108,8 @@ async function downloadBook(bookObj)
 }
 
 function assertMongoDB() {
-
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Configs.dbUrl);
+    mongoose.connect( Configs.dbUrl, { useNewUrlParser: true });
   }
 }
 
