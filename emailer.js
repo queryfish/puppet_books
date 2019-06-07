@@ -2,6 +2,7 @@ const nodemailer = require('nodemailer');
 const fs = require('fs');
 const creds = require('./creds');
 const process = require('process');
+const Configs = require('./configs');
 
 var mailOptions = {
   from: 'marrowsky@126.com',
@@ -29,7 +30,15 @@ var mailTransport = nodemailer.createTransport({
 //   }
 // });
 
-const logfile = process.argv[2];
+// const logfile = process.argv[2];
+var datetime = require('node-datetime');
+var today = new Date();
+var hourago = new Date(today.getTime() - (1000*60*60));
+var formatted = datetime.create(hourago).format('YmdH');
+const logfile = Configs.workingPath+'logs/download_trace.'+formatted+'.log';
+
+//make sure the log file exist
+console.log(logfile);
 
 fs.readFile(logfile, function (err, data) {
   var logname = logfile.split("/").pop();

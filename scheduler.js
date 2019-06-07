@@ -109,7 +109,7 @@ process.on('exit', (code) => {
   const crawler_code = Number(process.argv[2])+1;
   if(crawler_code < Configs.greedy*5)
   {
-      // require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
+      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
   }
 
 });

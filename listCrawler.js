@@ -204,7 +204,7 @@ async function crawlBookList(page, uri_formatter)
     // await page.waitFor(5*1000);
   }
   // statCounter should be recorded here
-  statLogger.info(statCounter+"BookId Crawled");
+  // statLogger.info(statCounter+"BookId Crawled");
   Logger.trace("end crawling ");
   Logger.trace("crawlerCursor = "+crawlerCursor);
   Logger.trace("currentBookId = "+currentBookId);
@@ -347,6 +347,8 @@ async function fakeMain(page)
         Logger.info('List Crawler Session END PID@ '+process.pid);
     } catch (e) {
         Logger.error(e);
+        await mongoose.connection.close();
+        await browser.close();
         throw(e);
     }
 

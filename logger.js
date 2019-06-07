@@ -5,21 +5,21 @@ log4js.configure({
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/download_info',
-                  pattern: 'yyyy-MM-dd.log',
+                  pattern: 'yyyyMMddhh.log',
                   alwaysIncludePattern: true
                 }
                 ,downloadTrace:
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/download_trace',
-                  pattern: 'yyyy-MM-dd.log',
+                  pattern: 'yyyyMMddhh.log',
                   alwaysIncludePattern: true
                 }
                 ,runtimeStats:
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/stats',
-                  pattern: 'yyMMdd-HH.log',
+                  pattern: 'yyyyMMddhh.log',
                   alwaysIncludePattern: true
                 }
                 ,consoleApnd:
