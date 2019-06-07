@@ -7,12 +7,19 @@ log4js.configure({
                   filename: __dirname+'/logs/download_info',
                   pattern: 'yyyy-MM-dd.log',
                   alwaysIncludePattern: true
-                },
-                downloadTrace:
+                }
+                ,downloadTrace:
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/download_trace',
                   pattern: 'yyyy-MM-dd.log',
+                  alwaysIncludePattern: true
+                }
+                ,runtimeStats:
+                {
+                  type: 'dateFile',
+                  filename: __dirname+'/logs/stats',
+                  pattern: 'yyMMdd-HH.log',
                   alwaysIncludePattern: true
                 }
                 ,consoleApnd:
@@ -41,11 +48,19 @@ log4js.configure({
                   appenders:['consoleApnd'],
                   level: 'trace'
                 }
+                ,statsLogger :
+                {
+                  appenders:['runtimeStats','consoleApnd'],
+                  level: 'all'
+                }
               }
 });
 
 exports.download_logger =
 log4js.getLogger('downloadTraceLogger');
+
+exports.stats_logger =
+log4js.getLogger('statsLogger');
 
 const talker = log4js.getLogger('consolo');
 // const noter = log4js.getLogger('cheese');

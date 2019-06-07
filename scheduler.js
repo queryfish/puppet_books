@@ -99,9 +99,9 @@ process.on('uncaughtException', (err, origin) => {
   // process.exit(0);
 });
 
-var datetime = require('node-datetime');
-var formatted = datetime.create().format('Ymd_HMS');
-const logfile = Configs.workingPath+'logs/'+formatted+'.log';
+// var datetime = require('node-datetime');
+// var formatted = datetime.create().format('Ymd_HMS');
+// const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 
 process.on('exit', (code) => {
   Logger.info("process :"+process.pid);
@@ -126,8 +126,8 @@ process.on('unhandledRejection', (reason, promise) => {
 (async () => {
     try {
       Logger.info("scheduler start dancing PID@"+process.pid);
-      const fs = require('fs');
-      var access = fs.createWriteStream(logfile);
+      // const fs = require('fs');
+      // var access = fs.createWriteStream(logfile);
       const crawler_code = Number(process.argv[2]);
       // process.stdout.write = process.stderr.write = access.write.bind(access);
       await schedule(crawler_code);

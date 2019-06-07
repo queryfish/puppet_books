@@ -144,11 +144,12 @@ async function crawlBookList(page, uri_formatter)
   //接下来要考虑洞的问题
 
   Logger.trace("start crawling ");
-  Logger.trace("crawlerCursor = "+crawlerCursor);
-  Logger.trace("currentBookId = "+currentBookId);
+  Logger.trace("Max BoodId = "+crawlerCursor);
+  Logger.trace("starting BookId = "+currentBookId);
 
   for (let p = 1; p <= max_pages && currentBookId >= crawlerCursor; p++)
   {
+    var statCounter = 0;
     // let pageUrl = BOOK_INFO_SITE+'/page/'+h;
     let pageUrl = uri_formatter(p);
     await page.goto(pageUrl, {waitUntil: 'networkidle2'});
@@ -189,10 +190,10 @@ async function crawlBookList(page, uri_formatter)
           currentBookId = Number(bookId);
           if(currentBookId > maxCursor) maxCursor = currentBookId;
           Logger.trace("get book Id "+currentBookId);
-          // 12725 the default page
+          statCounter ++ ;
       }
 
-      Logger.info('NO.'+i+" "+bookname+ ' -> '+ bookurl);
+      Logger.info('NO.'+statCounter+" "+bookname+ ' -> '+ bookurl);
       await upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
@@ -202,6 +203,8 @@ async function crawlBookList(page, uri_formatter)
     }
     // await page.waitFor(5*1000);
   }
+  // statCounter should be recorded here
+  statLogger.info(statCounter+"BookId Crawled");
   Logger.trace("end crawling ");
   Logger.trace("crawlerCursor = "+crawlerCursor);
   Logger.trace("currentBookId = "+currentBookId);

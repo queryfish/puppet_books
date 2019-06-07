@@ -138,8 +138,9 @@ async function retry(maxRetries, fn) {
 // exports.run =
 async function fakeMain(page, max_crawled_items)
 {
-  var tick = 0;
-  var r = await assertBook();
+    var tick = 0;
+    Logger.trace("in fakeMain");
+    var r = await assertBook();
     Logger.info(r.length+" books to be detailed ...");
     // Logger.info(r);
     for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
