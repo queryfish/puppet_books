@@ -1,7 +1,8 @@
 const log4js = require('log4js');
 
 log4js.configure({
-  appenders: { downloadInfo:
+  appenders: {
+                downloadInfo:
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/download_info',

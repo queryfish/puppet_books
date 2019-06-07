@@ -13,7 +13,7 @@ var mailOptions = {
 
 var mailTransport = nodemailer.createTransport({
   host: 'smtp.126.com',
-  secure: false,
+  secure: true,
   port: 465,
   auth: {
     user: "marrowsky@126.com",
@@ -33,7 +33,8 @@ var mailTransport = nodemailer.createTransport({
 // const logfile = process.argv[2];
 var datetime = require('node-datetime');
 var today = new Date();
-var hourago = new Date(today.getTime() - (1000*60*60));
+// var hourago = new Date(today.getTime() - (1000*60*60));
+var hourago = new Date(today.getTime());
 var formatted = datetime.create(hourago).format('YmdH');
 const logfile = Configs.workingPath+'logs/download_trace.'+formatted+'.log';
 const statfile = Configs.workingPath+'logs/stats.'+formatted+'.log';
@@ -49,7 +50,7 @@ fs.readFile(statfile, function (err, data) {
         text: data+"?",
         contentType: 'text/plain',
         // html: template,
-        attachments: [{filename: "logs",
+        attachments: [{filename: "tracing.txt",
                       filePath: logfile
                     }]
 
