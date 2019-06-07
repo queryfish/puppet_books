@@ -1,14 +1,53 @@
 const log4js = require('log4js');
+
 log4js.configure({
-  appenders: { cheese: { type: 'file', filename: 'cheese.log' }
-              ,console: { type: 'console' }
+  appenders: { downloadInfo:
+                {
+                  type: 'dateFile',
+                  filename: __dirname+'/logs/download_info',
+                  pattern: 'yyyy-MM-dd.log',
+                  alwaysIncludePattern: true
+                },
+                downloadTrace:
+                {
+                  type: 'dateFile',
+                  filename: __dirname+'/logs/download_trace',
+                  pattern: 'yyyy-MM-dd.log',
+                  alwaysIncludePattern: true
+                }
+                ,consoleApnd:
+                {
+                  type: 'console'
+                }
             },
-  categories: { default: { appenders: ['cheese'], level: 'trace' }
-                ,console: { appenders: ['console'], level: 'trace' }
+  categories: {
+                default:
+                {
+                  appenders: ['consoleApnd'],
+                  level: 'trace'
+                }
+                ,downloadInfoLogger:
+                {
+                  appenders: ['downloadInfo'],
+                  level: 'info'
+                }
+                ,downloadTraceLogger:
+                {
+                  appenders: ['downloadTrace','consoleApnd'],
+                  level: 'trace'
+                }
+                ,consolo :
+                {
+                  appenders:['consoleApnd'],
+                  level: 'trace'
+                }
               }
 });
 
-const talker = log4js.getLogger('console');
+exports.download_logger =
+log4js.getLogger('downloadTraceLogger');
+
+const talker = log4js.getLogger('consolo');
 // const noter = log4js.getLogger('cheese');
 exports.info =
 function(message) {

@@ -2,10 +2,11 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
-const Logger = require('./logger');
+const LOG4JS = require('./logger');
+const Logger = LOG4JS.download_logger;
 const CREDS = require('./creds');
 const Config = require('./configs');
-const detailCrawler = require('./detailCrawler');
+// const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 200;
 const util = require('./utils');
 
@@ -65,15 +66,16 @@ async function grabABook_BDY(page, bookObj) {
 
     const baidu_url = bookObj.baiduUrl;
     const pickcode = bookObj.baiduCode;
-    Logger.info("going to cloud ..."+baidu_url);
-
+    Logger.trace("Going to copy from :"+baidu_url);
     const CHECKCODE_SELECTOR2 = 'dd.clearfix.input-area > input';
     const BUTTON_SELECTOR2 = 'dd.clearfix.input-area > div > a';
     await page.goto(baidu_url, {waitUntil: 'networkidle2'});
     await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     if (await page.$(CHECKCODE_SELECTOR2) == null)
     {
-        Logger.info('checkcode input invalid');
+        Logger.error('Checkcode input INVALID!!!');
+        Logger.error("url:"+bookObj.baiduUrl);
+        Logger.error("code:"+bookObj.baiduCode);
         bookObj["badApple"] = true;
         upsertBook(bookObj);
         return;
@@ -101,12 +103,14 @@ async function grabABook_BDY(page, bookObj) {
     var saveButtonSel = '';
 
     if (await page.$(FILE_CHECK_SEL) !== null) {
-        Logger.info('folder found');
+        Logger.trace(bookObj.bookName+':Baidu Folder FOUND');
         await page.click(FILE_CHECK_SEL);
         saveButtonSel = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     }
     else{
-        Logger.info('folder no found');
+        Logger.error(bookObj.bookName+':Baidu Folder NOT FOUND!!!');
+        Logger.error("url:"+bookObj.baiduUrl);
+        Logger.error("code:"+bookObj.baiduCode);
         saveButtonSel = '#layoutMain > div.frame-content > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue'
     }
 
@@ -132,12 +136,13 @@ async function grabABook_BDY(page, bookObj) {
         let msg = document.querySelector(sel).textContent;
         return msg;
       }, MSG_SEL);
-      Logger.info(rsp_msg);
+      Logger.info(bookObj.bookName+":"+rsp_msg);
       await page.waitFor(5*1000);
       upsertBook({
         bookUrl:bookObj.bookUrl,
         lastCrawlCopyTime: new Date(),
         lastCrawlCopyResultMessage : rsp_msg,
+        savedBaidu:true
       })
 }
 
@@ -171,16 +176,12 @@ async function injectCookiesFromFile(page, file)
 
 // exports.run =
 async function run(page) {
-   /*
-   1- query from mongodb for impartial entry to be further crawl for detail
-   2- use the crawl func and save it to db
-   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
-   */
+
    var resultArray = await assertBook();
    Logger.info(resultArray.length+" books to copy ...");
    for (var i = 0; i < resultArray.length; i++) {
        var book = resultArray[i];
-       Logger.info("NO."+i+": "+book.bookName+" -> "+book.bookUrl);
+       Logger.trace("NO."+i+": "+book.bookName+" -> "+book.bookUrl);
        if(book.baiduUrl.startsWith("https://pan.baidu.com"))
        {
          await grabABook_BDY(page, book);
@@ -188,6 +189,7 @@ async function run(page) {
        else
        {
          //we do the check here and we save it backup to mongodb for further filter
+         Logger.trace("BadApple Found : "+book.bookUrl);
          book["badApple"] = true;
          upsertBook(book);
        }
@@ -258,6 +260,7 @@ async function retry(maxRetries, fn) {
 */
 (async () => {
     try {
+        Logger.info("CopyCrawler Session STARTED PID@"+process.pid);
         const browser = await puppeteer.launch({
           headless: true
         });
@@ -268,6 +271,7 @@ async function retry(maxRetries, fn) {
         await run(page);
         await browser.close();
         mongoose.connection.close();
+        Logger.info("CopyCrawler Session END PID@"+process.pid);
     } catch (e) {
         throw(e);
     }

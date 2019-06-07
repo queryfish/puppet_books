@@ -4,7 +4,8 @@ const Config = require('./configs');
 const mongoose = require('mongoose');
 const CrawlerConfig = require('./models/crawlerConfig');
 const Book = require('./models/book');
-const Logger = require('./logger');
+const LOG4JS = require('./logger');
+const Logger = LOG4JS.download_logger;
 const fs = require('fs');
 const MAX_PAGE_NUM = 200;
 const MAX_TICKS = 2000;
@@ -31,7 +32,7 @@ async function getMaxCursor() {
   assertMongoDB();
   var query = Book.find({}).sort({"cursorId" : -1}).limit(1);
   const result = await query.exec();
-  Logger.info("aggregate...result");
+  Logger.info("Getting Max BookId");
   Logger.info(result);
   if (result.length >0)
     return result[0].cursorId;
@@ -77,15 +78,15 @@ async function crawlBookListScanner()
       if(exist == null || exist.length == 0){
           let res = await page.goto(pageUrl);
           if (res && res.status() == 404) {
-            Logger.info("!!!! invalid url "+ pageUrl);
+            Logger.error("!!!! invalid url "+ pageUrl);
           }
           else {
-            Logger.info("valid url "+ pageUrl);
+            Logger.trace("Valid URL "+ pageUrl);
             await upsertBook({bookUrl:pageUrl});
           }
       }
       else{
-        Logger.info("exist book url "+pageUrl);
+        Logger.trace("exist book url "+pageUrl);
       }
       bookId --;
       tick ++;
@@ -128,8 +129,7 @@ async function crawlBookList(page, uri_formatter)
   const LIST_PAGE_MAX_SELECTOR  = 'body > section > div.content-wrap > div > div.pagination > ul > li:nth-last-child(1) > span';
   // const LIST_THUMBNAIL_SELECTOR = '';
 
-
-  Logger.info('Numpages: ', MAX_PAGE_NUM);
+  Logger.trace('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   //数据库中保存的是最大的BookID: crawlerCursor
   // let crawlerCursorObj = await getCursor();
@@ -143,9 +143,9 @@ async function crawlBookList(page, uri_formatter)
   var currentBookId = crawlerCursor+5;
   //接下来要考虑洞的问题
 
-  Logger.info("start crawling ");
-  Logger.info("crawlerCursor = "+crawlerCursor);
-  Logger.info("currentBookId = "+currentBookId);
+  Logger.trace("start crawling ");
+  Logger.trace("crawlerCursor = "+crawlerCursor);
+  Logger.trace("currentBookId = "+currentBookId);
 
   for (let p = 1; p <= max_pages && currentBookId >= crawlerCursor; p++)
   {
@@ -162,8 +162,8 @@ async function crawlBookList(page, uri_formatter)
       return numb.join("");
     }, LIST_PAGE_MAX_SELECTOR);
 
-    Logger.info('starting '+p+'th PAGE of '+max_pages+' pages');
-    Logger.info('crawling '+pageUrl);
+    Logger.trace('starting '+p+'th PAGE of '+max_pages+' pages');
+    Logger.trace('crawling '+pageUrl);
 
     for (let i = 1; i <= listLength && currentBookId >= crawlerCursor; i++)
     {
@@ -188,7 +188,7 @@ async function crawlBookList(page, uri_formatter)
           var bookId = bookurl.split("/").pop().split(".").shift();
           currentBookId = Number(bookId);
           if(currentBookId > maxCursor) maxCursor = currentBookId;
-          Logger.info("get book Id "+currentBookId);
+          Logger.trace("get book Id "+currentBookId);
           // 12725 the default page
       }
 
@@ -202,9 +202,9 @@ async function crawlBookList(page, uri_formatter)
     }
     // await page.waitFor(5*1000);
   }
-  Logger.info("end crawling ");
-  Logger.info("crawlerCursor = "+crawlerCursor);
-  Logger.info("currentBookId = "+currentBookId);
+  Logger.trace("end crawling ");
+  Logger.trace("crawlerCursor = "+crawlerCursor);
+  Logger.trace("currentBookId = "+currentBookId);
   await upsertCursor(maxCursor);
 
 }
@@ -224,7 +224,7 @@ async function greedyDiggerWithFormatter(uri_formatter)
   });
   const page = await browser.newPage();
 
-  Logger.info('Numpages: ', MAX_PAGE_NUM);
+  Logger.trace('Numpages: ', MAX_PAGE_NUM);
   var max_pages = MAX_PAGE_NUM;
   var ticks = 0;
   var currentBookId = 0;
@@ -277,12 +277,12 @@ async function greedyDiggerWithFormatter(uri_formatter)
       });
 
       ticks++;
-      Logger.info('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
+      Logger.trace('NO.',ticks ,bookname, ' -> ', bookurl, ' Page ', p);
 
     }
     // await page.waitFor(5*1000);
   }
-  Logger.info("job finished ...");
+  Logger.trace("job finished ...");
   await browser.close();
 
 }
@@ -296,7 +296,6 @@ function assertMongoDB() {
 
 async function upsertBook(bookObj) {
   assertMongoDB();
-  // if this email exists, update the entry, don't insert
   const conditions = { bookUrl: bookObj.bookUrl };
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
   let q = Book.findOneAndUpdate(conditions, bookObj, options);
@@ -332,6 +331,7 @@ async function fakeMain(page)
 // const process = require('process');
 (async () => {
     try {
+        Logger.info('List Crawler Session STARTED PID@ '+process.pid);
         const browser = await puppeteer.launch({
           headless: true
         });
@@ -341,12 +341,10 @@ async function fakeMain(page)
         });
         await browser.close();
         await mongoose.connection.close();
-        // db.close();
+        Logger.info('List Crawler Session END PID@ '+process.pid);
     } catch (e) {
-      console.log(e);
+        Logger.error(e);
         throw(e);
-        mongoose.connection.close();
     }
-    await mongoose.disconnect();
 
 })();

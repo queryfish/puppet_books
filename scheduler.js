@@ -6,7 +6,9 @@ const Book = require('./models/book');
 const crawlerConfig = require('./models/crawlerConfig')
 const isRunning = require('is-running');
 const process = require('process');
-const Logger = require('./logger');
+const LOG4JS = require('./logger');
+const Logger = LOG4JS.download_logger;
+
 // const copyCrawler = require('./copyCrawler');
 // const detailCrawler = require('./detailCrawler');
 // const listCrawler = require('./listCrawler');
@@ -73,9 +75,14 @@ async function schedule(crawler_code)
 {
     let isIdle = await isWorkerIdle();
     if(isIdle)
+    {
+        Logger.trace("Work available");
         await setWorkerState(process.pid);
+    }
     else
+    {
       return;
+    }
 
     var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
     var index = crawler_code%crawlers.length;
@@ -97,21 +104,19 @@ var formatted = datetime.create().format('Ymd_HMS');
 const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 
 process.on('exit', (code) => {
-  console.log(`About to exit with code: ${code}`);
-
-  // if(Configs.greedyMode && Configs.greedyMode == true)
+  Logger.info("process :"+process.pid);
+  Logger.info(`About to exit with code: ${code}`);
   const crawler_code = Number(process.argv[2])+1;
-  // var greedy = Math.floor(crawler_code/Configs.greedy/5);
   if(crawler_code < Configs.greedy*5)
   {
-      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
+      // require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
   }
 
 });
 
 process.on('unhandledRejection', (reason, promise) => {
   var message = ('Unhandled Rejection at:', promise, 'reason:', reason);
-  console.log(message);
+  Logger.error(message);
   process.exit(0);
   // Application specific logging, throwing an error, or other logic here
 });
@@ -120,16 +125,16 @@ process.on('unhandledRejection', (reason, promise) => {
 */
 (async () => {
     try {
+      Logger.info("scheduler start dancing PID@"+process.pid);
       const fs = require('fs');
       var access = fs.createWriteStream(logfile);
       const crawler_code = Number(process.argv[2]);
       // process.stdout.write = process.stderr.write = access.write.bind(access);
-      console.log("scheduler start dancing PID@", process.pid);
       await schedule(crawler_code);
+      Logger.info("scheduler finish dancing PID@"+process.pid);
 
     } catch (e) {
-      console.log(e);
+      Logger.error(e);
       throw(e);
     }
-    console.log("scheduler finish dancing PID@", process.pid);
 })();

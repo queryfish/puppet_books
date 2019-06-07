@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const mongoose = require('mongoose');
 
 exports.injectCookiesFromFile =
 async function(page, file)
@@ -16,4 +17,12 @@ async function(page, file)
         for (var i = 0, len = cookies.length; i < len; i++)
             await cb(page, cookies[i]); // method 2
     });
+}
+
+exports.assertMongoDB =
+function ()
+{
+  if (mongoose.connection.readyState == 0) {
+    mongoose.connect( Configs.dbUrl, { useNewUrlParser: true });
+  }
 }

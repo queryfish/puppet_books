@@ -3,10 +3,10 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const process = require('process');
 const Book = require('./models/book');
-const Logger = require('./logger');
+const LOG4JS = require('./logger');
+const Logger = LOG4JS.download_logger;
 const CREDS = require('./creds');
 const Configs = require('./configs');
-const MAX_CRAWL_NUM = 200;
 
 async function upsertBook(bookObj) {
   assertMongoDB();
@@ -78,8 +78,8 @@ async function fetchBook( bookUrl)
          // Get the size
          var bookSize = Number(response._headers['content-length']);
          var download_url =response._url;
-         console.log('Size del header: ', bookSize);
-         console.log('Download url :', response._url);
+         Logger.trace('BOOK Size : '+ bookSize);
+         Logger.info("Catch in Response"+ download_url);
          // save url to DB for later download workers.
          await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
          // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
@@ -97,16 +97,14 @@ async function fetchBook( bookUrl)
   var download_href = "";
   for (var i = 1; i < 4; i++) {
     let booknameSelector = BOOK_SEL.replace("INDEX", i);
-    console.log(booknameSelector);
     if (await page.$(booknameSelector) != null)
     {
         let bookname = await getTextContent(page, booknameSelector);
         download_href = await getSelectorHref(page, booknameSelector);
-        console.log(bookname);
+        Logger.trace("trying to find the mobi format url for "+bookname);
         if(bookname !=null && bookname.split(".")[1] == "mobi"){
-          console.log("found it");
-          console.log(bookname);
-          console.log(download_href);
+          Logger.info(bookname+".MOBI Found");
+          Logger.trace(download_href);
           break;
         }
     }
@@ -118,8 +116,8 @@ async function fetchBook( bookUrl)
     // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     // let download_href = await getSelectorHref(page, BOOK_SEL);
     var site = "https://sobooks.ctfile.com";
-    Logger.info(download_href);
     download_href = site + download_href;
+    Logger.trace("DOWNLOAD URL :"+download_href);
     await page._client.send('Page.setDownloadBehavior', {
           behavior: 'deny'
         });
@@ -128,9 +126,8 @@ async function fetchBook( bookUrl)
     await page.goto(download_href, {waitUntil: 'networkidle2', timeout:0,});
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(DL_BUTTON);
-    await page.waitFor(10*1000);//会有找不到输入框的异常，加上一个弱等待试试
+    await page.waitFor(10*1000);
   }
-  // await browser.close();
   return ;
 
 }
@@ -160,14 +157,13 @@ async function automate() {
   2- use the crawl func and save it to db
   3- stop when MAX_CRAWL_NUM exceed or the db is out of candidate
   */
-    console.log("in this");
     var r = await assertBook();
     Logger.info(r.length+" books to be CTed ...");
     // Logger.info(r);
     for (var i = 0; i < r.length; i++)
     {
       book = r[i];
-      Logger.info("NO. "+i+" book: "+book.bookName);
+      Logger.trace("NO. "+i+" book: "+book.bookName);
       await fetchBook(book.ctdiskUrl);
     }
 
@@ -178,10 +174,12 @@ async function automate() {
 */
 (async () => {
     try {
-      console.log("CTFileCrawler roll out PID: ", process.pid);
+      Logger.info("CTFileCrawler Session roll out PID: ", process.pid);
       await automate();
       mongoose.connection.close();
+      Logger.info("CTFileCrawler Session END PID: ", process.pid);
     } catch (e) {
+      Logger.error(e);
       throw(e);
     }
 
