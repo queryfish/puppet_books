@@ -131,7 +131,7 @@ async function assertBook() {
   // const conditions = { "baiduUrl": {"$exists": false}} ;
   const conditions = { "$and":[
     {"downloaded": {"$exists": false}},{"ctdownloadUrl":{"$exists":true}}]} ;
-  const options = { limit:20 , sort:{"bookSize": 1} };
+  const options = { limit:Configs.crawlStep , sort:{"bookSize": 1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   console.log(result);

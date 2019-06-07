@@ -98,12 +98,12 @@ const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 
 process.on('exit', (code) => {
   console.log(`About to exit with code: ${code}`);
-  
+
   // if(Configs.greedyMode && Configs.greedyMode == true)
-  // if(code ==0)
-  if(0)
+  const crawler_code = Number(process.argv[2])+1;
+  // var greedy = Math.floor(crawler_code/Configs.greedy/5);
+  if(crawler_code < Configs.greedy*5)
   {
-      const crawler_code = Number(process.argv[2])+1;
       require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
   }
 
