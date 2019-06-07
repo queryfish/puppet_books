@@ -51,7 +51,7 @@ fs.readFile(statfile, function (err, data) {
         contentType: 'text/plain',
         // html: template,
         attachments: [{filename: "tracing.txt",
-                      filePath: logfile
+                      path: logfile
                     }]
 
     }, function(err, success) {
