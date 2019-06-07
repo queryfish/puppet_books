@@ -85,6 +85,7 @@ async function crawl(page, detailUrl)
      Logger.trace("Get CT url:"+ct_url);
      await upsertBook(bookObj);
      Logger.info("book detailed :"+detailUrl);
+     statCount++;
 }
 
 async function extractUrl(page ,selector)
@@ -152,7 +153,7 @@ async function fakeMain(page, max_crawled_items)
       await crawl(page, book.bookUrl);
       tick ++;
     }
-    StatsLogger.info("CTDownloader Rate "+statCount+"/"+r.length);
+    StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
 
 }
 /*
