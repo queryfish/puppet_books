@@ -6,6 +6,7 @@ const CrawlerConfig = require('./models/crawlerConfig');
 const Book = require('./models/book');
 const LOG4JS = require('./logger');
 const Logger = LOG4JS.download_logger;
+const StatsLogger = LOG4JS.stats_logger;
 const fs = require('fs');
 const MAX_PAGE_NUM = 200;
 const MAX_TICKS = 2000;
@@ -147,9 +148,10 @@ async function crawlBookList(page, uri_formatter)
   Logger.trace("Max BoodId = "+crawlerCursor);
   Logger.trace("starting BookId = "+currentBookId);
 
+  var statCount = 0;
+  var ticks = 0
   for (let p = 1; p <= max_pages && currentBookId >= crawlerCursor; p++)
   {
-    var statCounter = 0;
     // let pageUrl = BOOK_INFO_SITE+'/page/'+h;
     let pageUrl = uri_formatter(p);
     await page.goto(pageUrl, {waitUntil: 'networkidle2'});
@@ -190,16 +192,17 @@ async function crawlBookList(page, uri_formatter)
           currentBookId = Number(bookId);
           if(currentBookId > maxCursor) maxCursor = currentBookId;
           Logger.trace("get book Id "+currentBookId);
-          statCounter ++ ;
+          statCount ++ ;
       }
 
-      Logger.info('NO.'+statCounter+" "+bookname+ ' -> '+ bookurl);
+      Logger.info('NO.'+statCount+" "+bookname+ ' -> '+ bookurl);
       await upsertBook({
         bookName: bookname,
         bookUrl: bookurl,
         cursorId: currentBookId,
         dateCrawled: new Date()
       });
+      ticks ++;
     }
     // await page.waitFor(5*1000);
   }
@@ -208,6 +211,7 @@ async function crawlBookList(page, uri_formatter)
   Logger.trace("end crawling ");
   Logger.trace("crawlerCursor = "+crawlerCursor);
   Logger.trace("currentBookId = "+currentBookId);
+  StatsLogger.info("List Crawler rate :"+statCount+"/"+ticks)
   await upsertCursor(maxCursor);
 
 }

@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 const Book = require('./models/book');
 const LOG4JS = require('./logger');
 const Logger = LOG4JS.download_logger;
+const StatsLogger = LOG4JS.stats_logger;
 const CREDS = require('./creds');
 const Config = require('./configs');
 // const detailCrawler = require('./detailCrawler');
 const MAX_CRAWL_NUM = 200;
 const util = require('./utils');
+var statCount = 0;
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
@@ -137,6 +139,7 @@ async function grabABook_BDY(page, bookObj) {
         return msg;
       }, MSG_SEL);
       Logger.info(bookObj.bookName+":"+rsp_msg);
+      statCount++;
       await page.waitFor(5*1000);
       upsertBook({
         bookUrl:bookObj.bookUrl,
@@ -194,6 +197,7 @@ async function run(page) {
          upsertBook(book);
        }
     }
+    StatsLogger.info("Copy Crawler rate :"+statCount+"/"+resultArray.length);
 }
 
 async function automate() {

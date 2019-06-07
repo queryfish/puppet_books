@@ -7,11 +7,12 @@ const process = require('process');
 const Book = require('./models/book');
 const LOG4JS = require('./logger');
 const Logger = LOG4JS.download_logger;
-
+const StatsLogger = LOG4JS.stats_logger;
 const CREDS = require('./creds');
 const Configs = require('./configs');
 const MAX_CRAWL_NUM = 200;
 
+var statCount = 0;
 function upsertBook(bookObj) {
   if (mongoose.connection.readyState == 0) {
     mongoose.connect( Configs.dbUrl);
@@ -77,6 +78,7 @@ async function downloadBook(bookObj)
         var cond = {"ctdownloadUrl":dl_url};
         var update = {downloaded:true, ctdownloadTime:new Date()};
         updateBook(cond,update);
+        statCount++;
         Logger.info("DONE downloading "+bookname);
       });
       dl.on('error', (err) => {
@@ -128,6 +130,7 @@ async function automate()
       Logger.info("NO. "+i+" book: "+book.bookName);
       await downloadBook(book);
     }
+    StatsLogger.info("CTDownloader Rate "+statCount+"/"+r.length);
 
 }
 

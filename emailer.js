@@ -13,11 +13,11 @@ var mailOptions = {
 
 var mailTransport = nodemailer.createTransport({
   host: 'smtp.126.com',
-  secure: true,
+  secure: false,
   port: 465,
   auth: {
     user: "marrowsky@126.com",
-    pass: "ilove126"
+    pass: "fucking126"
   }
 });
 
@@ -36,14 +36,12 @@ var today = new Date();
 var hourago = new Date(today.getTime() - (1000*60*60));
 var formatted = datetime.create(hourago).format('YmdH');
 const logfile = Configs.workingPath+'logs/download_trace.'+formatted+'.log';
+const statfile = Configs.workingPath+'logs/stats.'+formatted+'.log';
 
 //make sure the log file exist
 console.log(logfile);
 
-fs.readFile(logfile, function (err, data) {
-  var logname = logfile.split("/").pop();
-  // var template = data+"";
-  // template = '<p> template:' + template.replace(/\n{2,}/g, "</p><p>").replace(/\n/g, "<br>") + '</p>';
+fs.readFile(statfile, function (err, data) {
     mailTransport.sendMail({
         sender: "marrowsky@126.com",
         to: 'mcpoet@126.com',
@@ -51,7 +49,9 @@ fs.readFile(logfile, function (err, data) {
         text: data+"?",
         contentType: 'text/plain',
         // html: template,
-        attachments: [{'filename': logname, 'content': data}]
+        attachments: [{filename: "logs",
+                      filePath: logfile
+                    }]
 
     }, function(err, success) {
         if (err) {

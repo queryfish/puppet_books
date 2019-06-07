@@ -5,8 +5,11 @@ const process = require('process');
 const Book = require('./models/book');
 const LOG4JS = require('./logger');
 const Logger = LOG4JS.download_logger;
+const StatsLogger = LOG4JS.stats_logger;
 const CREDS = require('./creds');
 const Configs = require('./configs');
+
+var statCount = 0;
 
 async function upsertBook(bookObj) {
   assertMongoDB();
@@ -54,7 +57,7 @@ async function fetchBook( bookUrl)
   const client = await page.target().createCDPSession();
 
 // intercept request when response headers was received
-  await client.send('Network.setRequestInterception', {
+  client.send('Network.setRequestInterception', {
     patterns: [{
         urlPattern: '*',
         resourceType: 'Document',
@@ -62,7 +65,7 @@ async function fetchBook( bookUrl)
     }],
   });
 
-  await client.on('Network.requestIntercepted', async e => {
+  client.on('Network.requestIntercepted', async e => {
       let headers = e.responseHeaders || {};
       let contentType = headers['content-type'] || headers['Content-Type'] || '';
       let obj = {interceptionId: e.interceptionId};
@@ -72,19 +75,21 @@ async function fetchBook( bookUrl)
       await client.send('Network.continueInterceptedRequest', obj);
   });
 
-  await page.on('response', async response => {
+  page.on('response', async response => {
       // If response has a file on it
       if (response._headers['content-disposition'] === 'attachment') {
          // Get the size
          var bookSize = Number(response._headers['content-length']);
          var download_url =response._url;
          Logger.trace('BOOK Size : '+ bookSize);
-         Logger.info("Catch in Response"+ download_url);
+         Logger.info("DOWNLOAD URL CATCHED!!");
          // save url to DB for later download workers.
          await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
+         statCount ++;
+         //statLogger();
          // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
          // await CTDownloader.downloadBook(download_url);
-         browser.close();
+
       }
   });
 
@@ -101,10 +106,10 @@ async function fetchBook( bookUrl)
     {
         let bookname = await getTextContent(page, booknameSelector);
         download_href = await getSelectorHref(page, booknameSelector);
-        Logger.trace("trying to find the mobi format url for "+bookname);
+        // Logger.trace("trying to find the mobi format url for "+bookname);
         if(bookname !=null && bookname.split(".")[1] == "mobi"){
-          Logger.info(bookname+".MOBI Found");
-          Logger.trace(download_href);
+          Logger.info(bookname+" Found");
+          // Logger.trace(download_href);
           break;
         }
     }
@@ -117,7 +122,7 @@ async function fetchBook( bookUrl)
     // let download_href = await getSelectorHref(page, BOOK_SEL);
     var site = "https://sobooks.ctfile.com";
     download_href = site + download_href;
-    Logger.trace("DOWNLOAD URL :"+download_href);
+    Logger.trace("PAGE FOUND:"+download_href);
     await page._client.send('Page.setDownloadBehavior', {
           behavior: 'deny'
         });
@@ -127,6 +132,8 @@ async function fetchBook( bookUrl)
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(DL_BUTTON);
     await page.waitFor(10*1000);
+    await browser.close();
+
   }
   return ;
 
@@ -166,7 +173,8 @@ async function automate() {
       Logger.trace("NO. "+i+" book: "+book.bookName);
       await fetchBook(book.ctdiskUrl);
     }
-
+    StatsLogger.info("CTFileCrawler catch rate :"+statCount+"/"+r.length);
+    //statLogger();
 }
 
 /*

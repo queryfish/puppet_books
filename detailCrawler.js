@@ -5,8 +5,10 @@ const CREDS = require('./creds');
 const Config = require('./configs');
 const LOG4JS = require('./logger');
 const Logger = LOG4JS.download_logger;
+const StatsLogger = LOG4JS.stats_logger;
 const MAX_CRAWL_NUM = 200;
 // const fs = require('fs');
+var statCount = 0;
 
 async function upsertBook(bookObj)
 {
@@ -150,6 +152,8 @@ async function fakeMain(page, max_crawled_items)
       await crawl(page, book.bookUrl);
       tick ++;
     }
+    StatsLogger.info("CTDownloader Rate "+statCount+"/"+r.length);
+
 }
 /*
  main
