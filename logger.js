@@ -9,11 +9,18 @@ log4js.configure({
                   pattern: 'yyyyMMddhh.log',
                   alwaysIncludePattern: true
                 }
-                ,downloadTrace:
+                ,hourlyTrace:
                 {
                   type: 'dateFile',
-                  filename: __dirname+'/logs/download_trace',
+                  filename: __dirname+'/logs/hourly',
                   pattern: 'yyyyMMddhh.log',
+                  alwaysIncludePattern: true
+                }
+                ,dailyTrace:
+                {
+                  type: 'dateFile',
+                  filename: __dirname+'/logs/daily',
+                  pattern: 'yyyyMMdd.log',
                   alwaysIncludePattern: true
                 }
                 ,runtimeStats:
@@ -41,7 +48,7 @@ log4js.configure({
                 }
                 ,downloadTraceLogger:
                 {
-                  appenders: ['downloadTrace','consoleApnd'],
+                  appenders: ['hourlyTrace','dailyTrace','consoleApnd'],
                   level: 'trace'
                 }
                 ,consolo :
