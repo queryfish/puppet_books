@@ -71,7 +71,7 @@ async function schedule(crawler_code)
 {
     let isIdle = await isWorkerIdle();
     // if idle returns 0, or else return the worker PID which occupied
-    if(isIdle > 0)
+    if(isIdle == 0)
     {
         Logger.trace("Work available");
         await setWorkerState(process.pid);
