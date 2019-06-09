@@ -38,23 +38,19 @@ async function isWorkerIdle() {
                           {"index":{"$eq":1}},
                           {"workerState": {"$exists": true}}
                         ] };
-  const options = { limit: 5 };
+  const options = { limit: 1 };
   var query = crawlerConfig.find(conditions ,null ,options);
   let resultArray = await query.exec();
   await mongoose.connection.close();
 
+  // 0 means worker is free or else, the worker is occupied
   if(resultArray.length == 0)
-    return true;
-  if(resultArray[0]["workerState"] <= 1) //manus means idle
-      return true;
+    return 0;
+  var prePid = resultArray[0]["workerState"];
+  if(isRunning(prePid))
+    return prePid;
   else {
-    // further check if the process if running
-    var prePid = resultArray[0]["workerState"];
-    if(isRunning(prePid))
-      return false;
-    else {
-      return true;
-    }
+    return 0;
   }
 }
 
@@ -74,14 +70,16 @@ async function setWorkerState(workerState)
 async function schedule(crawler_code)
 {
     let isIdle = await isWorkerIdle();
-    if(isIdle)
+    // if idle returns 0, or else return the worker PID which occupied
+    if(isIdle > 0)
     {
         Logger.trace("Work available");
         await setWorkerState(process.pid);
     }
     else
     {
-      return;
+        Logger.warn("Worker is occupied by PID@", isIdle);
+        return;
     }
 
     var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];

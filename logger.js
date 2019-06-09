@@ -63,15 +63,6 @@ log4js.getLogger('downloadTraceLogger');
 exports.stats_logger =
 log4js.getLogger('statsLogger');
 
-const talker = log4js.getLogger('consolo');
-// const noter = log4js.getLogger('cheese');
-exports.info =
-function(message) {
-  talker.trace(message);
-  // noter.trace(message);
-  // Logger.info(message);
-}
-
 //example
 // logger.trace('Entering cheese testing');
 // Logger.info('Got cheese.');
