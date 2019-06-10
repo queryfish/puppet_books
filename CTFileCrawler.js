@@ -95,10 +95,11 @@ async function fetchBook( bookUrl)
     if (await page.$(booknameSelector) != null)
     {
         let bookname = await getTextContent(page, booknameSelector);
-        download_href = await getSelectorHref(page, booknameSelector);
+
         // Logger.trace("trying to find the mobi format url for "+bookname);
         if(bookname !=null && bookname.split(".")[1] == "mobi"){
           Logger.info(bookname+" Found");
+          download_href = await getSelectorHref(page, booknameSelector);
           // Logger.trace(download_href);
           break;
         }
