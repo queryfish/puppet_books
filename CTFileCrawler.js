@@ -65,7 +65,7 @@ async function fetchBook( bookUrl)
     }],
   });
 
-  client.on('Network.requestIntercepted', async e => {
+  await client.on('Network.requestIntercepted', async e => {
       let headers = e.responseHeaders || {};
       let contentType = headers['content-type'] || headers['Content-Type'] || '';
       let obj = {interceptionId: e.interceptionId};
@@ -142,8 +142,8 @@ async function fetchBook( bookUrl)
     // await browser.close();
     if(isBrowserClosed == false)
     {
-      Logger.info("Page TIMEOUT, forcing browser closed.");
-      await browser.close();
+      // Logger.info("Page TIMEOUT, forcing browser closed.");
+      // await browser.close();
     }
     // setTimeout(()=>{ await browser.close() }, 2*, 'funky');
 
