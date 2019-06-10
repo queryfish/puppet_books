@@ -79,7 +79,10 @@ async function schedule(crawler_code)
     else
     {
         Logger.warn("Worker is occupied by PID@", isIdle);
-        return;
+        Logger.warn("Gonna shoot worker@",isIdle);
+        process.kill(isIdle, 'SIGTERM');
+        await setWorkerState(process.pid);
+        // return;
     }
 
     var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
