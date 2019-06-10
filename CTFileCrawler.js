@@ -94,7 +94,7 @@ async function fetchBook( bookUrl)
   });
 
   var isBrowserClosed = false;
-  await browser.on( 'disconnected', asynch ()=>{
+  await browser.on( 'disconnected', async ()=>{
       Logger.trace('Browser is closed');
       isBrowserClosed = true;
   });
