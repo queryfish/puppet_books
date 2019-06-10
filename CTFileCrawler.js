@@ -177,7 +177,7 @@ async function assertBook() {
   // const conditions = { "baiduUrl": {"$exists": false}} ;
   const conditions = { "$and":[{"ctdiskUrl": {"$exists": true}},
                                {"ctdownloadUrl":{"$exists":false}},
-                               {"hasMobi":{"$exists": false}}}
+                               {"hasMobi":{"$exists": false}}
                              ]
                      } ;
   const options = { limit: Configs.crawlStep , sort:{"cursorId": -1} };

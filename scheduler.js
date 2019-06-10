@@ -109,7 +109,7 @@ process.on('exit', (code) => {
   Logger.info("process :"+process.pid);
   Logger.info(`About to exit with code: ${code}`);
   const crawler_code = (Number(process.argv[2])+1);
-  if(crawler_code < Configs.greedy*5 && code != 9  /*&& code!= 2*/)
+  if(crawler_code < Configs.greedy*5 && code != 9  && code!= 2)
   {
       require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
   }
