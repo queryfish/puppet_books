@@ -218,8 +218,8 @@ async function automate() {
       // as the CTFileCrawler often STALLED for the sake of FileDownloading Async Calls
       // we should check it to kill itself and children as well.
       // NOTE!!! Such way works, the scheduler should not shoot the Jammer.
-      Logger.warn("And I should kill myself here and now @"+process.pid);
-      process.kill(process.pid, "SIGINT");
+      // Logger.warn("And I should kill myself here and now @"+process.pid);
+      // process.kill(process.pid, "SIGINT");
 
     } catch (e) {
       Logger.error(e);
