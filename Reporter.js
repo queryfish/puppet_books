@@ -59,14 +59,15 @@ async function assertBook() {
   console.log(startTime.toISOString());
   console.log(endTime.toISOString());
 
-  // var condition  =
-  //     {$and : [
-  //         {'ctdownloadTime': { $lte: endTime.toISOString() }},
-  //         {'ctdownloadTime':{ $gte: startTime.toISOString()}} ]
-  //     };
-  // var condition = {'ctdownloadTime':{$exist : true}};
-  var condition = {'downloaded':true};
-  var query = Book.find(condition ,null ,{limit: 10, sort: {'ctdownloadTime':-1}});
+  var condition  =
+      {$and : [
+          {'ctdownloadTime': { $lte: endTime.toISOString() }},
+          {'ctdownloadTime':{ $gte: startTime.toISOString()}},
+            {'downloaded':true} ]
+      };
+
+  var condition = ;
+  var query = Book.find(condition ,null ,null);
   const result = await query.exec();
   return result;
 }
@@ -74,8 +75,8 @@ async function assertBook() {
 async function automate()
 {
     var r = await assertBook();
-    Logger.info(r.length+" books to be downloaded ...");
-    Logger.info(r);
+    statLogger.info(r.length+" books downloaded ...");
+    // Logger.info(r);
 
 }
 
