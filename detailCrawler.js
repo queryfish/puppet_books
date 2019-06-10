@@ -115,8 +115,8 @@ function assertMongoDB() {
 async function assertBook() {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}} ;
-  const conditions = { "$and":[
-    {"ctdiskUrl": {"$exists": false}},{"bookUrl":{"$exists":true}}]} ;
+  const conditions = { "$and":[ "$or":[{"ctdiskUrl": {"$exists": false}}, {"baiduUrl":{"$exist":false}}]
+    ,{"bookUrl":{"$exists":true}}]} ;
   const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
