@@ -143,14 +143,18 @@ async function fetchBook( bookUrl)
     await page.waitFor(10*1000);
     // set timeout to close a browser for leak provention
     // await browser.close();
-    if(isBrowserClosed == false)
-    {
-      Logger.info("Page TIMEOUT, forcing browser closed.");
-      await browser.close();
-    }
     // setTimeout(()=>{ await browser.close() }, 2*, 'funky');
     Logger.trace("About to exit the CTFileCrawl mini Session");
   }
+  else{
+    //should mark the book as mobi-less version
+  }
+  if(isBrowserClosed == false)
+  {
+    Logger.info("Page TIMEOUT, forcing browser closed.");
+    await browser.close();
+  }
+
   return ;
 
 }
