@@ -42,19 +42,19 @@ function thisHour() {
   return new Date(year, month, day, hour);
 }
 
-function lastHour() {
+function lastHour(hoursAgo) {
   var here = new Date();
   var year = here.getFullYear();
   var month = here.getMonth();
   var day = here.getDate();
-  var hour = here.getHours()-1;
+  var hour = here.getHours()-hoursAgo;
   return new Date(year, month, day, hour);
 }
 
-async function assertBook() {
+async function assertBook(hoursAgo) {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}} ;
-  var startTime = lastHour();
+  var startTime = lastHour(hoursAgo);
   var endTime = thisHour();
   console.log(startTime.toISOString());
   console.log(endTime.toISOString());
@@ -73,7 +73,7 @@ async function assertBook() {
 
 async function automate()
 {
-    var r = await assertBook();
+    var r = await assertBook(hoursAgo);
     StatsLogger.info(r.length+" books downloaded ...");
     console.log(r);
 
@@ -86,7 +86,8 @@ async function automate()
 (async () => {
     try {
       Logger.info("CTDownloader Session START PID@"+process.pid);
-      await automate();
+      const hoursAgo = Number(process.argv[2]);
+      await automate(hoursAgo);
       mongoose.connection.close();
       Logger.info("CTDownloader Session END PID@"+process.pid);
     } catch (e) {
