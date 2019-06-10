@@ -47,7 +47,7 @@ function lastHour() {
   var year = here.getFullYear();
   var month = here.getMonth();
   var day = here.getDate();
-  var hour = here.getHours()-2;
+  var hour = here.getHours()-1;
   return new Date(year, month, day, hour);
 }
 
@@ -75,7 +75,7 @@ async function automate()
 {
     var r = await assertBook();
     StatsLogger.info(r.length+" books downloaded ...");
-    // Logger.info(r);
+    console.log(r);
 
 }
 
