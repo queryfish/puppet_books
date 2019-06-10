@@ -75,24 +75,7 @@ async function fetchBook( bookUrl)
       await client.send('Network.continueInterceptedRequest', obj);
   });
 
-  await page.on('response', async response => {
-      // If response has a file on it
-      Logger.trace('into the response');
-      if (response._headers['content-disposition'] === 'attachment') {
-         // Get the size
-         var bookSize = Number(response._headers['content-length']);
-         var download_url =response._url;
-         Logger.trace('BOOK Size : '+ bookSize);
-         Logger.info("DOWNLOAD URL CATCHED!!");
-         // save url to DB for later download workers.
-         await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
-         statCount ++;
-         await browser.close();
-         //statLogger();
-         // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
-         // await CTDownloader.downloadBook(download_url);
-      }
-  });
+
 
   var isBrowserClosed = false;
   await browser.on( 'disconnected', async ()=>{
@@ -133,8 +116,26 @@ async function fetchBook( bookUrl)
     await page._client.send('Page.setDownloadBehavior', {
           behavior: 'deny'
         });
-  // page.click(BOOK_SEL);
+    // page.click(BOOK_SEL);
     // await page.goto(download_href, {waitUntil: 'load'});
+    await page.on('response', async response => {
+        // If response has a file on it
+        Logger.trace('into the response');
+        if (response._headers['content-disposition'] === 'attachment') {
+           // Get the size
+           var bookSize = Number(response._headers['content-length']);
+           var download_url =response._url;
+           Logger.trace('BOOK Size : '+ bookSize);
+           Logger.info("DOWNLOAD URL CATCHED!!");
+           // save url to DB for later download workers.
+           await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
+           statCount ++;
+           await browser.close();
+           //statLogger();
+           // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
+           // await CTDownloader.downloadBook(download_url);
+        }
+    });
     await page.goto(download_href, {waitUntil: 'networkidle2', timeout:0,});
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(DL_BUTTON);
@@ -143,8 +144,8 @@ async function fetchBook( bookUrl)
     // await browser.close();
     if(isBrowserClosed == false)
     {
-      // Logger.info("Page TIMEOUT, forcing browser closed.");
-      // await browser.close();
+      Logger.info("Page TIMEOUT, forcing browser closed.");
+      await browser.close();
     }
     // setTimeout(()=>{ await browser.close() }, 2*, 'funky');
     Logger.trace("About to exit the CTFileCrawl mini Session");
