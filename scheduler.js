@@ -42,7 +42,7 @@ async function isWorkerIdle() {
   var query = crawlerConfig.find(conditions ,null ,options);
   let resultArray = await query.exec();
   await mongoose.connection.close();
-  
+
   // 0 means worker is free or else, the worker is occupied
   if(resultArray.length == 0)
     return 0;
@@ -58,7 +58,7 @@ async function setWorkerState(workerState)
 {
   assertMongoDB();
   const conditions = { index:1}
-  const updates = {"workerState":workerState, "crawlerCode":crawler_code};
+  const updates = {"workerState":workerState};
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
 
   const query = crawlerConfig.findOneAndUpdate(conditions, updates, options);
@@ -75,7 +75,7 @@ async function schedule(crawler_code)
     if(isIdle == 0)
     {
         Logger.trace("Work available");
-        await setWorkerState(process.pid, crawler_code);
+        await setWorkerState(process.pid);
     }
     else
     {
