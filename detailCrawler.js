@@ -120,7 +120,7 @@ async function assertBook() {
                                   {"ctdiskUrl": {"$exists": false}},
                                   {"baiduUrl": {"$exists": false}}
                                 ]},
-                                {"baiduUrl":{"$exist":false}}
+                                {"bookUrl":{"$exists":true}}
                               ]
                       };
   // const conditions = { "$and":[ {"ctdiskUrl": {"$exists": false}},{"bookUrl":{"$exists":true}}]};
