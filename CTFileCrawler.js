@@ -77,6 +77,7 @@ async function fetchBook( bookUrl)
 
   await page.on('response', async response => {
       // If response has a file on it
+      Logger.trace('into the response');
       if (response._headers['content-disposition'] === 'attachment') {
          // Get the size
          var bookSize = Number(response._headers['content-length']);
@@ -146,7 +147,7 @@ async function fetchBook( bookUrl)
       // await browser.close();
     }
     // setTimeout(()=>{ await browser.close() }, 2*, 'funky');
-
+    Logger.trace("About to exit the CTFileCrawl mini Session");
   }
   return ;
 
