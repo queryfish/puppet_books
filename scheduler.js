@@ -42,7 +42,7 @@ async function isWorkerIdle() {
   var query = crawlerConfig.find(conditions ,null ,options);
   let resultArray = await query.exec();
   await mongoose.connection.close();
-
+  
   // 0 means worker is free or else, the worker is occupied
   if(resultArray.length == 0)
     return 0;
@@ -58,9 +58,10 @@ async function setWorkerState(workerState)
 {
   assertMongoDB();
   const conditions = { index:1}
+  const updates = {"workerState":workerState, "crawlerCode":crawler_code};
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
 
-  const query = crawlerConfig.findOneAndUpdate(conditions, {"workerState":workerState}, options);
+  const query = crawlerConfig.findOneAndUpdate(conditions, updates, options);
   let ret = await query.exec();
   await mongoose.connection.close();
   return ret;
@@ -74,7 +75,7 @@ async function schedule(crawler_code)
     if(isIdle == 0)
     {
         Logger.trace("Work available");
-        await setWorkerState(process.pid);
+        await setWorkerState(process.pid, crawler_code);
     }
     else
     {
@@ -107,8 +108,9 @@ process.on('uncaughtException', (err, origin) => {
 process.on('exit', (code) => {
   Logger.info("process :"+process.pid);
   Logger.info(`About to exit with code: ${code}`);
-  const crawler_code = Number(process.argv[2])+1;
-  if(crawler_code < Configs.greedy*5 && code != 9  /*&& code!= 2*/)
+  const crawler_code = (Number(process.argv[2])+1)%5;
+  // if(crawler_code < Configs.greedy*5 && code != 9  /*&& code!= 2*/)
+  if(code != 9  /*&& code!= 2*/)
   {
       require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%5] );
   }
