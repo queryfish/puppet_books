@@ -36,7 +36,7 @@ var today = new Date();
 var hourago = new Date(today.getTime() - (1000*60*60));
 // var hourago = new Date(today.getTime());
 var formatted = datetime.create(hourago).format('YmdH');
-const logfile = Configs.workingPath+'logs/download_trace.'+formatted+'.log';
+const logfile = Configs.workingPath+'logs/hourly.'+formatted+'.log';
 const statfile = Configs.workingPath+'logs/stats.'+formatted+'.log';
 
 //make sure the log file exist

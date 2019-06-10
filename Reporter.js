@@ -66,7 +66,6 @@ async function assertBook() {
             {'downloaded':true} ]
       };
 
-  var condition = ;
   var query = Book.find(condition ,null ,null);
   const result = await query.exec();
   return result;
@@ -75,7 +74,7 @@ async function assertBook() {
 async function automate()
 {
     var r = await assertBook();
-    statLogger.info(r.length+" books downloaded ...");
+    StatsLogger.info(r.length+" books downloaded ...");
     // Logger.info(r);
 
 }
