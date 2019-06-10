@@ -24,7 +24,9 @@ let bookSchema = new mongoose.Schema({
     ctdownloadUrl:String,
     downloaded:Boolean,
     ctdownloadTime:Date, //ctdisk download time
-    bookSize:Number
+    bookSize:Number,
+    hasMobi: Boolean,
+    hasEpub: Boolean
 });
 
 let Book = mongoose.model('Book', bookSchema);

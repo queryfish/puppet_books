@@ -128,7 +128,11 @@ async function fetchBook( bookUrl)
            Logger.trace('BOOK Size : '+ bookSize);
            Logger.info("DOWNLOAD URL CATCHED!!");
            // save url to DB for later download workers.
-           await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
+           await upsertBook({"ctdiskUrl":bookUrl,
+                             "ctdownloadUrl":download_url,
+                             "bookSize":bookSize,
+                             "hasMobi":true
+                           });
            statCount ++;
            await browser.close();
            //statLogger();
@@ -146,11 +150,14 @@ async function fetchBook( bookUrl)
     Logger.trace("About to exit the CTFileCrawl mini Session");
   }
   else{
+    await upsertBook({"ctdiskUrl":bookUrl,
+                      "hasMobi":false
+                    });
     //should mark the book as mobi-less version
   }
   if(isBrowserClosed == false)
   {
-    Logger.info("Page TIMEOUT, forcing browser closed.");
+    Logger.info("FORCING browser to close.");
     await browser.close();
   }
 
@@ -168,8 +175,11 @@ function assertMongoDB()
 async function assertBook() {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}} ;
-  const conditions = { "$and":[
-    {"ctdiskUrl": {"$exists": true}},{"ctdownloadUrl":{"$exists":false}}]} ;
+  const conditions = { "$and":[{"ctdiskUrl": {"$exists": true}},
+                               {"ctdownloadUrl":{"$exists":false}},
+                               {"hasMobi":{"$exists": false}}}
+                             ]
+                     } ;
   const options = { limit: Configs.crawlStep , sort:{"cursorId": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
