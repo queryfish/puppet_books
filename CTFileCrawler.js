@@ -121,7 +121,6 @@ async function fetchBook( bookUrl)
     // await page.goto(download_href, {waitUntil: 'load'});
     await page.on('response', async response => {
         // If response has a file on it
-        Logger.trace('into the response');
         if (response._headers['content-disposition'] === 'attachment') {
            // Get the size
            var bookSize = Number(response._headers['content-length']);
