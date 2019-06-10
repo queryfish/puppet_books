@@ -75,7 +75,7 @@ async function fetchBook( bookUrl)
       await client.send('Network.continueInterceptedRequest', obj);
   });
 
-  page.on('response', async response => {
+  await page.on('response', async response => {
       // If response has a file on it
       if (response._headers['content-disposition'] === 'attachment') {
          // Get the size
@@ -86,11 +86,17 @@ async function fetchBook( bookUrl)
          // save url to DB for later download workers.
          await upsertBook({"ctdiskUrl":bookUrl, "ctdownloadUrl":download_url, "bookSize":bookSize});
          statCount ++;
+         await browser.close();
          //statLogger();
          // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
          // await CTDownloader.downloadBook(download_url);
-
       }
+  });
+
+  var isBrowserClosed = false;
+  await browser.on( 'disconnected', asynch ()=>{
+      Logger.trace('Browser is closed');
+      isBrowserClosed = true;
   });
 
   // await page.goto(bookUrl, {waitUntil: 'load'});
@@ -132,7 +138,14 @@ async function fetchBook( bookUrl)
   // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     await page.click(DL_BUTTON);
     await page.waitFor(10*1000);
-    await browser.close();
+    // set timeout to close a browser for leak provention
+    // await browser.close();
+    if(isBrowserClosed == false)
+    {
+      Logger.info("Page TIMEOUT, forcing browser closed.");
+      await browser.close();
+    }
+    // setTimeout(()=>{ await browser.close() }, 2*, 'funky');
 
   }
   return ;
