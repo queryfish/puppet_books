@@ -315,10 +315,10 @@ async function automate() {
       var book_url  = book.ctdiskUrl;
       //Should be before this function
       var split = book_url.split('/');
-      if(split[2] == 'dir'){
-        await fetchBookDir(book.ctdiskUrl);
+      if(split[3] == 'dir'){
+        // await fetchBookDir(book.ctdiskUrl);
       }
-      else if(split[2] == 'fs')
+      else if(split[3] == 'fs')
       {
         Logger.trace('gonna go : book_url');
         await fetchBook(book.ctdiskUrl);
