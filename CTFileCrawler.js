@@ -138,9 +138,9 @@ async function fetchBook( bookUrl)
   }
   else{
     //we can do more than HAS MOBI
-    // await upsertBook({"ctdiskUrl":bookUrl,
-                      // "hasMobi":false
-                    // });
+    await upsertBook({"ctdiskUrl":bookUrl,
+                      "hasMobi":false
+                    });
     //should mark the book as mobi-less version
   }
   if(isBrowserClosed == false)
