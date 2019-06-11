@@ -91,7 +91,7 @@ async function fetchBook( bookUrl)
   const BOOK_FILE_SEL = '#page-content > div.page-header.position-relative > div > div.pull-left > h3';
   let book_file_name = await getTextContent(page, BOOK_FILE_SEL);
   Logger.trace('resolved book name'+ book_file_name);
-  if(book_file_name !=null && book_file_name.split(".").pop() == "mobi")
+  if(book_file_name !=null && book_file_name.indexOf(".mobi")>0)
   {
       Logger.info(book_file_name+" Direct Page Found");
       is_mobi_page = true;
