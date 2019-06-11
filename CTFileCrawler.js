@@ -90,6 +90,7 @@ async function fetchBook( bookUrl)
   var is_mobi_page = false;
   const BOOK_FILE_SEL = '#page-content > div.page-header.position-relative > div > div.pull-left > h3';
   let book_file_name = await getTextContent(page, BOOK_FILE_SEL);
+  Logger.trace('resolved book name'+ book_file_name);
   if(book_file_name !=null && book_file_name.split(".").pop() == "mobi")
   {
       Logger.info(book_file_name+" Direct Page Found");
@@ -316,11 +317,11 @@ async function automate() {
       //Should be before this function
       var split = book_url.split('/');
       if(split[3] == 'dir'){
-        // await fetchBookDir(book.ctdiskUrl);
+        await fetchBookDir(book.ctdiskUrl);
       }
       else if(split[3] == 'fs')
       {
-        Logger.trace('gonna go : book_url');
+        Logger.trace('gonna go :''+book_url);
         await fetchBook(book.ctdiskUrl);
       }
     }
