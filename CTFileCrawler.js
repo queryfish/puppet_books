@@ -45,6 +45,116 @@ async function getTextContent(page, selector) {
 
 async function fetchBook( bookUrl)
 {
+
+  const browser = await puppeteer.launch({
+    headless: true,
+      ignoreHTTPSErrors: true,
+    defaultViewport: null
+  });
+  // Download and wait for download
+  const page = await browser.newPage();
+  // await injectCookiesFromFile(page, Configs.cookieFile);
+  // await page.waitFor(5 * 1000);
+  const client = await page.target().createCDPSession();
+
+// intercept request when response headers was received
+  client.send('Network.setRequestInterception', {
+    patterns: [{
+        urlPattern: '*',
+        resourceType: 'Document',
+        interceptionStage: 'HeadersReceived'
+    }],
+  });
+
+  await client.on('Network.requestIntercepted', async e => {
+      let headers = e.responseHeaders || {};
+      let contentType = headers['content-type'] || headers['Content-Type'] || '';
+      let obj = {interceptionId: e.interceptionId};
+      if (contentType.indexOf('application/zip') > -1) {
+          obj['errorReason'] = 'BlockedByClient';
+      }
+      await client.send('Network.continueInterceptedRequest', obj);
+  });
+
+  var isBrowserClosed = false;
+  await browser.on( 'disconnected', async ()=>{
+      Logger.trace('Browser is closed');
+      isBrowserClosed = true;
+  });
+
+  // await page.goto(bookUrl, {waitUntil: 'load'});
+  // await page.goto(bookUrl);
+  await page.goto(bookUrl, {waitUntil: 'networkidle2', timeout:0,});
+  await page.waitFor(5*1000);
+
+  var is_mobi_page = false;
+  const BOOK_FILE_SEL = '#page-content > div.page-header.position-relative > div > div.pull-left > h3';
+  let book_file_name = await getTextContent(page, BOOK_FILE_SEL);
+  if(book_file_name !=null && book_file_name.split(".").pop() == "mobi")
+  {
+      Logger.info(book_file_name+" Direct Page Found");
+      is_mobi_page = true;
+  }
+
+  if(is_mobi_page)
+  {
+    const DL_BUTTON = '#free_down_link';
+    // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
+    // let download_href = await getSelectorHref(page, BOOK_SEL);
+    await page._client.send('Page.setDownloadBehavior', {
+          behavior: 'deny'
+        });
+    // page.click(BOOK_SEL);
+    // await page.goto(download_href, {waitUntil: 'load'});
+    await page.on('response', async response => {
+        // If response has a file on it
+        if (response._headers['content-disposition'] === 'attachment') {
+           // Get the size
+           var bookSize = Number(response._headers['content-length']);
+           var download_url =response._url;
+           Logger.trace('BOOK Size : '+ bookSize);
+           Logger.info("DOWNLOAD URL CATCHED!!");
+           // save url to DB for later download workers.
+           await upsertBook({"ctdiskUrl":bookUrl,
+                             "ctdownloadUrl":download_url,
+                             "bookSize":bookSize,
+                             "hasMobi":true
+                           });
+           statCount ++;
+           await browser.close();
+           //statLogger();
+           // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
+           // await CTDownloader.downloadBook(download_url);
+        }
+    });
+
+    await page.click(DL_BUTTON);
+    await page.waitFor(10*1000);
+    // set timeout to close a browser for leak provention
+    // await browser.close();
+    // setTimeout(()=>{ await browser.close() }, 2*, 'funky');
+    Logger.trace("About to exit the CTFileCrawl mini Session");
+  }
+  else{
+    //we can do more than HAS MOBI
+    // await upsertBook({"ctdiskUrl":bookUrl,
+                      // "hasMobi":false
+                    // });
+    //should mark the book as mobi-less version
+  }
+  if(isBrowserClosed == false)
+  {
+    Logger.info("FORCING browser to close.");
+    await browser.close();
+  }
+
+  return ;
+
+}
+
+async function fetchBookDir( bookUrl)
+{
+
   const browser = await puppeteer.launch({
     headless: true,
       ignoreHTTPSErrors: true,
@@ -82,6 +192,8 @@ async function fetchBook( bookUrl)
       Logger.trace('Browser is closed');
       isBrowserClosed = true;
   });
+
+
 
   // await page.goto(bookUrl, {waitUntil: 'load'});
   // await page.goto(bookUrl);
@@ -200,7 +312,17 @@ async function automate() {
     {
       book = r[i];
       Logger.trace("NO. "+i+" book: "+book.bookName);
-      await fetchBook(book.ctdiskUrl);
+      var book_url  = book.ctdiskUrl;
+      //Should be before this function
+      var split = book_url.split('/');
+      if(split[2] == 'dir'){
+        await fetchBookDir(book.ctdiskUrl);
+      }
+      else if(split[2] == 'fs')
+      {
+        Logger.trace('gonna go : book_url');
+        await fetchBook(book.ctdiskUrl);
+      }
     }
     StatsLogger.info("CTFileCrawler catch rate :"+statCount+"/"+r.length);
     //statLogger();
