@@ -71,11 +71,11 @@ async function assertBook(hoursAgo) {
   return result;
 }
 
-async function automate()
+async function automate(hoursAgo)
 {
     var r = await assertBook(hoursAgo);
     StatsLogger.info(r.length+" books downloaded ...");
-    console.log(r);
+    //console.log(r);
 
 }
 
