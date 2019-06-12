@@ -48,7 +48,7 @@ async function assertBook() {
                           {"badApple":{"$exists":false}}
                         ] };
 
-  const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
+  const options = { limit: Config.crawlStep , sort:{"cursorId": 1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
@@ -187,11 +187,11 @@ async function run(page) {
        var book = resultArray[i];
        Logger.trace("NO."+i+": "+book.bookName+" -> "+book.bookUrl);
        Logger.trace("baidu_url:"+book.baiduUrl+",code:"+book.baiduCode);
-       if(book.baiduUrl.startsWith("https://pan.baidu.com"))
+       if(book.baiduUrl.startsWith("https://pan.baidu.com") || book.baiduUrl.startsWith("http://pan.baidu.com") )
        {
          await grabABook_BDY(page, book);
        }
-       else if(book.baiduUrl.startsWith("https://sobook.ctfile.com"))
+       else if(book.baiduUrl.startsWith("https://sobooks.ctfile.com") || book.baiduUrl.startsWith("http://sobooks.ctfile.com"))
        {
          Logger.trace("MisLink Found : "+book.bookUrl);
          book["ctdiskUrl"] = book.baiduUrl;
