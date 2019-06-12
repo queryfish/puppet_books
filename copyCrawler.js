@@ -110,9 +110,9 @@ async function grabABook_BDY(page, bookObj) {
         saveButtonSel = '#bd-main > div > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue';
     }
     else{
-        Logger.error(bookObj.bookName+':Baidu Folder NOT FOUND!!!');
-        Logger.error("url:"+bookObj.baiduUrl);
-        Logger.error("code:"+bookObj.baiduCode);
+        Logger.warn(bookObj.bookName+':Baidu Folder NOT FOUND!!!');
+        Logger.warn("url:"+bookObj.baiduUrl);
+        Logger.warn("code:"+bookObj.baiduCode);
         saveButtonSel = '#layoutMain > div.frame-content > div.module-share-header > div > div.slide-show-right > div > div > div.x-button-box > a.g-button.g-button-blue'
     }
 
