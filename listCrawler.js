@@ -41,6 +41,18 @@ async function getMaxCursor() {
       return 0;
 }
 
+async function getScannerCursor() {
+  assertMongoDB();
+  var query = Book.find({isInvalidValue:{$exists:true}}).sort({"cursorId" : -1}).limit(1);
+  const result = await query.exec();
+  Logger.info("Getting Scanner BookId");
+  Logger.info(result);
+  if (result.length >0)
+    return result[0].cursorId;
+  else
+      return -1;
+}
+
 async function getCursor() {
   assertMongoDB();
   const conditions = { "index": {"$eq":1 } };
@@ -61,18 +73,21 @@ async function upsertCursor(cursorUpdate)
   await q.exec();
 }
 
-async function crawlBookListScanner(bookId)
+async function crawlBookListScanner(page, count)
 {
   var tick =1;
+  var bookId = 0;
+  let result = await getScannerCursor();
+  if(result == -1)
+    bookId = 1;
+  else
+      bookId = result;
+
+
   // searchUrl = 'https://sobooks.cc/search/'+qString;
   // let result = await crawlBookList(pageUrl);
   // return result;
-  const browser = await puppeteer.launch({
-    headless: true
-  });
-  const page = await browser.newPage();
-
-  while(bookId >0 && tick < MAX_TICKS){
+  while(bookId >0 && tick <= count){
       var pageUrl = 'https://sobooks.cc/books/'+bookId+".html";
       var exist = await assertBook(pageUrl);
       if(exist == null || exist.length == 0){
@@ -85,13 +100,13 @@ async function crawlBookListScanner(bookId)
             Logger.info("Valid URL "+ pageUrl);
             await upsertBook({bookUrl:pageUrl, isBookUrlValid:true, cursorId:bookId});
           }
+          tick ++;
       }
       else{
         await upsertBook({bookUrl:pageUrl, isBookUrlValid:false, cursorId:bookId});
         Logger.warn("EXIST url "+pageUrl);
       }
       bookId ++;
-      tick ++;
   }
 
 }
@@ -218,6 +233,7 @@ async function crawlBookList(page, uri_formatter)
   Logger.trace("currentBookId = "+currentBookId);
   StatsLogger.info("List Crawler rate :"+statCount+"/"+ticks)
   await upsertCursor(maxCursor);
+  return statCount;
 
 }
 
@@ -355,14 +371,14 @@ async function fakeMain(page)
           headless: true
         });
         const page = await browser.newPage();
-        if(process.argv[2] == "greedy"){
-          Logger.warn('INTO GREEDY MODE');
-        }
-        else{
-          await crawlBookList(page, function(p){
+        let update = await crawlBookList(page, function(p){
             return (BOOK_INFO_SITE+'/page/'+p);
-          });
+        });
+        if(update <5)
+        {
+          await crawlBookListScanner(page , Config.crawlStep);
         }
+
         await browser.close();
         await mongoose.connection.close();
         Logger.info('List Crawler Session END PID@ '+process.pid);
