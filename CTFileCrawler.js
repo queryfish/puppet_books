@@ -321,7 +321,7 @@ async function automate() {
       }
       else if(split[3] == 'fs')
       {
-        Logger.trace('gonna go :''+book_url);
+        Logger.trace('gonna go :'+book_url);
         await fetchBook(book.ctdiskUrl);
       }
     }
