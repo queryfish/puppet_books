@@ -71,6 +71,7 @@ async function crawl(page, detailUrl)
      bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
 
 
+
      // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
      const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
      const url_selector = 'table.dltable > tbody * a:first-of-type';
@@ -81,6 +82,7 @@ async function crawl(page, detailUrl)
      if(ct_url != null)
         bookObj["ctdiskUrl"]= ct_url;
      Logger.trace("Get baidu url:"+baidu_url);
+     Logger.trace("Get Baidu code:"+bookObj['baiduCode']);
      Logger.trace("Get CT url:"+ct_url);
      await upsertBook(bookObj);
      Logger.info("book detailed :"+detailUrl);
