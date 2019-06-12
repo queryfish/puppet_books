@@ -9,7 +9,7 @@ const Logger = LOG4JS.download_logger;
 const StatsLogger = LOG4JS.stats_logger;
 const fs = require('fs');
 const MAX_PAGE_NUM = 200;
-const MAX_TICKS = 2000;
+const MAX_TICKS = 100;
 const BOOK_INFO_SITE = 'http://sobooks.cc'
 
 // const db = mongoose.connect( Config.dbUrl,{}
@@ -61,9 +61,8 @@ async function upsertCursor(cursorUpdate)
   await q.exec();
 }
 
-async function crawlBookListScanner()
+async function crawlBookListScanner(bookId)
 {
-  var bookId = 970;
   var tick =1;
   // searchUrl = 'https://sobooks.cc/search/'+qString;
   // let result = await crawlBookList(pageUrl);
@@ -77,21 +76,22 @@ async function crawlBookListScanner()
       var pageUrl = 'https://sobooks.cc/books/'+bookId+".html";
       var exist = await assertBook(pageUrl);
       if(exist == null || exist.length == 0){
-          let res = await page.goto(pageUrl);
+          let res = await page.goto(pageUrl); //wait until
           if (res && res.status() == 404) {
-            Logger.error("!!!! invalid url "+ pageUrl);
+            Logger.error("!!!! Invalid url "+ pageUrl);
+            await upsertBook({bookUrl:pageUrl, isBookUrlValid:false, cursorId:bookId});
           }
           else {
-            Logger.trace("Valid URL "+ pageUrl);
-            await upsertBook({bookUrl:pageUrl});
+            Logger.info("Valid URL "+ pageUrl);
+            await upsertBook({bookUrl:pageUrl, isBookUrlValid:true, cursorId:bookId});
           }
       }
       else{
-        Logger.trace("exist book url "+pageUrl);
+        await upsertBook({bookUrl:pageUrl, isBookUrlValid:false, cursorId:bookId});
+        Logger.warn("EXIST url "+pageUrl);
       }
-      bookId --;
+      bookId ++;
       tick ++;
-
   }
 
 }
@@ -196,12 +196,17 @@ async function crawlBookList(page, uri_formatter)
       }
 
       Logger.info('NO.'+statCount+" "+bookname+ ' -> '+ bookurl);
-      await upsertBook({
-        bookName: bookname,
-        bookUrl: bookurl,
-        cursorId: currentBookId,
-        dateCrawled: new Date()
-      });
+      var exist = await assertBook(bookurl);
+      if(exist == null || exist.length == 0){
+          await upsertBook({
+            bookName: bookname,
+            bookUrl: bookurl,
+            cursorId: currentBookId,
+            dateCrawled: new Date()
+          });
+      }
+      else
+        Logger.trace("Exists Book :"+bookname+" -> "+bookurl);
       ticks ++;
     }
     // await page.waitFor(5*1000);
@@ -339,13 +344,25 @@ async function fakeMain(page)
 (async () => {
     try {
         Logger.info('List Crawler Session STARTED PID@ '+process.pid);
+        if(process.argv[2] == "scan"){
+          Logger.warn('INTO SCANNER MODE');
+          var start = Number(process.argv[3]);
+          await crawlBookListScanner(start);
+          return;
+        }
+
         const browser = await puppeteer.launch({
           headless: true
         });
         const page = await browser.newPage();
-        await crawlBookList(page, function(p){
-          return (BOOK_INFO_SITE+'/page/'+p);
-        });
+        if(process.argv[2] == "greedy"){
+          Logger.warn('INTO GREEDY MODE');
+        }
+        else{
+          await crawlBookList(page, function(p){
+            return (BOOK_INFO_SITE+'/page/'+p);
+          });
+        }
         await browser.close();
         await mongoose.connection.close();
         Logger.info('List Crawler Session END PID@ '+process.pid);

@@ -4,6 +4,7 @@ let bookSchema = new mongoose.Schema({
     bookId: String,
     bookName: String,
     bookUrl: String,
+    isBookUrlValid: Boolean,
     bookMeta: String,
     author: String,
     bookSerial: String,
@@ -19,7 +20,7 @@ let bookSchema = new mongoose.Schema({
     category : String,
     tags :String,
     badApple: Boolean,
-    cursorId: Number,
+    cursorId: Number, // Actually we use this as bookId in sobooks site
     ctdiskUrl:String,
     ctdownloadUrl:String,
     downloaded:Boolean,
@@ -27,6 +28,7 @@ let bookSchema = new mongoose.Schema({
     bookSize:Number,
     hasMobi: Boolean,
     hasEpub: Boolean
+
 });
 
 let Book = mongoose.model('Book', bookSchema);
