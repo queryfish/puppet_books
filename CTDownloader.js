@@ -127,7 +127,7 @@ async function automate()
     for (var i = 0; i < r.length; i++)
     {
       book = r[i];
-      Logger.info("NO. "+i+" book: "+book.bookName);
+      Logger.info("NO. "+i+" book["+book.cursorId+"]: "+book.bookName);
       await downloadBook(book);
     }
     StatsLogger.info("CTDownloader Rate "+statCount+"/"+r.length);
