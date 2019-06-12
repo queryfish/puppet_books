@@ -185,6 +185,7 @@ async function run(page) {
    for (var i = 0; i < resultArray.length; i++) {
        var book = resultArray[i];
        Logger.trace("NO."+i+": "+book.bookName+" -> "+book.bookUrl);
+       Logger.trace("baidu_url:"+book.baiduUrl+",code:"+book.baiduCode);
        if(book.baiduUrl.startsWith("https://pan.baidu.com"))
        {
          await grabABook_BDY(page, book);
