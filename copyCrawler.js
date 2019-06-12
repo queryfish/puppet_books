@@ -45,7 +45,7 @@ async function assertBook() {
                           {"baiduUrl": {"$exists": true}},
                           {"baiduCode":{"$exists":true}},
                           {"lastCrawlCopyTime":{"$exists":false}},
-                          {"badApple":{"$exists":false}}
+                          {"badApple":{"$eq":true}}
                         ] };
 
   const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
