@@ -45,7 +45,7 @@ async function assertBook() {
                           {"baiduUrl": {"$exists": true}},
                           {"baiduCode":{"$exists":true}},
                           {"lastCrawlCopyTime":{"$exists":false}},
-                          {"badApple":{"$eq":true}}
+                          {"badApple":{"$exists":false}}
                         ] };
 
   const options = { limit: Config.crawlStep , sort:{"cursorId": -1} };
@@ -145,7 +145,8 @@ async function grabABook_BDY(page, bookObj) {
         bookUrl:bookObj.bookUrl,
         lastCrawlCopyTime: new Date(),
         lastCrawlCopyResultMessage : rsp_msg,
-        savedBaidu:true
+        savedBaidu:true,
+        badApple: false
       })
 }
 
@@ -190,10 +191,20 @@ async function run(page) {
        {
          await grabABook_BDY(page, book);
        }
+       else if(book.baiduUrl.startsWith("https://sobook.ctfile.com"))
+       {
+         Logger.trace("MisLink Found : "+book.bookUrl);
+         book["ctdiskUrl"] = book.baiduUrl;
+         book["badApple"] = true;
+         upsertBook(book);
+
+       }
        else
        {
          //we do the check here and we save it backup to mongodb for further filter
-         Logger.trace("BadApple Found : "+book.bookUrl);
+         Logger.trace("BadApple Found !!! ");
+         Logger.trace("Baidu Url -> "+book.baiduUrl);
+         Logger.trace("Book Url -> "+book.bookUrl);
          book["badApple"] = true;
          upsertBook(book);
        }
