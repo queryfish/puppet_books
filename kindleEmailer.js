@@ -31,16 +31,17 @@ var mailTransport = nodemailer.createTransport({
 // });
 
 // const logfile = process.argv[2];
-
-    mailTransport.sendMail({
+const attachFilePath = process.argv[2];
+const attachFile = attachFilePath.split('/').pop();
+console.log('Gonna sent to kindle :', attachFile);
+mailTransport.sendMail({
         sender: "marrowsky@126.com",
         to: 'marrowsky_50@kindle.cn, mcpoet@126.com',
-        subject: 'crawler.log',
-        text: "?",
+        subject: attachFile,
+        text: "hi kindle",
         contentType: 'text/plain',
-        // html: template,
-        attachments: [{filename: "test.mobi",
-                      path: "./books/为什么我们总是在逃避.mobi"
+        attachments: [{filename: attachFile,
+                      path: attachFilePath
                     }]}
         , function(err, success) {
                 if (err) {
