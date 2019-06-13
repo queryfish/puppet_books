@@ -79,7 +79,7 @@ async function crawlBookListScanner(page, count)
   var bookId = 0;
   let result = await getScannerCursor();
   if(result == -1)
-    bookId = 1;
+    bookId = Config.scannerStart;
   else
       bookId = result;
 
