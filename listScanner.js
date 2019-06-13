@@ -91,22 +91,21 @@ async function crawlBookListScanner(count)
       var pageUrl = 'https://sobooks.cc/books/'+bookId+".html";
       var exist = await assertBook(pageUrl);
       if(exist == null || exist.length == 0){
-
-        const request = require('request');
-        request(pageUrl, function (error, response, body) {
-          console.error('error:', error); // Print the error if one occurred
-          console.log('statusCode:', response && response.statusCode);
-          if(response && response.statusCode == 404)
-          {
-            Logger.error("!!!! Invalid url "+ pageUrl);
-            upsertBook({bookUrl:pageUrl, isBookUrlValid:false, cursorId:bookId});
-          }
-          else {
-            Logger.info("Valid URL "+ pageUrl);
-            upsertBook({bookUrl:pageUrl, isBookUrlValid:true, cursorId:bookId});
-          }
-          // console.log('body:', body); // Print the HTML for the Google homepage.
-        });
+        // const request = require('request');
+        let request = require('async-request');
+        let response = await request(pageUrl);
+        console.error('error:', response.error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode);
+        // console.log('body:', body); // Print the HTML for the Google homepage.
+        if(response && response.statusCode == 404)
+        {
+          Logger.error("!!!! Invalid url "+ pageUrl);
+          await upsertBook({bookUrl:pageUrl, isBookUrlValid:false, cursorId:bookId});
+        }
+        else {
+          Logger.info("Valid URL "+ pageUrl);
+          await upsertBook({bookUrl:pageUrl, isBookUrlValid:true, cursorId:bookId});
+        }
         tick ++;
       }
       else{
