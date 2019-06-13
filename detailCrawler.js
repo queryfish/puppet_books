@@ -25,7 +25,7 @@ async function getTextContent(page, selector)
     if(document.querySelector(sel) != null)
       return document.querySelector(sel).textContent;
     else
-      return null;
+      return "";
   }, selector);
   return tc;
 }
