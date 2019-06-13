@@ -54,7 +54,8 @@ async function crawl(page, detailUrl)
      Logger.info("extracting "+detailUrl);
      // bookObj["author"] = await getTextContent(page, AUTHOR_SEL);
      let uploadDateString = await getTextContent(page, UPLOAD_DATE_SEL);
-     bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
+     if(uploadDateString!= null)
+      bookObj["uploadDate"]  = uploadDateString.substring(3, uploadDateString.length);
      bookObj["bookSerial"]= await getTextContent(page, ISBN_SEL);
      bookObj["bookBrief"]  = await getTextContent(page, BOOK_BRIEF_SEL);
      bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
