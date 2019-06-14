@@ -23,7 +23,7 @@ let bookSchema = new mongoose.Schema({
     cursorId: Number, // Actually we use this as bookId in sobooks site
     ctdiskUrl:String,
     ctdownloadUrl:String,
-    downloaded:Boolean,
+    downloaded:Boolean,  //the book has been downloaded from ctdisk
     ctdownloadTime:Date, //ctdisk download time
     bookSize:Number,
     hasMobi: Boolean,

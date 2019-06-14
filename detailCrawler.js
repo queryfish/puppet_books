@@ -61,17 +61,14 @@ async function crawl(page, detailUrl)
      bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
      bookObj["tags"] = await getTextContent(page, TAGS_SEL);
 
-
-     // await page.click(CHECKCODE_SELECTOR);
-     // await page.keyboard.type(CREDS.checkcode);
-     // await page.click(BUTTON_SELECTOR);
-     // // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
-     // await page.waitFor(10*1000);
-     // let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
-     // var l = baiduPickup.length;
-     // bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
-
-
+     await page.click(CHECKCODE_SELECTOR);
+     await page.keyboard.type(CREDS.checkcode);
+     await page.click(BUTTON_SELECTOR);
+     // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
+     await page.waitFor(10*1000);
+     let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
+     var l = baiduPickup.length;
+     bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
 
      // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
      const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
@@ -118,11 +115,13 @@ async function assertBook() {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}}
   const conditions = { "$and":[
-                                {"$and":[
+                                {"$or":[
                                   {"ctdiskUrl": {"$exists": false}},
-                                  {"baiduUrl": {"$exists": false}}
+                                  {"baiduCode": {"$exists": false}}
                                 ]},
-                                {"bookUrl":{"$exists":true}}
+                                {"bookUrl":{"$exists":true}},
+                                {"downloaded":{"$exists":false}},
+                                {"lastCrawlCopyTime":{"$exists":false}}
                               ]
                       };
   // const conditions = { "$and":[ {"ctdiskUrl": {"$exists": false}},{"bookUrl":{"$exists":true}}]};
