@@ -43,7 +43,7 @@ async function getMaxCursor() {
 
 async function getScannerCursor() {
   assertMongoDB();
-  var query = Book.find({isInvalidValue:{$exists:true}}).sort({"cursorId" : -1}).limit(1);
+  var query = Book.find({isBookUrlValid:{$exists:true}}).sort({"cursorId" : -1}).limit(1);
   const result = await query.exec();
   Logger.info("Getting Scanner BookId");
   Logger.info(result);
