@@ -81,7 +81,7 @@ async function crawlBookListScanner(count)
   if(result == -1)
     bookId = Config.scannerStart;
   else
-      bookId = result;
+      bookId = result+1;
 
 
   // searchUrl = 'https://sobooks.cc/search/'+qString;

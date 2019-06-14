@@ -360,13 +360,6 @@ async function fakeMain(page)
 (async () => {
     try {
         Logger.info('List Crawler Session STARTED PID@ '+process.pid);
-        if(process.argv[2] == "scan"){
-          Logger.warn('INTO SCANNER MODE');
-          var start = Number(process.argv[3]);
-          await crawlBookListScanner(start);
-          return;
-        }
-
         const browser = await puppeteer.launch({
           headless: true
         });
@@ -374,11 +367,6 @@ async function fakeMain(page)
         let update = await crawlBookList(page, function(p){
             return (BOOK_INFO_SITE+'/page/'+p);
         });
-        if(update <5)
-        {
-          await crawlBookListScanner(page , Config.crawlStep);
-        }
-
         await browser.close();
         await mongoose.connection.close();
         Logger.info('List Crawler Session END PID@ '+process.pid);

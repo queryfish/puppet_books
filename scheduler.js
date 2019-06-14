@@ -86,7 +86,7 @@ async function schedule(crawler_code)
         return;
     }
 
-    var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
+    var crawlers = ['listCrawler','listScanner', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
     var index = crawler_code%crawlers.length;
     require(Configs.workingPath+crawlers[index]);
 }
