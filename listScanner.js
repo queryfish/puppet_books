@@ -121,7 +121,7 @@ async function fakeMain(page)
 (async () => {
     try {
         Logger.info('List Crawler Session STARTED PID@ '+process.pid);
-          await crawlBookListScanner(Config.crawlStep);
+          await crawlBookListScanner(Config.scannerStep);
         await mongoose.connection.close();
         Logger.info('List Crawler Session END PID@ '+process.pid);
     } catch (e) {
