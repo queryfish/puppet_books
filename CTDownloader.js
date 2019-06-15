@@ -80,6 +80,7 @@ async function downloadBook(bookObj)
         updateBook(cond,update);
         statCount++;
         Logger.info("DONE downloading "+bookname);
+        StatsLogger.info("Download "+bookname);
       });
       dl.on('error', (err) => {
         Logger.error("Error ...");

@@ -140,6 +140,7 @@ async function grabABook_BDY(page, bookObj) {
         return msg;
       }, MSG_SEL);
       Logger.info(bookObj.bookName+":"+rsp_msg);
+      StatsLogger.info('Got'+bookObj.bookName);
       statCount++;
       await page.waitFor(5*1000);
       upsertBook({
