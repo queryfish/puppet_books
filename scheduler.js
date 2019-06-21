@@ -80,13 +80,13 @@ async function schedule(crawler_code)
     else
     {
         Logger.warn("Worker is occupied by PID@", isIdle);
-        // Logger.warn("Gonna shoot worker@",isIdle);
-        // process.kill(isIdle, 'SIGINT');
-        // await setWorkerState(process.pid);
+        Logger.warn("Gonna shoot worker@",isIdle);
+        process.kill(isIdle, 'SIGINT');
+        await setWorkerState(process.pid);
         return;
     }
 
-    var crawlers = ['listCrawler','listScanner', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
+    var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler'];
     var index = crawler_code%crawlers.length;
     require(Configs.workingPath+crawlers[index]);
 }
