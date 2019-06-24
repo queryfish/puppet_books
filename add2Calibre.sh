@@ -5,11 +5,13 @@ _dfiles="${_base}/*.mobi"
 for f in $_dfiles
 do
     # add to calibre
-    `calibredb add --library-path="~/mycalibre_lib/db" ${f}`
+    # `calibredb add --library-path=~/mycalibre_lib/db ${f}`
     # convert to epub
     epubName=""
     sed 's/mobi/epub/' "$f" > "${epubName}"   # update signature
+    echo ${f}
+    echo ${epubName}
     `ebook-convert "$f" "${epubName}"`
     # rm -f ${f} ${epubName}
-    rm -f ${f}
+    # rm -f ${f}
 done
