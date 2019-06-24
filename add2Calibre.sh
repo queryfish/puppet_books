@@ -1,6 +1,6 @@
 #!/bin/bash
 _base="./calibre_tmp/mobi"
-_dfiles="${base}/*.mobi"
+_dfiles="${_base}/*.mobi"
 
 for f in $_dfiles
 do
