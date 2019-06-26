@@ -27,7 +27,8 @@ let bookSchema = new mongoose.Schema({
     ctdownloadTime:Date, //ctdisk download time
     bookSize:Number,
     hasMobi: Boolean,
-    hasEpub: Boolean
+    hasEpub: Boolean,
+    savedToAliOSS: Boolean
 
 });
 

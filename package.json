@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/emadehsan/thal#readme",
   "dependencies": {
+    "ali-oss": "^6.1.1",
     "async-request": "^1.2.0",
     "is-running": "^2.1.0",
     "log4js": "^4.3.1",
