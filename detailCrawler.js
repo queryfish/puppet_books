@@ -121,7 +121,8 @@ async function assertBook() {
                                 ]},
                                 {"bookUrl":{"$exists":true}},
                                 {"downloaded":{"$exists":false}},
-                                {"lastCrawlCopyTime":{"$exists":false}}
+                                {"lastCrawlCopyTime":{"$exists":false}},
+                                {"isBookUrlValid":{"$ne":false}}
                               ]
                       };
   // const conditions = { "$and":[ {"ctdiskUrl": {"$exists": false}},{"bookUrl":{"$exists":true}}]};
