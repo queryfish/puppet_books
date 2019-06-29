@@ -70,16 +70,22 @@ async function crawl( detailUrl)
      const url_selector = 'table.dltable > tbody * a:first-of-type';
      // let baidu_url = await extractUrl(url_selector);
      var href = $(url_selector).attr("href");
+     var diskName = $(url_selector).text();
      if(href != null && href != "" && typeof(href) != undefined){
        var temp_url  = new URL(href);
        var baidu_url = temp_url.searchParams.get('url');
      }
-
-     // let ct_url = await extractUrl(ct_download_url_selector);
-     href = $(ct_download_url_selector).attr("href");
-     if(href != null && href != "" && typeof(href) != undefined){
-       var temp_url  = new URL(href);
-       var ct_url = temp_url.searchParams.get('url');
+     if(diskName.indexOf("城") >= 0){
+        var ct_url = baidu_url;
+        baidu_url = null;
+     }
+     else{
+       // let ct_url = await extractUrl(ct_download_url_selector);
+         href = $(ct_download_url_selector).attr("href");
+         if(href != null && href != "" && typeof(href) != undefined){
+           var temp_url  = new URL(href);
+           var ct_url = temp_url.searchParams.get('url');
+         }
      }
 
      if(baidu_url!=null)
