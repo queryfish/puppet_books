@@ -153,7 +153,7 @@ async function fakeMain(page, max_crawled_items)
         //       // console.log(textBody);
         //     })
         // })
-        await fakeMain(page, 1);
+        await fakeMain(page, 10000);
         await browser.close();
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
