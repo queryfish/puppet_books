@@ -105,7 +105,7 @@ async function assertBook() {
     {"bookSerial":{$ne: ""}},
     {"doubanUrl":{"$exists":false}}
   ]}
-  const options = { limit:100 };
+  const options = { limit:Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
