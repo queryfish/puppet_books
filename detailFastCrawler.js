@@ -70,14 +70,18 @@ async function crawl( detailUrl)
      const url_selector = 'table.dltable > tbody * a:first-of-type';
      // let baidu_url = await extractUrl(url_selector);
      var href = $(url_selector).attr("href");
-     var temp_url  = new URL(href);
-     var baidu_url = temp_url.searchParams.get('url');
+     if(href != null || href != "" || typeof(href)!=undefined){
+       var temp_url  = new URL(href);
+       var baidu_url = temp_url.searchParams.get('url');
+     }
 
      // let ct_url = await extractUrl(ct_download_url_selector);
-     var href = $(ct_download_url_selector).attr("href");
-     var temp_url  = new URL(href);
-     var ct_url = temp_url.searchParams.get('url');
-
+     href = $(ct_download_url_selector).attr("href");
+     if(href != null || href != "" || typeof(href)!=undefined){
+       var temp_url  = new URL(href);
+       var ct_url = temp_url.searchParams.get('url');
+     }
+     
      if(baidu_url!=null)
         bookObj["baiduUrl"]= baidu_url;
      if(ct_url != null)
