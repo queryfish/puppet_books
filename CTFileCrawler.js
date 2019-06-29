@@ -14,7 +14,7 @@ var statCount = 0;
 async function upsertBook(bookObj) {
   assertMongoDB();
   // if this email exists, update the entry, don't insert
-  const conditions = { ctdiskUrl: bookObj.ctdiskUrl };
+  const conditions = { bookUrl: bookObj.bookUrl };
   const options = { upsert: true, new: true, setDefaultsOnInsert: true };
   var query = Book.findOneAndUpdate(conditions, bookObj, options);
   const result = await query.exec();
@@ -43,7 +43,7 @@ async function getTextContent(page, selector) {
   return tc;
 }
 
-async function fetchBook( bookUrl)
+async function fetchBook(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
@@ -116,7 +116,7 @@ async function fetchBook( bookUrl)
            Logger.trace('BOOK Size : '+ bookSize);
            Logger.info("DOWNLOAD URL CATCHED!!");
            // save url to DB for later download workers.
-           await upsertBook({"ctdiskUrl":bookUrl,
+           await upsertBook({"bookUrl":sobookUrl,
                              "ctdownloadUrl":download_url,
                              "bookSize":bookSize,
                              "hasMobi":true
@@ -138,7 +138,7 @@ async function fetchBook( bookUrl)
   }
   else{
     //we can do more than HAS MOBI
-    await upsertBook({"ctdiskUrl":bookUrl,
+    await upsertBook({"bookUrl":sobookUrl,
                       "hasMobi":false
                     });
     //should mark the book as mobi-less version
@@ -153,7 +153,7 @@ async function fetchBook( bookUrl)
 
 }
 
-async function fetchBookDir( bookUrl)
+async function fetchBookDir(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
@@ -241,7 +241,7 @@ async function fetchBookDir( bookUrl)
            Logger.trace('BOOK Size : '+ bookSize);
            Logger.info("DOWNLOAD URL CATCHED!!");
            // save url to DB for later download workers.
-           await upsertBook({"ctdiskUrl":bookUrl,
+           await upsertBook({"bookUrl":sobookUrl,
                              "ctdownloadUrl":download_url,
                              "bookSize":bookSize,
                              "hasMobi":true
@@ -263,7 +263,7 @@ async function fetchBookDir( bookUrl)
     Logger.trace("About to exit the CTFileCrawl mini Session");
   }
   else{
-    await upsertBook({"ctdiskUrl":bookUrl,
+    await upsertBook({"bookUrl":sobookUrl,
                       "hasMobi":false
                     });
     //should mark the book as mobi-less version
@@ -318,12 +318,12 @@ async function automate() {
       //Should be before this function
       var split = book_url.split('/');
       if(split[3] == 'dir'){
-        await fetchBookDir(book.ctdiskUrl);
+        await fetchBookDir(book.bookUrl, book.ctdiskUrl);
       }
       else if(split[3] == 'fs')
       {
         Logger.trace('gonna go :'+book_url);
-        await fetchBook(book.ctdiskUrl);
+        await fetchBook(book.bookUrl, book.ctdiskUrl);
       }
     }
     StatsLogger.info("CTFileCrawler catch rate :"+statCount+"/"+r.length);
