@@ -99,7 +99,7 @@ async function parseAndSave(requestUrl, response) {
   obj["doubanRatingUser"] = $(DETAIL_RATING_USER_NUMBER_SEL).text();
   obj["doubanBookMeta"] = infos;
   obj["doubanCrawlDate"] = new Date();
-  console.log(obj);
+  Logger.trace(obj);
   await upsertBook(obj);
   statCount++
 }
@@ -170,7 +170,6 @@ async function fakeMain(max_crawled_items)
     Logger.trace("in douban Crawler");
     var r = await assertBook();
     Logger.info(r.length+" books to be detailed ...");
-    Logger.info(r);
     for (var i = 0; i < r.length && tick < max_crawled_items; i++)
     {
       book = r[i];
