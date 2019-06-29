@@ -122,7 +122,8 @@ async function fakeMain(page, max_crawled_items)
     for (var i = 0; i < r.length && tick < max_crawled_items; i++)
     {
       book = r[i];
-      Logger.trace(book);
+      Logger.trace(book.bookName);
+      Logger.trace(book.bookSerial);
       if(book.bookSerial == null)
         continue;
       var ISBN = book.bookSerial.split("：").pop();
