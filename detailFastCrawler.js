@@ -81,7 +81,7 @@ async function crawl( detailUrl)
        var temp_url  = new URL(href);
        var ct_url = temp_url.searchParams.get('url');
      }
-     
+
      if(baidu_url!=null)
         bookObj["baiduUrl"]= baidu_url;
      if(ct_url != null)
@@ -149,10 +149,10 @@ async function fakeMain(max_crawled_items)
 */
 (async () => {
     try {
-        Logger.info("detailCrawler Session START  PID@"+process.pid);
+        Logger.info("Detail Fast Crawler Session START  PID@"+process.pid);
         await fakeMain(10000);
         mongoose.connection.close();
-        Logger.info("detailCrawler Session END PID@"+process.pid);
+        Logger.info("Detail Fast Crawler Session END PID@"+process.pid);
     } catch (e) {
         throw(e);
     }

@@ -189,10 +189,10 @@ async function fakeMain(max_crawled_items)
 */
 (async () => {
     try {
-        Logger.info("detailCrawler Session START  PID@"+process.pid);
+        Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
         await fakeMain(1000);
         mongoose.connection.close();
-        Logger.info("detailCrawler Session END PID@"+process.pid);
+        Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
     } catch (e) {
         throw(e);
     }

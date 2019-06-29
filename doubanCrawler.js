@@ -130,7 +130,7 @@ async function fakeMain(page, max_crawled_items)
       await crawl(page, book);
       tick ++;
     }
-    StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
+    StatsLogger.info("Douban Search Crawler Rate "+statCount+"/"+r.length);
 
 }
 /*
@@ -138,7 +138,7 @@ async function fakeMain(page, max_crawled_items)
 */
 (async () => {
     try {
-        Logger.info("detailCrawler Session START  PID@"+process.pid);
+        Logger.info("Douban Search Crawler Session START  PID@"+process.pid);
         const browser = await puppeteer.launch({
           headless: true
         });
@@ -156,7 +156,7 @@ async function fakeMain(page, max_crawled_items)
         await fakeMain(page, 10000);
         await browser.close();
         mongoose.connection.close();
-        Logger.info("detailCrawler Session END PID@"+process.pid);
+        Logger.info("Douban Search Crawler Session END PID@"+process.pid);
     } catch (e) {
         throw(e);
     }
