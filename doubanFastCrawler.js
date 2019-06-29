@@ -157,7 +157,7 @@ async function assertBook() {
   {"doubanUrl":{"$ne":null}},
   {"doubanCrawlDate":{"$exists":false}}
   ]}
-  const options = { limit:5 };
+  const options = { limit:Config.crawlStep };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
