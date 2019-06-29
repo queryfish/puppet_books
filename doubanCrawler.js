@@ -141,6 +141,12 @@ async function fakeMain(page, max_crawled_items)
           headless: true
         });
         const page = await browser.newPage();
+        page.on('response', response => {
+          console.log("get some response");
+          response.text().then(function (textBody) {
+              // console.log(textBody);
+            })
+        })
         await fakeMain(page, 1000);
         await browser.close();
         mongoose.connection.close();

@@ -83,7 +83,7 @@ async function downloadBook(bookObj)
         var update = {downloaded:true, ctdownloadTime:new Date()};
         var cond = {"ctdownloadUrl":dl_url};
 
-        updateBook(cond,update);
+        await updateBook(cond,update);
         statCount++;
         Logger.info("DONE downloading "+bookname);
         StatsLogger.info("Download "+bookname);
