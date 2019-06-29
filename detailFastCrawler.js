@@ -104,13 +104,13 @@ async function assertBook() {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}}
   const conditions = { "$and":[
-                                {"$or":[
+                                // {"$or":[
                                   {"ctdiskUrl": {"$exists": false}},
-                                  {"baiduCode": {"$exists": false}}
-                                ]},
+                                  // {"baiduCode": {"$exists": false}}
+                                // ]},
                                 {"bookUrl":{"$exists":true}},
                                 {"downloaded":{"$exists":false}},
-                                {"lastCrawlCopyTime":{"$exists":false}},
+                                // {"lastCrawlCopyTime":{"$exists":false}},
                                 {"isBookUrlValid":{"$ne":false}}
                               ]
                       };
