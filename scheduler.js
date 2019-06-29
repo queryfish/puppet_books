@@ -86,7 +86,9 @@ async function schedule(crawler_code)
         return;
     }
 
-    var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler', 'doubanCrawler', 'doubanFastCrawler'];
+    // var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler', 'doubanCrawler', 'doubanFastCrawler'];
+    var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'doubanCrawler', 'doubanFastCrawler'];
+
     var index = crawler_code%crawlers.length;
     require(Configs.workingPath+crawlers[index]);
 }
