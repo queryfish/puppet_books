@@ -28,7 +28,16 @@ let bookSchema = new mongoose.Schema({
     bookSize:Number,
     hasMobi: Boolean,
     hasEpub: Boolean,
-    savedToAliOSS: Boolean
+    savedToAliOSS: Boolean,
+    doubanId: String,
+    doubanBookBrief: String,
+    doubanAuthorBrief: String,
+    doubanTags: Array,
+    doubanRating : Number,
+    doubanRatingUser : String,
+    doubanBookMeta: Array,
+    doubanUrl: String,
+    doubanCrawlDate: Date
 
 });
 

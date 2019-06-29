@@ -10,6 +10,7 @@ const Logger = LOG4JS.download_logger;
 const StatsLogger = LOG4JS.stats_logger;
 const CREDS = require('./creds');
 const Configs = require('./configs');
+const OSSPut = require('./saveToAliOSS')
 const MAX_CRAWL_NUM = 200;
 
 var statCount = 0;
@@ -74,9 +75,14 @@ async function downloadBook(bookObj)
     {
       Logger.info("start downloading -> "+bookname);
       const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:false});
-      dl.on('end', () => {
-        var cond = {"ctdownloadUrl":dl_url};
+      await dl.on('end', async () => {
+        let p = await OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'tests/'+bookname+'.mobi');
+        if(p == 0)
+          var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
+          else
         var update = {downloaded:true, ctdownloadTime:new Date()};
+        var cond = {"ctdownloadUrl":dl_url};
+
         updateBook(cond,update);
         statCount++;
         Logger.info("DONE downloading "+bookname);
