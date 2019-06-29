@@ -80,8 +80,10 @@ async function crawl(page, bookObj)
      // const site_base = 'https://book.douban.com/';
      const SEARCH_URL_TEMPLATE = 'https://book.douban.com/subject_search?search_text=ISBN&cat=1001'
      let searchUrl = SEARCH_URL_TEMPLATE.replace("ISBN", ISBN);
-     await page.goto(searchUrl, {waitUntil: 'networkidle2'});
-     await page.waitFor(20*1000);
+     // await page.goto(searchUrl, {waitUntil: 'networkidle2'});
+     await page.goto(searchUrl);
+     // await page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout:0});
+     await page.waitFor(10*1000);
      let detailUrl = await getSelectorHref(page, SEARCH_ISBN_RESULT_HREF_SEL);
      Logger.trace("detail Url: "+detailUrl);
      // var bookInfoString = bookInfoBlock.replace(/\r?\n|\r/g, "").replace(/\s+/g,' ');
@@ -141,13 +143,17 @@ async function fakeMain(page, max_crawled_items)
           headless: true
         });
         const page = await browser.newPage();
-        page.on('response', response => {
-          console.log("get some response");
-          response.text().then(function (textBody) {
-              // console.log(textBody);
-            })
-        })
-        await fakeMain(page, 1000);
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36');
+
+        // page.on('response', response => {
+        //   console.log("get some response");
+        //   console.log(response.url());
+        //   console.log(response.headers());
+        //   response.text().then(function (textBody) {
+        //       // console.log(textBody);
+        //     })
+        // })
+        await fakeMain(page, 1);
         await browser.close();
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
