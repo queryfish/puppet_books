@@ -81,7 +81,7 @@ async function crawl(page, bookObj)
      const SEARCH_URL_TEMPLATE = 'https://book.douban.com/subject_search?search_text=ISBN&cat=1001'
      let searchUrl = SEARCH_URL_TEMPLATE.replace("ISBN", ISBN);
      await page.goto(searchUrl, {waitUntil: 'networkidle2'});
-     await page.waitFor(7*1000);
+     await page.waitFor(20*1000);
      let detailUrl = await getSelectorHref(page, SEARCH_ISBN_RESULT_HREF_SEL);
      Logger.trace("detail Url: "+detailUrl);
      // var bookInfoString = bookInfoBlock.replace(/\r?\n|\r/g, "").replace(/\s+/g,' ');
