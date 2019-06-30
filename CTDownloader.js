@@ -76,14 +76,17 @@ async function downloadBook(bookObj)
       Logger.info("start downloading -> "+bookname);
       const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:false});
 
-      dl.on('end',  () => {
-        // let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
-        // if(p == 0)
-        //   var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
-        // else
+      dl.on('end', async () => {
+        let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
+        if(p == 0)
+          var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
+        else
         var update = {downloaded:true, ctdownloadTime:new Date()};
         var cond = {"ctdownloadUrl":dl_url};
-        updateBook(cond,update);
+        await updateBook(cond,update);
+        // console.log("index"+r.length);
+        // if(r.length == 0)
+        //   mongoose.connection.close();
         statCount++;
         Logger.info("DONE downloading "+bookname);
         StatsLogger.info("Download "+bookname);
@@ -119,20 +122,23 @@ async function assertBook() {
   // const conditions = { "baiduUrl": {"$exists": false}} ;
   const conditions = { "$and":[
     {"downloaded": {"$exists": false}},{"ctdownloadUrl":{"$exists":true}}]} ;
-  const options = { limit:Configs.crawlStep , sort:{"bookSize": 1} };
+  const options = { limit:4 , sort:{"bookSize": 1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
-  Logger.trace(JSON.stringify(result));
+  // Logger.trace(JSON.stringify(result));
   return result;
 }
 
+var r = null;
 async function automate()
 {
-    var r = await assertBook();
+    r = await assertBook();
     Logger.info(r.length+" books to be downloaded ...");
     // Logger.info(r);
     for (var i = 0; i < r.length; i++)
     {
+      Logger.warn("start download "+i);
+      // book = r.pop();
       book = r[i];
       Logger.info("NO. "+i+" book["+book.cursorId+"]: "+book.bookName);
       await downloadBook(book);
