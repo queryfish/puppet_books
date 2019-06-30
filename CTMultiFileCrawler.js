@@ -205,15 +205,13 @@ async function fetchBookDir(sobookUrl, bookUrl)
   });
 
 
-
   // await page.goto(bookUrl, {waitUntil: 'load'});
   // await page.goto(bookUrl);
   await page.goto(bookUrl, {waitUntil: 'networkidle2', timeout:0,});
   await page.waitFor(5*1000);
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
-  var download_href = "";
-  var formats = [];
+  var formats = {};
   for (var i = 1; i < 4; i++) {
     let booknameSelector = BOOK_SEL.replace("INDEX", i);
     if (await page.$(booknameSelector) != null)
@@ -222,20 +220,25 @@ async function fetchBookDir(sobookUrl, bookUrl)
         var f = bookname.split('.').pop();
         if(f!=null) formats.push(f);
         // Logger.trace("trying to find the mobi format url for "+bookname);
-        if(bookname !=null && bookname.split(".")[1] == "azw3"){
+        // if(bookname !=null && bookname.split(".")[1] == "azw3"){
+        if(bookname !=null && f!= null)
+        {
           Logger.info(bookname+" Found");
-          download_href = await getSelectorHref(page, booknameSelector);
+          let download_href = await getSelectorHref(page, booknameSelector);
+          formats[f]= download_href;
           Logger.trace(download_href);
-          // break;
         }
     }
   }
   console.log(formats);
 
-  if(download_href.length > 0){
+  var download_href = formats["mobi"] || formats["epub"] || formats["azw3"];
+  if(download_href != null && typeof(download_href) != "undefined"
+                          && download_href.length > 0){
     const DL_BUTTON = '#free_down_link';
     // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     // let download_href = await getSelectorHref(page, BOOK_SEL);
+
     var site = "https://sobooks.ctfile.com";
     download_href = site + download_href;
     Logger.trace("PAGE FOUND:"+download_href);
@@ -262,10 +265,12 @@ async function fetchBookDir(sobookUrl, bookUrl)
                            });
            statCount ++;
            await browser.close();
+
            //statLogger();
            // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
            // await CTDownloader.downloadBook(download_url);
         }
+        else
         if(response._headers['content-type'] === 'application/epub+zip')
         {
            console.log("DOWNLOAD URL CATCHED FOR EPUB");

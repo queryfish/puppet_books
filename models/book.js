@@ -37,7 +37,10 @@ let bookSchema = new mongoose.Schema({
     doubanRatingUser : String,
     doubanBookMeta: Array,
     doubanUrl: String,
-    doubanCrawlDate: Date
+    doubanCrawlDate: Date,
+    doubanBookName: String,
+    doubanBookCover: String, 
+    ctdownloadFormats:Array
 
 });
 

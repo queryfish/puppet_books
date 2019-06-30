@@ -34,6 +34,8 @@ const DETAIL_COMMENTS = '#content > div > div.article > div.related_info > div.m
 const SEARCH_URL_TEMPLATE = 'https://book.douban.com/subject_search?search_text=ISBN&cat=1001';
 const REC_SECTION_SEL = '#db-rec-section > div > dl';
 const REC_SECTION_ARRAY_SEL = '#db-rec-section > div > dl > dt > a';
+const TITLE_SEL = '#wrapper > h1 > span';
+const COVER_SEL = '#mainpic > a > img';
 
 /*
 var c = new Crawler({
@@ -101,6 +103,8 @@ async function parseAndSave(requestUrl, response) {
   doubanCrawlDate: Date
   */
   var obj = {};
+  obj["doubanBookName"] = $(TITLE_SEL).text();
+  obj["doubanBookCover"] = $(COVER_SEL).attr("src");
   obj["doubanUrl"] = requestUrl;
   obj["doubanBookBrief"] = $(DETAIL_BRIEF_SEL).text();
   obj["doubanAuthorBrief"] = $(DETAIL_AUTHOR_BRIEF_SEL).text();
@@ -109,6 +113,7 @@ async function parseAndSave(requestUrl, response) {
   obj["doubanRatingUser"] = $(DETAIL_RATING_USER_NUMBER_SEL).text();
   obj["doubanBookMeta"] = infos;
   obj["doubanCrawlDate"] = new Date();
+
   Logger.trace(obj);
   await upsertBook(obj);
   for (var i = 0; i < recommends.length; i++) {
@@ -203,13 +208,20 @@ async function fakeMain(max_crawled_items)
     StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
 
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
 /*
  main
 */
 (async () => {
     try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
-        await fakeMain(10000);
+        while(1){
+          await fakeMain(10000);
+          await sleep(60*1000);
+        }
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
     } catch (e) {
