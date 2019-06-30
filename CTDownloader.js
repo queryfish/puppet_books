@@ -75,12 +75,13 @@ async function downloadBook(bookObj)
     {
       Logger.info("start downloading -> "+bookname);
       const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:false});
-      await dl.on('end', async () => {
-        let p = await OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
-        if(p == 0)
-          var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
-          else
-        var update = {downloaded:true, ctdownloadTime:new Date()};
+
+      dl.on('end',  () => {
+        // let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
+        // if(p == 0)
+        //   var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
+        // else
+          var update = {downloaded:true, ctdownloadTime:new Date()};
         var cond = {"ctdownloadUrl":dl_url};
 
         await updateBook(cond,update);

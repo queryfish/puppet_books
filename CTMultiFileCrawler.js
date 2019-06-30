@@ -12,12 +12,12 @@ const Configs = require('./configs');
 var statCount = 0;
 
 async function upsertBook(bookObj) {
-  assertMongoDB();
-  // if this email exists, update the entry, don't insert
-  const conditions = { bookUrl: bookObj.bookUrl };
-  const options = { upsert: true, new: true, setDefaultsOnInsert: true };
-  var query = Book.findOneAndUpdate(conditions, bookObj, options);
-  const result = await query.exec();
+  // assertMongoDB();
+  // // if this email exists, update the entry, don't insert
+  // const conditions = { bookUrl: bookObj.bookUrl };
+  // const options = { upsert: true, new: true, setDefaultsOnInsert: true };
+  // var query = Book.findOneAndUpdate(conditions, bookObj, options);
+  // const result = await query.exec();
   return ;
 }
 
@@ -127,6 +127,17 @@ async function fetchBook(sobookUrl, bookUrl)
            // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
            // await CTDownloader.downloadBook(download_url);
         }
+        if(response._headers[''] === 'application/epub+zip')
+        {
+           console.log("DOWNLOAD URL CATCHED FOR EPUB");
+           var bookSize = Number(response._headers['content-length']);
+           var download_url =response._url;
+           Logger.trace('BOOK Size : '+ bookSize);
+           Logger.info("DOWNLOAD URL CATCHED!!");
+           Logger.warning(download_url);
+
+
+        }
     });
 
     await page.click(DL_BUTTON);
@@ -202,21 +213,24 @@ async function fetchBookDir(sobookUrl, bookUrl)
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
   // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
   var download_href = "";
+  var formats = [];
   for (var i = 1; i < 4; i++) {
     let booknameSelector = BOOK_SEL.replace("INDEX", i);
     if (await page.$(booknameSelector) != null)
     {
         let bookname = await getTextContent(page, booknameSelector);
-        var format = bookname.split('.').pop();
+        var f = bookname.split('.').pop();
+        if(f!=null) formats.push(f);
         // Logger.trace("trying to find the mobi format url for "+bookname);
-        if(bookname !=null && bookname.split(".")[1] == "mobi"){
+        if(bookname !=null && bookname.split(".")[1] == "azw3"){
           Logger.info(bookname+" Found");
           download_href = await getSelectorHref(page, booknameSelector);
-          // Logger.trace(download_href);
-          break;
+          Logger.trace(download_href);
+          // break;
         }
     }
   }
+  console.log(formats);
 
   if(download_href.length > 0){
     const DL_BUTTON = '#free_down_link';
@@ -232,6 +246,8 @@ async function fetchBookDir(sobookUrl, bookUrl)
     // await page.goto(download_href, {waitUntil: 'load'});
     await page.on('response', async response => {
         // If response has a file on it
+        // console.log(response._headers['content-type']);
+        console.log(response);
         if (response._headers['content-disposition'] === 'attachment') {
            // Get the size
            var bookSize = Number(response._headers['content-length']);
@@ -249,6 +265,15 @@ async function fetchBookDir(sobookUrl, bookUrl)
            //statLogger();
            // var child = require('child_process').fork(Configs.workingPath+'CTDownloader.js',[download_url] );
            // await CTDownloader.downloadBook(download_url);
+        }
+        if(response._headers['content-type'] === 'application/epub+zip')
+        {
+           console.log("DOWNLOAD URL CATCHED FOR EPUB");
+           var bookSize = Number(response._headers['content-length']);
+           var download_url =response._url;
+           Logger.trace('BOOK Size : '+ bookSize);
+           Logger.info("DOWNLOAD URL CATCHED!!");
+           Logger.warn(download_url);
         }
     });
     await page.goto(download_href, {waitUntil: 'networkidle2', timeout:0,});
@@ -308,7 +333,7 @@ async function automate() {
     var r = await assertBook();
     Logger.info(r.length+" books to be CTed ...");
     // Logger.info(r);
-    for (var i = 0; i < r.length; i++)
+    for (var i = 0; i < 1; i++)
     {
       book = r[i];
       Logger.trace("NO. "+i+" book: "+book.bookName);

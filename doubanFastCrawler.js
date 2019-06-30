@@ -32,6 +32,8 @@ const DETAIL_TAGS_SEL2 = '#db-tags-section > div.indent  > span ';
 const DETAIL_TAGS_LEN_SEL = '#db-tags-section > div.indent > span';
 const DETAIL_COMMENTS = '#content > div > div.article > div.related_info > div.mod-hd > h2 > span.pl > a';
 const SEARCH_URL_TEMPLATE = 'https://book.douban.com/subject_search?search_text=ISBN&cat=1001';
+const REC_SECTION_SEL = '#db-rec-section > div > dl';
+const REC_SECTION_ARRAY_SEL = '#db-rec-section > div > dl > dt > a';
 
 /*
 var c = new Crawler({
@@ -80,6 +82,14 @@ async function parseAndSave(requestUrl, response) {
   infos = removeSpaceElement(infos);
   var tags = $(DETAIL_TAGS_SEL2).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" ");
   tags = removeSpaceElement(tags);
+  var recommends = $(REC_SECTION_SEL).map(function(x){
+    // console.log($(this).text());
+    var recommend_href = ($(this).find('dt > a').attr('href'));
+    return recommend_href;
+    // console.log("recommends:"+x);
+  }).toArray();
+  console.log(recommends);
+  // console.log($(REC_SECTION_SEL).text());
   /*
   doubanBookBrief: String,
   doubanAuthorBrief: String,
@@ -101,6 +111,15 @@ async function parseAndSave(requestUrl, response) {
   obj["doubanCrawlDate"] = new Date();
   Logger.trace(obj);
   await upsertBook(obj);
+  for (var i = 0; i < recommends.length; i++) {
+    var doubanUrl = recommends[i];
+    await upsertBook({"doubanUrl":doubanUrl});
+  }
+  // recommends.map(async function(x){
+  //   // console.log(x);
+  //   // console.log(this);
+  //   await upsertBook({"doubanUrl":x});
+  // });
   statCount++
 }
 
@@ -170,8 +189,9 @@ async function fakeMain(max_crawled_items)
     Logger.trace("in douban Crawler");
     var r = await assertBook();
     Logger.info(r.length+" books to be detailed ...");
-    for (var i = 0; i < r.length && tick < max_crawled_items; i++)
+    for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
     {
+      // var rand = Math.floor(Math.random() * Math.floor(r.length));
       book = r[i];
       if(book.doubanUrl == null)
         continue;
@@ -189,7 +209,7 @@ async function fakeMain(max_crawled_items)
 (async () => {
     try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
-        await fakeMain(1000);
+        await fakeMain(10000);
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
     } catch (e) {
