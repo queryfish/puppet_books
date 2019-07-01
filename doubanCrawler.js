@@ -101,8 +101,9 @@ function assertMongoDB() {
 async function assertBook() {
   assertMongoDB();
   const conditions = {$and :[
-    {"bookSerial": {"$exists": true}},
+    // {"bookSerial": {"$exists": true}},
     {"bookSerial":{"$ne": null}},
+    {"bookSerial":{"$ne": ""}},
     {"doubanUrl":{"$exists":false}}
   ]}
   const options = { limit:Config.crawlStep };
