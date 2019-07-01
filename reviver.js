@@ -109,6 +109,7 @@ process.on('exit', (code) => {
   const app = process.argv[2];
   if(crawler_code < Configs.greedy*10 && code != 9  && code!= 2)
   {
+    Logger.info("restart reviver ..");
       require('child_process').fork(Configs.workingPath+'reviver.js',[app] );
   }
 
