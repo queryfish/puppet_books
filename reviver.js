@@ -96,7 +96,7 @@ process.on('uncaughtException', (err, origin) => {
     `Caught exception: ${err}\n` +
     `Exception origin: ${origin}`
   );
-  // process.exit(0);
+  process.exit(0);
 });
 
 // var datetime = require('node-datetime');
