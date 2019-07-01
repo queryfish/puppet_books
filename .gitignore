@@ -8,3 +8,4 @@ logs/
 books/
 .DS_Store
 stdout.log
+README.md

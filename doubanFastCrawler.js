@@ -7,8 +7,7 @@ const Book = require('./models/book');
 const CREDS = require('./creds');
 const Config = require('./configs');
 const LOG4JS = require('./logger');
-const Logger = LOG4JS.download_logger;
-const StatsLogger = LOG4JS.stats_logger;
+const Logger = LOG4JS.douban_logger;
 const Crawler = require('crawler');
 const request = require('async-request');
 // const request = require('async-request');
@@ -90,7 +89,7 @@ async function parseAndSave(requestUrl, response) {
     return recommend_href;
     // console.log("recommends:"+x);
   }).toArray();
-  console.log(recommends);
+  Logger.trace(recommends);
   // console.log($(REC_SECTION_SEL).text());
   /*
   doubanBookBrief: String,
@@ -201,11 +200,19 @@ async function fakeMain(max_crawled_items)
       if(book.doubanUrl == null)
         continue;
       // c.queue(book.doubanUrl);
-      let response = await request(book.doubanUrl);
+      // try {
+        let response = await request(book.doubanUrl);
+        await parseAndSave(book.doubanUrl, response);
+      // }
+      // catch (e)
+      // {
+      //   Logger.warn(e);
+      //   // throw(e);
+      // }
       // console.log(request, response);
-      await parseAndSave(book.doubanUrl, response);
+
     }
-    StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
+    Logger.info("DOUBAN DetailCrawler Rate "+statCount+"/"+r.length);
 
 }
 
@@ -220,7 +227,7 @@ function sleep(ms) {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
         while(1){
           await fakeMain(10000);
-          await sleep(60*1000);
+          await sleep(Config.crawlStep*2000);
         }
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);

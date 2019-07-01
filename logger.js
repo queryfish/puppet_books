@@ -23,6 +23,13 @@ log4js.configure({
                   pattern: 'yyyyMMdd.log',
                   alwaysIncludePattern: true
                 }
+                ,doubanDetailTrace:
+                {
+                  type: 'dateFile',
+                  filename: __dirname+'/logs/doubanDetail',
+                  pattern: 'yyyyMMdd.log',
+                  alwaysIncludePattern: true
+                }
                 ,runtimeStats:
                 {
                   type: 'dateFile',
@@ -51,6 +58,11 @@ log4js.configure({
                   appenders: ['hourlyTrace','dailyTrace','consoleApnd'],
                   level: 'trace'
                 }
+                ,doubanTraceLogger:
+                {
+                  appenders: ['doubanDetailTrace','consoleApnd'],
+                  level: 'trace'
+                }
                 ,consolo :
                 {
                   appenders:['consoleApnd'],
@@ -70,6 +82,8 @@ log4js.getLogger('downloadTraceLogger');
 exports.stats_logger =
 log4js.getLogger('statsLogger');
 
+exports.douban_logger =
+log4js.getLogger('doubanTraceLogger');
 //example
 // logger.trace('Entering cheese testing');
 // Logger.info('Got cheese.');
