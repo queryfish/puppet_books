@@ -162,7 +162,7 @@ async function upsertBook(bookObj)
 
 function assertMongoDB() {
   if (mongoose.connection.readyState == 0) {
-    mongoose.connect( Config.dbUrl);
+    mongoose.connect( Config.dbUrl, {useNewUrlParser: true, poolSize:4});
   }
 }
 

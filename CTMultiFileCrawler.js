@@ -233,6 +233,7 @@ async function fetchBookDir(sobookUrl, bookUrl)
   console.log(formats);
 
   var download_href = formats["mobi"] || formats["epub"] || formats["azw3"];
+  
   if(download_href != null && typeof(download_href) != "undefined"
                           && download_href.length > 0){
     const DL_BUTTON = '#free_down_link';
