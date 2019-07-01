@@ -89,18 +89,8 @@ async function parseAndSave(requestUrl, response) {
     return recommend_href;
     // console.log("recommends:"+x);
   }).toArray();
-  Logger.trace(recommends);
-  // console.log($(REC_SECTION_SEL).text());
-  /*
-  doubanBookBrief: String,
-  doubanAuthorBrief: String,
-  doubanTags: Array,
-  doubanRating : Number,
-  doubanRatingUser : String,
-  doubanBookMeta: Array,
-  doubanUrl: String,
-  doubanCrawlDate: Date
-  */
+  // Logger.trace(recommends);
+
   var obj = {};
   obj["doubanBookName"] = $(TITLE_SEL).text();
   obj["doubanBookCover"] = $(COVER_SEL).attr("src");
@@ -113,7 +103,7 @@ async function parseAndSave(requestUrl, response) {
   obj["doubanBookMeta"] = infos;
   obj["doubanCrawlDate"] = new Date();
 
-  Logger.trace(obj);
+  Logger.trace("get"+obj.doubanBookName);
   await upsertBook(obj);
   for (var i = 0; i < recommends.length; i++) {
     var doubanUrl = recommends[i];
