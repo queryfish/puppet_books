@@ -103,7 +103,7 @@ async function parseAndSave(requestUrl, response) {
   obj["doubanBookMeta"] = infos;
   obj["doubanCrawlDate"] = new Date();
 
-  Logger.trace("get"+obj.doubanBookName);
+  Logger.trace("-> "+obj.doubanBookName+"("+obj.doubanUrl+")");
   await upsertBook(obj);
   for (var i = 0; i < recommends.length; i++) {
     var doubanUrl = recommends[i];
@@ -191,8 +191,9 @@ async function fakeMain(max_crawled_items)
         continue;
       // c.queue(book.doubanUrl);
       // try {
-        let response = await request(book.doubanUrl);
-        await parseAndSave(book.doubanUrl, response);
+      Logger.trace(i);
+      let response = await request(book.doubanUrl);
+      await parseAndSave(book.doubanUrl, response);
       // }
       // catch (e)
       // {
