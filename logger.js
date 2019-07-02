@@ -61,7 +61,7 @@ log4js.configure({
                 ,doubanTraceLogger:
                 {
                   appenders: ['doubanDetailTrace','consoleApnd'],
-                  level: 'trace'
+                  level: 'all'
                 }
                 ,consolo :
                 {

@@ -190,16 +190,16 @@ async function fakeMain(max_crawled_items)
       if(book.doubanUrl == null)
         continue;
       // c.queue(book.doubanUrl);
-      // try {
-      Logger.trace(i);
-      let response = await request(book.doubanUrl);
-      await parseAndSave(book.doubanUrl, response);
-      // }
-      // catch (e)
-      // {
-      //   Logger.warn(e);
-      //   // throw(e);
-      // }
+      try {
+        Logger.trace(i);
+        let response = await request(book.doubanUrl);
+        await parseAndSave(book.doubanUrl, response);
+      }
+      catch (e)
+      {
+        Logger.error(e);
+        throw(e);
+      }
       // console.log(request, response);
 
     }
