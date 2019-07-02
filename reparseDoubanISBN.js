@@ -107,6 +107,19 @@ async function assertBook2() {
   return result;
 }
 
+async function assertBook3() {
+  assertMongoDB();
+  const conditions = {$and :[
+    {"bookSerial":{"$ne": null}},
+    {"bookSerial":{"$ne": ""}},
+    {"doubanCrawlDate":{"$ne":null}}
+  ]}
+  const options = { limit:5 };
+  var query = Book.find(conditions ,'bookSerial' ,null);
+  const result = await query.exec();
+  return result;
+}
+
 // exports.run =
 async function fakeMain(max_crawled_items)
 {
@@ -114,8 +127,9 @@ async function fakeMain(max_crawled_items)
     Logger.trace("in douban Crawler");
     var dbISBNs = await assertBook();
     var soISBNS = await assertBook2();
-    console.log(dbISBNs.length);
-    console.log(soISBNS.length);
+    var intISBN = await assertBook3()
+    console.log("douban ISBNs :"+dbISBNs.length);
+    console.log("sobooks ISBNs:"+soISBNS.length);
 
     var r = dbISBNs.map(function(x){
       var isbn = x.doubanISBN;
@@ -130,8 +144,8 @@ async function fakeMain(max_crawled_items)
 
     let intersection = r.filter(x => soisbn.includes(x));
 
-    console.log("intersection: " +intersection.length);
-
+    console.log("intersection by Crawler: " +intersection.length);
+    console.log("intersection by Puppet: " +intISBN.length);
 
     for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
     {
