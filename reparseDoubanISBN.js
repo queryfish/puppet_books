@@ -90,7 +90,7 @@ async function assertBook() {
   {"doubanISBN":{"$ne":null}}
   ]}
   const options = { limit:Config.crawlStep };
-  var query = Book.find(conditions ,'doubanISBN' ,{limit:5});
+  var query = Book.find(conditions ,'doubanISBN' ,null);
   const result = await query.exec();
   return result;
 }
@@ -102,7 +102,7 @@ async function assertBook2() {
     {"bookSerial":{"$ne": ""}}
   ]}
   const options = { limit:5 };
-  var query = Book.find(conditions ,'bookSerial' ,options);
+  var query = Book.find(conditions ,'bookSerial' ,null);
   const result = await query.exec();
   return result;
 }
@@ -118,22 +118,19 @@ async function fakeMain(max_crawled_items)
     console.log(soISBNS.length);
 
     var r = dbISBNs.map(function(x){
-      console.log(x);
       var isbn = x.doubanISBN;
       return isbn;
     });
-
-    console.log(r);
 
     var soisbn = soISBNS.map(function(x){
         var isbn = x.bookSerial.split("：").pop();
         return isbn;
     });
 
-    console.log(soisbn);
 
     let intersection = r.filter(x => soisbn.includes(x));
-    console.log(intersection);
+
+    console.log("intersection: " +intersection.length);
 
 
     for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
