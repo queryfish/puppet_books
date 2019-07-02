@@ -36,106 +36,23 @@ const REC_SECTION_ARRAY_SEL = '#db-rec-section > div > dl > dt > a';
 const TITLE_SEL = '#wrapper > h1 > span';
 const COVER_SEL = '#mainpic > a > img';
 
-/*
-var c = new Crawler({
-    rateLimit: 200,
-    maxConnections: 1,
-    callback: function(error, res, done) {
-        if(error) {
-            console.log(error)
-        } else {
-            var $ = res.$;
-            // console.log($(SEARCH_ISBN_RESULT_HREF_SEL).text());
-            console.log(searchUrl);
-            console.log(res.request.uri.href);
-            var infos = ($(DETAIL_BOOK_INFO_BLOCK_SEL).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" "));
-            infos = removeSpaceElement(infos);
-            var tags = $(DETAIL_TAGS_SEL2).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" ");
-            tags = removeSpaceElement(tags);
 
-            var obj = {};
-            obj["doubanUrl"] = res.request.uri.href;
-            obj["doubanBookBrief"] = $(DETAIL_BRIEF_SEL).text();
-            obj["doubanAuthorBrief"] = $(DETAIL_AUTHOR_BRIEF_SEL).text();
-            obj["doubanTags"] = tags;
-            obj["doubanRating"] = $(DETAIL_RATING_NUMBER_SEL).text();
-            obj["doubanRatingUser"] = $(DETAIL_RATING_USER_NUMBER_SEL).text();
-            obj["doubanBookMeta"] = infos;
-            obj["doubanCrawlDate"] = new Date();
-            console.log(obj);
-            upsertBook(obj);
-            // closeMongoDB();
-        }
-        done();
-    }
-});
-
-*/
-
-async function parseAndSave(requestUrl, response) {
-  const cheerio = require('cherio')
-  const $ = cheerio.load(response.body);
-
-  // console.log($(SEARCH_ISBN_RESULT_HREF_SEL).text());
-  // console.log(searchUrl);
-  // console.log(response.request.uri.href);
-  var infos = ($(DETAIL_BOOK_INFO_BLOCK_SEL).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" "));
-  infos = removeSpaceElement(infos);
-  var doubanISBN = getDoubanISBN(infos);
-  var tags = $(DETAIL_TAGS_SEL2).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" ");
-  tags = removeSpaceElement(tags);
-  var recommends = $(REC_SECTION_SEL).map(function(x){
-    // console.log($(this).text());
-    var recommend_href = ($(this).find('dt > a').attr('href'));
-    return recommend_href;
-    // console.log("recommends:"+x);
-  }).toArray();
-  // Logger.trace(recommends);
-
-  var obj = {};
-  obj["doubanBookName"] = $(TITLE_SEL).text();
-  obj["doubanBookCover"] = $(COVER_SEL).attr("src");
-  obj["doubanUrl"] = requestUrl;
-  obj["doubanBookBrief"] = $(DETAIL_BRIEF_SEL).text();
-  obj["doubanAuthorBrief"] = $(DETAIL_AUTHOR_BRIEF_SEL).text();
-  obj["doubanTags"] = tags;
-  obj["doubanRating"] = $(DETAIL_RATING_NUMBER_SEL).text();
-  obj["doubanRatingUser"] = $(DETAIL_RATING_USER_NUMBER_SEL).text();
-  obj["doubanBookMeta"] = infos;
-  obj["doubanCrawlDate"] = new Date();
-  obj["doubanISBN"] = doubanISBN;
-
-  Logger.trace("-> "+obj.doubanBookName+"("+obj.doubanUrl+")");
-  await upsertBook(obj);
-  for (var i = 0; i < recommends.length; i++) {
-    var doubanUrl = recommends[i];
-    await upsertBook({"doubanUrl":doubanUrl});
+async function parseAndSave(book)
+{
+  if(book.doubanBookMeta.length == 0)
+    return ;
+  var doubanISBN = getDoubanISBN(book.doubanBookMeta);
+  if(doubanISBN != null && doubanISBN.length > 0){
+    book.doubanISBN = doubanISBN;
+    Logger.trace("-> "+book.doubanBookName+"("+book.doubanUrl+")");
+    await upsertBook({doubanUrl:book.doubanUrl,
+                      doubanISBN: doubanISBN
+                    });
+    statCount++
   }
-  // recommends.map(async function(x){
-  //   // console.log(x);
-  //   // console.log(this);
-  //   await upsertBook({"doubanUrl":x});
-  // });
-  statCount++
+
 }
 
-// c.on('drain',function(){
-//     // For example, release a connection to database.
-//     // db.end();// close connection to MySQL
-//     // mongoose.disconnect();
-//     console.log("Drained..");
-//     // mongoose.connection.close();
-// });
-
-function removeSpaceElement(array) {
-  var a = [];
-  for (var i = 0; i < array.length; i++) {
-    var v = array[i];
-    if(v != "" && v != null)
-      a.push(v);
-  }
-  return a;
-}
 
 function getDoubanISBN(array) {
   var isbn = null;
@@ -149,10 +66,6 @@ function getDoubanISBN(array) {
   }
   return isbn;
 }
-
-// // 如果你想以2000毫秒的间隔执行任务
-
-const MAX_CRAWL_NUM = 200;
 
 var statCount = 0;
 
@@ -171,19 +84,11 @@ function assertMongoDB() {
   }
 }
 
-// function closeMongoDB() {
-//   if (mongoose.connection.readyState != 0) {
-//     mongoose.connection.close();
-//   }
-// }
-
-
 async function assertBook() {
   assertMongoDB();
   const conditions = {$and :[
-  {"doubanUrl":{"$exists":true}},
-  {"doubanUrl":{"$ne":null}},
-  {"doubanCrawlDate":{"$exists":false}}
+  {"doubanBookMeta":{"$ne":null}},
+  {"doubanCrawlDate":{"$ne":null}}
   ]}
   const options = { limit:Config.crawlStep };
   var query = Book.find(conditions ,null ,null);
@@ -207,8 +112,7 @@ async function fakeMain(max_crawled_items)
       // c.queue(book.doubanUrl);
       try {
         Logger.trace(i);
-        let response = await request(book.doubanUrl);
-        await parseAndSave(book.doubanUrl, response);
+        await parseAndSave(book);
       }
       catch (e)
       {
@@ -231,10 +135,7 @@ function sleep(ms) {
 (async () => {
     try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
-        while(1){
           await fakeMain(100000);
-          await sleep(3000);
-        }
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
     } catch (e) {
