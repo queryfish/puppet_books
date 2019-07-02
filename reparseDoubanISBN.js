@@ -87,11 +87,22 @@ function assertMongoDB() {
 async function assertBook() {
   assertMongoDB();
   const conditions = {$and :[
-  {"doubanBookMeta":{"$ne":null}},
-  {"doubanCrawlDate":{"$ne":null}}
+  {"doubanISBN":{"$ne":null}}
   ]}
   const options = { limit:Config.crawlStep };
-  var query = Book.find(conditions ,null ,null);
+  var query = Book.find(conditions ,'doubanISBN' ,{limit:5});
+  const result = await query.exec();
+  return result;
+}
+
+async function assertBook2() {
+  assertMongoDB();
+  const conditions = {$and :[
+    {"bookSerial":{"$ne": null}},
+    {"bookSerial":{"$ne": ""}}
+  ]}
+  const options = { limit:5 };
+  var query = Book.find(conditions ,'bookSerial' ,options);
   const result = await query.exec();
   return result;
 }
@@ -101,8 +112,30 @@ async function fakeMain(max_crawled_items)
 {
     var tick = 0;
     Logger.trace("in douban Crawler");
-    var r = await assertBook();
-    Logger.info(r.length+" books to be detailed ...");
+    var dbISBNs = await assertBook();
+    var soISBNS = await assertBook2();
+    console.log(dbISBNs.length);
+    console.log(soISBNS.length);
+
+    var r = dbISBNs.map(function(x){
+      console.log(x);
+      var isbn = x.doubanISBN;
+      return isbn;
+    });
+
+    console.log(r);
+
+    var soisbn = soISBNS.map(function(x){
+        var isbn = x.bookSerial.split("：").pop();
+        return isbn;
+    });
+
+    console.log(soisbn);
+
+    let intersection = r.filter(x => soisbn.includes(x));
+    console.log(intersection);
+
+
     for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
     {
       // var rand = Math.floor(Math.random() * Math.floor(r.length));
@@ -135,7 +168,7 @@ function sleep(ms) {
 (async () => {
     try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
-          await fakeMain(100000);
+          await fakeMain(0);
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
     } catch (e) {
