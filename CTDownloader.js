@@ -11,6 +11,7 @@ const StatsLogger = LOG4JS.stats_logger;
 const CREDS = require('./creds');
 const Configs = require('./configs');
 const OSSPut = require('./saveToAliOSS')
+var execSync = require("exec-sync");
 const MAX_CRAWL_NUM = 200;
 
 var statCount = 0;
@@ -97,13 +98,14 @@ async function downloadBook(bookObj)
                 return;
               }
               var cmdStr = 'sh '+Configs.workingPath+'add2Calibre.sh '+movePath;
-              exec(cmdStr, function(err,stdout,stderr){
-                  if(err)
-                      console.log('get calibre script error:'+stderr);
-                  else
-                      console.log(stdout);
-              });
-
+              console.log(cmdStr);
+              execSync(cmdStr);
+              // exec(cmdStr, function(err,stdout,stderr){
+              //     if(err)
+              //         console.log('get calibre script error:'+stderr);
+              //     else
+              //         console.log(stdout);
+              // });
           });
         }
         else
