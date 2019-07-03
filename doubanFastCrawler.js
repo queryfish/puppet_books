@@ -75,7 +75,7 @@ var c = new Crawler({
 async function parseAndSave(requestUrl, response) {
   const cheerio = require('cherio')
   const $ = cheerio.load(response.body);
-
+  console.log(response.body);
   // console.log($(SEARCH_ISBN_RESULT_HREF_SEL).text());
   // console.log(searchUrl);
   // console.log(response.request.uri.href);
