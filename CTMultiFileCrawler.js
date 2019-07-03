@@ -135,8 +135,6 @@ async function fetchBook(sobookUrl, bookUrl)
            Logger.trace('BOOK Size : '+ bookSize);
            Logger.info("DOWNLOAD URL CATCHED!!");
            Logger.warning(download_url);
-
-
         }
     });
 
@@ -203,8 +201,7 @@ async function fetchBookDir(sobookUrl, bookUrl)
       Logger.trace('Browser is closed');
       isBrowserClosed = true;
   });
-
-
+  
   // await page.goto(bookUrl, {waitUntil: 'load'});
   // await page.goto(bookUrl);
   await page.goto(bookUrl, {waitUntil: 'networkidle2', timeout:0,});
@@ -233,7 +230,7 @@ async function fetchBookDir(sobookUrl, bookUrl)
   console.log(formats);
 
   var download_href = formats["mobi"] || formats["epub"] || formats["azw3"];
-  
+
   if(download_href != null && typeof(download_href) != "undefined"
                           && download_href.length > 0){
     const DL_BUTTON = '#free_down_link';

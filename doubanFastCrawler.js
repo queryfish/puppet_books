@@ -215,8 +215,8 @@ async function fakeMain(max_crawled_items)
         Logger.trace(i);
         var proxis = ["218.108.175.15:80"];
         //218.108.175.15	80
-        let response = await request(book.doubanUrl, {proxy:proxis.pop()});
-        // let response = await request(book.doubanUrl);
+        // let response = await request(book.doubanUrl, {proxy:proxis.pop()});
+        let response = await request(book.doubanUrl);
         await parseAndSave(book.doubanUrl, response);
       }
       catch (e)
