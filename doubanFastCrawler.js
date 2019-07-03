@@ -91,9 +91,15 @@ async function parseAndSave(requestUrl, response) {
     // console.log("recommends:"+x);
   }).toArray();
   // Logger.trace(recommends);
-
+  var bookName = $(TITLE_SEL).text();
+  if(bookName == null || bookName == "")
+  {
+    Logger.warn("something wrong with the crawlers");
+    Logger.wanr(response.body);
+    return ;
+  }
   var obj = {};
-  obj["doubanBookName"] = $(TITLE_SEL).text();
+  obj["doubanBookName"] = bookName;
   obj["doubanBookCover"] = $(COVER_SEL).attr("src");
   obj["doubanUrl"] = requestUrl;
   obj["doubanBookBrief"] = $(DETAIL_BRIEF_SEL).text();
