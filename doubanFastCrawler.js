@@ -95,7 +95,7 @@ async function parseAndSave(requestUrl, response) {
   if(bookName == null || bookName == "")
   {
     Logger.warn("something wrong with the crawlers");
-    Logger.wanr(response.body);
+    Logger.warn(response.body);
     return ;
   }
   var obj = {};
