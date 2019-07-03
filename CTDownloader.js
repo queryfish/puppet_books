@@ -66,6 +66,8 @@ async function unsetCTDownloadUrl(download_url) {
   return r;
 }
 
+var exec = require('child_process').exec;
+
 async function downloadBook(bookObj)
 {
     var dl_url = bookObj.ctdownloadUrl;
@@ -77,11 +79,33 @@ async function downloadBook(bookObj)
       const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:false});
 
       dl.on('end', async () => {
-        let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
+        var ossPath ='books/'+bookname+'.mobi'; //should turn the .mobi to other format
+        var localPath = Configs.workingPath+ossPath;
+        var movePath = Configs.workingPath+'calibre_tmp/'+bookname+'.mobi';
+        let p = OSSPut.put(localPath, ossPath);
+        // let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
         if(p == 0)
+        {
           var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
+          fs.rename(localPath, movePath, cb(e){
+              if(e)
+              {
+                console.log(e);
+                return;
+              }
+              var cmdStr = 'sh '+Configs.workingPath+'add2Calibre.sh '+movePath;
+              exec(cmdStr, function(err,stdout,stderr){
+                  if(err)
+                      console.log('get calibre script error:'+stderr);
+                  else
+                      console.log(stdout);
+              });
+
+          });
+        }
         else
-        var update = {downloaded:true, ctdownloadTime:new Date()};
+          var update = {downloaded:true, ctdownloadTime:new Date()};
+
         var cond = {"ctdownloadUrl":dl_url};
         await updateBook(cond,update);
         // console.log("index"+r.length);

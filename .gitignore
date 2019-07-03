@@ -9,3 +9,4 @@ books/
 .DS_Store
 stdout.log
 README.md
+calibre_tmp/
