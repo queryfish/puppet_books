@@ -87,7 +87,7 @@ async function downloadBook(bookObj)
         if(p == 0)
         {
           var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
-          fs.rename(localPath, movePath, function cb(e){
+          fs.rename(localPath, movePath, function(e){
               if(e)
               {
                 console.log(e);
