@@ -207,10 +207,9 @@ async function fakeMain(max_crawled_items)
       // c.queue(book.doubanUrl);
       try {
         Logger.trace(i);
-        var proxyIP = '115.159.121.38';
-        var proxyPort = '80';
+        var proxis = ["218.108.175.15:80"];
         //218.108.175.15	80
-        let response = await request(book.doubanUrl, {proxy:"111.63.135.109:80"});
+        let response = await request(book.doubanUrl, {proxy:proxis.pop()});
         // let response = await request(book.doubanUrl);
         await parseAndSave(book.doubanUrl, response);
       }
