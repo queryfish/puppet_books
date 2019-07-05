@@ -287,6 +287,7 @@ async function assertBook() {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}} ;
   const conditions = { "$and":[{"ctdiskUrl": {"$exists": true}}
+                              ,{"ctdiskUrl":{"$ne":"NONE"}}
                                ,{"ctdownloadUrl":{"$exists":false}}
                                ,{"hasMobi":{"$exists": false}}
                                // ,{"savedBaidu":{$exists: false}}
