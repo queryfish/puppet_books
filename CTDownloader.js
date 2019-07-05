@@ -86,11 +86,11 @@ async function downloadBook(bookObj)
         console.log(movePath);
         // let p = OSSPut.put(localPath, ossPath);
         // let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
-        if(p == 0)
+        // if(p == 0)
         {
           var update = {downloaded:true,
                         ctdownloadTime:new Date(),
-                        savedToAliOSS:true,
+                        // savedToAliOSS:true,
                         localPath:localPath
                       };
           // fs.rename(localPath, movePath, function(e){
@@ -111,8 +111,8 @@ async function downloadBook(bookObj)
 
           // });
         }
-        else
-          var update = {downloaded:true, ctdownloadTime:new Date()};
+        // else
+        //   var update = {downloaded:true, ctdownloadTime:new Date()};
 
         var cond = {"ctdownloadUrl":dl_url};
         await updateBook(cond,update);
