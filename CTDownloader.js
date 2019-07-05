@@ -119,9 +119,10 @@ async function downloadBook(bookObj)
         Logger.info("DONE downloading "+bookname);
         StatsLogger.info("Download "+bookname);
       });
-      dl.on('error', (err) => {
+      dl.on('error', async (err) => {
         Logger.error("Error ...");
         Logger.error(err);
+        await unsetCTDownloadUrl(dl_url);
       });
       dl.on('stateChanged', (state) => {Logger.trace("Downloader State changed");Logger.trace(state);});
       dl.on('progress', (stats)=> {Logger.trace(bookname+" "+Math.floor(stats.progress)+"%");});
