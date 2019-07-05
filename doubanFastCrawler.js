@@ -214,9 +214,36 @@ async function fakeMain(max_crawled_items)
       try {
         Logger.trace(i);
         var proxis = ["218.108.175.15:80"];
+        var PROXIES = [
+        // # '193.112.128.212:8118',
+        "218.108.175.15:80",
+        '202.183.32.182:80',
+        '183.129.244.16:11161',
+        '60.13.42.34:9999',
+        '119.254.94.71:39053',
+        '175.44.158.15:9000',
+        '112.111.98.176:9000',
+        '27.203.142.151:8060',
+        '27.188.65.244:8060',
+        '183.129.207.80:12608',
+        '114.234.83.79:9000',
+        '117.87.178.88:9000',
+        '117.90.137.65:9999',
+        '117.90.252.143:9000',
+        '183.129.207.86:13974',
+        '121.232.194.251:9000',
+        // # '1.85.220.195:8118',
+        // # '60.255.186.169:8888',
+        // # '118.187.58.34:53281',
+        // # '116.224.191.141:8118',
+        // # '120.27.5.62:9090',
+        // # '119.132.250.156:53281',
+        // # '139.129.166.68:3128'
+        ]
         //218.108.175.15	80
-        // let response = await request(book.doubanUrl, {proxy:proxis.pop()});
-        let response = await request(book.doubanUrl);
+        var prox = PROXIES[Math.floor(Math.random()*PROXIES.length)];
+        let response = await request(book.doubanUrl, {proxy:prox});
+        // let response = await request(book.doubanUrl);
         await parseAndSave(book.doubanUrl, response);
       }
       catch (e)
