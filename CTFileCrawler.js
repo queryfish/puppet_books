@@ -295,6 +295,7 @@ async function assertBook() {
   const options = { limit: Configs.crawlStep , sort:{"cursorId": -1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
+  console.log(result);
   return result;
 }
 
