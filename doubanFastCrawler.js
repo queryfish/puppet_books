@@ -211,7 +211,8 @@ async function fakeMain()
       if(book.doubanUrl == null)
         continue;
       // c.queue(book.doubanUrl);
-      try {
+      // try
+      {
         Logger.trace(i);
         var proxis = ["218.108.175.15:80"];
         var PROXIES = [
@@ -246,11 +247,11 @@ async function fakeMain()
         // let response = await request(book.doubanUrl);
         await parseAndSave(book.doubanUrl, response);
       }
-      catch (e)
-      {
-        Logger.error(e);
-        throw(e);
-      }
+      // catch (e)
+      // {
+      //   Logger.error(e);
+      //   // throw(e);
+      // }
       // console.log(request, response);
 
     }
@@ -275,7 +276,7 @@ function sleep(ms) {
  main
 */
 (async () => {
-    try {
+    // try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
         while(1){
           await retry(10, fakeMain);
@@ -284,7 +285,7 @@ function sleep(ms) {
         }
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
-    } catch (e) {
-        throw(e);
-    }
+    // } catch (e) {
+    //     throw(e);
+    // }
 })();
