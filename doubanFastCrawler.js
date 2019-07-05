@@ -198,13 +198,13 @@ async function assertBook() {
 }
 
 // exports.run =
-async function fakeMain(max_crawled_items)
+async function fakeMain()
 {
     var tick = 0;
     Logger.trace("in douban Crawler");
     var r = await assertBook();
     Logger.info(r.length+" books to be detailed ...");
-    for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
+    for (var i = 0; i < r.length /*&& tick < max_crawled_items*/; i++, tick++)
     {
       // var rand = Math.floor(Math.random() * Math.floor(r.length));
       book = r[i];
@@ -258,6 +258,16 @@ async function fakeMain(max_crawled_items)
 
 }
 
+async function retry(maxRetries, fn) {
+  Logger.info("retry time "+maxRetries);
+  return await fn().catch(function(err) {
+    if (maxRetries <= 0) {
+      throw err;
+    }
+    return retry(maxRetries - 1, fn);
+  });
+}
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -268,8 +278,9 @@ function sleep(ms) {
     try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
         while(1){
-          await fakeMain(100000);
-          await sleep(3000);
+          await retry(10, fakeMain);
+          // await fakeMain(100000);
+          // await sleep(3000);
         }
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
