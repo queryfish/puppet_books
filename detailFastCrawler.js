@@ -95,7 +95,10 @@ async function crawl( detailUrl)
       else
         bookObj["baiduUrl"]= "NONE";
      if(ct_url != null)
+     {
+       statCount++;
         bookObj["ctdiskUrl"]= ct_url;
+      }
       else
         bookObj["ctdiskUrl"]= "NONE";
 
@@ -103,7 +106,6 @@ async function crawl( detailUrl)
      Logger.trace("Get CT url:"+ct_url);
      await upsertBook(bookObj);
      Logger.info("book detailed :"+detailUrl);
-     statCount++;
 }
 
 function assertMongoDB() {
