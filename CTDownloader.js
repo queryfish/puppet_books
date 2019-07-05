@@ -89,21 +89,21 @@ async function downloadBook(bookObj)
         if(p == 0)
         {
           var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
-          fs.rename(localPath, movePath, function(e){
-              console.log("file moved to "+movePath);
-              if(e)
-              {
-                console.log(e);
-                return;
-              }
-              var cmdStr = 'sh '+Configs.workingPath+'add2Calibre.sh '+movePath;
-              console.log(cmdStr);
-              exec(cmdStr, function(err,stdout,stderr){
-                  if(err)
-                      console.log('get calibre script error:'+stderr);
-                  else
-                      console.log(stdout);
-              });
+          // fs.rename(localPath, movePath, function(e){
+          //     console.log("file moved to "+movePath);
+          //     if(e)
+          //     {
+          //       console.log(e);
+          //       return;
+          //     }
+              // var cmdStr = 'sh '+Configs.workingPath+'add2Calibre.sh '+movePath;
+              // console.log(cmdStr);
+              // exec(cmdStr, function(err,stdout,stderr){
+              //     if(err)
+              //         console.log('get calibre script error:'+stderr);
+              //     else
+              //         console.log(stdout);
+              // });
 
           });
         }
