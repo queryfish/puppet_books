@@ -105,7 +105,7 @@ async function downloadBook(bookObj)
               //         console.log(stdout);
               // });
 
-          });
+          // });
         }
         else
           var update = {downloaded:true, ctdownloadTime:new Date()};
