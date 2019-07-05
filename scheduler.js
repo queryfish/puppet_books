@@ -88,7 +88,7 @@ async function schedule(crawler_code)
 
     // var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler', 'doubanCrawler', 'doubanFastCrawler'];
     var crawlers = ['listCrawler', 'detailFastCrawler', 'CTFileCrawler', 'CTDownloader'];
-    
+
     var index = crawler_code%crawlers.length;
     require(Configs.workingPath+crawlers[index]);
 }
@@ -111,9 +111,10 @@ process.on('exit', (code) => {
   Logger.info("process :"+process.pid);
   Logger.info(`About to exit with code: ${code}`);
   const crawler_code = (Number(process.argv[2])+1);
-  if(crawler_code < Configs.greedy*Configs.crawlerStack && code != 9  && code!= 2)
+  // if(crawler_code < Configs.greedy*Configs.crawlerStack && code != 9  && code!= 2)
+  if(code != 9 && code !=2)
   {
-      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%Configs.crawlerStack] );
+      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%4] );
   }
 
 });
