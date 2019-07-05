@@ -146,14 +146,16 @@ async function fakeMain(max_crawled_items)
 {
     var tick = 0;
     Logger.trace("in fakeMain");
-    var r = await assertBook();
-    Logger.info(r.length+" books to be detailed ...");
     // Logger.info(r);
-    for (var i = 0; i < r.length && tick < max_crawled_items; i++, tick++)
-    {
-      book = r[i];
-      Logger.trace("NO. "+i+" book: "+book.bookName);
-      await crawl(book.bookUrl);
+    while(statCount < Config.crawlStep && tick < max_crawled_items){
+      var r = await assertBook();
+      Logger.info(r.length+" books to be detailed ...");
+      for (var i = 0; i < r.length; i++, tick++)
+      {
+        book = r[i];
+        Logger.trace("NO. "+i+" book: "+book.bookName);
+        await crawl(book.bookUrl);
+      }
     }
     StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
 
@@ -164,7 +166,7 @@ async function fakeMain(max_crawled_items)
 (async () => {
     try {
         Logger.info("Detail Fast Crawler Session START  PID@"+process.pid);
-        await fakeMain(10000);
+        await fakeMain(1000);
         mongoose.connection.close();
         Logger.info("Detail Fast Crawler Session END PID@"+process.pid);
     } catch (e) {
