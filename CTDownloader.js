@@ -84,11 +84,15 @@ async function downloadBook(bookObj)
         var movePath = Configs.workingPath+'calibre_tmp/'+bookname+'.mobi';
         console.log(localPath);
         console.log(movePath);
-        let p = OSSPut.put(localPath, ossPath);
+        // let p = OSSPut.put(localPath, ossPath);
         // let p = OSSPut.put(Configs.workingPath+'books/'+bookname+'.mobi', 'books/'+bookname+'.mobi');
         if(p == 0)
         {
-          var update = {downloaded:true, ctdownloadTime:new Date(), savedToAliOSS:true };
+          var update = {downloaded:true,
+                        ctdownloadTime:new Date(),
+                        savedToAliOSS:true,
+                        localPath:localPath
+                      };
           // fs.rename(localPath, movePath, function(e){
           //     console.log("file moved to "+movePath);
           //     if(e)
