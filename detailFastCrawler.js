@@ -90,8 +90,12 @@ async function crawl( detailUrl)
 
      if(baidu_url!=null)
         bookObj["baiduUrl"]= baidu_url;
+      else
+        bookObj["baiduUrl"]= "NONE";
      if(ct_url != null)
         bookObj["ctdiskUrl"]= ct_url;
+      else
+        bookObj["ctdiskUrl"]= "NONE";
 
      Logger.trace("Get baidu url:"+baidu_url);
      Logger.trace("Get CT url:"+ct_url);
