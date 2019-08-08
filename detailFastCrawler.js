@@ -147,7 +147,8 @@ async function fakeMain(max_crawled_items)
     var tick = 0;
     Logger.trace("in fakeMain");
     // Logger.info(r);
-    while(statCount < Config.crawlStep && tick < max_crawled_items){
+    // while(statCount < Config.crawlStep && tick < max_crawled_items)
+    {
       var r = await assertBook();
       Logger.info(r.length+" books to be detailed ...");
       for (var i = 0; i < r.length; i++, tick++)
@@ -166,7 +167,7 @@ async function fakeMain(max_crawled_items)
 (async () => {
     try {
         Logger.info("Detail Fast Crawler Session START  PID@"+process.pid);
-        await fakeMain(1000);
+        await fakeMain(1);
         mongoose.connection.close();
         Logger.info("Detail Fast Crawler Session END PID@"+process.pid);
     } catch (e) {

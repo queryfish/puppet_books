@@ -41,8 +41,39 @@ async function parseAndSave(response) {
   const cheerio = require('cherio')
   const $ = cheerio.load(response.body);
   const ROW_SEL= '#list > table > tbody > tr:nth-child(1) ';
-  var row = $(ROW_SEL).text();
-  console.log(row);
+  const ROW_SEL2 = 'div.col-md-10 > div.table-responsive > table > tbody > tr';
+  const ROW_SEL3 = '#content > section > div.container > table > tbody > tr:nth-child(1)';
+  const ROW_SEL4 = '#ip_list > tbody > tr:nth-child(2)';
+  const ROW_SEL5 = '#ip_list > tbody > tr';
+  // var row = $(ROW_SEL5).text();
+  // console.log(row);
+  var fs = require('fs')
+  var logger = fs.createWriteStream('./iptable.txt', {
+    flags: 'w' // 'a' means appending (old data will be preserved)
+  })
+
+  var row = $(ROW_SEL5).map(function(x){
+    var r = $(this).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" ");
+    var ip_port = r[1]+':'+r[2];
+    // logger.write(ip_port)
+    return ip_port
+    // console.log(r);
+  }).toArray();
+
+  for (var i = 1; i < row.length; i++) {
+    logger.write(row[i])
+    logger.write('\n')
+  }
+  console.log(row.length -1);
+  // map(function(x){
+  //   // console.log($(this).text());
+  //   var recommend_href = $(this).find('tbody > tr').text();
+  //   return recommend_href;
+  //   console.log("proxy"+recommend_href);
+  // }).toArray();
+
+  logger.end()
+  // console.log($(table).text());
 
   // var infos = ($(DETAIL_BOOK_INFO_BLOCK_SEL).text().replace(/\r?\n|\r/g, "").replace(/\s+/g,' ').split(" "));
   // infos = removeSpaceElement(infos);
@@ -85,10 +116,14 @@ function assertMongoDB() {
 
 async function getAndParseProxyPage()
 {
-    const freeProxyPageUrl = 'https://www.kuaidaili.com/free/';
+    // const freeProxyPageUrl = 'https://www.kuaidaili.com/free/';
+    const freeProxyPageUrl = 'https://www.xicidaili.com/wn/';
+    // const freeProxyPageUrl = 'http://www.qydaili.com/free/';
+    // const freeProxyPageUrl = "http://www.89ip.cn/tqdl.html?api=1&num=30&port=&address=北京&isp=";
     // let response = await request(freeProxyPageUrl, {proxy:prox});
     let response = await request(freeProxyPageUrl);
     await parseAndSave(response);
+    // console.log(response);
 }
 
 function sleep(ms) {
@@ -100,10 +135,10 @@ function sleep(ms) {
 (async () => {
     // try {
         Logger.info("Douban Detail Crawler Session START  PID@"+process.pid);
-        while(1){
+        // while(1){
           // await retry(10, fakeMain);
           await getAndParseProxyPage();
-        }
+        // }
         mongoose.connection.close();
         Logger.info("Douban Detail Crawler Session END PID@"+process.pid);
     // } catch (e) {

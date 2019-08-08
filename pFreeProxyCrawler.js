@@ -53,14 +53,15 @@ async function fetchBook()
   // Download and wait for download
   const page = await browser.newPage();
   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36');
-  const freeProxyPageUrl = 'https://www.kuaidaili.com/free/';
-
+  // const freeProxyPageUrl = 'https://www.kuaidaili.com/free/';
+  const freeProxyPageUrl = 'https://ip.ihuan.me/';
   await page.goto(freeProxyPageUrl, {waitUntil: 'networkidle2', timeout:0,});
   await page.waitFor(5*1000);
   const ROW_SEL= '#list > table > tbody > tr:nth-child(1) ';
-
-  let book_file_name = await getTextContent(page, ROW_SEL);
-  Logger.trace('resolved book name'+ book_file_name);
+  const ROW_SEL2 = 'div.col-md-10 > div.table-responsive > table > tbody > tr:nth-child(1)'
+  let book_file_name = await getTextContent(page, ROW_SEL2);
+  Logger.trace('resolved book name\n'+ book_file_name);
+  await page.waitFor(10*1000);
   await browser.close()
   return ;
 
