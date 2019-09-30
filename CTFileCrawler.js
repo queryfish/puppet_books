@@ -47,7 +47,7 @@ async function fetchBook(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
       ignoreHTTPSErrors: true,
     defaultViewport: null
   });
@@ -157,7 +157,7 @@ async function fetchBookDir(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
       ignoreHTTPSErrors: true,
     defaultViewport: null
   });
