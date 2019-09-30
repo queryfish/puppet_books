@@ -193,8 +193,6 @@ async function fetchBookDir(sobookUrl, bookUrl)
       isBrowserClosed = true;
   });
 
-
-
   // await page.goto(bookUrl, {waitUntil: 'load'});
   // await page.goto(bookUrl);
   await page.goto(bookUrl, {waitUntil: 'networkidle2', timeout:0,});
@@ -212,14 +210,15 @@ async function fetchBookDir(sobookUrl, bookUrl)
         if(bookname !=null && bookname.split(".")[1] == "mobi"){
           Logger.info(bookname+" Found");
           download_href = await getSelectorHref(page, booknameSelector);
-          // Logger.trace(download_href);
+          Logger.trace(download_href);
           break;
         }
     }
   }
 
   if(download_href.length > 0){
-    const DL_BUTTON = '#free_down_link';
+    // const DL_BUTTON = '#free_down_link';
+    const DL_BUTTON = '#main-content > div > div > div:nth-child(5) > div:nth-child(1) > div.card-body.position-relative > button';
     // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     // let download_href = await getSelectorHref(page, BOOK_SEL);
     var site = "https://sobooks.ctfile.com";
