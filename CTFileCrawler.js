@@ -47,7 +47,7 @@ async function fetchBook(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
       ignoreHTTPSErrors: true,
     defaultViewport: null
   });
@@ -157,7 +157,7 @@ async function fetchBookDir(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
       ignoreHTTPSErrors: true,
     defaultViewport: null
   });
@@ -222,7 +222,8 @@ async function fetchBookDir(sobookUrl, bookUrl)
     // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     // let download_href = await getSelectorHref(page, BOOK_SEL);
     var site = "https://sobooks.ctfile.com";
-    download_href = site + download_href;
+    var site2 = "https://72k.us";
+    download_href = site2 + download_href;
     Logger.trace("PAGE FOUND:"+download_href);
     await page._client.send('Page.setDownloadBehavior', {
           behavior: 'deny'
