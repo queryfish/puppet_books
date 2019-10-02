@@ -5,8 +5,8 @@ while IFS= read -r line; do
     text=`echo $line | sed -n 's/\(.*upload file success,file:\)\(.*\)\(,size.*\)/\2/gp'`
     if [ ! -z "$text" ]; then
       echo $text
-      pathname='./books/'+$text
-      targetname='./calibre_tmp/mobi/'+$text
+      pathname='./books/'$text
+      targetname='./calibre_tmp/mobi/'$text
       echo $pathname $targetname
       if [ -e $pathname -a ! -e $targetname ]; then
         `mv $pathname $targetname`
