@@ -7,6 +7,8 @@ while IFS= read -r line; do
       echo $text
       pathname='./books/'+$text
       targetname='./calibre_tmp/mobi/'+$text
-      `mv $pathname $targetname`
+      if [ -e $pathname -a ! -e $targetname]; then
+        `mv $pathname $targetname`
+      fi
     fi
 done < "$1"
