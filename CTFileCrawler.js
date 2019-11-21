@@ -207,11 +207,17 @@ async function fetchBookDir(sobookUrl, bookUrl)
         let bookname = await getTextContent(page, booknameSelector);
         var format = bookname.split('.').pop();
         // Logger.trace("trying to find the mobi format url for "+bookname);
-        if(bookname !=null && bookname.split(".")[1] == "mobi"){
-          Logger.info(bookname+" Found");
-          download_href = await getSelectorHref(page, booknameSelector);
-          Logger.trace(download_href);
-          break;
+        if(bookname !=null)
+        {
+            a = bookname.split(".");
+            booktype = a[a.length-1];
+            if(booktype == "mobi")
+            {
+                Logger.info(bookname+" Found");
+                download_href = await getSelectorHref(page, booknameSelector);
+                Logger.trace(download_href);
+                break;
+            }
         }
     }
   }
