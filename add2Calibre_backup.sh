@@ -6,14 +6,15 @@ for f in $_dfiles
 do
     # add to calibre
     # convert to epub
-    epubName=`echo ${f} | sed 's/mobi/epub/g'`  # update signature
-    echo ${f}
+    joinName=`echo ${f} | sed 's/ /_/g'`  # update signature
+    `cp "$f" $joinName`
+    epubName=`echo ${joinName} | sed 's/mobi/epub/g'`  # update signature
+    echo ${joinName}
     echo ${epubName}
-    `ebook-convert ${f} ${epubName}`
-    bookId=`calibredb add --library-path=~/mycalibre_lib/db ${epubName} | sed 's/[^0-9]*//g'`
+    `ebook-convert "${joinName}" "${epubName}"`
+    bookId=`calibredb add --library-path=~/mycalibre_lib/db "${epubName}" | sed 's/[^0-9]*//g'`
     echo ${bookId}
-    `calibredb add_format --library-path=~/mycalibre_lib/db ${bookId} ${f}`
-    # rm -f ${f} ${epubName}
-    rm -f ${f}
-    rm -f ${epubName}
+    `calibredb add_format --library-path=~/mycalibre_lib/db ${bookId} ${joinName}`
+    rm -f ${joinName}
+    # rm -f ${epubName}
 done

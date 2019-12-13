@@ -4,12 +4,12 @@ while IFS= read -r line; do
     # echo $line | sed -n 's/.*upload file success,file:.*.mobi,size:/ \1 /gp'
     text=`echo $line | sed -n 's/\(.*upload file success,file:\)\(.*\)\(,size.*\)/\2/gp'`
     if [ ! -z "$text" ]; then
-      echo $text
+      #echo $text
       pathname='./books/'$text
       targetname='./calibre_tmp/mobi/'$text
-      echo $pathname $targetname
-      if [ -e $pathname -a ! -e $targetname ]; then
-        `mv $pathname $targetname`
+      if [ -e "$pathname" -a ! -e "$targetname" ]; then
+	echo $pathname $targetname
+        `mv "$pathname" "$targetname"`
       fi
     fi
 done < "$1"
