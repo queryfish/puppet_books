@@ -108,11 +108,17 @@ async function getBookFromOSS(bookPath)
       });
       if(result.objects != undefined && result.objects.length >= 1)
       {
-        let r = await client.get(ossPath,localPath);
-        console.log('DONE with -> ', filename);
-        const { execSync } = require('child_process');
-        var command = './addFile2Calibre.sh '+localPath;
-        const add2Calibre = execSync(command);
+        try {
+          let r = await client.get(ossPath,localPath);
+          console.log('DONE with -> ', filename);
+          const { execSync } = require('child_process');
+          var command = './addFile2Calibre.sh '+localPath;
+          const add2Calibre = execSync(command);
+        }
+        catch(e)
+        {
+          console.log(e);
+        }
       }
       else
       {
