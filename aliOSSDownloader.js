@@ -150,7 +150,7 @@ async function fakeMain(max)
 (async () => {
     try {
         Logger.info("detailCrawler Session START  PID@"+process.pid);
-        await fakeMain(10);
+        await fakeMain(50);
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
     } catch (e) {
