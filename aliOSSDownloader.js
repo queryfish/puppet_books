@@ -85,7 +85,7 @@ function assertMongoDB() {
 
 async function assertBook(max) {
   assertMongoDB();
-  const conditions = {"localPath":{"$ne":null}};
+  const conditions = {"$and":[{"localPath":{"$ne":null}}, {"addedToCalibre":{"$exists":false}}]};
   // const options = { limit:10 , sort:{"cursorId": -1} };
   const options = { limit:10 };
   var query = Book.find(conditions ,null ,options);
@@ -93,9 +93,9 @@ async function assertBook(max) {
   return result;
 }
 
-async function getBookFromOSS(bookPath)
+async function getBookFromOSS(bookObj)
 {
-      var path = bookPath;
+      var path = bookObj.localPath;
       var spliti = path.split('/');
       var filename = spliti[spliti.length-1];
       var ossPath = 'books/'+filename;
@@ -114,6 +114,8 @@ async function getBookFromOSS(bookPath)
           const { execSync } = require('child_process');
           var command = './addFile2Calibre.sh '+localPath;
           const add2Calibre = execSync(command);
+          bookObj["addedToCalibre"]=true;
+          await upsertBook(bookObj)
         }
         catch(e)
         {
@@ -139,7 +141,7 @@ async function fakeMain(max)
     {
       var bookPath = r[i];
       Logger.trace("NO. "+i+" book: "+bookPath.bookName);
-      await getBookFromOSS(bookPath.localPath);
+      await getBookFromOSS(bookPath);
       tick ++;
     }
     // StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
