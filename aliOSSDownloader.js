@@ -102,7 +102,7 @@ async function getBookFromOSS(bookPath)
       var ossPath = 'books/'+filename;
       var localPath = './tmp/'+filename;
       console.log('getting file +'+filename);
-      let r = await client.get(ossPath,localPath);
+      // let r = await client.get(ossPath,localPath);
       console.log('DONE with -> ', filename);
 }
 
@@ -118,7 +118,7 @@ async function fakeMain(max)
     {
       var bookPath = r[i];
       Logger.trace("NO. "+i+" book: "+bookPath.bookName);
-      // await getBookFromOSS(bookPath);
+      await getBookFromOSS(bookPath.localPath);
       tick ++;
     }
     // StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
