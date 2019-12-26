@@ -87,7 +87,7 @@ async function assertBook(max) {
   assertMongoDB();
   const conditions = {"$and":[{"localPath":{"$ne":null}}, {"addedToCalibre":{"$exists":false}}]};
   // const options = { limit:10 , sort:{"cursorId": -1} };
-  const options = { limit:10 };
+  const options = { limit:max };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
   return result;
