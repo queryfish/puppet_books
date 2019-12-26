@@ -86,7 +86,7 @@ function assertMongoDB() {
 async function assertBook(max) {
   assertMongoDB();
   // const matchSample = [{"$match":{"localPath":{"$ne":null}}},{"$sample":{"size":10}}];
-  const conditions = {"localPath":{"$ne":null}}};
+  const conditions = {"localPath":{"$ne":null}};
   const options = { limit:10 };
   var query = Book.find(conditions ,null ,options);
   // var query = Book.aggregate(matchSample);
@@ -117,7 +117,7 @@ async function fakeMain(max)
     for (var i = 0; i < r.length && tick < max; i++, tick++)
     {
       var bookPath = r[i];
-      Logger.trace("NO. "+i+" book: "+book.bookName);
+      Logger.trace("NO. "+i+" book: "+bookPath.bookName);
       // await getBookFromOSS(bookPath);
       tick ++;
     }
