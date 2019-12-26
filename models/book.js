@@ -43,7 +43,9 @@ let bookSchema = new mongoose.Schema({
     doubanISBN:String,
     ctdownloadFormats:Array,
     localPath:String,
-    aliOSSPath: String
+    aliOSSPath: String,
+    downloadedFromAliOSS: Boolean,
+    addedToCalibre: Boolean
 });
 
 let Book = mongoose.model('Book', bookSchema);
