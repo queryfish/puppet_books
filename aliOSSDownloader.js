@@ -101,6 +101,13 @@ async function getBookFromOSS(bookPath)
       var ossPath = 'books/'+filename;
       var localPath = './tmp/'+filename;
       console.log('getting file +'+filename);
+      let result = await
+      client.list({
+        "prefix": ossPath,
+        "max-keys":1
+      });
+      console.log('OSS List :');
+      console.log(result);
       let r = await client.get(ossPath,localPath);
       console.log('DONE with -> ', filename);
       const { execSync } = require('child_process');
@@ -132,7 +139,7 @@ async function fakeMain(max)
 (async () => {
     try {
         Logger.info("detailCrawler Session START  PID@"+process.pid);
-        await fakeMain(1);
+        await fakeMain(1000);
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
     } catch (e) {
