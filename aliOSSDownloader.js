@@ -108,11 +108,18 @@ async function getBookFromOSS(bookPath)
       });
       console.log('OSS List :');
       console.log(result);
-      let r = await client.get(ossPath,localPath);
-      console.log('DONE with -> ', filename);
-      const { execSync } = require('child_process');
-      var command = './addFile2Calibre.sh '+localPath;
-      const add2Calibre = execSync(command);
+      if(result.objects != undefined && result.objects.length >= 1)
+      {
+        let r = await client.get(ossPath,localPath);
+        console.log('DONE with -> ', filename);
+        const { execSync } = require('child_process');
+        var command = './addFile2Calibre.sh '+localPath;
+        const add2Calibre = execSync(command);
+      }
+      else
+      {
+        console.log("no such bucket "+filename);
+      }
 
 }
 
@@ -139,7 +146,7 @@ async function fakeMain(max)
 (async () => {
     try {
         Logger.info("detailCrawler Session START  PID@"+process.pid);
-        await fakeMain(1000);
+        await fakeMain(10);
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
     } catch (e) {
