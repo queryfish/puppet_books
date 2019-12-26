@@ -106,8 +106,6 @@ async function getBookFromOSS(bookPath)
         "prefix": ossPath,
         "max-keys":1
       });
-      console.log('OSS List :');
-      console.log(result);
       if(result.objects != undefined && result.objects.length >= 1)
       {
         let r = await client.get(ossPath,localPath);
