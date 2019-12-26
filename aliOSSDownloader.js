@@ -102,8 +102,12 @@ async function getBookFromOSS(bookPath)
       var ossPath = 'books/'+filename;
       var localPath = './tmp/'+filename;
       console.log('getting file +'+filename);
-      // let r = await client.get(ossPath,localPath);
+      let r = await client.get(ossPath,localPath);
       console.log('DONE with -> ', filename);
+      const { execSync } = require('child_process');
+      var command = './addFile2Calibre.sh '+localPath;
+      const add2Calibre = execSync(command);
+
 }
 
 // exports.run =
@@ -129,7 +133,7 @@ async function fakeMain(max)
 (async () => {
     try {
         Logger.info("detailCrawler Session START  PID@"+process.pid);
-        await fakeMain(10);
+        await fakeMain(1);
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
     } catch (e) {
