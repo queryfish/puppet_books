@@ -85,10 +85,11 @@ function assertMongoDB() {
 
 async function assertBook(max) {
   assertMongoDB();
-  const matchSample = [{"$match":{"localPath":{"$ne":null}}},{"$sample":{"size":10}}}];
-  const options = { limit:max , sort:{"cursorId": -1} };
-  // var query = Book.find(conditions ,null ,options);
-  var query = Book.aggregate(matchSample);
+  // const matchSample = [{"$match":{"localPath":{"$ne":null}}},{"$sample":{"size":10}}];
+  const conditions = {"localPath":{"$ne":null}}};
+  const options = { limit:10 };
+  var query = Book.find(conditions ,null ,options);
+  // var query = Book.aggregate(matchSample);
   const result = await query.exec();
   return result;
 }
