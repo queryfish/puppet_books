@@ -8,7 +8,7 @@ const OSS = require('ali-oss');
 const Logger = LOG4JS.download_logger;
 const StatsLogger = LOG4JS.stats_logger;
 const MAX_CRAWL_NUM = 200;
-// const fs = require('fs');
+const fs = require('fs');
 var statCount = 0;
 
 const client = new OSS({
@@ -68,6 +68,13 @@ async function downloadlist()
     }
 }
 
+function getFilesizeInMBytes(filename)
+{
+    var stats = fs.statSync(filename);
+    var fileSizeInBytes = stats["size"];
+    return fileSizeInBytes/1000000.0;
+}
+
 async function upsertBook(bookObj)
 {
   assertMongoDB();
@@ -111,11 +118,14 @@ async function getBookFromOSS(bookObj)
         try {
           let r = await client.get(ossPath,localPath);
           console.log('DONE with -> ', filename);
-          const { execSync } = require('child_process');
-          var command = './addFile2Calibre.sh '+localPath;
-          const add2Calibre = execSync(command);
-          bookObj["addedToCalibre"]=true;
-          await upsertBook(bookObj)
+          var filesize = getFilesizeInMBytes(localPath);
+          if(filesize < 10){
+            const { execSync } = require('child_process');
+            var command = './addFile2Calibre.sh '+localPath;
+            const add2Calibre = execSync(command);
+            bookObj["addedToCalibre"]=true;
+            await upsertBook(bookObj)
+          }
         }
         catch(e)
         {
