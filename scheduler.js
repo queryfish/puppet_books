@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const CREDS = require('./creds');
+//const CREDS = require('./creds');
 const Configs = require('./configs');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
@@ -68,7 +68,7 @@ async function setWorkerState(workerState)
 
 }
 
-var crawlers = ['listCrawler', 'detailFastCrawler', 'CTFileCrawler', 'CTDownloader'];
+var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader'];
 
 async function schedule(crawler_code)
 {
