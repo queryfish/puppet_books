@@ -47,7 +47,7 @@ async function fetchBook(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
       ignoreHTTPSErrors: true,
     defaultViewport: null
   });
@@ -89,13 +89,14 @@ async function fetchBook(sobookUrl, bookUrl)
 
   var is_mobi_page = false;
   const BOOK_FILE_SEL = '#page-content > div.page-header.position-relative > div > div.pull-left > h3';
-  let book_file_name = await getTextContent(page, BOOK_FILE_SEL);
+  const BOOK_NAME = '#table_files > tbody > tr > td:nth-child(2) > a'
+  let book_file_name = await getTextContent(page, BOOK_NAME);
   Logger.trace('resolved book name'+ book_file_name);
-  if(book_file_name !=null && book_file_name.indexOf(".mobi")>0)
-  {
-      Logger.info(book_file_name+" Direct Page Found");
-      is_mobi_page = true;
-  }
+  // if(book_file_name !=null && book_file_name.indexOf(".mobi")>0)
+  // {
+  //     Logger.info(book_file_name+" Direct Page Found");
+  //     is_mobi_page = true;
+  // }
 
   if(is_mobi_page)
   {
@@ -157,9 +158,9 @@ async function fetchBookDir(sobookUrl, bookUrl)
 {
 
   const browser = await puppeteer.launch({
-    headless: true,
+      headless: true,
       ignoreHTTPSErrors: true,
-    defaultViewport: null
+      defaultViewport: null
   });
   // Download and wait for download
   const page = await browser.newPage();
@@ -198,38 +199,40 @@ async function fetchBookDir(sobookUrl, bookUrl)
   await page.goto(bookUrl, {waitUntil: 'networkidle2', timeout:0,});
   await page.waitFor(5*1000);
   const BOOK_SEL = '#table_files > tbody > tr:nth-child(INDEX) > td:nth-child(2) > a';
-  // const BOOK_SEL = '#table_files > tbody > tr.even > td:nth-child(2) > a';
+  const BOOK_NAME = '#table_files > tbody > tr > td:nth-child(2) > a'
   var download_href = "";
-  for (var i = 1; i < 4; i++) {
-    let booknameSelector = BOOK_SEL.replace("INDEX", i);
-    if (await page.$(booknameSelector) != null)
+  // for (var i = 1; i < 4; i++) {
+    // let booknameSelector = BOOK_SEL.replace("INDEX", i);
+    if (await page.$(BOOK_NAME) != null)
     {
-        let bookname = await getTextContent(page, booknameSelector);
-        var format = bookname.split('.').pop();
+        let bookname = await getTextContent(page, BOOK_NAME);
+        // var format = bookname.split('.').pop();
         // Logger.trace("trying to find the mobi format url for "+bookname);
         if(bookname !=null)
         {
             a = bookname.split(".");
             booktype = a[a.length-1];
-            if(booktype == "mobi")
+            if(booktype == "mobi" || booktype == "zip")
             {
                 Logger.info(bookname+" Found");
-                download_href = await getSelectorHref(page, booknameSelector);
-                Logger.trace(download_href);
-                break;
+                download_href = await getSelectorHref(page, BOOK_NAME);
+                Logger.trace("download url: >"+download_href);
+                // break;
             }
         }
     }
-  }
+  // }
 
   if(download_href.length > 0){
     // const DL_BUTTON = '#free_down_link';
     const DL_BUTTON = '#main-content > div > div > div:nth-child(5) > div:nth-child(1) > div.card-body.position-relative > button';
+    // const DL_BUTTON = "#main-content > div > div > div:nth-child(5) > div:nth-child(1) > div.card-body.position-relative > button"
     // await page.waitFor(5*1000);//会有找不到输入框的异常，加上一个弱等待试试
     // let download_href = await getSelectorHref(page, BOOK_SEL);
-    var site = "https://sobooks.ctfile.com";
-    var site2 = "https://72k.us";
-    download_href = site2 + download_href;
+    // var site = "https://sobooks.ctfile.com";
+    // var site2 = "https://72k.us";
+    var site3 = "https://306t.com";
+    download_href = site3 + download_href;
     Logger.trace("PAGE FOUND:"+download_href);
     await page._client.send('Page.setDownloadBehavior', {
           behavior: 'deny'
@@ -244,6 +247,7 @@ async function fetchBookDir(sobookUrl, bookUrl)
            var download_url =response._url;
            Logger.trace('BOOK Size : '+ bookSize);
            Logger.info("DOWNLOAD URL CATCHED!!");
+           Logger.trace(download_url);
            // save url to DB for later download workers.
            await upsertBook({"bookUrl":sobookUrl,
                              "ctdownloadUrl":download_url,
@@ -323,13 +327,13 @@ async function automate() {
       var book_url  = book.ctdiskUrl;
       //Should be before this function
       var split = book_url.split('/');
-      if(split[3] == 'dir'){
-        await fetchBookDir(book.bookUrl, book.ctdiskUrl);
-      }
-      else if(split[3] == 'fs')
+      // if(split[3] == 'dir'){
+      //   await fetchBookDir(book.bookUrl, book.ctdiskUrl);
+      // }
+      // else if(split[3] == 'fs')
       {
         Logger.trace('gonna go :'+book_url);
-        await fetchBook(book.bookUrl, book.ctdiskUrl);
+        await fetchBookDir(book.bookUrl, book.ctdiskUrl);
       }
     }
     StatsLogger.info("CTFileCrawler catch rate :"+statCount+"/"+r.length);

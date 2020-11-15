@@ -8,7 +8,7 @@ const LOG4JS = require('./logger');
 const Logger = LOG4JS.download_logger;
 const StatsLogger = LOG4JS.stats_logger;
 const fs = require('fs');
-const MAX_PAGE_NUM = 200;
+const MAX_PAGE_NUM = 1;
 const MAX_TICKS = 100;
 const BOOK_INFO_SITE = 'http://sobooks.cc'
 

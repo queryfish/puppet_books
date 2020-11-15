@@ -35,7 +35,7 @@
     "node-datetime": "^2.1.2",
     "node-downloader-helper": "^1.0.10",
     "nodemailer": "^6.2.1",
-    "puppeteer": "v1.14.0",
+    "puppeteer": "^1.14.0",
     "request": "^2.88.0",
     "urlencode": "^1.1.0",
     "urlencoder": "^0.1.0"

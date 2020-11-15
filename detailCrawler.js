@@ -71,17 +71,25 @@ async function crawl(page, detailUrl)
      bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
 
      // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
-     const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
+     const DISK_ADDRESS_1  = 'body > section > div.content-wrap > div > article > div.e-secret > b > a:nth-child(1)'
+     const DISK_ADDRESS_2  = 'body > section > div.content-wrap > div > article > div.e-secret > b > a:nth-child(3)'
+    //  const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
      const url_selector = 'table.dltable > tbody * a:first-of-type';
      let baidu_url = await extractUrl(page, url_selector);
-     let ct_url = await extractUrl(page, ct_download_url_selector);
+     let ct_url = await extractUrl(page, DISK_ADDRESS_1);
+     let ct_url_2 = await extractUrl(page, DISK_ADDRESS_2);
+
      if(baidu_url!=null)
         bookObj["baiduUrl"]= baidu_url;
      if(ct_url != null)
         bookObj["ctdiskUrl"]= ct_url;
+     if(ct_url_2 != null)
+        bookObj["ctdiskUrl2"]= ct_url_2;
+        
      Logger.trace("Get baidu url:"+baidu_url);
      Logger.trace("Get Baidu code:"+bookObj['baiduCode']);
      Logger.trace("Get CT url:"+ct_url);
+     Logger.trace("Get CT url2:"+ct_url_2);
      await upsertBook(bookObj);
      Logger.info("book detailed :"+detailUrl);
      statCount++;
@@ -175,7 +183,7 @@ async function fakeMain(page, max_crawled_items)
           headless: true
         });
         const page = await browser.newPage();
-        await fakeMain(page, 10000);
+        await fakeMain(page, 10);
         await browser.close();
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);

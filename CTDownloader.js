@@ -76,12 +76,12 @@ async function downloadBook(bookObj)
     if(dl_url != null && dl_url !="")
     {
       Logger.info("start downloading -> "+bookname);
-      const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".mobi", override:false});
+      const dl = new DownloaderHelper(dl_url, Configs.workingPath+'books/', {fileName:bookname+".zip", override:false});
 
       dl.on('end', async () => {
-        var ossPath ='books/'+bookname+'.mobi'; //should turn the .mobi to other format
+        var ossPath ='books/'+bookname+'.zip'; //should turn the .mobi to other format
         var localPath = Configs.workingPath+ossPath;
-        var movePath = Configs.workingPath+'calibre_tmp/'+bookname+'.mobi';
+        var movePath = Configs.workingPath+'calibre_tmp/'+bookname+'.zip';
         console.log(localPath);
         console.log(movePath);
         // let p = OSSPut.put(localPath, ossPath);
@@ -158,7 +158,6 @@ async function assertBook() {
   const options = { limit:Configs.crawlStep , sort:{"bookSize": 1} };
   var query = Book.find(conditions ,null ,options);
   const result = await query.exec();
-  // Logger.trace(JSON.stringify(result));
   return result;
 }
 
