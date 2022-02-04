@@ -58,7 +58,6 @@ async function unsetCTDownloadUrl(download_url) {
 async function downloadBook(bookObj)
 {
     var dl_url = bookObj.ctdownloadUrl;
-	dl_url = 'https://i91.lanzoug.com/020409bb/2022/01/27/715179d14d48a5e0741dccd4df5192cf.zip?st=f4VTHquI1hbioFcCh3cI-Q&e=1643938777&b=UlJcNQUlBUJRYV5mUCBSHAc7CHRTAwZpUiFcHVU7X30ICQpiAmtWc1NMV2gDMgElUlQLIlc5BiAEegEsAVUAbVJCXDMFagVLUXdeJlBjUjUHfAguUzsGcA_c_c&fi=61040759&pid=39-107-67-19&up=2&mp=0&co=1';
     var bookUrl = bookObj.bookUrl;
     var bookname = bookObj.bookName;
     var extension = bookObj.ext;
@@ -194,7 +193,8 @@ async function automate()
       	//var ts_now = parseInt(Date.now()/1000);
       	//var dll_ts = parseInt(params['ctt']);
 	var bookSize = book['bookSize']/1024/1024;
-	if(bookSize > 50 ){
+	//if(bookSize > 50 )
+	{
 		console.log('oversized(in M) :'+bookSize)
         	var update = {overSized:true};
         	var cond = {"cursorId":book['cursorId']};

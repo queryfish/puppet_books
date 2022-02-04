@@ -174,31 +174,6 @@ async function fetchBook(bookUrl, book, page)
 
 }
 
-
-async function fake_fetchBookDir(sobookUrl, bookObj)
-{
-  	const browser = await puppeteer.launch({
-     		headless: true,
-      		ignoreHTTPSErrors: true,
-      		defaultViewport: null
-  	});
-  	// Download and wait for download
-  	const page = await browser.newPage();
-  	const bookUrl = bookObj["ctdiskUrl2"];
-	const code = bookObj.ctdiskUrl2_code;
-  	await fillcode(page, bookUrl, code);
-	// And NOW we are here at the file list page
-	console.log('filling good');
-	const file_list_sel = '#name > a';
-	const book_name_sel = '#sp_name';
-	const dl_page_href = await page.$eval(file_list_sel, h => h.getAttribute('href'));
-	//TODO:
-	const dl_page_url = 'https://sobooks.lanzouo.com'+dl_page_href;
-
-	await fetchBook(dl_page_url, bookObj, page);
-    	await browser.close();
-}	
-
 async function fetchBookDir(sobookUrl, bookObj)
 {
   	const browser = await puppeteer.launch({
@@ -250,14 +225,14 @@ async function fetchBookDir(sobookUrl, bookObj)
 		    });
 	
 	*/
-  	page.on('response',  response => {
+  	page.on('response',  async response => {
 		const heads = response.headers();
 		console.log('GOT NEW RESPONSE', response.status(), response.headers());
 	  	if(response.status() == 302 && heads['location'] != null)
 		{  	
 			console.log('we get the dir link '+heads['location']);
 			bookObj['ctdownloadUrl'] = heads['location'];
-			//await upsertBook(bookObj);	
+			await upsertBook(bookObj);	
 		}
 	});
 	
@@ -306,8 +281,8 @@ async function assertBook() {
                   ,{"overSized":{"$eq":false}}
 	  ]
   };
-  const options = { limit: Configs.crawlStep , sort:{"cursorId": -1} };
-  //const options = { sort:{"cursorId": -1} };
+  //const options = { limit: Configs.crawlStep , sort:{"cursorId": -1} };
+  const options = { sort:{"cursorId": -1} };
   var dl_query = Book.find(downloadConditions ,null ,options);
   var query = Book.find(conditions ,null ,options);
   //const dl_result = await dl_query.exec();
@@ -328,7 +303,7 @@ async function automate() {
     if(r.length > 0)
 	StatsLogger.info(r.length+" books to be CTed ...");
     const limit = Configs.crawlStep;
-    for (var i = 0; i < r.length; i++)
+    for (var i = 0;i<limit && i < r.length; i++)
     {
       book = r[i];
       Logger.trace("NO. "+i+" book: "+book.bookName);
@@ -352,15 +327,11 @@ async function automate() {
 */
 (async () => {
     try {
-      //Logger.info("CTFileCrawler Session roll out PID: ", process.pid);
       await automate();
       mongoose.connection.close();
-      //Logger.info("CTFileCrawler Session END PID: ", process.pid);
       // as the CTFileCrawler often STALLED for the sake of FileDownloading Async Calls
       // we should check it to kill itself and children as well.
       // NOTE!!! Such way works, the scheduler should not shoot the Jammer.
-      // Logger.warn("And I should kill myself here and now @"+process.pid);
-      // process.kill(process.pid, "SIGINT");
 
     } catch (e) {
       Logger.error('Main from Error:\n'+e);
