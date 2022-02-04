@@ -22,10 +22,16 @@ let bookSchema = new mongoose.Schema({
     badApple: Boolean,
     cursorId: Number, // Actually we use this as bookId in sobooks site
     ctdiskUrl:String,
+    ctdiskUrl2:String,
+    ctdiskUrl2_code:String,
+    ctdiskUrl3:String,
     ctdownloadUrl:String,
     downloaded:Boolean,  //the book has been downloaded from ctdisk
     ctdownloadTime:Date, //ctdisk download time
+    ctdownloadValidTS:Number,
     bookSize:Number,
+    overSized:Boolean,
+    ext:String,
     hasMobi: Boolean,
     hasEpub: Boolean,
     savedToAliOSS: Boolean,
@@ -45,7 +51,8 @@ let bookSchema = new mongoose.Schema({
     localPath:String,
     aliOSSPath: String,
     downloadedFromAliOSS: Boolean,
-    addedToCalibre: Boolean
+    addedToCalibre: Boolean,
+    ctError: Number
 });
 
 let Book = mongoose.model('Book', bookSchema);

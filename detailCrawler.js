@@ -61,11 +61,18 @@ async function crawl(page, detailUrl)
      bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
      bookObj["tags"] = await getTextContent(page, TAGS_SEL);
 
-     await page.click(CHECKCODE_SELECTOR);
-     await page.keyboard.type(CREDS.checkcode);
-     await page.click(BUTTON_SELECTOR);
-     // await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
-     await page.waitFor(10*1000);
+     let text_input_exists = await page.evaluate((sel) =>
+     {
+         return (document.querySelector(sel) != null)
+     }, CHECKCODE_SELECTOR);
+     
+     if(text_input_exists == true ){
+     	await page.click(CHECKCODE_SELECTOR);
+     	await page.keyboard.type(CREDS.checkcode);
+     	await page.click(BUTTON_SELECTOR);
+     	// await page.click(BUTTON_SELECTOR).then(() => page.waitForNavigation({waitUntil: 'load'}));
+     	await page.waitFor(10*1000);
+     }
      let baiduPickup = await getTextContent(page, 'div.e-secret > strong');
      var l = baiduPickup.length;
      bookObj["baiduCode"]  = baiduPickup.substring(l-4, l);
@@ -73,26 +80,63 @@ async function crawl(page, detailUrl)
      // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
      const DISK_ADDRESS_1  = 'body > section > div.content-wrap > div > article > div.e-secret > b > a:nth-child(1)'
      const DISK_ADDRESS_2  = 'body > section > div.content-wrap > div > article > div.e-secret > b > a:nth-child(3)'
+     const DISK_ADDRESS_2_CODE  = 'body > section > div.content-wrap > div > article > div.e-secret > b'
+	const DISK_ADDRESS_3  = 'body > section > div.content-wrap > div > article > div.e-secret > b > a:nth-child(5)'
     //  const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
      const url_selector = 'table.dltable > tbody * a:first-of-type';
      let baidu_url = await extractUrl(page, url_selector);
      let ct_url = await extractUrl(page, DISK_ADDRESS_1);
      let ct_url_2 = await extractUrl(page, DISK_ADDRESS_2);
+     let ct_url_2_code = await extractText(page, DISK_ADDRESS_2_CODE);
+     let ct_url_3 = await extractUrl(page, DISK_ADDRESS_3);
+     var code = ct_url_2_code==null?"":ct_url_2_code.split(":")[1];
+	//Logger.trace("node list length:"+ct_url_2_code.length);
+	//var ar = Array.from(ct_url_2_code);
+	//for (a in ar){Logger.trace(a.innerText);}
+
+	//for (var i =0; i<ct_url_2_code.length;i++)
+	//{ Logger.trace(ct_url_2_code[i].innerText)}
 
      if(baidu_url!=null)
         bookObj["baiduUrl"]= baidu_url;
      if(ct_url != null)
         bookObj["ctdiskUrl"]= ct_url;
+	else bookObj["ctdiskUrl2_code"] = 'NONE';
      if(ct_url_2 != null)
         bookObj["ctdiskUrl2"]= ct_url_2;
+     if(ct_url_2_code != null)
+        bookObj["ctdiskUrl2_code"]= code;
+     if(ct_url_3 != null)
+        bookObj["ctdiskUrl3"]= ct_url_3;
         
      Logger.trace("Get baidu url:"+baidu_url);
      Logger.trace("Get Baidu code:"+bookObj['baiduCode']);
      Logger.trace("Get CT url:"+ct_url);
      Logger.trace("Get CT url2:"+ct_url_2);
+    // Logger.trace("Get CT url2 CODE:"+code);
+     Logger.trace("Get CT url3:"+ct_url_3);
      await upsertBook(bookObj);
      Logger.info("book detailed :"+detailUrl);
      statCount++;
+}
+
+async function extractText(page ,selector)
+{
+    let t = await page.evaluate((sel) =>
+    {
+         if(document.querySelector(sel) != null)
+         {
+           var cnodes = document.querySelector(sel).childNodes;
+           console.log(cnodes[4].innerText);
+		 if(cnodes != null && cnodes != undefined)
+           		return cnodes[6].textContent;
+		 else return null;
+         }
+         else
+           return null;
+    }, selector);
+
+    return t;
 }
 
 async function extractUrl(page ,selector)
@@ -123,14 +167,16 @@ async function assertBook() {
   assertMongoDB();
   // const conditions = { "baiduUrl": {"$exists": false}}
   const conditions = { "$and":[
-                                {"$or":[
-                                  {"ctdiskUrl": {"$exists": false}},
-                                  {"baiduCode": {"$exists": false}}
-                                ]},
+	  			{"ctdiskUrl2_code":{"$ne":"NONE"}},
+	  			{"ctdiskUrl2_code":{"$eq":"SLOW"}},
+                                //{"$or":[
+                                 // {"ctdiskUrl": {"$exists": false}},
+                                 // {"baiduCode": {"$exists": false}}
+                                //]},
                                 {"bookUrl":{"$exists":true}},
                                 {"downloaded":{"$exists":false}},
-                                {"lastCrawlCopyTime":{"$exists":false}},
-                                {"isBookUrlValid":{"$ne":false}}
+                                //{"lastCrawlCopyTime":{"$exists":false}},
+                                //{"isBookUrlValid":{"$ne":false}}
                               ]
                       };
   // const conditions = { "$and":[ {"ctdiskUrl": {"$exists": false}},{"bookUrl":{"$exists":true}}]};
@@ -170,7 +216,8 @@ async function fakeMain(page, max_crawled_items)
       await crawl(page, book.bookUrl);
       tick ++;
     }
-    StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
+    if(r.length > 0 )
+    	StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
 
 }
 /*
@@ -183,10 +230,14 @@ async function fakeMain(page, max_crawled_items)
           headless: true
         });
         const page = await browser.newPage();
-        await fakeMain(page, 10);
+        await fakeMain(page, 1000);
         await browser.close();
         mongoose.connection.close();
         Logger.info("detailCrawler Session END PID@"+process.pid);
+	// reschedule self process like :
+	//const rescheduler = require('./scheduler');
+	//await rescheduler.reschedule("detailCrawler");
+
     } catch (e) {
         throw(e);
     }

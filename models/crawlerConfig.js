@@ -6,7 +6,8 @@ let crawlerConfigSchema = new mongoose.Schema({
     minCursor: Number,
     workerState: Number,
     crawlerCode: Number,
-    reviverPid: Number
+    reviverPid: Number,
+    workerName: String
 });
 
 let crawlerConfig = mongoose.model('crawlerConfig', crawlerConfigSchema);

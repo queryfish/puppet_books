@@ -5,7 +5,7 @@ const client = new OSS({
   //云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，部署在服务端使用RAM子账号或STS，部署在客户端使用STS。
     accessKeyId:'LTAI4GJFGjPc5nTz4fvKp64y',
   accessKeySecret:'uEwFR131y2MUD0qnmmsnXmIbVpzteN',
-	bucket: 'stephen-s-bookstore'
+	bucket: 'stephen-s-speeches'
 });
 
 exports.putPromise = function(local, remote, options){
@@ -40,3 +40,28 @@ async function get() {
     console.log(e);
   }
 }
+
+const cid = 'my-channel';
+const conf = {
+	  Description: 'this is channel 1',
+	  Status: 'enabled',
+	  Target: {
+		      Type: 'HLS',
+		      FragDuration: '10',
+		      FragCount: '5',
+		      PlaylistName: 'playlist.m3u8'
+		    }
+};
+(async ()=>{
+
+const r = await client.putChannel(cid, conf);
+console.log(r);
+const url = client.getRtmpUrl(cid, {
+		  params: {
+			      playlistName: 'playlist.m3u8'
+			    },
+		  expires: 3600
+	});
+console.log(url);
+	// rtmp://ossliveshow.oss-cn-hangzhou.aliyuncs.com/live/tl-channel?OSSAccessKeyId=T0cqQWBk2ThfRS6m&Expires=1460466188&Signature=%2BnzTtpyxUWDuQn924jdS6b51vT8%3D
+})();

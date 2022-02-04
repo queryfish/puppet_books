@@ -9,6 +9,7 @@ const StatsLogger = LOG4JS.stats_logger;
 const MAX_CRAWL_NUM = 200;
 const request = require('async-request');
 const cheerio = require('cherio');
+const URL = require('url').URL;
 
 var statCount = 0;
 
@@ -64,9 +65,9 @@ async function crawl( detailUrl)
      // bookObj["category"] = await getTextContent(page, CATEGORY_SEL);
      // bookObj["tags"] = await getTextContent(page, TAGS_SEL);
 
-
-     // const url_selector = 'table.dltable > tbody > tr:nth-child(2) > td > a:nth-child(0)';
+     //body > section > div.content-wrap > div > article > div.productDescriptionWrapper > div > table > tbody > tr:nth-child(3) > td > a:nth-child(3)
      const ct_download_url_selector = "body > section > div.content-wrap > div > article > table > tbody > tr:nth-child(3) > td > a:nth-child(3)";
+     const ct_download_url_selector_wc = "body > section > div.content-wrap > div > article > *  tbody > tr:nth-child(3) > td > a:nth-child(3)";
      const url_selector = 'table.dltable > tbody * a:first-of-type';
      // let baidu_url = await extractUrl(url_selector);
      var href = $(url_selector).attr("href");
@@ -82,7 +83,7 @@ async function crawl( detailUrl)
      }
      else{
        // let ct_url = await extractUrl(ct_download_url_selector);
-         href = $(ct_download_url_selector).attr("href");
+         href = $(ct_download_url_selector_wc).attr("href");
          if(href != null && href != "" && typeof(href) != undefined &&
        href.indexOf("http")==0){
            var temp_url  = new URL(href);
@@ -96,12 +97,13 @@ async function crawl( detailUrl)
         bookObj["baiduUrl"]= "NONE";
      if(ct_url != null)
      {
-       statCount++;
+        statCount++;
         bookObj["ctdiskUrl"]= ct_url;
-      }
-      else
-        bookObj["ctdiskUrl"]= "NONE";
-
+     }
+     else{
+	     // SLOW means this page should be crawled by a slow puppeteer crawler.
+        bookObj["ctdiskUrl2_code"]= 'SLOW';
+     }
      Logger.trace("Get baidu url:"+baidu_url);
      Logger.trace("Get CT url:"+ct_url);
      await upsertBook(bookObj);
@@ -116,15 +118,15 @@ function assertMongoDB() {
 
 async function assertBook() {
   assertMongoDB();
-  // const conditions = { "baiduUrl": {"$exists": false}}
   const conditions = { "$and":[
-                                // {"$or":[
+                                 //{"$or":[
                                   {"ctdiskUrl": {"$exists": false}},
-                                  // {"baiduCode": {"$exists": false}}
-                                // ]},
+                                  {"ctdiskUrl2_code": {"$ne": 'NONE'}},
+                                  //{"baiduCode": {"$exists": false}}
+                                 //]},
                                 {"bookUrl":{"$exists":true}},
                                 {"downloaded":{"$exists":false}},
-                                // {"lastCrawlCopyTime":{"$exists":false}},
+                                //{"lastCrawlCopyTime":{"$exists":false}},
                                 {"isBookUrlValid":{"$ne":false}}
                               ]
                       };
@@ -158,7 +160,9 @@ async function fakeMain(max_crawled_items)
         await crawl(book.bookUrl);
       }
     }
-    StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
+
+    if(r.length > 0)
+	StatsLogger.info("DetailCrawler Rate "+statCount+"/"+r.length);
 
 }
 /*

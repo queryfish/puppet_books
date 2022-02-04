@@ -47,6 +47,7 @@ async function isWorkerIdle() {
   if(resultArray.length == 0)
     return 0;
   var prePid = resultArray[0]["workerState"];
+  //sleep(2000);
   if(isRunning(prePid))
     return prePid;
   else {
@@ -68,30 +69,29 @@ async function setWorkerState(workerState)
 
 }
 
-var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader'];
+const crawlers = ['listCrawler','detailFastCrawler','detailCrawler', 'CTFileCrawler'];
+var crawler_group_index = 0;
+var crawler_group_span = crawlers.length;
 
-async function schedule(crawler_code)
+async function schedule(crawler_index, crawler_span)
 {
     let isIdle = await isWorkerIdle();
     // if idle returns 0, or else return the worker PID which occupied
     if(isIdle == 0)
     {
-        Logger.trace("Work available");
         await setWorkerState(process.pid);
     }
     else
     {
         Logger.warn("Worker is occupied by PID@", isIdle);
-        Logger.warn("Gonna shoot worker@",isIdle);
+        //Logger.warn("Gonna shoot worker@",isIdle);
         process.kill(isIdle, 'SIGINT');
         await setWorkerState(process.pid);
-        return;
+        //return;
     }
 
-    // var crawlers = ['listCrawler', 'detailCrawler', 'CTFileCrawler', 'CTDownloader', 'copyCrawler', 'doubanCrawler', 'doubanFastCrawler'];
-    //    var crawlers = ['listCrawler', 'detailFastCrawler', 'CTFileCrawler', 'CTDownloader'];
-    var index = crawler_code%crawlers.length;
-    require(Configs.workingPath+crawlers[index]);
+    if(crawler_index + crawler_span <= crawlers.length && crawler_index >= 0)
+    	require('./'+crawlers[crawler_index]);
 }
 
 process.on('uncaughtException', (err, origin) => {
@@ -101,7 +101,7 @@ process.on('uncaughtException', (err, origin) => {
     `Caught exception: ${err}\n` +
     `Exception origin: ${origin}`
   );
-  // process.exit(0);
+   process.exit(0);
 });
 
 // var datetime = require('node-datetime');
@@ -109,14 +109,16 @@ process.on('uncaughtException', (err, origin) => {
 // const logfile = Configs.workingPath+'logs/'+formatted+'.log';
 
 process.on('exit', (code) => {
-  Logger.info("process :"+process.pid);
-  Logger.info(`About to exit with code: ${code}`);
-  const crawler_code = (Number(process.argv[2])+1);
-  if (crawler_code < crawlers.length )
+  Logger.trace("PID@"+process.pid+" exit with code:"+ code);
+  Logger.trace("--------------------------------------------------------------------");
+  const crawler_code = crawler_group_index + 1;
+  const group_len = crawler_group_span - 1;
+	console.log("index : "+crawler_code+", span:"+group_len);
+  if (group_len > 0 && crawler_code < crawlers.length)
   // if(crawler_code < Configs.greedy*Configs.crawlerStack && code != 9  && code!= 2)
   // if(code != 9 && code !=2)
   {
-      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code%4] );
+      require('child_process').fork(Configs.workingPath+'scheduler.js',[crawler_code, group_len] );
   }
 
 });
@@ -132,13 +134,16 @@ process.on('unhandledRejection', (reason, promise) => {
 */
 (async () => {
     try {
-      Logger.info("scheduler start dancing PID@"+process.pid);
-      // const fs = require('fs');
-      // var access = fs.createWriteStream(logfile);
-      const crawler_code = Number(process.argv[2]);
-      // process.stdout.write = process.stderr.write = access.write.bind(access);
-      await schedule(crawler_code);
-      Logger.info("scheduler finish dancing PID@"+process.pid);
+      	Logger.trace("--------------------------------------------------------------------");
+      	Logger.trace("scheduler start  PID@"+process.pid);
+      	//const crawler_group_index =  0;
+      	//const crawler_group_span = crawlers.length;
+      	if(process.argv.length >= 3)
+      		crawler_group_index =  Number(process.argv[2]);
+	if(process.argv.length >= 4)
+      		crawler_group_span = Number(process.argv[3]);
+	
+	await schedule(crawler_group_index, crawler_group_span);
 
     } catch (e) {
       Logger.error(e);

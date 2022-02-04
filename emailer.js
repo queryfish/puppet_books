@@ -17,7 +17,7 @@ var mailTransport = nodemailer.createTransport({
   port: 465,
   auth: {
     user: "marrowsky@126.com",
-    pass: "fucking126"
+    pass: "PFWRBBUSLBGGXBTZ"
   }
 });
 
@@ -33,27 +33,22 @@ var mailTransport = nodemailer.createTransport({
 // const logfile = process.argv[2];
 var datetime = require('node-datetime');
 var today = new Date();
-var hourago = new Date(today.getTime() - (1000*60*60));
+var hourago = new Date(today.getTime() - (1000*60*60*24));
 // var hourago = new Date(today.getTime());
-var formatted = datetime.create(hourago).format('YmdH');
-const logfile = Configs.workingPath+'logs/hourly.'+formatted+'.log';
-const statfile = Configs.workingPath+'logs/stats.'+formatted+'.log';
+var formatted = datetime.create(hourago).format('Ymd');
+const logfile = Configs.workingPath+'logs/dailyreport.'+formatted+'.log';
 
 //make sure the log file exist
-console.log(logfile);
 
-fs.readFile(statfile, function (err, data) {
+fs.readFile(logfile, function (err, data) {
     mailTransport.sendMail({
         sender: "marrowsky@126.com",
         to: 'mcpoet@126.com',
-        subject: 'crawler.log',
-        text: data+"?",
+        subject: 'crawler daily report',
+        text: data,
         contentType: 'text/plain',
         // html: template,
-        attachments: [{filename: "tracing.txt",
-                      path: logfile
-                    }]
-
+        attachments: []
     }, function(err, success) {
         if (err) {
             // Handle error

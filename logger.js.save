@@ -6,7 +6,7 @@ log4js.configure({
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/download_info',
-                  pattern: 'yyyyMMdd.log',
+                  pattern: 'yyyyMMddhh.log',
                   alwaysIncludePattern: true
                 }
                 ,hourlyTrace:
@@ -34,7 +34,7 @@ log4js.configure({
                 {
                   type: 'dateFile',
                   filename: __dirname+'/logs/stats',
-                  pattern: 'yyyyMMdd.log',
+                  pattern: 'yyyyMMddhh.log',
                   alwaysIncludePattern: true
                 }
                 ,consoleApnd:
@@ -48,15 +48,19 @@ log4js.configure({
                   appenders: ['consoleApnd'],
                   level: 'trace'
                 }
-                ,downloader:
+                ,downloadInfoLogger:
                 {
-                  appenders: ['downloadInfo','consoleApnd'],
+                  appenders: ['downloadInfo'],
                   level: 'trace'
                 }
-                ,crawler:
+                ,downloadTraceLogger:
                 {
-                  appenders: ['dailyTrace','consoleApnd'],
-                  level: 'trace'
+                  appenders: ['hourlyTrace','dailyTrace','consoleApnd'],
+in了解这个项目，这个DOT
+
+
+
+:q                  level: 'trace'
                 }
                 ,doubanTraceLogger:
                 {
@@ -77,10 +81,10 @@ log4js.configure({
 });
 
 exports.downloaderLogger =
-log4js.getLogger('downloader');
+log4js.getLogger('downloadInfoLogger');
 
 exports.download_logger =
-log4js.getLogger('crawler');
+log4js.getLogger('downloadTraceLogger');
 
 exports.stats_logger =
 log4js.getLogger('statsLogger');

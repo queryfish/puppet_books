@@ -33,8 +33,8 @@ async function getMinCursor() {
   assertMongoDB();
   var query = Book.find({}).sort({"cursorId" : 1}).limit(1);
   const result = await query.exec();
-  Logger.info("Getting Max BookId");
-  Logger.info(result['bookUrl']);
+  Logger.info("Getting Min BookId");
+  Logger.info(result);
   if (result.length >0)
     return result[0].cursorId;
   else
@@ -46,7 +46,7 @@ async function getMaxCursor() {
   var query = Book.find({}).sort({"cursorId" : -1}).limit(1);
   const result = await query.exec();
   Logger.info("Getting Max BookId");
-  Logger.info(result['bookUrl']);
+  Logger.info(result);
   if (result.length >0)
     return result[0].cursorId;
   else
@@ -58,7 +58,7 @@ async function getScannerCursor() {
   var query = Book.find({isInvalidValue:{$exists:true}}).sort({"cursorId" : -1}).limit(1);
   const result = await query.exec();
   Logger.info("Getting Scanner BookId");
-  Logger.info(result['bookUrl']);
+  Logger.info(result);
   if (result.length >0)
     return result[0].cursorId;
   else
@@ -264,46 +264,39 @@ async function crawlBookList(page, uri_formatter)
   const LIST_PAGE_MAX_SELECTOR  = 'body > section > div.content-wrap > div > div.pagination > ul > li:nth-last-child(1) > span';
 
   Logger.trace('Numpages: ', MAX_PAGE_NUM);
-  var max_pages = MAX_PAGE_NUM;
-  //数据库中保存的是最大的BookID: crawlerCursor
-  // let crawlerCursorObj = await getCursor();
-  let crawlerCursor = await getMaxCursor();
-  // var crawlerCursor = 0;
-  // if(crawlerCursorObj.length >0)
-  //     crawlerCursor = crawlerCursorObj[0]["cursor"];
-  //由于爬虫是按照BookId的降序爬取的，所以要保存一个爬到的最大值 : maxCursor
+  var max_pages = 500;
+  let crawlerCursor = await getMinCursor();
+	crawlerCursor = crawlerCursor > 80? crawlerCursor:80;
   var maxCursor = 0;
-  //用于保存当前爬取的书目的BookId: currentBookId
-  var currentBookId = crawlerCursor+1;
-  //接下来要考虑洞的问题
+  var currentBookId = crawlerCursor-1;
 
-  Logger.trace("start crawling ");
-  Logger.trace("Max BoodId = "+crawlerCursor);
+  Logger.trace("start diggin ");
+  Logger.trace("Min BoodId = "+crawlerCursor);
   Logger.trace("starting BookId = "+currentBookId);
 
   var statCount = 0;
   var ticks = 0
-  for (let p = 1; p <= max_pages && currentBookId >= crawlerCursor; p++)
-  //for (let p = 1; p <= max_pages ; p++)
+  for (let p = 353; p <= max_pages ; p++)
   {
-    // let pageUrl = BOOK_INFO_SITE+'/page/'+h;
     let pageUrl = uri_formatter(p);
     await page.goto(pageUrl, {waitUntil: 'networkidle2'});
     let listLength = await page.evaluate((sel) => {
       return document.getElementsByClassName(sel).length;
     }, LENGTH_SELECTOR_CLASS);
 
-    let max_pages = await page.evaluate((sel) => {
+    let max_pages_selector  = await page.evaluate((sel) => {
+      if(document.querySelector(sel) == null) return 0;
       var mp = document.querySelector(sel).textContent;
       var numb = mp.match(/\d/g);
 	    return numb.join("");
     }, LIST_PAGE_MAX_SELECTOR);
 
+    max_pages = max_pages>max_pages_selector?max_pages:max_pages_selector;
+
     Logger.trace('starting '+p+'th PAGE of '+max_pages+' pages');
     Logger.trace('crawling '+pageUrl);
 
-    for (let i = 1; i <= listLength && currentBookId >= crawlerCursor; i++)
-    //for (let i = 1; i <= listLength ; i++)
+    for (let i = listLength; i >= 1 ; i--)
     {
       // change the index to the next child
       let booknameSelector = LIST_BOOKNAME_SELECTOR.replace("INDEX", i);
@@ -325,9 +318,9 @@ async function crawlBookList(page, uri_formatter)
       {
           var bookId = bookurl.split("/").pop().split(".").shift();
           currentBookId = Number(bookId);
-          //if(currentBookId > maxCursor) maxCursor = currentBookId;
-          Logger.trace("get book Id "+currentBookId);
+          Logger.trace("get book Id "+currentBookId+"from page "+p+"/"+max_pages);
           statCount ++ ;
+          if(currentBookId > crawlerCursor) break;
       }
 
       Logger.info('NO.'+statCount+" "+bookname+ ' -> '+ bookurl);
@@ -344,7 +337,7 @@ async function crawlBookList(page, uri_formatter)
         Logger.trace("Exists Book :"+bookname+" -> "+bookurl);
       ticks ++;
     }
-    // await page.waitFor(5*1000);
+    //if(currentBookId > crawlerCursor)max_pages++ ;
   }
   // statCounter should be recorded here
   // statLogger.info(statCounter+"BookId Crawled");
